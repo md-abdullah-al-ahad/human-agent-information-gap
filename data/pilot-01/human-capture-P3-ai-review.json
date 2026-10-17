@@ -1,0 +1,188 @@
+{
+  "record_id": "pilot-01-P3-human-capture-20261018-0139-ai-review",
+  "protocol_version": "0.2",
+  "product_slot": "P3",
+  "status": "AI_review_of_user_supplied_human_facing_capture__human_confirmation_pending",
+  "source": {
+    "kind": "7-page browser print-to-PDF, with expanded specifications visible",
+    "original_filename": "3+Y-fold Flip Clear Cover For iPad 10th 11th Gen 2025 7_8_9 10.2'' Start Case For Air 4 5 6 7 11 For Air 2 9.7 Pro 11 Mini 6 7 _ Daraz.com.bd.pdf",
+    "sha256": "f93b2dd96ddf0cc6a4bbf04a37cf9168be6084e30897b3358036b894cebbc376",
+    "page_count": 7,
+    "printed_timestamp_local": "2026-10-18 01:39 Asia/Dhaka (per PDF print header)",
+    "url": "https://www.daraz.com.bd/products/-i567663291.html",
+    "pdf_storage": "User-uploaded ChatGPT conversation attachment; not committed to GitHub",
+    "capture_constraints": "Static browser print. No post-click screenshots, click trace, or independent validation of current live availability."
+  },
+  "reviewer": {
+    "method": "AI-assisted text and visual inspection of user-provided browser capture",
+    "independent_human_ground_truth": false,
+    "user_captured_page": true,
+    "formal_model_scoring_status": "not_scored"
+  },
+  "initial_visible_state": {
+    "product_id": "567663291",
+    "page_title": "3+Y-fold Flip Clear Cover For iPad 10th 11th Gen 2025 7/8/9 10.2'' Start Case For Air 4 5 6 7 11 For Air 2 9.7 Pro 11 Mini 6 7",
+    "color": "YZ-YKL Black",
+    "selected_size": "iPad Pro 11 2018-22",
+    "other_visible_size": "iPad 11th A16 2025",
+    "price": "৳1,223",
+    "comparison_price": "৳3,086",
+    "discount": "-60%",
+    "brand": "No Brand",
+    "seller": "Buy More Save More Store",
+    "rating_claim": "5.0 / 5, 6 ratings",
+    "sku": "567663291_BD-2608516858",
+    "page_delivery_destination": "Dhaka, Dhaka North, Banani Road No. 12 - 19 (UI state; not verified observer location)",
+    "delivery_statement": "Get by 30 Oct–5 Nov",
+    "return_statement": "14 days easy return",
+    "warranty_statement": "Warranty not available",
+    "stock": "not established from capture",
+    "purchase_buttons": "Visible Buy Now and Add to Cart controls; actual interaction/enablement not established from PDF"
+  },
+  "questions": [
+    {
+      "id": "Q1",
+      "evidence_state": "observed_support",
+      "answer": "The page is selling a foldable transparent-back protective iPad cover/case ('3+Y-fold Flip Clear Cover'), not a screen protector. Product images show a stand/folding-cover form factor.",
+      "pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "Q2",
+      "evidence_state": "observed_support_with_variant_scope_caveat",
+      "answer": "The page lists many iPad families in the title and individual Size options. One specific option is 'iPad 11th A16 2025', while the currently selected Size is 'iPad Pro 11 2018-22'. It is legitimate to say the seller offers an A16-designated variant, but the selected Pro variant is not proven compatible with base iPad A16. Seller compatibility is not independently verified.",
+      "pdf_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "Q3",
+      "evidence_state": "not_observed_in_inspected_pdf",
+      "answer": "No paperlike/paper-feel/matte writing-surface claim observed in the complete 7-page printed view. The 'peel off the film' instruction on page 5 concerns removable protective film on the case's clear back, not a separate iPad screen protector.",
+      "pdf_pages": [
+        1,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "Q4",
+      "evidence_state": "not_observed_in_inspected_pdf",
+      "answer": "No explicit incompatibility claim or closed and exhaustive negative model list observed. A selected size being iPad Pro 11 does not itself prove physical incompatibility with other iPads.",
+      "pdf_pages": [
+        1,
+        2,
+        6
+      ]
+    },
+    {
+      "id": "Q5",
+      "evidence_state": "not_observed_in_inspected_pdf",
+      "answer": "Marketing photos include people using a stylus on tablets, but the page does not explicitly promise Apple Pencil support, drawing performance, or Pencil-specific protection. Real-world support remains unverified.",
+      "pdf_pages": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "Q6",
+      "evidence_state": "observed_support",
+      "answer": "The selected YZ-YKL Black, iPad Pro 11 2018–22 variant displays ৳1,223, comparison price ৳3,086, -60% at printed capture time; do not carry this price to other sizes.",
+      "pdf_pages": [
+        1
+      ]
+    },
+    {
+      "id": "Q7",
+      "evidence_state": "ambiguous",
+      "answer": "The printed view displays Buy Now/Add to Cart controls and delivery/payment/return statements but no explicit stock label. Static appearance alone does not demonstrate button functionality or stock availability.",
+      "pdf_pages": [
+        1
+      ]
+    },
+    {
+      "id": "Q8",
+      "evidence_state": "observed_support",
+      "answer": "Dedicated specification section: Brand No Brand; SKU 567663291_BD-2608516858; Type (case/cover) Protective Shell/Skin; Case Function Waterproof; phone_compatibility For Apple iPad. Bengali 'What's in the box' field repeats broad title and advertises waterproof/shockproof PU case, not a verified itemized package. Product images also advertise colored frames, transparent back, scratchproof PC back, PU leather, shock-proof TPU frame, microfiber lining, folding stand, and wake/sleep function. These are seller claims, not independent performance tests.",
+      "pdf_pages": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "Q9",
+      "evidence_state": "method_inaccessible",
+      "answer": "Initial Color YZ-YKL Black, Size iPad Pro 11 2018-22, and ৳1,223 are captured. An alternate Size 'iPad Air 4 5 6 7 11' is visible, but the PDF cannot establish what changes after clicking it. Prior exploratory browser report separately recorded ৳1,217 and SKU URL ending s2608516852; that report is not validated by this static PDF.",
+      "pdf_pages": [
+        1
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "kind": "image_embedded_attributes",
+      "description": "Product photos contain details such as wake/sleep, material layers, TPU/PC/PU, scratch/shock protection, and removable case film, which are less explicit in short page text.",
+      "pdf_pages": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "kind": "variant_scope",
+      "description": "'iPad 11th A16 2025' is explicitly visible as a selectable size but is not the selected model in the captured price state.",
+      "pdf_pages": [
+        1
+      ]
+    },
+    {
+      "kind": "protective_film_not_screen_protector",
+      "description": "Instruction to peel films from the inside/outside of the clear case could be misclassified by an AI as a screen protector if not grounded in image context.",
+      "pdf_pages": [
+        5
+      ]
+    },
+    {
+      "kind": "seller_claims_vs_verification",
+      "description": "Waterproof, shockproof, scratchproof, auto wake/sleep and durability are listing claims; no independent functionality tests.",
+      "pdf_pages": [
+        2,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "comparison_with_prior_exploratory_agent": {
+    "initial_price_and_option_consistent": true,
+    "earlier_live_browser_report_claimed_alternate_size": "iPad Air 4 5 6 7 11",
+    "earlier_live_browser_report_claimed_alternate_price": "৳1,217",
+    "post_click_result_independently_verified_by_this_pdf": false,
+    "seller_material_specs_added_by_images": [
+      "Scratchproof PC Back",
+      "Comfortable PU Leather",
+      "Shock-proof TPU Frame",
+      "Delicate Microfiber Lining"
+    ],
+    "notes": "Earlier browser prose stated case features; PDF allows source-location verification of product-image marketing claims. No formal Qwen/Gemini model accuracy measured."
+  },
+  "requires_user_confirmation": [
+    "Confirm AI annotation of this human-captured PDF",
+    "Verify any post-click variant state in the same logged-out/browser location context",
+    "Determine explicit live stock availability, if possible",
+    "Do not infer physical compatibility, waterproofness, or Apple Pencil capability from seller marketing"
+  ]
+}
