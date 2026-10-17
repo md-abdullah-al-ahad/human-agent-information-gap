@@ -1,0 +1,21 @@
+# Python artifacts and caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Virtual environments and local environment files
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Generated data and results
+data/*
+!data/.gitkeep
+results/*
+!results/.gitkeep
