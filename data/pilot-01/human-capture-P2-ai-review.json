@@ -1,0 +1,188 @@
+{
+  "record_id": "pilot-01-P2-human-capture-20261018-0129-ai-review",
+  "protocol_version": "0.2",
+  "product_slot": "P2",
+  "status": "ai_review_of_user_provided_rendered_page__human_confirmation_pending",
+  "source": {
+    "kind": "user-exported 6-page browser print-to-PDF, with expanded View More section",
+    "filename": "2PCS Screen Protector Case for IPad Pro 13 12.9 11 6th A16 M4 M2 2024 Air 5 4 3 2 1 9 9th 10 10th Gen Mini 6 10.9 10.2 9.7 Cover _ Daraz.com.bd(1).pdf",
+    "sha256": "23503a2caed047c480e25b8d10d3fdb20880af1cb70f1da452043522c3c5bfd7",
+    "capture_time_local": "2026-10-18 01:29 Asia/Dhaka (printed timestamp)",
+    "page_count": 6,
+    "page_url": "https://www.daraz.com.bd/products/-i567669430.html",
+    "source_not_committed": "Full PDF is attached in the original conversation, rather than copied into this repository.",
+    "scope_limit": "This is a rendered static capture with expanded details, not a live browser trace; no variant interactions or post-click states established by this PDF."
+  },
+  "reviewer": {
+    "kind": "AI analysis of user-supplied human-facing evidence",
+    "human_capture": true,
+    "independent_human_ground_truth": false,
+    "formal_accuracy_scored": false
+  },
+  "initial_observed_state": {
+    "selected_option_group": "Color",
+    "selected_option": "Pro 11 M4",
+    "other_group": "Keyboard language",
+    "other_selected_value": "2PCS",
+    "displayed_price": "৳872",
+    "crossed_out_price": "৳2,266",
+    "displayed_discount": "-62%",
+    "displayed_brand": "No Brand",
+    "seller": "Buy More Save More Store",
+    "rating": "5.0/5, 5 ratings",
+    "details_sku": "567669430_BD-2608606588",
+    "site_shows_delivery_destination": "Dhaka, Dhaka North, Banani Road No. 12 - 19 (UI selection, not observer location)",
+    "shipping_statement": "Standard Delivery: Get by 30 Oct–5 Nov",
+    "return_statement": "14 days easy return",
+    "warranty_statement": "Warranty not available",
+    "purchase_controls": "Buy Now/Add to Cart visible; static PDF does not establish clickability or actual stock",
+    "explicit_stock_statement": "not observed in inspected PDF",
+    "pages": [
+      1,
+      5
+    ]
+  },
+  "questions": [
+    {
+      "id": "Q1",
+      "state": "ambiguous",
+      "answer": "Listing title calls product '2PCS Screen Protector Case ... Cover', while the primary image and expanded description advertise a glass iPad screen protector. Whether a separate case or cover is in the package cannot be determined; even the 'What's in the box' text resembles a product-title string rather than an itemized package inventory.",
+      "pdf_pages": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "id": "Q2",
+      "state": "ambiguous",
+      "answer": "Title and first thumbnail advertise a broad range including iPad A16 / 11th generation. Expanded illustrated 'Compatible Models' chart lists numerous models including 10th-generation base iPad, iPad Pro 11 generations, Air and mini, but does not expressly list base iPad 11th gen (A16, 2025). At capture time the selected SKU is Pro 11 M4; a compatible option for a different model cannot be assumed from the broad title or illustration.",
+      "pdf_pages": [
+        1,
+        3,
+        4
+      ],
+      "qualifier": "Chart absence is not proof of physical incompatibility, particularly since the listing's first image advertises A16/11th and separate options exist."
+    },
+    {
+      "id": "Q3",
+      "state": "not_observed_in_inspected_pdf",
+      "answer": "No explicit paperlike, paper-feel, matte, or textured-surface claim found in inspected 6-page PDF; marketing instead explicitly refers to a glass screen protector and layer construction.",
+      "pdf_pages": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "Q4",
+      "state": "not_observed_in_inspected_pdf",
+      "answer": "No explicit statement that any named iPad model is incompatible was observed in the captured content. Missing from the compatible-model table is not equivalent to a negative compatibility claim.",
+      "pdf_pages": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "Q5",
+      "state": "not_observed_in_inspected_pdf",
+      "answer": "No explicit Apple Pencil, stylus writing, or drawing-performance statement found in the six-page capture. Real-world Apple Pencil performance is not established.",
+      "pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "Q6",
+      "state": "observed_support",
+      "answer": "For selected Color 'Pro 11 M4' and 'Keyboard language' 2PCS, price is ৳872; crossed-out ৳2,266 and -62% displayed at capture time.",
+      "pdf_pages": [
+        1
+      ]
+    },
+    {
+      "id": "Q7",
+      "state": "ambiguous",
+      "answer": "No explicit stock label in captured PDF. Buy Now and Add to Cart controls are visible, but their active status and actual availability cannot be proven from a static PDF. Delivery date and cash-on-delivery options are shown.",
+      "pdf_pages": [
+        1
+      ]
+    },
+    {
+      "id": "Q8",
+      "state": "observed_support",
+      "answer": "Expanded specifications state Brand: No Brand, SKU: 567669430_BD-2608606588, phone_compatibility: For Apple iPad. Expanded product images claim 'Glass For iPAD', show a compatible-model chart, and illustrate glass/nano-oil/edge/fiber/electrostatic layers. A Bengali 'What's in the box' field references a shockproof anti-dust cover, but it does not conclusively enumerate what will be shipped.",
+      "pdf_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "qualifier": "Composition and protection are seller marketing claims, not independent tests. The glass claim comes from seller images, not merely a customer review."
+    },
+    {
+      "id": "Q9",
+      "state": "method_inaccessible",
+      "answer": "The initial selected Color 'Pro 11 M4', 'Keyboard language' 2PCS, and price ৳872 are shown. A static PDF cannot establish live variant menu interaction or changed URL/price. Earlier Firecrawl browser report says an alternate 'For iPad A16 2025' option priced ৳856, but this user capture does not verify its post-click state.",
+      "pdf_pages": [
+        1
+      ]
+    }
+  ],
+  "noteworthy_findings": [
+    {
+      "kind": "image_text_missed_by_other_methods",
+      "description": "The expanded page embeds specific product type ('Glass') and a model compatibility chart within images on pages 2–4. The prior markdown scrape and browser summary did not capture the full compatibility table; absence from extracted text is method-specific.",
+      "source_pdf_pages": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "kind": "compatibility_scope_mismatch",
+      "description": "The title/thumbnail mention iPad A16/11th gen, while the illustrated model table omits this entry and the selected SKU is 'Pro 11 M4'. This is incomplete/inconsistent scope, not proof of physical incompatibility.",
+      "source_pdf_pages": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "kind": "packaging_ambiguity",
+      "description": "The title and Bengali 'What's in the box' field refer to case/cover, but product visuals show a glass screen protector; the actual items shipped remain uncertain.",
+      "source_pdf_pages": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "kind": "missing_evidence_not_negative",
+      "description": "No explicit stock/incompatibility/Apple Pencil information in PDF; do not transform absence into 'out of stock', 'incompatible', or 'does not support Apple Pencil'.",
+      "source_pdf_pages": [
+        1,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "comparison_to_original_pilot": {
+    "initial_color_price_matches": true,
+    "previous_browser_report_used_customer_review_to_infer_glass": true,
+    "new_evidence": "Expanded seller imagery explicitly calls the product glass and illustrates a glass layer; review text is no longer the sole source of this seller claim.",
+    "earlier_firecrawl_markdown_lacked_price": true,
+    "note": "Original agent's alternate-variant result (For iPad A16 2025 at ৳856) remains independently unverified by this static capture. Do not mix distinct browser state/timestamps when scoring."
+  },
+  "remaining_verification": [
+    "User confirmation of these AI-assisted annotations",
+    "Actual selected-SKU compatibility with base iPad 11th generation A16 2025",
+    "Whether a cover/case is physically included",
+    "Live alternate-variant selection and final price/URL",
+    "Stock and clickability of purchase controls"
+  ]
+}
