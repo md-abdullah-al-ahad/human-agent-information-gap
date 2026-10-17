@@ -1,0 +1,36 @@
+{
+  "addendum_id": "pilot-01-addendum-01",
+  "created_at_utc": "2026-10-17T19:10:15Z",
+  "reason": "Preserve later independent browser screenshots of the alternate SKU URLs without overwriting the original observations.json record.",
+  "method": "Local Google Chrome for Testing 153.0.8010.12, headless, 1365x900, 12-second virtual time budget; each URL was loaded in a new logged-out browser process.",
+  "limits": "These are new loads of the SKU URLs, not screenshots from the original Firecrawl click sessions. They confirm the selected option and displayed price at a later time, but do not prove the click session had an identical rendered state.",
+  "screenshots": [
+    {
+      "page_slot": "P1",
+      "url": "https://www.daraz.com.bd/products/esr-magnetic-screen-protector-for-ipad-pro-11-129-paper-feel-detachable-film-for-ipad-9-8-7-for-ipad-mini-6ipad-air-5-air-4-i373818784-s1869233426.html?",
+      "file": "screenshots/P1-alternate.png",
+      "sha256": "a239ca9383993c83aea32238d894dfd65a4708c225d877f50dd3c63e3b7163e9",
+      "visible_option": "CHINA For iPad Pro 10.5",
+      "visible_price": "৳1,357",
+      "purchase_controls": "Buy Now and Add to Cart shown"
+    },
+    {
+      "page_slot": "P2",
+      "url": "https://www.daraz.com.bd/products/2pcs-screen-protector-case-for-ipad-pro-13-129-11-6th-a16-m4-m2-2024-air-5-4-3-2-1-9-9th-10-10th-gen-mini-6-109-102-97-cover-i567669430-s2608606596.html?",
+      "file": "screenshots/P2-alternate.png",
+      "sha256": "9d665fd21eafa8fe3fb36ad74e2c6144f5933ec89437309b5e680c0a4d06fbbe",
+      "visible_option": "For iPad A16 2025",
+      "visible_price": "৳856",
+      "purchase_controls": "Buy Now and Add to Cart shown"
+    },
+    {
+      "page_slot": "P3",
+      "url": "https://www.daraz.com.bd/products/3y-fold-flip-clear-cover-for-ipad-10th-11th-gen-2025-789-102-start-case-for-air-4-5-6-7-11-for-air-2-97-pro-11-mini-6-7-i567663291-s2608516852.html?",
+      "file": "screenshots/P3-alternate.png",
+      "sha256": "880594985c593a107709a0a865ac8c034cf09c51c7e7b291c62aa413c27e64b2",
+      "visible_option": "iPad Air 4 5 6 7 11",
+      "visible_price": "৳1,217",
+      "purchase_controls": "Buy Now and Add to Cart shown"
+    }
+  ]
+}

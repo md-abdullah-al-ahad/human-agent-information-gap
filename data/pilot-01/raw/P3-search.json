@@ -1,0 +1,7 @@
+{
+  "tool": "firecrawl_interact",
+  "url": "https://www.daraz.com.bd/catalog/?q=iPad%20case",
+  "prompt": "Read the live search result list in displayed default order. Return only the current URL, whether results loaded, and the first five product titles and hrefs, one per line. Do not inspect product pages.",
+  "session_id": "01a14b3a-f653-7768-874b-b3a1845be9d9",
+  "output": "Current URL: https://www.daraz.com.bd/catalog/?q=iPad%20case\nResults loaded: Yes\n3+Y-fold Flip Clear Cover For iPad 10th 11th Gen 2025 7/8/9 10.2'' Start Case For Air 4 5 6 7 11 For Air 2 9.7 Pro 11 Mini 6 7 - https://www.daraz.com.bd/products/-i567663291.html\nTablet Sleeve Bag For iPad Pro 12 9 11 13 inch Pouch iPad 10th 9th 8th 7th Generation Air 5 4 3 2021 2022 Waterproof Tablet Bag - https://www.daraz.com.bd/products/-i569379207.html\nRotation Cover For iPad A16 11th 10.2 7th 8th 9th Case 10th Generation For iPad Pro 12.9\" 13\" Air 11 4 5 10.9 9.7 mini 6 7 Funda - https://www.daraz.com.bd/products/-i1575322307.html\n360 Rotating Case for iPad Pro 11 2022 2021 iPad Air 1 2 3 10.5 4 5 10.9 iPad 9.7 5th 6th 10.2 7th 8th 9th 10 10th Tablet Cover - https://www.daraz.com.bd/products/-i546144897.html\nSmart case For iPad 7th 8th 9th Gen 10.2 iPad Air 11 M4 11th A16 11 pro 11 12.9 13 2 3 4 9.7 Cover iPad Air 5 10th 10.9 Funda - https://www.daraz.com.bd/products/-i549094850.html"
+}

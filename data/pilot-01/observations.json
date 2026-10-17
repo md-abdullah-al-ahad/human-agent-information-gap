@@ -1,0 +1,89 @@
+{
+  "pilot_id": "pilot-01",
+  "protocol_version": "0.2",
+  "status": "provisional_tool_observation_not_human_ground_truth",
+  "observation_window_utc": "2026-10-17T18:56:00Z/2026-10-17T19:06:54Z",
+  "time_note": "Screenshot file creation times are precise to seconds; browser interaction and scrape times are bounded by this session window because exact per-page timestamps were not exposed.",
+  "observer": {
+    "model_identity": "Codex agent based on GPT-6 per session instructions; exact deployed model ID not exposed",
+    "openrouter_provider": "not exposed",
+    "reasoning_configuration": "not exposed",
+    "human_verification_status": "pending",
+    "formal_evaluation_status": "not run"
+  },
+  "methods": [
+    "Firecrawl interact: live browser search, product inspection, and one variant click per product; tool prompts and response outputs saved under raw/",
+    "Firecrawl scrape: fresh markdown request (maxAge=0, country=BD, languages=en); exact returned markdown and selected response metadata saved under raw/",
+    "Local Google Chrome for Testing 153.0.8010.12, headless, 1365x900, 12-second virtual time budget: initial-state PNG screenshots saved under screenshots/"
+  ],
+  "method_limits": "Firecrawl's browser agent reports observations in prose and may infer beyond page evidence. Markdown extraction is partial. The local screenshots show only the initial viewport, not all description text or post-click states. Browser IP location, exact user-agent string, OpenRouter route, and reasoning settings were not exposed. Site delivery location displayed Dhaka, Banani Road No. 12-19 in screenshots; this is a site UI state, not the observer's verified physical location.",
+  "pages": [
+    {
+      "page_slot": "P1",
+      "product_id": "373818784",
+      "url": "https://www.daraz.com.bd/products/ipad-pro-11-129-esr-ipad-9-8-7-ipad-mini-6ipad-air-5-air-4-i373818784.html",
+      "screenshot_at_utc": "2026-10-17T19:02:44Z",
+      "initial_screenshot": "screenshots/P1-initial.png",
+      "initial_screenshot_sha256": "8f4e323ab04c5f3c2d91340d1fac1080664cdce22686744af12007f590e0df07",
+      "raw_evidence": ["raw/P1-scrape.json", "raw/P1-browser.json", "raw/P1-variant.json"],
+      "initial_variant": "Color Family: CHINA For iPad Air 5 4",
+      "alternate_variant": "Color Family: CHINA For iPad Pro 10.5",
+      "question_observations": [
+        {"id":"Q1","state":"observed_support","answer":"Rendered title describes an ESR magnetic paper-feel detachable iPad screen protector. This is a listing title, not independent brand verification.","refs":["screenshots/P1-initial.png","raw/P1-browser.json"]},
+        {"id":"Q2","state":"ambiguous","answer":"The title names iPad Pro 11/12.9, iPad 9/8/7, mini 6, and Air 5/4. The selected option is for Air 5/4; the browser report lists additional generations in details. It is unresolved whether the broad title applies to every SKU.","refs":["screenshots/P1-initial.png","raw/P1-browser.json","raw/P1-variant.json"]},
+        {"id":"Q3","state":"observed_support","answer":"Yes, the rendered title says Paper-Feel; the browser report also describes a paper-feel detail claim. This supports what the listing claims, not actual texture.","refs":["screenshots/P1-initial.png","raw/P1-browser.json"]},
+        {"id":"Q4","state":"not_observed_in_inspected_scope","answer":"No explicit iPad model incompatibility statement was found in the inspected text. Image text and all variants were not exhaustively checked, so page-wide absence is unverified.","refs":["raw/P1-browser.json","raw/P1-scrape.json"]},
+        {"id":"Q5","state":"ambiguous","answer":"The browser report did not find the exact term Apple Pencil, but it reported marketing claims about nib life and drawing precision. Actual Apple Pencil performance cannot be verified from these page observations.","refs":["raw/P1-browser.json"]},
+        {"id":"Q6","state":"observed_support","answer":"Initial selected Air 5/4 option displayed ৳1,567 at screenshot time; alternate Pro 10.5 option was reported at ৳1,357 later. Prices are state- and time-specific.","refs":["screenshots/P1-initial.png","raw/P1-variant.json"]},
+        {"id":"Q7","state":"ambiguous","answer":"Buy Now and Add to Cart appeared enabled in the screenshot and browser report. No explicit stock quantity or stock label was preserved. Stock status remains unknown; the browser report's 'In Stock' inference is unsupported by the recorded evidence.","refs":["screenshots/P1-initial.png","raw/P1-browser.json","raw/P1-variant.json"]},
+        {"id":"Q8","state":"observed_support","answer":"Browser report lists Material: pet and Compatible Brand: For Apple iPad, plus detailed compatibility and paper-feel marketing text. These are provisional transcriptions of listing fields; the initial screenshot does not show the lower details section.","refs":["raw/P1-browser.json"]},
+        {"id":"Q9","state":"observed_support","answer":"Color Family was selected as Air 5/4 at ৳1,567. Clicking Pro 10.5 reportedly selected that option, changed price to ৳1,357 and URL to an SKU ending s1869233426; title and enabled purchase controls reportedly stayed the same.","refs":["screenshots/P1-initial.png","raw/P1-variant.json"]}
+      ]
+    },
+    {
+      "page_slot": "P2",
+      "product_id": "567669430",
+      "url": "https://www.daraz.com.bd/products/-i567669430.html",
+      "screenshot_at_utc": "2026-10-17T19:03:05Z",
+      "initial_screenshot": "screenshots/P2-initial.png",
+      "initial_screenshot_sha256": "7cf73f81baf0a11a93f7c47a4147873b423d9828bd6ef940c7659ca536995e21",
+      "raw_evidence": ["raw/P2-search.json", "raw/P2-scrape.json", "raw/P2-browser.json"],
+      "initial_variant": "Color: Pro 11 M4; Keyboard language: 2PCS",
+      "alternate_variant": "Color: For iPad A16 2025",
+      "question_observations": [
+        {"id":"Q1","state":"ambiguous","answer":"Rendered title says '2PCS Screen Protector Case ... Cover' and the image depicts a glass protector. Exact included components are unclear from the captured viewport; do not assert a case is included.","refs":["screenshots/P2-initial.png","raw/P2-browser.json"]},
+        {"id":"Q2","state":"ambiguous","answer":"The broad title names many iPad models, while the selected Color option is Pro 11 M4. The inspected dedicated compatibility field says only For Apple iPad. Model-specific compatibility for every listed variant is unresolved.","refs":["screenshots/P2-initial.png","raw/P2-browser.json"]},
+        {"id":"Q3","state":"not_observed_in_inspected_scope","answer":"No paperlike, paper-like, matte, or textured-surface claim was observed in the title, initial viewport, or reported details. This is not a complete page-wide absence finding.","refs":["screenshots/P2-initial.png","raw/P2-browser.json"]},
+        {"id":"Q4","state":"not_observed_in_inspected_scope","answer":"No explicit model incompatibility statement was observed in the inspected scope. No physical incompatibility is inferred.","refs":["raw/P2-browser.json","raw/P2-scrape.json"]},
+        {"id":"Q5","state":"not_observed_in_inspected_scope","answer":"No Apple Pencil claim was preserved in the inspected scope; actual performance is unknown.","refs":["raw/P2-browser.json"]},
+        {"id":"Q6","state":"observed_support","answer":"Initial Pro 11 M4 option displayed ৳872; alternate For iPad A16 2025 option was reported at ৳856.","refs":["screenshots/P2-initial.png","raw/P2-browser.json"]},
+        {"id":"Q7","state":"ambiguous","answer":"Buy Now and Add to Cart appeared enabled. The browser report says no explicit stock label was visible. Stock status is not established.","refs":["screenshots/P2-initial.png","raw/P2-browser.json"]},
+        {"id":"Q8","state":"ambiguous","answer":"Browser report lists Brand: No Brand, SKU 567669430_BD-2608606588, and Compatibility: For Apple iPad. It infers glass material from one review; that review is not a dedicated specification or product-wide material verification. A translated 'what's in the box' description needs human checking.","refs":["raw/P2-browser.json"]},
+        {"id":"Q9","state":"observed_support","answer":"Color changed from Pro 11 M4 to For iPad A16 2025, with price ৳872 to ৳856 and final SKU URL ending s2608606596. Post-click purchase-control state and compatibility wording were not reported.","refs":["screenshots/P2-initial.png","raw/P2-browser.json"]}
+      ]
+    },
+    {
+      "page_slot": "P3",
+      "product_id": "567663291",
+      "url": "https://www.daraz.com.bd/products/-i567663291.html",
+      "screenshot_at_utc": "2026-10-17T19:03:17Z",
+      "initial_screenshot": "screenshots/P3-initial.png",
+      "initial_screenshot_sha256": "56c16741018c11d5b72578335ffe8d8b4c2c04d7c7939c459aa095c48a612d48",
+      "raw_evidence": ["raw/P3-search.json", "raw/P3-scrape.json", "raw/P3-browser.json"],
+      "initial_variant": "Color: YZ-YKL Black; Size: iPad Pro 11 2018-22",
+      "alternate_variant": "Size: iPad Air 4 5 6 7 11",
+      "question_observations": [
+        {"id":"Q1","state":"observed_support","answer":"Rendered title describes a 3+Y-fold flip clear iPad cover/case. Wording is a listing claim.","refs":["screenshots/P3-initial.png","raw/P3-browser.json"]},
+        {"id":"Q2","state":"ambiguous","answer":"The title names many iPad generations, while the selected Size is iPad Pro 11 2018-22. The Size selector contains additional model-specific options. Compatibility of one delivered SKU with all models in the title is not established.","refs":["screenshots/P3-initial.png","raw/P3-scrape.json","raw/P3-browser.json"]},
+        {"id":"Q3","state":"not_observed_in_inspected_scope","answer":"No paperlike, paper-like, matte, or textured-surface claim was observed in the initial viewport or reported details. This is not a complete page-wide absence finding.","refs":["screenshots/P3-initial.png","raw/P3-browser.json"]},
+        {"id":"Q4","state":"not_observed_in_inspected_scope","answer":"No explicit model incompatibility statement was observed in the inspected scope. No physical incompatibility is inferred.","refs":["raw/P3-browser.json","raw/P3-scrape.json"]},
+        {"id":"Q5","state":"not_observed_in_inspected_scope","answer":"No Apple Pencil claim was preserved in the inspected scope; actual performance is unknown.","refs":["raw/P3-browser.json"]},
+        {"id":"Q6","state":"observed_support","answer":"Initial Black / iPad Pro 11 2018-22 option displayed ৳1,223; alternate Air 4 5 6 7 11 size was reported at ৳1,217.","refs":["screenshots/P3-initial.png","raw/P3-browser.json"]},
+        {"id":"Q7","state":"ambiguous","answer":"Buy Now and Add to Cart appeared enabled. The browser report says no explicit stock label was visible. Stock status is not established.","refs":["screenshots/P3-initial.png","raw/P3-browser.json"]},
+        {"id":"Q8","state":"observed_support","answer":"Browser report gives listing fields Type: Protective Shell/Skin, Case Function: Waterproof, Compatibility: For Apple iPad, and Bengali material/features text translated as PU case and waterproof/shockproof. Translation and seller claims remain provisional.","refs":["raw/P3-browser.json"]},
+        {"id":"Q9","state":"observed_support","answer":"Size changed from iPad Pro 11 2018-22 to iPad Air 4 5 6 7 11, with price ৳1,223 to ৳1,217 and final SKU URL ending s2608516852. Post-click purchase-control state and compatibility wording were not reported.","refs":["screenshots/P3-initial.png","raw/P3-browser.json"]}
+      ]
+    }
+  ],
+  "corrections": []
+}

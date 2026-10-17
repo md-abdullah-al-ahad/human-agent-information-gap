@@ -18,6 +18,7 @@ env/
 data/*
 !data/.gitkeep
 !data/pilot-observation-template.json
+!data/pilot-01/
 results/*
 !results/.gitkeep
 !results/pilot-results-template.csv

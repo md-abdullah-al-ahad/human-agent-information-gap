@@ -4,4 +4,4 @@ This exploratory research project studies the gap between information people can
 
 The objectives are to characterize where that gap arises, examine uncertainty and unsupported conclusions in agent responses, and investigate possible mitigation strategies.
 
-The project is currently at the scoping stage. No experiments or implementation have been added yet.
+The project is in Stage 1 empirical investigation. An initial exploratory website pilot is documented in `docs/pilot-01-findings.md`; its tool-assisted observations await human verification. No experimental pipeline has been implemented.

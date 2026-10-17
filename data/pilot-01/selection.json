@@ -1,0 +1,47 @@
+{
+  "protocol_version": "0.2",
+  "site": "Daraz Bangladesh",
+  "site_url": "https://www.daraz.com.bd/",
+  "selection_method": "Live rendered site search, default displayed order, first eligible distinct product page",
+  "selection_window_utc": "2026-10-17T18:56:00Z/2026-10-17T18:59:30Z",
+  "selection_time_precision": "Window inferred from tool sequence and browser session creation; exact page-render timestamps were not exposed",
+  "browser_method": "Firecrawl interact live Chromium browser, logged out; country/locale and IP location not exposed for search interaction",
+  "slots": [
+    {
+      "slot": "P1",
+      "query": "iPad paperlike screen protector",
+      "search_url": "https://www.daraz.com.bd/catalog/?q=iPad%20paperlike%20screen%20protector",
+      "default_order": "as displayed; no sort control changed",
+      "rank": 1,
+      "selected_title": "ESR Magnetic Screen Protector for iPad Pro 11 12.9 Paper-Feel Detachable Film for iPad 9 8 7 for iPad mini 6/iPad Air 5 Air 4",
+      "selected_url": "https://www.daraz.com.bd/products/ipad-pro-11-129-esr-ipad-9-8-7-ipad-mini-6ipad-air-5-air-4-i373818784.html",
+      "eligibility": "Individual public product page; title contains Paper-Feel",
+      "rejected_candidates": [],
+      "search_result_evidence": "First result transcribed from live browser tool output; full search tool response was not retained because it contained session transport metadata"
+    },
+    {
+      "slot": "P2",
+      "query": "iPad screen protector",
+      "search_url": "https://www.daraz.com.bd/catalog/?q=iPad%20screen%20protector",
+      "default_order": "as displayed; no sort control changed",
+      "rank": 1,
+      "selected_title": "2PCS Screen Protector Case for IPad Pro 13 12.9 11 6th A16 M4 M2 2024 Air 5 4 3 2 1 9 9th 10 10th Gen Mini 6 10.9 10.2 9.7 Cover",
+      "selected_url": "https://www.daraz.com.bd/products/-i567669430.html",
+      "eligibility": "Individual public product page; title says Screen Protector and page image depicts glass protector; whether a case is included remains ambiguous",
+      "rejected_candidates": [],
+      "search_result_evidence": "raw/P2-search.json"
+    },
+    {
+      "slot": "P3",
+      "query": "iPad case",
+      "search_url": "https://www.daraz.com.bd/catalog/?q=iPad%20case",
+      "default_order": "as displayed; no sort control changed",
+      "rank": 1,
+      "selected_title": "3+Y-fold Flip Clear Cover For iPad 10th 11th Gen 2025 7/8/9 10.2'' Start Case For Air 4 5 6 7 11 For Air 2 9.7 Pro 11 Mini 6 7",
+      "selected_url": "https://www.daraz.com.bd/products/-i567663291.html",
+      "eligibility": "Individual public iPad case product page",
+      "rejected_candidates": [],
+      "search_result_evidence": "raw/P3-search.json"
+    }
+  ]
+}

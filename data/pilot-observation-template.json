@@ -1,10 +1,13 @@
 {
   "record_id": null,
-  "protocol_version": "0.1",
+  "protocol_version": "0.2",
+  "observation_kind": "exploratory",
+  "human_verification_status": "pending",
   "page_slot": null,
   "question_id": null,
   "question_text": null,
   "question_scope": null,
+  "variant_state_id": null,
   "selection": {
     "site": "Daraz Bangladesh",
     "site_url": "https://www.daraz.com.bd/",
@@ -20,6 +23,8 @@
     "final_url": null,
     "product_id": null,
     "variant": null,
+    "alternate_variant": null,
+    "alternate_variant_url": null,
     "captured_at_utc": null,
     "locale": null,
     "location": null,
@@ -28,12 +33,18 @@
     "login_state": null,
     "consent_state": null,
     "load_status": null,
+    "displayed_price_and_currency": null,
+    "explicit_availability_text": null,
+    "purchase_control_state": null,
+    "alternate_price_and_currency": null,
+    "alternate_purchase_control_state": null,
     "sections_inspected": [],
     "capture_refs": [],
     "capture_sha256": null,
     "state_change_notes": null
   },
   "human_reference": {
+    "status": "pending",
     "reviewer_id": null,
     "reviewed_at_utc": null,
     "answer": null,
@@ -43,10 +54,24 @@
     "second_review": null,
     "resolution_notes": null
   },
+  "exploratory_ai_observation": {
+    "observer_model_identity": null,
+    "openrouter_provider": null,
+    "reasoning_configuration": null,
+    "browser_or_retrieval_methods": [],
+    "observed_at_utc": null,
+    "provisional_answer": null,
+    "evidence_state": null,
+    "evidence_refs": [],
+    "access_limits": null,
+    "uncertainty_or_abstention": null
+  },
   "ai_live_run": {
     "run_id": null,
     "run_at_utc": null,
     "model_and_version": null,
+    "openrouter_provider": null,
+    "reasoning_configuration": null,
     "interface_and_tools": null,
     "prompt_ref": null,
     "raw_response_ref": null,
@@ -62,6 +87,8 @@
     "run_id": null,
     "run_at_utc": null,
     "model_and_version": null,
+    "openrouter_provider": null,
+    "reasoning_configuration": null,
     "evidence_bundle_ref": null,
     "prompt_ref": null,
     "raw_response_ref": null,
@@ -69,6 +96,7 @@
     "decision": null
   },
   "adjudication": {
+    "status": "not_scored",
     "adjudicator_id": null,
     "adjudicated_at_utc": null,
     "record_status": null,
@@ -83,5 +111,6 @@
     "cause_hypothesis": "unknown",
     "cause_evidence_ref": null,
     "notes": null
-  }
+  },
+  "corrections": []
 }

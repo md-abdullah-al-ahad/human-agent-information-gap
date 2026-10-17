@@ -1,0 +1,7 @@
+{
+  "tool": "firecrawl_interact",
+  "url": "https://www.daraz.com.bd/catalog/?q=iPad%20screen%20protector",
+  "prompt": "Read the live search result list in displayed default order. Return only the current URL, whether results loaded, and the first five product titles and hrefs, one per line. Do not inspect product pages.",
+  "session_id": "01a14b39-90e1-759f-91a2-229f6c13dff0",
+  "output": "URL: https://www.daraz.com.bd/catalog/?spm=a2a0e.searchlist.search.d_go.3c166b6cVyswKz&q=iPad%20screen%20protector\nResults loaded: Yes\n\n1. 2PCS Screen Protector Case for IPad Pro 13 12.9 11 6th A16 M4 M2 2024 Air 5 4 3 2 1 9 9th 10 10th Gen Mini 6 10.9 10.2 9.7 Cover - https://www.daraz.com.bd/products/-i567669430.html\n2. Tempered Glass Screen Protector For Apple iPad (2022 2025) (11th 10th generation) A16 A2777 A2757 A3355 A3356 - https://www.daraz.com.bd/products/2022-11th-10th-a16-a2777-a2757-a3355-a3356-i290062141.html\n3. HD Tempered Glass Screen Protector for Apple iPad Pro 11 inches 2020 2nd Generation A2068, A2230, A2231, A2228 - https://www.daraz.com.bd/products/11-2020-2nd-a2068-a2230-a2231-a2228-hd-i211083979.html\n4. Tempered Glass Screen Protector for iPad 10.2 9.7 10. 5 10.9 Pro 11 New iPad 10 9 8 7 6 5 Air 4 3 2 Mini iPad 2020 2021 2022 - https://www.daraz.com.bd/products/102-97-105-109-11-2020-2021-2022-i546200397.html\n5. 2PCS Glass Screen Protector Tablet Case IPad 11th Generation 10th 10.9 Inch 2025 iPad A16 A3354 A3355 A2696 A2757 Gen Cover - https://www.daraz.com.bd/products/-i567835267.html"
+}
