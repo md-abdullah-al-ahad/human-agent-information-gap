@@ -1,0 +1,164 @@
+{
+  "record_id": "pilot-01-P1-human-capture-20261018-0122-ai-review",
+  "protocol_version": "0.2",
+  "product_slot": "P1",
+  "status": "AI_review_of_user_supplied_human_facing_capture__human_confirmation_pending",
+  "source": {
+    "kind": "11-page browser print-to-PDF",
+    "original_filename": "ESR Magnetic Screen Protector for iPad Pro 11 12.9 Paper-Feel Detachable Film for iPad 9 8 7 for iPad mini 6_iPad Air 5 Air 4 _ Daraz.com.bd.pdf",
+    "sha256": "1d5abf51e73c3578e87687984093a3464c4002c600eeb86139e12a4c8f43906d",
+    "page_count": 11,
+    "printed_timestamp_local": "2026-10-18 01:22 Asia/Dhaka",
+    "url": "https://www.daraz.com.bd/products/ipad-pro-11-129-esr-ipad-9-8-7-ipad-mini-6ipad-air-5-air-4-i373818784.html",
+    "pdf_storage": "User-uploaded conversation attachment; not in repo",
+    "limitations": "Static printed page; no verification of live selection changes, actual stock or physical compatibility"
+  },
+  "reviewer": {
+    "kind": "AI-assisted review of user-captured page evidence",
+    "independent_human_ground_truth": false,
+    "formal_scores": false
+  },
+  "initial_state": {
+    "selected_variant": "CHINA For iPad Air 5 4",
+    "displayed_price": "৳1,567",
+    "crossed_out_price": "৳1,881",
+    "brand_header": "No Brand",
+    "brand_in_description": "ESR",
+    "seller": "Erma Erica",
+    "reviews": "1 rating, score 1.0/5",
+    "purchase_buttons": "visible, clickability and stock not established"
+  },
+  "questions": [
+    {
+      "id": "Q1",
+      "state": "observed_support",
+      "answer": "Title and images market ESR Paper-Feel detachable magnetic screen protector; listing also says Brand No Brand, while product details say ESR.",
+      "pdf_pages": [
+        1,
+        2,
+        10
+      ]
+    },
+    {
+      "id": "Q2",
+      "state": "ambiguous",
+      "answer": "Title and details list iPad Pro 11/12.9, iPad 7/8/9, mini 6, Air 4/5; a promotional image uses restrictive 'Only compatible with' for iPad Pro 11 (2018–2022) and Air 4/5. Scope varies between generic listing, selected variant and marketing image. Base iPad 11th A16 2025 not explicitly listed in the inspected capture.",
+      "pdf_pages": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "Q3",
+      "state": "observed_support",
+      "answer": "Page explicitly claims paper-feel fine-textured writing/drawing surface; physical performance unverified.",
+      "pdf_pages": [
+        1,
+        2,
+        7
+      ]
+    },
+    {
+      "id": "Q4",
+      "state": "ambiguous",
+      "answer": "Promotional image includes 'Only compatible with' restriction, a substantive implied exclusion. No direct named incompatibility statement for base iPad 11th A16 was captured, and other listing details conflict in scope. Do not conclusively assert physical incompatibility.",
+      "pdf_pages": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": "Q5",
+      "state": "observed_support",
+      "answer": "Seller advertises professional drawing surface, note-taking, nib-life benefits and stylus precision; no explicit Apple Pencil statement found in inspected text. Actual stylus/Pencil performance unverified.",
+      "pdf_pages": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "Q6",
+      "state": "observed_support",
+      "answer": "Captured selected Air 5/4 variant shows ৳1,567, original ৳1,881, -17%.",
+      "pdf_pages": [
+        1
+      ]
+    },
+    {
+      "id": "Q7",
+      "state": "ambiguous",
+      "answer": "No explicit stock label in captured PDF. Buttons and delivery claims visible; actual in-stock state unverified.",
+      "pdf_pages": [
+        1
+      ]
+    },
+    {
+      "id": "Q8",
+      "state": "observed_support",
+      "answer": "Description says Size:12.9, Model Number:Universal, Material:pet, Features:Easy to Install, Quantity:1 Pack, Compatible Brand:For Apple iPad, Brand Name:ESR, origin Mainland China. Marketplace structured specifications say Brand:No Brand. Generic size 12.9 does not align cleanly with selected Air 5/4 option.",
+      "pdf_pages": [
+        1,
+        2,
+        10
+      ]
+    },
+    {
+      "id": "Q9",
+      "state": "method_inaccessible",
+      "answer": "Initial Air 5/4 option and ৳1,567 captured. Earlier separate browser report gave alternative Pro 10.5 at ৳1,357; no user PDF post-click capture verifies that interaction.",
+      "pdf_pages": [
+        1
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "kind": "compatibility_scope_conflict",
+      "description": "Broader listing coverage conflicts with promotional image's 'Only compatible with' restriction",
+      "pdf_pages": [
+        2,
+        4
+      ]
+    },
+    {
+      "kind": "variant_generic_data_mismatch",
+      "description": "Product detail field Size:12.9 cannot safely be assumed to describe selected Air 5/4 SKU",
+      "pdf_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "kind": "brand_label_conflict",
+      "description": "Marketplace label No Brand; description Brand Name ESR",
+      "pdf_pages": [
+        1,
+        2,
+        10
+      ]
+    },
+    {
+      "kind": "seller_policy_scope",
+      "description": "Seller site shows 14-day returns; marketing image mentions 30-day money-back, possibly different policy scopes; not proven contradiction",
+      "pdf_pages": [
+        1,
+        8
+      ]
+    }
+  ],
+  "prior_pilot_comparison": {
+    "markdown_price_missing": true,
+    "marketing_image_only_compatible_phrase_not_preserved_in_prior_agent_prose": true,
+    "rating_discrepancy": "PDF shows 1 rating while earlier markdown said No Ratings; timing and source differences possible"
+  },
+  "remaining_unverified": [
+    "Human approval of AI interpretation",
+    "Post-click variant state",
+    "Actual compatibility and seller claims",
+    "Live stock status"
+  ]
+}
