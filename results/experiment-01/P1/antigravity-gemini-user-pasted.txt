@@ -1,0 +1,90 @@
+ The Daraz product listing https://www.daraz.com.bd/products/ipad-pro-11-129-esr-ipad-9-8-7-ipad-mini-6ipad-air-5-air-4-i373818784.html has been       
+  inspected using Playwright MCP. The details found on the page are organized below:                                                                    
+  ──────                                                                                                                                                
+  ### 1. What exactly is this product?                                                                                                                  
+                                                                                                                                                        
+  • Product Name: ESR Magnetic Screen Protector (Paper-Feel Detachable Film)                                                                            
+  • Type: A removable, magnetic matte screen protector film. Unlike adhesive screen protectors, it attaches to the iPad's display borders using magnetic
+  strips.                                                                                                                                               
+  • Key Concept: You can snap it on when you need a textured surface for writing or drawing with the Apple Pencil, and detach it when you want full     
+  screen clarity for watching videos or general consumption. It also comes with a protective folder/envelope for storing the sheet when not in use. It  
+  is designed to work even on top of an existing tempered glass screen protector.                                                                       
+  ──────                                                                                                                                                
+  ### 2. Which iPad models is it compatible with?                                                                                                       
+                                                                                                                                                        
+  Based on the listing title, specifications, and SKU options, the product supports:                                                                    
+                                                                                                                                                        
+  • iPad Pro 12.9-inch: 3rd, 4th, 5th, and 6th Generations (2018, 2020, 2021, 2022)                                                                     
+  • iPad Pro 11-inch: 1st, 2nd, 3rd, and 4th Generations (2018, 2020, 2021, 2022)                                                                       
+  • iPad Air: Air 4 (2020, 10.9-inch) and Air 5 (2022, 10.9-inch)                                                                                       
+  • iPad mini: iPad mini 6 (8.3-inch)                                                                                                                   
+  • iPad 10.2-inch: iPad 7th Gen (2019), iPad 8th Gen (2020), iPad 9th Gen (2021)                                                                       
+  • iPad Pro 10.5-inch: iPad Pro 10.5 (2017) / iPad Air 3 (2019, 10.5-inch)                                                                             
+  ──────                                                                                                                                                
+  ### 3. Does it have a paperlike, matte, or textured surface?                                                                                          
+                                                                                                                                                        
+  • Yes: It features a matte, fine-textured Paper-Feel surface designed specifically to simulate the tactile friction of pen on paper.                  
+  • It provides anti-glare properties and reduces light reflection compared to standard glass.                                                          
+  ──────                                                                                                                                                
+  ### 4. Are there any iPad models that it won't work with?                                                                                             
+                                                                                                                                                        
+  • Newer M4 iPad Pro Models (2024): iPad Pro 11 M4 and iPad Pro 13 M4 have completely redesigned dimensions, ultra-thin profiles, and different magnet 
+  polarities.                                                                                                                                           
+  • Newer M2 iPad Air Models (2024): iPad Air 11-inch (M2) and iPad Air 13-inch (M2) are not listed.                                                    
+  • iPad 10th Generation (10.9-inch, 2022): Not listed in the options (the Air 4/5 10.9-inch variant differs slightly in bezel/camera dimensions from   
+  the base 10th Gen).                                                                                                                                   
+  • Older 9.7-inch iPads: iPad 1st through 6th generations, iPad Air 1/2, and iPad Pro 9.7.                                                             
+  • Older iPad mini Models: iPad mini 1 through mini 5 (different aspect ratio and form factor).                                                        
+  • Older 1st and 2nd Gen iPad Pro 12.9-inch: With home buttons (2015/2017).                                                                            
+  • Any non-Apple tablet.                                                                                                                               
+  ──────                                                                                                                                                
+  ### 5. Can I use it for Apple Pencil writing, drawing, and note-taking?                                                                               
+                                                                                                                                                        
+  • Yes: That is the primary purpose of this film.                                                                                                      
+  • The fine texture provides resistance for precise strokes, prevents the Apple Pencil tip from slipping on glossy glass, and claims to optimize nib   
+  wear compared to coarse paper-texture films.                                                                                                          
+  ──────                                                                                                                                                
+  ### 6. What's the price of the currently selected variant?                                                                                            
+                                                                                                                                                        
+  • Default selected variant on landing (CHINA For iPad Air 5 4): ৳ 1,567 (discounted by 17% from ৳ 1,881).                                             
+  • Selected CHINA For iPad Pro 10.5 variant: ৳ 1,357 (discounted by 17% from ৳ 1,629).                                                                 
+  ──────                                                                                                                                                
+  ### 7. Is it in stock and available to purchase?                                                                                                      
+                                                                                                                                                        
+  • Yes: Both the Buy Now and Add to Cart buttons are active and enabled.                                                                               
+  • Cash on Delivery (COD) is available.                                                                                                                
+  • 14 days easy return policy applies.                                                                                                                 
+  ──────
+  ### 8. What are its materials, features, and specifications?
+  
+  • Material: High-grade PET film with magnetic border strips.
+  • Key Features:
+      • Detachable magnetic snap-on installation (bubble-free, reusable).
+      • Can be applied directly over standard tempered glass screen protectors.
+      • Paper-like texture for Apple Pencil work.
+      • Anti-glare and fingerprint resistance.
+      • Includes a protective storage sleeve/envelope for traveling.
+  • Specifications & Logistics:
+      • Brand: Listed in title/description as ESR (categorized under generic "No Brand" in Daraz store metadata).
+      • Seller: Erma Erica (Positive Seller Rating: 69%, Ship on Time: 100%).
+      • Shipping: Ships from Overseas. Standard delivery charge is ৳ 115, estimated arrival within 1-2 weeks (1-7 Nov).
+  
+  ──────
+  ### 9. What variants are available? (With CHINA For iPad Pro 10.5 selection details)
+  
+  #### All Available Variants under "Color Family":
+  
+  1. CHINA For iPad Pro 11 — ৳ 1,567
+  2. CHINA For iPad Pro 10.5 — ৳ 1,357
+  3. CHINA For iPad mini 6 — ৳ 1,357
+  4. CHINA For iPadPro 12.9 — ৳ 1,671
+  5. CHINA For iPad Air 5 4 — ৳ 1,567
+  
+  #### Changes when selecting CHINA For iPad Pro 10.5:
+  
+  • Price: Drops from ৳ 1,567 to ৳ 1,357 (৳ 1,629 list price minus 17%).
+  • SKU ID: Updates from 373818784_BD-1869233423 to 373818784_BD-1869233426.
+  • URL: Dynamically updates to include -s1869233426.html.
+  • Stock / Availability: Remains fully in stock and ready to order.
+  • Delivery: Shipping fee remains unchanged at ৳ 115.
+  ──────
