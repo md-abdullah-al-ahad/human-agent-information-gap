@@ -22,3 +22,6 @@ data/*
 results/*
 !results/.gitkeep
 !results/pilot-results-template.csv
+!results/information-gap-results-template.csv
+!results/experiment-01/
+
