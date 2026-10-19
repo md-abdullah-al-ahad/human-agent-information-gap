@@ -1,0 +1,37 @@
+You are conducting a strict information extraction audit of Bdjobs.com using the static DOM snapshot data/stage-4/raw/bd-cl02-dom.html. Do not use browser automation or Playwright. Rely strictly on static inspection of the DOM snapshot and static asset files. Extract the following factual details from the site with zero hallucination. If a piece of information is not present or cannot be determined, state 'Not Found':
+
+1. Platform Header Statistics & Metrics:
+   (a) What is the exact counter number displayed for 'LIVE JOBS'?
+   (b) What is the exact counter number displayed for 'VACANCIES'?
+   (c) What is the exact counter number displayed for 'COMPANIES'?
+   (d) What is the exact counter number displayed for 'NEW JOBS'?
+
+2. Primary Search & Filter Bar:
+   (a) What is the exact placeholder text currently displayed in the main job keyword input field (input[name="txtSearch"])?
+   (b) What is the placeholder text for the Organization Type dropdown selector?
+   (c) What is the exact button text and background color/styling of the main search submit button?
+
+3. Division Quick Filters:
+   (a) What is the job count displayed for the Dhaka division quick filter button?
+   (b) What is the job count displayed for the Chattogram division quick filter button?
+   (c) What is the job count displayed for the Barishal division quick filter button?
+
+4. Promotional Header Event Banner:
+   (a) What is the Bangla event title displayed across the top header banner (1140X90.jpg)?
+   (b) What specific date badge is shown in red on this top banner?
+   (c) Which government departments / ministries are listed as organizing authorities with their official logos on the banner?
+
+5. Training & Professional Development Promotions:
+   (a) What is the exact title of the training program featured in the Friendship Academy banner (Friendship-Academy.jpg)?
+   (b) What is the exact application deadline stated on this training banner?
+
+6. Sidebar Badges & Category Exploration:
+   (a) What text is displayed on the right sidebar badge featuring green patterned background (Army-Banner.gif)?
+   (b) What text and call-to-action is displayed on the purple video badge (video-cv.gif)?
+   (c) Under 'Discover Jobs Across Popular Category & Industry', which tab is currently selected/active and which is inactive?
+   (d) What is the job count displayed for the top functional category 'Marketing/Sales'?
+
+7. Customer Support & Contact Affordances:
+   (a) What are the three official customer support / helpdesk phone numbers listed in the red contact block in the footer?
+
+Extract all details factually based on the static snapshot.

@@ -1,0 +1,11 @@
+{
+  "id": "2604.00694",
+  "slug": "internal-apis-vs-playwright",
+  "title": "Internal APIs Are All You Need: Shadow APIs, Shared Discovery, and the Case Against Browser-First Agent Architectures",
+  "year": "2026",
+  "authors": [
+    "Lewis Tham",
+    "Nicholas Mac Gregor Garcia",
+    "Jungpil Hahn"
+  ]
+}

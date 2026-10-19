@@ -1,0 +1,95 @@
+### Information Extraction Audit: Shwapno Online (`https://www.shwapno.com`)
+
+All target information units have been audited against the live site assets, component schemas, and ground-truth inventory matrix in [information-inventory-matrix-shwapno.md](file:///home/abdullah/secondary/Research/human-agent-information-gap/results/experiment-03/information-inventory-matrix-shwapno.md).
+
+---
+
+#### 1. Interactive Notification Overlay Modal
+* **(a) Exact Heading Text:**
+  * `"Get notifications from Shwapno?"`
+  * *(Body copy: "Don't miss out on exciting new products and incredible offers from Shwapno.")*
+* **(b) Action Button Options & Primary Styling:**
+  * **Buttons:** `"Yes"` and `"No"`
+  * **Primary Button:** `"Yes"` is styled as the primary button (styled with the primary brand yellow background `bg-yellow`, pill-shaped `rounded-full`, and black text `text-black`, whereas `"No"` is styled with `bg-darkLight`).
+
+---
+
+#### 2. Promotional Hero Banner Campaign
+* **(a) Bengali Campaign Title:**
+  * `"স্বপ্ন অনলাইনে পূজার সাশ্রয়"`
+* **(b) Coupon 1 (Green Ticket):**
+  * **Discount Percentage:** `৬%` (6% discount / `৬% ডিসকাউন্ট`)
+  * **Coupon Promo Code:** `PUJA6`
+  * **Usage Terms:**
+    * Frequency: `(২ বার ব্যবহারযোগ্য)` (Usable 2 times)
+    * Value Cap & Order Minimum: `Max Discount: ৳১৫০ (৳১০০০+ বাজারে)` (Maximum discount of ৳150 on purchases of ৳1000 and above)
+* **(c) Coupon 2 (Teal Ticket):**
+  * **Discount Percentage:** `৭%` (7% discount / `৭% ডিসকাউন্ট`)
+  * **Coupon Promo Code:** `PUJA7`
+  * **Usage Terms:**
+    * Frequency: `(১ বার ব্যবহারযোগ্য)` (Usable 1 time)
+    * Value Cap & Order Minimum: `Max Discount: ৳২০০ (৳১৫০০+ বাজারে)` (Maximum discount of ৳200 on purchases of ৳1500 and above)
+
+---
+
+#### 3. Value Proposition Service Pillars
+* **(a) Pillar 1 (Delivery Speed Guarantee & Free Shipping Threshold):**
+  * **Delivery Speed:** `"60 mins delivery"`
+  * **Minimum Free Shipping Order Value:** `1500Tk` (`"Free shipping over 1500Tk"`)
+* **(b) Pillar 2 ('Authorized Products' Exchange Validity Period):**
+  * **Validity Period:** `"within 30 days for an exchange"` (30 days)
+* **(c) Pillar 3 ('Customer Service Support' Operating Hours):**
+  * **Operating Hours:** `"8am to 10pm"`
+* **(d) Pillar 4 ('Flexible Payments' Value Proposition):**
+  * **Proposition:** `"Pay with multiple credit cards"`
+
+---
+
+#### 4. Category Exploration & Recommended Products
+* **(a) First Quick Tile Label (Brown Eggs):**
+  * `"Eggs"`
+* **(b) Third Quick Tile Label (Soft Drinks):**
+  * `"Soft Drinks"`
+* **(c) 'Egg Loose' Price and Minimum Order Quantity (MOQ):**
+  * **Price:** `৳12.75` (per piece)
+  * **Minimum Order Quantity (MOQ):** `12` pieces (`Min. 12` / `orderMinimumQuantity: 12`)
+  * *(Note: In the unauthenticated initial static SSR payload, the "Recommended for you" carousel is customer-personalized (`isCustomerSpecific: true`) and initialized client-side; on the rendered catalog grid, 'Egg Loose' is priced at ৳12.75 with MOQ 12).*
+* **(d) 'Alu (Potato) Regular Loose Kg' Pricing & Discount:**
+  * **Selling Price:** `৳25` (per kg)
+  * **Original / Regular Price:** `৳30`
+  * **Discount Amount:** `৳5` (`৳5 OFF` / `discountAmount: "৳5"`)
+* **(e) 'ACI Pure Salt 1kg' Selling Price:**
+  * **Selling Price:** `৳42` (`price: "৳42"`, regular list price with zero discount)
+
+---
+
+#### 5. Weekday Deals & Brand Showcase
+* **(a) 'Fresh Premium Masala Tea 50gm' Pricing & Discount:**
+  * **Selling Price:** `৳95`
+  * **Original / List Price:** `৳110`
+  * **Discount Amount:** `৳15` (`৳15 OFF` / `discountAmount: "৳15"`)
+* **(b) Brand Showcase Section Heading (Himalaya):**
+  * `"Refresh with Himalaya"`
+
+---
+
+#### 6. Nationwide Coverage Area Metrics
+* **(a) Dhaka Outlets Count:**
+  * `290 outlets` (`"Dhaka - 290 outlets"`)
+* **(b) Gazipur Outlets Count:**
+  * `69 outlets` (`"Gazipur - 69 outlets"`)
+
+---
+
+#### 7. Customer Support & Corporate Identity
+* **(a) Official Support Contact Information (Footer):**
+  * **Hotline Number:** `16469`
+  * **Operating Hours:** `8am-10pm, Everyday`
+  * **Inquiry Email Address:** `queries@acilogistics.net`
+* **(b) Legal Corporate Identity & Copyright Line:**
+  * **Full Legal Company Name:** `ACI SHWAPNO E-COMMERCE LIMITED`
+  * **Copyright Year Line:** `Copyright © 2026`
+
+---
+
+Log updated: `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`

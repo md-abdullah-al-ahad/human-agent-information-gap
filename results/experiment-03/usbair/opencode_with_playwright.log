@@ -1,0 +1,38 @@
+I'll conduct this audit by navigating the live site and extracting each detail from the actual page content. Let me set up tracking and start.
+The page loaded. Let me read the snapshot to see the content.
+I have the page snapshot. Now I'll inspect the DOM for button styling, the Mastercard modal, loyalty tier images, and the vacation banner button.
+I have most of the text data. Now I need to visually inspect the Mastercard popup image and the Sky Star tier badges, which are images. Let me download them.
+The Mastercard popup is an image. Let me view it and check the Sky Star SVG for tier names.
+I can see the Mastercard popup details clearly. Now I need to find the Sky Star tier badges. Let me check the loyalty page.
+I now have all the information needed. Let me compile the final audit report.
+Based on the live site audit, here are the extracted facts:
+
+**1. Flight Booking Engine UI**
+*   (a) **Default Origin:** Dhaka (DAC) – Hazrat Shahjalal International Airport
+*   (b) **Search CTA:** Text is "Search Flights". Styling is a red button (#C30B12) with white text, rounded corners (4px), and a Roboto font.
+*   (c) **Defaults:** 1 Passenger, Economy class.
+
+**2. Promotional Mastercard Popup Modal**
+*   (a) **Discounts:** 15% OFF for Domestic Routes (Promo Code: **USBAT15**) and 10% OFF for International Routes (Promo Code: **USBAINT10**).
+*   (b) **Prizes:** The grand prize is a **Couple Holiday in Kuala Lumpur**. The domestic return ticket options are **Cox's Bazar, Sylhet, and Chattogram**.
+*   (c) **Validity:** Till 31st October 2026.
+*   (d) **Cardholder Name:** SABRINA ISLAM.
+
+**3. Sky Star Loyalty Program**
+*   (a) **Tiers:** Silver, Gold, Platinum, and Titanium.
+*   (b) **CTA Headline:** "Join Sky Star".
+
+**4. Vacation Promotion & Marketing**
+*   (a) **Headline:** "Enjoy your favorite holiday destination and Earn Miles!"
+*   (b) **Button Text:** "Make Memories".
+
+**5. Destination from Dhaka Section**
+*   (a) **Default City:** Dhaka.
+*   (b) **Kolkata:** City of Joy.
+*   (c) **Guangzhou:** City of Flowers.
+*   (d) **Kuala Lumpur:** Cosmopolitan metropolis.
+
+**6. Footer Affordances & App Promotion**
+*   (a) **Newsletter:** Placeholder is "Email Address"; Button label is "Subscribe".
+*   (b) **App Value Proposition:** "Book and manage your flight & Get exclusive discounts".
+*   (c) **Copyright:** © 2026 US-Bangla Airlines. All rights reserved.

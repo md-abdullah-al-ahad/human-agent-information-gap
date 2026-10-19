@@ -1,0 +1,39 @@
+You are conducting a strict information extraction audit of the Bangladesh National Portal (https://bangladesh.gov.bd). Extract the following factual details from the site with zero hallucination. If a piece of information is not present or cannot be determined, state 'Not Found':
+
+1. Header Branding & Utility:
+   (a) What is the main portal title displayed in the header next to the national emblem?
+   (b) What exact date string is displayed in the top header bar?
+   (c) What is the exact placeholder text inside the header search input field?
+
+2. Public Health Popup Advisory Modal:
+   (a) What is the main Bengali headline/title displayed at the top of the prominent modal popup banner?
+   (b) What official government authority and website URL issued this advisory (at the bottom of the poster)?
+   (c) What specific severe medical conditions and cholesterol effects are attributed to burnt oil / trans fats?
+   (d) What specific practical culinary alternative is recommended for once-used oil rather than re-frying?
+
+3. Mobile App Hero Slider Graphics:
+   (a) What exact title/label is given to the provident fund calculator tool advertised on the mobile app screen?
+   (b) What exact title and tagline is given to the property inheritance calculator tool advertised on the mobile app screen?
+
+4. Administrative Division Counters:
+   (a) What is the exact count reported for Ministries and Divisions (মন্ত্রণালয় ও বিভাগ)?
+   (b) What is the exact count reported for Upazilas (উপজেলা)?
+   (c) What is the exact count reported for Union Parishads (ইউনিয়ন)?
+
+5. Government Services Grid:
+   (a) What is the name of the default active tab in the government services widget?
+   (b) What is the title of the 8th service card visible in this default active tab?
+   (c) Is the service "ইউটিলিটি বিল" (Utility Bill) visible on the default initial screen or hidden behind an interactive toggle ("আরো দেখুন ↓")?
+
+6. Emergency Helplines:
+   (a) What is the 3-digit hotline number for "সরকারি তথ্য ও সেবা" (Government Info and Services)?
+   (b) What is the 5-digit hotline number for "বিআরটিএ সার্ভিস পোর্টাল (বিএসপি)"?
+   (c) What is the 5-digit hotline number for "স্মার্ট ভূমি সেবা" (Smart Land Services), and is it visible on the default viewport or hidden behind a toggle?
+
+7. Media Gallery:
+   (a) What is the subject / alt text of the 4th image in the photo gallery (depicting rows of oarsmen)?
+
+8. Footer Institutional Attribution:
+   (a) What organizational/governmental entity names or logos are depicted in the footer under "পরিকল্পনা এবং বাস্তবায়ন" (Planning and Implementation)? Does the cluster include UNDP and Cabinet Division?
+
+Note: Do not use browser automation or Playwright. Rely strictly on static requests, cURL, or HTTP scripts.

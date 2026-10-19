@@ -1,0 +1,37 @@
+You are conducting a strict information extraction audit of Shwapno Online using the static DOM snapshot data/stage-4/raw/bd-qc02-dom.html and associated static asset files. Do not use browser automation or Playwright. Rely strictly on static inspection of the DOM snapshot and static asset files. Extract the following factual details from the site with zero hallucination. If a piece of information is not present or cannot be determined, state 'Not Found':
+
+1. Interactive Notification Overlay Modal:
+   (a) What is the exact heading text of the notification permission prompt appearing as a modal at the top?
+   (b) What are the two action button options provided in this notification modal, and which one is styled as the primary button?
+
+2. Promotional Hero Banner Campaign:
+   (a) What is the Bengali campaign title displayed on the hero slider banner ("স্বপ্ন অনলাইন...")?
+   (b) What is the exact discount percentage, coupon promo code, and usage terms for Coupon 1 (green ticket)?
+   (c) What is the exact discount percentage, coupon promo code, and usage terms for Coupon 2 (teal ticket)?
+
+3. Value Proposition Service Pillars:
+   (a) What is the delivery speed guarantee and minimum free shipping order value listed in Pillar 1?
+   (b) What exchange validity period is advertised under 'Authorized Products' in Pillar 2?
+   (c) What operating hours are stated for 'Customer Service Support' in Pillar 3?
+   (d) What value proposition is stated under 'Flexible Payments' in Pillar 4?
+
+4. Category Exploration & Recommended Products:
+   (a) What is the label of the first quick tile directly under the hero banner depicting brown eggs?
+   (b) What is the label of the third quick tile depicting soft drinks?
+   (c) What is the price and minimum order quantity (MOQ) for 'Egg Loose' in the Recommended For You section?
+   (d) For 'Alu (Potato) Regular Loose Kg', what is the selling price, original price, and discount amount?
+   (e) What is the selling price of 'ACI Pure Salt 1kg'?
+
+5. Weekday Deals & Brand Showcase:
+   (a) For 'Fresh Premium Masala Tea 50gm' in Weekday Deals, what is the selling price and discount amount?
+   (b) What is the section heading text for the promotional brand showcase featuring Himalaya products?
+
+6. Nationwide Coverage Area Metrics:
+   (a) How many outlets are listed for Dhaka in the Shwapno Coverage Area table?
+   (b) How many outlets are listed for Gazipur in the Shwapno Coverage Area table?
+
+7. Customer Support & Corporate Identity:
+   (a) What are the official customer support hotline number, operating hours, and inquiry email address listed in the footer?
+   (b) What is the full legal company name and copyright year line displayed at the very bottom of the page?
+
+Extract all details factually based on the static snapshot.

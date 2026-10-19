@@ -1,0 +1,161 @@
+I will download the client-side JavaScript bundle chunks for the homepage into the scratch directory to inspect the UI components, modal definitions, promotional data, destinations, and loyalty tier details.
+I have started downloading the homepage JavaScript chunks in the background to inspect the exact UI components, promotional modals, and marketing copy. I will analyze the contents as soon as the download finishes.
+I will search the downloaded bundle chunks for references to the Mastercard promo modal, destinations, loyalty tiers, and flight booking engine defaults.
+I will run an analysis script on `7945-f055a8e22e389722.js` to inspect the flight booking engine state, default values, CTA styling, and destination cards.
+I will inspect the component definition in `7945-f055a8e22e389722.js` around the "Destination from" section to see the initial state and destination data array.
+I will inspect the full destination list `p` and origin context `d.LZ` in `7945-f055a8e22e389722.js`.
+I will inspect the origin context definition (`d.LZ`) to determine the default city for the "Destination from" input and the flight booking engine origin.
+I will re-run the search script with corrected syntax to inspect `createContext` references.
+I will search for the module definition `76779` across the downloaded bundle chunks.
+I will inspect how `A` (context `LZ`) is created and provided in `_app-453f0d9bcf764e0a.js`.
+I will find the provider for context `A` (`LZ`) in `_app-453f0d9bcf764e0a.js` to see what value is passed.
+I will inspect the initial state values for `city: g` in `_app-453f0d9bcf764e0a.js`.
+I will inspect the definitions of `w` in `_app-453f0d9bcf764e0a.js`.
+I will inspect the definition of `ei` in `_app-453f0d9bcf764e0a.js`.
+I will inspect module `47128` in `_app-453f0d9bcf764e0a.js`.
+I will inspect the flight booking engine component in `7945-f055a8e22e389722.js` to check the 'From' field's initial state.
+I will check how `b` (the selected departure airport state) is initialized in `7945-f055a8e22e389722.js`.
+I will inspect `F` in `7945-f055a8e22e389722.js` to see the airport object for Dhaka.
+I will inspect the definition of array `F` in `7945-f055a8e22e389722.js`.
+I will inspect the Passenger and Cabin Class initialization code in `7945-f055a8e22e389722.js`.
+I will search for `Economy` and passenger counts in `7945-f055a8e22e389722.js`.
+I will search for modal or popup components in `7945-f055a8e22e389722.js`.
+I will download the offers and loyalty page chunks into the scratch folder to search for the promotional Mastercard modal details and Sky Star tier badges.
+I will search all newly downloaded chunks for Mastercard, promotional discounts, lucky draw prizes, and Sky Star membership tiers.
+I will inspect the announcement / promotion modal logic in `_app-453f0d9bcf764e0a.js` to see what API endpoint supplies the data.
+I will inspect how `ak` is invoked and where announcement data is fetched in `_app-453f0d9bcf764e0a.js`.
+I will search for the callers of `ak` in `_app-453f0d9bcf764e0a.js`.
+I will inspect the component containing "No ANNOUNCEMENT available" in `_app-453f0d9bcf764e0a.js` to see what API it queries for announcements.
+I will query the announcement API endpoint `https://usbair.com/api/get-announcement-info` to see if there is any active announcement or promotion data.
+I will search `_app-453f0d9bcf764e0a.js` for the API endpoint that fetches announcement details.
+I will inspect how `announcementDetails` state is set in `_app-453f0d9bcf764e0a.js`.
+I will inspect function `T` in `_app-453f0d9bcf764e0a.js` to see where announcement details are retrieved.
+I will inspect the definition of `T` earlier in the component in `_app-453f0d9bcf764e0a.js`.
+I will inspect further back in `_app-453f0d9bcf764e0a.js` to see the announcement bar component logic.
+I will query the announcement details API for both active announcements (`announcement-details-15percent-promo` and `dac-ruh-dac-flight-12th-oct`).
+I will inspect the full announcement JSON for `announcement-details-15percent-promo`.
+I will search all downloaded JS bundles for all API endpoints matching `/api/`.
+I will query `/api/get-all-offers` and banner endpoints on `usbair.com` to inspect promotional offers.
+I will search all JS bundle files for references to `alphaapi.usbair.com`.
+I will test if `common-json-view` allows querying all tags or what happens without a tag.
+I will inspect `special-offer-d34004b2a37554bf.js` and `offers-3bf05843bc01ca42.js` to see where offer details and promotions are configured.
+I will inspect `5207-523c8d920d72d87f.js` and `special-offer-d34004b2a37554bf.js`.
+I will inspect `5207-523c8d920d72d87f.js` for promotional offers.
+I will print the remaining components in `5207-523c8d920d72d87f.js`.
+I will inspect module `61491` to see where offers are fetched.
+I will inspect `us-bangla-sky-star-36f4f323a7871c06.js` and `membership-tiers-0b65cf8c93b7f643.js` for loyalty membership tier star badges and CTA headline.
+I will extract text and descriptions from the saved Facebook post page.
+I will search for `USBA15` in `steps/152/content.md` to see the full article text.
+I will search for promotional details in the fetched BRAC Bank page.
+I will download the campaign promotional creative `Mastercard_US-Bangla_Offer_EDM-026ac4bd0f28703.jpg` into the artifacts directory to inspect the embossed cardholder name and visual details on the Mastercard.
+I will search all chunk files for modal, dialog, and popup implementations.
+I will inspect the modal component around `isPromptShow` in `7945-f055a8e22e389722.js`.
+I will download the NBL FAQ PDF `1791105399_FAQ - Mastercard Exclusive discount offer & Spend & Win Campaign with US-Bangla airlines.pdf` to extract the campaign FAQ details.
+I will inspect the metadata and content of Facebook post 1.
+I will inspect the HTML head section of `steps/187/content.md`.
+I will resolve the destination URL of Facebook link [2].
+I will inspect the OpenGraph tags and image in `steps/197/content.md`.
+I will search for `content=` or `img` in `steps/197/content.md`.
+I will resolve the redirect of search result [3].
+I will search for Mastercard / USBA15 in the Bangladesh Monitor content.
+I will search all image references across the entire site bundle and HTML for any Mastercard or card graphics.
+I will search for any S3 URLs across the bundle and HTML files.
+I will fetch the GTM script `https://www.googletagmanager.com/gtm.js?id=GTM-N54J6L26` to check if promotional popup tags or modals are loaded via Tag Manager.
+I will check the worklog directory and append the research log entry for this audit session.
+### 1. Flight Booking Engine UI
+
+* **(a) Default Origin Airport Code and Name:**
+  * **Airport Code:** `DAC`
+  * **Airport Name:** `Hazrat Shahjalal International Airport`
+  * *(Note: In client-side hydrated state, the 'From' field displays `Dhaka (DAC)` as the primary location label and `Hazrat Shahjalal International Airport` as the sub-label. In unhydrated/SSR initial HTML, it falls back to the placeholder `Departure`).*
+
+* **(b) Text and Visual Styling of the Main Search CTA Button:**
+  * **Exact Text:** `Search Flights`
+  * **Visual Styling:**
+    * **Background Color:** Solid red/crimson (`bg-[#C30B12]`)
+    * **Text Color:** Solid white (`text-white`)
+    * **Typography:** `font-roboto text-navBarTitle font-normal whitespace-pre-wrap text-center`
+    * **Layout / Alignment:** Centered inline flex row (`flex flex-row justify-center items-center`)
+    * **Padding & Sizing:** `px-10 py-3 lg:px-8 gap-2` with rounded corners (`rounded`)
+    * **Icons:** Airplane takeoff SVG icon (`L.QMQ`) on the right; animated spinning loading indicator (`animate-spin`) on the left when pending.
+    * **Disabled State:** Rendered with `disabled=""` inside an `opacity-50 cursor-not-allowed` container until required flight parameters are chosen.
+
+* **(c) Default Passenger Count and Cabin Class:**
+  * **Passenger Count:** `1 Passenger` (1 Adult)
+  * **Cabin Class:** `Economy`
+
+---
+
+### 2. Promotional Mastercard Popup Modal
+
+* **(a) Discount Percentages and Promo Codes:**
+  * **Domestic Flights:** `15%` discount using promo code **`USBA15`**
+  * **International Flights:** `10%` discount using promo code **`USBAIN10`**
+
+* **(b) Lucky Draw Grand Prize and Domestic Return Ticket Options:**
+  * **Grand Prize:** A couple's holiday trip to **Malaysia** (including airfare and accommodation).
+  * **Domestic Destination Return Options:** Couple return tickets to **Cox's Bazar**, **Sylhet**, and **Chattogram**.
+
+* **(c) Validity Expiry Date:**
+  * `Till 31 October 2026` *(alternatively formatted as `Until 31 Oct 2026` in announcement feeds)*.
+
+* **(d) Cardholder Name on Black Mastercard Credit Card Image:**
+  * **Not Found** *(The black Mastercard card graphic asset with embossed cardholder lettering is not present in the current live site DOM or client bundle assets).*
+
+---
+
+### 3. Sky Star Loyalty Program
+
+* **(a) Names of the Four Loyalty Membership Tier Star Badges:**
+  1. `Sky Star Silver`
+  2. `Sky Star Gold`
+  3. `Sky Star Platinum`
+  4. `Sky Star Titanium`
+
+* **(b) Primary Call-to-Action Headline for the Loyalty Club:**
+  * **Headline:** `Join Sky Star`
+  * *(Associated CTA button text: `Join now`)*.
+
+---
+
+### 4. Vacation Promotion & Marketing
+
+* **(a) Headline of the Overwater Resort Vacation Banner:**
+  * `Enjoy your favorite holiday destination and Earn Miles!` *(structured in the markup as `Enjoy your favorite holiday destination` / `and Earn Miles!`)*.
+
+* **(b) Exact Button Text on the Vacation Banner:**
+  * `Make Memories`
+
+---
+
+### 5. Destination from Dhaka Section
+
+* **(a) Default City Pre-filled in Origin Auto-complete Box:**
+  * `Dhaka` *(hydrated dynamically via the default Bangladesh `BD` geolocation context into the `Destination from` auto-complete field)*.
+
+* **(b) Marketing Descriptor / Moniker for Kolkata:**
+  * `City of Joy` *(card text: "Book Your Flight to the City of Joy")*.
+
+* **(c) Marketing Descriptor / Moniker for Guangzhou:**
+  * `City of Flowers` *(card text: "Book Your Flight to the City of Flowers")*.
+
+* **(d) Marketing Descriptor for Kuala Lumpur:**
+  * `cosmopolitan metropolis` *(card text: "Book Your Flight to the cosmopolitan metropolis")*.
+
+---
+
+### 6. Footer Affordances & App Promotion
+
+* **(a) Newsletter Subscription Field Placeholder and Action Button:**
+  * **Placeholder Text:** `Email Address`
+  * **Action Button Label:** `Subscribe`
+
+* **(b) Value Proposition Text Advertised for US-Bangla Airlines App:**
+  * `Book and  manage your flight & Get exclusive discounts` *(verbatim string from the component, containing a double space between "and" and "manage")*.
+
+* **(c) Verbatim Copyright Notice Line:**
+  * `© 2026 US-Bangla Airlines. All rights reserved.`
+
+---
+
+Log updated: `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`

@@ -1,0 +1,75 @@
+I'll start by exploring the workspace to locate the DOM snapshot and associated static asset files.
+The DOM snapshot exists (2.4MB). Let me check for associated static assets and start searching for the notification modal and hero banner.
+The HTML appears to have very long lines (minified). Let me analyze its structure first.
+The file is minified into very long lines. Let me use Python to locate and extract contexts for each key section.
+Let me extract context windows around the key notification/permission matches.
+Those are CSS/i18n. Let me find the actual modal markup and the Bengali hero text.
+Let me search for modal/dialog markup and re-examine the Bengali text (may be encoded).
+Let me extract the modal regions (fixed inset / fixed top areas).
+I've identified the notification modal with its heading "Get notifications from Shwapno?" and Yes/No buttons. Next, I'll check the button styling (bg-yellow vs bg-darkLight) and look for the Bengali hero text.
+Bengali text is absent from the DOM except "বাংলা" and ৳ — the hero title is likely in an image. Let me examine the hero slider markup and its images/alt text.
+Let me extract the hero slider region and the quick tiles region.
+The hero title text is inside banner images. Let me check for associated static asset files (images) in the data folder.
+Let me check the stage-4 manifest for asset references, then inspect the fullpage screenshot.
+Now let me search for coupons, tiles, products, deals, coverage, and footer in one batch.
+Let me extract the coupon sections first.
+The i18n block gave me footer data. Now let me find the coupon tickets, value pillars, tiles, and products.
+Let me map the page structure after the hero: find quick tiles start and what's between hero and tiles.
+The coupon ticket is in the hero image and not in the DOM text — I'll check the full-page screenshot (a static asset) for that. First, let me extract all the remaining DOM sections in one batch.
+Tiles: first "Eggs", third "Soft Drinks". Now let me extract the product cards and value pillars.
+Good - the Alu card has a ৳5 OFF ribbon. Now let me extract the Weekday Deals product and the coverage table.
+Now the coverage table.
+Coverage: Dhaka 290, Gazipur 69. Now the footer.
+Footer data captured. Now the value proposition pillars section.
+All DOM text is captured. Now for the hero banner content (image-based), let me crop the hero region from the static fullpage screenshot.
+Let me verify several specifics: the pillar 1 free-shipping text, coupon tickets, the Masala Tea card, and discount amounts.
+The 20%/25% are in image srcset (width specs), not coupon text. The coupons and Bengali title are in the hero banner image. Let me check the static screenshot asset — first, image tools availability.
+Let me zoom into the hero coupon tickets to read the exact discount codes and terms.
+Let me zoom further into the left campaign title and the right coupon ticket for exact text.
+Coupon 1 is clear. Let me read the full Coupon 2 (teal) ticket.
+Coupon 1 is clear. Now let me capture the full Coupon 2 (teal, right side).
+Let me confirm Coupon 1's Max Discount figures with a clean crop.
+Coupon details confirmed. Now let me verify the coverage table, rendered footer, Alu discount ribbon, and Masala Tea card directly from the DOM.
+I now have all the details verified. Let me compile the final audit.
+
+---
+
+# Shwapno Online — Static DOM Information Audit
+**Source:** `data/stage-4/raw/bd-qc02-dom.html` + static asset `data/stage-4/screenshots/bd-qc02-fullpage.png`
+
+## 1. Interactive Notification Overlay Modal
+- **(a) Heading:** `Get notifications from Shwapno?`
+- **(b) Buttons:** `Yes` and `No`. The **`Yes`** button is the primary one (solid brand-yellow fill `bg-yellow`, text-black); `No` is the muted/secondary button (light-gray `bg-darkLight`).
+
+## 2. Promotional Hero Banner Campaign
+- **(a) Bengali campaign title:** `স্বপ্ন অনলাইনে পূজার সাপ্রমূ` (Puja Special slide, linking to `/festive-with-shwapno`)
+- **(b) Coupon 1 (green ticket):** **6%** discount · Code: **`PUJA6`** · *2 uses allowed (২ বার ব্যবহারযোগ্য)* · Max Discount **৳250** on a **৳3000+** order (Max Discount: ৳২৫০ / ৳৩০০০+ বাজারে)
+- **(c) Coupon 2 (teal ticket):** **7%** discount · Code: **`PUJA7`** · *1 use allowed (১ বার ব্যবহারযোগ্য)* · Max Discount **৳200** on a **৳3500+** order (Max Discount: ৳২০০ / ৳৩৫০০+ বাজারে)
+
+## 3. Value Proposition Service Pillars
+- **(a) Pillar 1:** "60 mins delivery" — **Free shipping over ৳1500** (`Free shipping over 1500Tk`)
+- **(b) Pillar 2 (Authorized Products):** Exchange within **30 days** (`within 30 days for an exchange`)
+- **(c) Pillar 3 (Customer Service Support):** **8am to 10pm**
+- **(d) Pillar 4 (Flexible Payments):** **Pay with multiple credit cards**
+
+## 4. Category Exploration & Recommended Products
+- **(a) First quick tile (brown eggs):** `Eggs`
+- **(b) Third quick tile (soft drinks):** `Soft Drinks`
+- **(c) Egg Loose:** Price **৳12.75** per piece · MOQ **12** (`Min. 12`)
+- **(d) Alu (Potato) Regular Loose Kg:** Selling **৳25** · Original **৳30** · Discount **৳5** (৳5 OFF)
+- **(e) ACI Pure Salt 1kg:** Selling price **৳42** per piece
+
+## 5. Weekday Deals & Brand Showcase
+- **(a) Fresh Premium Masala Tea 50gm:** Selling **৳95** · Discount **৳15** (was ৳110, ৳15 OFF)
+- **(b) Brand showcase heading (Himalaya):** `Refresh with Himalaya`
+
+## 6. Nationwide Coverage Area Metrics (Shwapno Coverage area)
+- **(a) Dhaka:** **290 outlets**
+- **(b) Gazipur:** **69 outlets**
+
+## 7. Customer Support & Corporate Identity
+- **(a)** Hotline: **16469** · Hours: **8am–10pm, Everyday** · Inquiry email: **queries@acilogistics.net**
+- **(b)** Legal company name: **ACI SHWAPNO E-COMMERCE LIMITED** · Copyright line: **`Copyright © 2026`**
+
+---
+**Not Found / Notes:** All 7 sections (1–7) were fully extractable. The only caveat is the hero-banner Bengali title (2a) and the coupon ticket text (2b/2c), which are baked into the banner *image* rather than the DOM — these were read from the static full-page screenshot asset and transcribed as displayed; the campaign title's last word (`সাপ্রমূ`) is stylized calligraphy and is reported as visually legible.

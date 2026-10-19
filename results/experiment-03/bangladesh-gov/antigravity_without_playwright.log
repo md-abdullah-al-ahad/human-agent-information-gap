@@ -1,0 +1,98 @@
+I will fetch the homepage of `https://bangladesh.gov.bd` using `curl` to analyze the HTML source.
+I will run a python script to search and inspect specific sections of `homepage.html`.
+I will check the HTML content using Python's standard library `html.parser` and regex.
+I will write a python script to inspect the structure, text, and elements of `homepage.html`.
+I will run a python script to extract sections of the HTML for detailed inspection.
+I will search for popup / modal dialogs, banners, or images in the HTML.
+I will download the popup modal image using curl to examine its contents.
+I will search `homepage.html` for app hero sliders, provident fund, and inheritance calculator graphics.
+I will inspect the BannerSliderImageWidget in `homepage.html`.
+I will inspect the body markup for `BannerSliderImageWidget`.
+I will download the "প্রয়োজনীয় অ্যাপস" slider image to inspect the mobile app screens advertised on it.
+I will search for `AllSiteCountWidget` in `homepage.html` to find administrative division counters.
+I will inspect `NationalPortalServicesWidget` to see the tabs, service cards, and toggles.
+I will print the markup inside `NationalPortalServicesWidget`.
+I will search for `data-widget_name="NationalPortalServicesWidget"` in the HTML body.
+I will inspect all service items under the default active tab `popular-services`.
+I will inspect the CSS and JS for `NationalPortalServicesWidget` to verify the toggle behavior and visibility of items.
+I will curl `/widget-assets/css/NationalPortalServicesWidget` and `/widget-assets/js/NationalPortalServicesWidget` to see how the collapsible content behaves.
+I will inspect `BangladeshEmergencyHotlineWidget` in `homepage.html`.
+I will inspect the rest of `BangladeshEmergencyHotlineWidget` and its styling/toggle mechanism.
+I will inspect the full `BangladeshEmergencyHotlineWidget` HTML block.
+I will fetch `/widget-assets/css/BangladeshEmergencyHotlineWidget` to see how the items are hidden or displayed.
+I will inspect `NationalPortalGalleryWidget` in `homepage.html`.
+I will inspect `NewLandingFooterWidget` in `homepage.html`.
+I will download and inspect `/site-assets/images/a2iset.png` using curl and view_file.
+I will check the agent worklog directory and file.
+I will inspect the tail of `human-agent-information-gap.log.md` before appending the worklog entry.
+I will check the git status in the repository.
+I will remove the temporary files created during this static audit session.
+I will append the worklog entry to `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`.
+### 1. Header Branding & Utility
+- **(a) Main portal title next to national emblem:** `বাংলাদেশ জাতীয় তথ্য বাতায়ন`
+- **(b) Exact date string displayed in the top header bar:** `১৯ অক্টোবর ২০২৬`
+- **(c) Exact placeholder text inside the search input:** `এখানে খুঁজুন...`
+
+---
+
+### 2. Public Health Popup Advisory Modal
+- **(a) Main Bengali headline/title at the top of the modal banner:** `পোড়া তেল ব্যবহার করবেন না`
+- **(b) Official government authority and website URL:**
+  - Authority: `বাংলাদেশ নিরাপদ খাদ্য কর্তৃপক্ষ` (খাদ্য মন্ত্রণালয়)
+  - URL: `www.bfsa.gov.bd`
+- **(c) Severe medical conditions and cholesterol effects attributed to burnt oil / trans fats:**
+  - Increases harmful cholesterol (`ক্ষতিকারক কোলেস্টেরল বৃদ্ধি করে`)
+  - Causes stroke and heart disease (`স্ট্রোক ও হৃদরোগ সৃষ্টি করে`)
+- **(d) Practical culinary alternative recommended for once-used oil:**
+  - Do not re-fry; instead, strain/filter and use it in cooking curry/vegetables (`একবার ভাজা তেল পুনরায় ভাজার কাজে ব্যবহার না করে ছেঁকে তরকারিতে ব্যবহার করতে পারেন।`)
+
+---
+
+### 3. Mobile App Hero Slider Graphics
+- **(a) Title/label for provident fund calculator tool:** `ভবিষ্য তহবিল ক্যালকুলেটর`
+- **(b) Title and tagline for property inheritance calculator tool:**
+  - Title: `উত্তরাধিকার.বাংলা` (labeled as `উত্তরাধিকার`)
+  - Tagline: `এক ক্লিকেই সম্পত্তির হিসাব`
+
+---
+
+### 4. Administrative Division Counters
+- **(a) Ministries and Divisions (মন্ত্রণালয় ও বিভাগ):** `৫৭`
+- **(b) Upazilas (উপজেলা):** `৫০০`
+- **(c) Union Parishads (ইউনিয়ন):** `৪৫৬৮`
+
+---
+
+### 5. Government Services Grid
+- **(a) Default active tab name:** `জনপ্রিয় সেবা` (`data-tab="popular-services"`)
+- **(b) Title of the 8th service card in default active tab:** `পাসপোর্ট, ভিসা ও ইমিগ্রেশন` (`data-index="7"`)
+- **(c) Visibility of "ইউটিলিটি বিল" (Utility Bill):** Hidden behind interactive toggle (`আরো দেখুন ↓`). The grid renders an initial batch of 8 cards (`data-index` 0 to 7) and sets index 8+ (`data-index="9"` for ইউটিলিটি বিল) to collapsed (`national-portal-services-widget-hidden-item`).
+
+---
+
+### 6. Emergency Helplines
+- **(a) 3-digit hotline for "সরকারি তথ্য ও সেবা":** `৩৩৩`
+- **(b) 5-digit hotline for "বিআরটিএ সার্ভিস পোর্টাল (বিএসপি)":** `১৬১০৭`
+- **(c) 5-digit hotline for "স্মার্ট ভূমি সেবা" and visibility:**
+  - Number: `১৬১২২`
+  - Visibility: Hidden behind toggle. Under `.bangladesh-emergency-hotline-widget`, items starting from the 7th position (`:nth-child(n+7)`) have CSS rule `display: none` by default; "স্মার্ট ভূমি সেবা" is the 9th item and requires expanding via `#toggle-hotlines`.
+
+---
+
+### 7. Media Gallery
+- **(a) Subject / alt text of the 4th image (depicting rows of oarsmen):** `নৌকা বাইচ`
+
+---
+
+### 8. Footer Institutional Attribution
+- **(a) Organizations depicted under "পরিকল্পনা এবং বাস্তবায়ন":**
+  - Depicted entity logos in the cluster image (`/site-assets/images/a2iset.png`):
+    1. `a2i` (`innovate for all`)
+    2. `Cabinet Division` (`Government of the People's Republic of Bangladesh`)
+    3. `ICT Division` (`FUTURE IS HERE`)
+    4. `UNDP` (`United Nations Development Programme`)
+  - Both UNDP and Cabinet Division are included in the cluster.
+
+---
+
+Log updated: `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`

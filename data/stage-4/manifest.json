@@ -1,0 +1,191 @@
+{
+  "captured_at": "2026-10-18T22:40:11.372310+00:00",
+  "experiment": "Experiment 03 \u2014 Bangladeshi Websites & Playwright vs. No-Playwright Tool Ablation",
+  "sites": {
+    "BD-01": {
+      "name": "Shohoz Bus Tickets",
+      "canonical_url": "https://www.shohoz.com/bus-tickets/",
+      "category": "Long-Distance Transit & Bus Ticketing",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/shohoz-bus-fullpage.png",
+        "sha256": "590f6c7cd0a15118569b9a993097daf7effac39ca9b8fe23f84f337696c6d802",
+        "bytes": 4128680,
+        "dimensions": "1208 x 6470 px"
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/shohoz-bus-dom.html",
+        "sha256": "6af46bc9e9d930b6e18e2c7b45a7b6654b533950244e4feddd0b57d172c3ece2",
+        "bytes": 153176
+      }
+    },
+    "BD-02": {
+      "name": "Chaldal Grocery Delivery",
+      "canonical_url": "https://chaldal.com",
+      "category": "Online Grocery & Daily Essentials Delivery",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "bytes": 2286316,
+        "dimensions": "1208 x 5635 px"
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/chaldal-dom.html",
+        "sha256": "07388b92389166834a7bb390ddee1b36a0ff1b8a057d9864ad4dbf8e3617649c",
+        "bytes": 1788792
+      }
+    },
+    "BD-FN01": {
+      "name": "bKash Limited",
+      "canonical_url": "https://www.bkash.com",
+      "category": "Banking, Fintech & Mobile Wallets",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-fn01-fullpage.png",
+        "sha256": "f55b9d46d447aede6b5e7fea2408cacb5c87c53515f9de275f0e1a9305aa4879",
+        "bytes": 1308367,
+        "dimensions": "1280 x 6980 px",
+        "pixel_luminance_std": 86.01
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/bd-fn01-dom.html",
+        "sha256": "ff093bd734e2bad4dd061cf35d94a74f20cfc79176c78f96dc68ecd8e7c2c519",
+        "bytes": 235531
+      }
+    },
+    "BD-CL01": {
+      "name": "Bikroy.com",
+      "canonical_url": "https://bikroy.com",
+      "category": "Classifieds, Recruitment & Real Estate",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-cl01-fullpage.png",
+        "sha256": "74da1a8cf031ed10369e714103e468ce0541bbe1f652d6ee9036456b425b5c9e",
+        "bytes": 2237103,
+        "dimensions": "1280 x 4361 px",
+        "pixel_luminance_std": 73.24
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/bd-cl01-dom.html",
+        "sha256": "e42d25e2d3cd7c595593c0d75839e097d55a220dab0781526307ff244101bb98",
+        "bytes": 221232
+      }
+    },
+    "BD-ED01": {
+      "name": "10 Minute School",
+      "canonical_url": "https://10minuteschool.com",
+      "category": "EdTech & Learning Portals",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-ed01-fullpage.png",
+        "sha256": "8578ef854d2ba3a50f5fefc001d26cdbd1bed884b7bb88c2b06d606affb1f5e3",
+        "bytes": 3253733,
+        "dimensions": "1280 x 9779 px",
+        "pixel_luminance_std": 46.14
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/bd-ed01-dom.html",
+        "sha256": "fc5d302c4c55b6405506d5d28b26e51a21c7ed308c0bfd6b948014ccfd685a4d",
+        "bytes": 462374
+      }
+    },
+    "BD-GV01": {
+      "name": "Bangladesh National Portal",
+      "canonical_url": "https://bangladesh.gov.bd",
+      "category": "Public Administration & Statutory Portals",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-gv01-fullpage.png",
+        "sha256": "01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888",
+        "bytes": 1673427,
+        "dimensions": "1280 x 2693 px",
+        "pixel_luminance_std": 90.32
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/bd-gv01-dom.html",
+        "sha256": "f88cec77e4f0cc642932d692afb5c45a463ea62e37d69a2b16205746a62ead38",
+        "bytes": 139768
+      }
+    },
+    "BD-TR02": {
+      "name": "Biman Bangladesh Airlines",
+      "canonical_url": "https://www.biman-airlines.com",
+      "category": "Transit, Aviation & Intercity Rail",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-tr02-fullpage.png",
+        "sha256": "7c00434d2551708541093b92c525cefcaed8a6f3b14402ecc4a4a680e9ef906a",
+        "bytes": 35298,
+        "dimensions": "1280 x 900 px",
+        "pixel_luminance_std": 20.18
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/bd-tr02-dom.html",
+        "sha256": "3547e7bf39ef9110f726ef0661a8ba236558c7a0f0f53faa4f7690e6153eea04",
+        "bytes": 28725
+      }
+    },
+    "BD-TR03": {
+      "name": "US-Bangla Airlines",
+      "canonical_url": "https://usbair.com",
+      "category": "Transit, Aviation & Intercity Rail",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-tr03-fullpage.png",
+        "sha256": "ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a",
+        "bytes": 1334278,
+        "dimensions": "1333 x 3866 px",
+        "pixel_luminance_std": 85.88
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/bd-tr03-dom.html",
+        "sha256": "df2a017b6356ae3b3dc4513d6c8ee0a4872e5d67c140e3a48c6b9bb627f92e73",
+        "bytes": 102426
+      }
+    },
+    "BD-CL02": {
+      "name": "Bdjobs.com",
+      "canonical_url": "https://www.bdjobs.com",
+      "category": "Classifieds, Recruitment & Real Estate",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-cl02-fullpage.png",
+        "sha256": "36a9fe9c501934358e51ff14326ed69e419be633ad127dc08d1178915cb4a2fc",
+        "bytes": 723114,
+        "dimensions": "1280 x 6121 px",
+        "pixel_luminance_std": 32.46
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/bd-cl02-dom.html",
+        "sha256": "de50a91884f861beb1155004ffb1ae916aa3977c72156cc8aca5debfd2bbdcef",
+        "bytes": 445326
+      }
+    },
+    "BD-FN02": {
+      "name": "Nagad",
+      "canonical_url": "https://nagad.com.bd",
+      "category": "Banking & Fintech",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-fn02-fullpage.png",
+        "sha256": "0c552ce11775c4cdeee17a4645ad9c8c6e9a95d1efc6e9c7a10f15e3895dfc50",
+        "bytes": 1799425,
+        "dimensions": "1280 x 3792 px",
+        "pixel_luminance_std": 83.54
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/bd-fn02-dom.html",
+        "sha256": "145ec61ff8e7c0e18e2ce1e60c2d5968e6cc78de314bd2dfe05905b2e1c464b8",
+        "bytes": 542318
+      }
+    },
+    "BD-QC02": {
+      "name": "Shwapno Online",
+      "canonical_url": "https://www.shwapno.com",
+      "category": "Quick-Commerce & Grocery",
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-qc02-fullpage.png",
+        "sha256": "0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b",
+        "bytes": 1987100,
+        "dimensions": "1280 x 10217 px",
+        "pixel_luminance_std": 42.62
+      },
+      "raw_dom": {
+        "path": "data/stage-4/raw/bd-qc02-dom.html",
+        "sha256": "c2bbca2e09a29d3e2a29e5f36e11ca13f9e8931856b53ae5e17b82e925c496e6",
+        "bytes": 2415352
+      }
+    }
+  }
+}

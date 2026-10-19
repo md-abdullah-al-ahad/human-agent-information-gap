@@ -1,0 +1,80 @@
+### Information Extraction Audit: US-Bangla Airlines (https://usbair.com)
+
+---
+
+#### 1. Flight Booking Engine UI
+- **(a) Default Origin Airport Code & Name:**
+  - **Airport Code:** `DAC`
+  - **Airport Name:** `Hazrat Shahjalal International Airport` (City: `Dhaka`, Country: `Bangladesh`)
+  - *(Note: In raw unhydrated SSR HTML prior to client geolocation/store hydration, the input element defaults to the label/placeholder `Departure`).*
+- **(b) Main Search CTA Button Text & Visual Styling:**
+  - **Exact Text:** `Search Flights` (accompanied by an inline airplane SVG icon).
+  - **Visual Styling:**
+    - Background: Solid crimson/red (`bg-[#C30B12]`)
+    - Text: White (`text-white`), font family Roboto (`font-roboto`), normal weight (`font-normal`), title size (`text-navBarTitle`)
+    - Layout & Shape: Centered flex row (`flex flex-row justify-center items-center gap-2`), rounded corners (`rounded`), whitespace pre-wrap (`whitespace-pre-wrap`), padding `px-10 py-3 lg:px-8`.
+- **(c) Default Passenger Count & Cabin Class:**
+  - **Passenger Count:** `1 Passenger` (1 Adult)
+  - **Cabin Class:** `Economy`
+
+---
+
+#### 2. Promotional Mastercard Popup Modal
+*(Extracted from dynamic configuration endpoint `/api/common-json-view?tag=popup-advertisement` resolving to modal image `mastercard-offer-popup-web.jpg`)*
+- **(a) Discount Percentages & Promo Codes:**
+  - **Domestic Routes:** `15% OFF` | Promo Code: `USBA15`
+  - **International Routes:** `10% OFF` | Promo Code: `USBAIN10`
+- **(b) Lucky Draw Grand Prize & Domestic Return Options:**
+  - **Grand Prize Holiday Trip:** `Couple Holiday in Kuala Lumpur!` (*"Get a chance to win Couple Holiday in Kuala Lumpur!"*)
+  - **Three Domestic Return Ticket Options:** `Cox's Bazar | Sylhet | Chattogram` (*"Return Tickets to Cox's Bazar | Sylhet | Chattogram"*)
+- **(c) Exact Validity Expiry Date:**
+  - `Till 31ST October 2026` (*"*T&C Apply | Validity: Till 31ST October 2026"*)
+- **(d) Cardholder Name on Black Mastercard:**
+  - `SABRINA ISLAM` (Card Number: `5123 4567 8901 2345`, Exp: `22/31`)
+
+---
+
+#### 3. Sky Star Loyalty Program
+- **(a) Names of the Four Loyalty Membership Tier Badges:**
+  - `Silver`
+  - `Gold`
+  - `Platinum`
+  - `Titanium`
+  *(Depicted sequentially left-to-right inside the circular star icons in `/HomePage/Join-Sky-Star-02.svg`)*
+- **(b) Primary Call-to-Action Headline:**
+  - `Join Sky Star` (Action button: `Join now`)
+
+---
+
+#### 4. Vacation Promotion & Marketing
+- **(a) Headline of Vacation Resort Banner:**
+  - `Enjoy your favorite holiday destination and Earn Miles!` (Source template: `"Enjoy your favorite holiday destination /n and Earn Miles!"`; Sub-header: `"US-Bangla Airlines Sky Star"`)
+- **(b) Exact Button Text:**
+  - `Make Memories`
+
+---
+
+#### 5. Destination from Dhaka Section
+- **(a) Default Pre-filled City in Origin Box:**
+  - `Dhaka`
+- **(b) Marketing Descriptor for Kolkata:**
+  - `City of Joy` (*"Book Your Flight to the City of Joy"*)
+- **(c) Marketing Descriptor for Guangzhou:**
+  - `City of Flowers` (*"Book Your Flight to the City of Flowers"*)
+- **(d) Marketing Descriptor for Kuala Lumpur:**
+  - `cosmopolitan metropolis` (*"Book Your Flight to the cosmopolitan metropolis"*)
+
+---
+
+#### 6. Footer Affordances & App Promotion
+- **(a) Newsletter Subscription Placeholder & Button Label:**
+  - **Placeholder Text:** `Email Address`
+  - **Action Button Label:** `Subscribe`
+- **(b) Advertised App Value Proposition Text:**
+  - `Book and  manage your flight & Get exclusive discounts` *(verbatim string containing two consecutive spaces between 'and' and 'manage')*
+- **(c) Verbatim Copyright Notice:**
+  - `© 2026 US-Bangla Airlines. All rights reserved.`
+
+---
+
+Log updated: `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`

@@ -1,0 +1,168 @@
+{
+  "version": "1.0.0",
+  "total_sites": 100,
+  "domains_count": 10,
+  "sites_per_domain": 10,
+  "domains": {
+    "quick_commerce_grocery": {
+      "domain_name": "Quick-Commerce & Grocery Delivery",
+      "description": "High-frequency daily grocery, localized logistics, tiered delivery fees, perishable return policies.",
+      "sites": [
+        {"id": "BD-QC01", "name": "Chaldal", "url": "https://chaldal.com"},
+        {"id": "BD-QC02", "name": "Shwapno Online", "url": "https://www.shwapno.com"},
+        {"id": "BD-QC03", "name": "MeenaClick", "url": "https://meenaclick.com"},
+        {"id": "BD-QC04", "name": "Agora Superstore", "url": "https://agorasuperstores.com"},
+        {"id": "BD-QC05", "name": "Daily Bazar", "url": "https://dailybazar.com.bd"},
+        {"id": "BD-QC06", "name": "Khaas Food", "url": "https://khaasfood.com"},
+        {"id": "BD-QC07", "name": "Direct Fresh", "url": "https://directfreshbd.com"},
+        {"id": "BD-QC08", "name": "Parmeeda", "url": "https://parmeeda.com"},
+        {"id": "BD-QC09", "name": "Prakritik BD", "url": "https://prakritikbd.com"},
+        {"id": "BD-QC10", "name": "Bengal Meat Online", "url": "https://bengalmeat.com"}
+      ]
+    },
+    "multivendor_ecommerce": {
+      "domain_name": "Multi-Vendor E-Commerce Marketplaces",
+      "description": "Multi-tier variant trees, seller-brand conflicts, promotional voucher carousels, payment partner cashbacks.",
+      "sites": [
+        {"id": "BD-EC01", "name": "Daraz Bangladesh", "url": "https://www.daraz.com.bd"},
+        {"id": "BD-EC02", "name": "Pickaboo", "url": "https://www.pickaboo.com"},
+        {"id": "BD-EC03", "name": "Othoba", "url": "https://www.othoba.com"},
+        {"id": "BD-EC04", "name": "Rokomari", "url": "https://www.rokomari.com"},
+        {"id": "BD-EC05", "name": "PriyoShop", "url": "https://priyoshop.com"},
+        {"id": "BD-EC06", "name": "AjkerDeal", "url": "https://ajkerdeal.com"},
+        {"id": "BD-EC07", "name": "Aarong", "url": "https://www.aarong.com"},
+        {"id": "BD-EC08", "name": "Bagdoom", "url": "https://www.bagdoom.com"},
+        {"id": "BD-EC09", "name": "Sindabad B2B", "url": "https://sindabad.com"},
+        {"id": "BD-EC10", "name": "Shadmart Bangladesh", "url": "https://shadmart.com"}
+      ]
+    },
+    "transit_aviation_rail": {
+      "domain_name": "Transit, Aviation & Intercity Rail",
+      "description": "Multi-step route finders, seat selection maps, temporal cancellation blackout windows, strict passenger prerequisites.",
+      "sites": [
+        {"id": "BD-TR01", "name": "Shohoz Bus Tickets", "url": "https://www.shohoz.com/bus-tickets/"},
+        {"id": "BD-TR02", "name": "Biman Bangladesh Airlines", "url": "https://www.biman-airlines.com"},
+        {"id": "BD-TR03", "name": "US-Bangla Airlines", "url": "https://usbair.com"},
+        {"id": "BD-TR04", "name": "Novoair", "url": "https://www.flynovoair.com"},
+        {"id": "BD-TR05", "name": "Bangladesh Railway E-Ticketing", "url": "https://eticket.railway.gov.bd"},
+        {"id": "BD-TR06", "name": "ShareTrip", "url": "https://sharetrip.net"},
+        {"id": "BD-TR07", "name": "GoZayaan", "url": "https://gozayaan.com"},
+        {"id": "BD-TR08", "name": "Flight Expert", "url": "https://flightexpert.com"},
+        {"id": "BD-TR09", "name": "BusBD", "url": "https://www.busbd.com.bd"},
+        {"id": "BD-TR10", "name": "Parjatan Corporation", "url": "https://parjatan.gov.bd"}
+      ]
+    },
+    "consumer_electronics_retail": {
+      "domain_name": "Consumer Electronics & Tech Retail",
+      "description": "Multi-attribute specification matrices, cash vs. card tiered pricing, out-of-stock UI affordance signals.",
+      "sites": [
+        {"id": "BD-CE01", "name": "Star Tech", "url": "https://www.startech.com.bd"},
+        {"id": "BD-CE02", "name": "Ryans Computers", "url": "https://www.ryans.com"},
+        {"id": "BD-CE03", "name": "Techland BD", "url": "https://www.techlandbd.com"},
+        {"id": "BD-CE04", "name": "UCC Bangladesh", "url": "https://www.ucc.com.bd"},
+        {"id": "BD-CE05", "name": "Skyland BD", "url": "https://www.skyland.com.bd"},
+        {"id": "BD-CE06", "name": "Walton Plaza", "url": "https://waltonplaza.com.bd"},
+        {"id": "BD-CE07", "name": "Custom Mac BD", "url": "https://custommacbd.com"},
+        {"id": "BD-CE08", "name": "Apple Gadgets BD", "url": "https://www.applegadgetsbd.com"},
+        {"id": "BD-CE09", "name": "Jamuna Electronics", "url": "https://www.estorejamuna.com"},
+        {"id": "BD-CE10", "name": "Singer Bangladesh", "url": "https://www.singerbd.com"}
+      ]
+    },
+    "banking_fintech": {
+      "domain_name": "Banking, Fintech & Mobile Wallets",
+      "description": "Transaction fee schedules, daily limit tables, security badges, accepted merchant sprite grids.",
+      "sites": [
+        {"id": "BD-FN01", "name": "bKash Limited", "url": "https://www.bkash.com"},
+        {"id": "BD-FN02", "name": "Nagad", "url": "https://nagad.com.bd"},
+        {"id": "BD-FN03", "name": "City Bank / Citytouch", "url": "https://www.thecitybank.com"},
+        {"id": "BD-FN04", "name": "BRAC Bank", "url": "https://www.bracbank.com"},
+        {"id": "BD-FN05", "name": "Dutch-Bangla Bank", "url": "https://www.dutchbanglabank.com"},
+        {"id": "BD-FN06", "name": "Eastern Bank (EBL)", "url": "https://www.ebl.com.bd"},
+        {"id": "BD-FN07", "name": "Upay (UCB Fintech)", "url": "https://www.upaybd.com"},
+        {"id": "BD-FN08", "name": "Mutual Trust Bank (MTB)", "url": "https://www.mutualtrustbank.com"},
+        {"id": "BD-FN09", "name": "LankaBangla Finance", "url": "https://www.lankabangla.com"},
+        {"id": "BD-FN10", "name": "SSLCOMMERZ", "url": "https://sslcommerz.com"}
+      ]
+    },
+    "healthcare_telemedicine": {
+      "domain_name": "Healthcare, Hospitals & Telemedicine",
+      "description": "Doctor department taxonomies, visiting hour constraints, appointment booking affordances, service scopes.",
+      "sites": [
+        {"id": "BD-HC01", "name": "Evercare Hospital Dhaka", "url": "https://www.evercarebd.com"},
+        {"id": "BD-HC02", "name": "Square Hospital Dhaka", "url": "https://www.squarehospital.com"},
+        {"id": "BD-HC03", "name": "United Hospital", "url": "https://www.uhlbd.com"},
+        {"id": "BD-HC04", "name": "Praava Health", "url": "https://praavahealth.com"},
+        {"id": "BD-HC05", "name": "Labaid Diagnostic & Hospital", "url": "https://labaid.com.bd"},
+        {"id": "BD-HC06", "name": "Asgar Ali Hospital", "url": "https://www.asgaralihospital.com"},
+        {"id": "BD-HC07", "name": "Ibn Sina Trust", "url": "https://www.ibnsinatrust.com"},
+        {"id": "BD-HC08", "name": "Daktarbhai Telemedicine", "url": "https://daktarbhai.com"},
+        {"id": "BD-HC09", "name": "Shastho BD", "url": "https://shastho.com"},
+        {"id": "BD-HC10", "name": "Popular Diagnostic Centre", "url": "https://populardiagnostic.com"}
+      ]
+    },
+    "statutory_government": {
+      "domain_name": "Statutory Public Sector & Government",
+      "description": "Statutory eligibility rules, structured negative legal constraints, public fee schedules.",
+      "sites": [
+        {"id": "BD-GV01", "name": "Bangladesh National Portal", "url": "https://bangladesh.gov.bd"},
+        {"id": "BD-GV02", "name": "Gov.uk Statutory Guidance", "url": "https://www.gov.uk/browse/visas-immigration"},
+        {"id": "BD-GV03", "name": "Bangladesh Election Commission NID Wing", "url": "https://services.nidw.gov.bd"},
+        {"id": "BD-GV04", "name": "Directorate General of Health Services (DGHS)", "url": "https://dghs.gov.bd"},
+        {"id": "BD-GV05", "name": "National Board of Revenue (NBR e-TIN)", "url": "https://incometax.gov.bd"},
+        {"id": "BD-GV06", "name": "Passport Office e-Passport Portal", "url": "https://www.epassport.gov.bd"},
+        {"id": "BD-GV07", "name": "Bangladesh Road Transport Authority (BRTA)", "url": "https://brta.gov.bd"},
+        {"id": "BD-GV08", "name": "Dhaka Power Distribution Company (DPDC)", "url": "https://dpdc.org.bd"},
+        {"id": "BD-GV09", "name": "Bangladesh Telecommunication Regulatory Commission (BTRC)", "url": "https://btrc.gov.bd"},
+        {"id": "BD-GV10", "name": "Department of Immigration and Passports", "url": "https://dip.gov.bd"}
+      ]
+    },
+    "classifieds_real_estate": {
+      "domain_name": "Classifieds, Recruitment & Real Estate",
+      "description": "C2C unstandardized metadata, salary/price negotiations, regional location filtering.",
+      "sites": [
+        {"id": "BD-CL01", "name": "Bikroy.com", "url": "https://bikroy.com"},
+        {"id": "BD-CL02", "name": "Bdjobs.com", "url": "https://www.bdjobs.com"},
+        {"id": "BD-CL03", "name": "Bproperty.com", "url": "https://www.bproperty.com"},
+        {"id": "BD-CL04", "name": "KroyBD", "url": "https://kroybd.com"},
+        {"id": "BD-CL05", "name": "ClickBD", "url": "https://www.clickbd.com"},
+        {"id": "BD-CL06", "name": "Chakri.com", "url": "https://chakri.com"},
+        {"id": "BD-CL07", "name": "Jagojobs", "url": "https://jagojobs.com"},
+        {"id": "BD-CL08", "name": "BD Housing", "url": "https://bdhousing.com"},
+        {"id": "BD-CL09", "name": "ToletX Property", "url": "https://toletx.com"},
+        {"id": "BD-CL10", "name": "Karmasangsthan Bank Job Portal", "url": "https://kb.gov.bd"}
+      ]
+    },
+    "education_edtech": {
+      "domain_name": "Education, EdTech & Academic Portals",
+      "description": "Course syllabus hierarchies, enrollment blackout deadlines, prerequisite requirement constraints.",
+      "sites": [
+        {"id": "BD-ED01", "name": "10 Minute School", "url": "https://10minuteschool.com"},
+        {"id": "BD-ED02", "name": "Shikho", "url": "https://shikho.com"},
+        {"id": "BD-ED03", "name": "University of Dhaka", "url": "https://www.du.ac.bd"},
+        {"id": "BD-ED04", "name": "BUET", "url": "https://www.buet.ac.bd"},
+        {"id": "BD-ED05", "name": "North South University", "url": "https://www.northsouth.edu"},
+        {"id": "BD-ED06", "name": "BRAC University", "url": "https://www.bracu.ac.bd"},
+        {"id": "BD-ED07", "name": "Bohubrihi EdTech", "url": "https://bohubrihi.com"},
+        {"id": "BD-ED08", "name": "Interactive Cares", "url": "https://interactivecares.com"},
+        {"id": "BD-ED09", "name": "Replit Learn", "url": "https://replit.com/learn"},
+        {"id": "BD-ED10", "name": "National University Bangladesh", "url": "https://www.nu.ac.bd"}
+      ]
+    },
+    "saas_cloud_infrastructure": {
+      "domain_name": "SaaS & Cloud Infrastructure",
+      "description": "Tiered compute pricing matrices, usage-based sliders, plan entitlement limits, enterprise overage rules.",
+      "sites": [
+        {"id": "BD-SA01", "name": "Supabase Platform", "url": "https://supabase.com/pricing"},
+        {"id": "BD-SA02", "name": "Vercel Platform", "url": "https://vercel.com/pricing"},
+        {"id": "BD-SA03", "name": "Cloudflare Workers", "url": "https://www.cloudflare.com/plans/"},
+        {"id": "BD-SA04", "name": "DigitalOcean Droplets", "url": "https://www.digitalocean.com/pricing"},
+        {"id": "BD-SA05", "name": "Postman API Platform", "url": "https://www.postman.com/pricing/"},
+        {"id": "BD-SA06", "name": "Railway App", "url": "https://railway.app/pricing"},
+        {"id": "BD-SA07", "name": "Fly.io Compute", "url": "https://fly.io/docs/about/pricing/"},
+        {"id": "BD-SA08", "name": "GitHub Developer Services", "url": "https://github.com/pricing"},
+        {"id": "BD-SA09", "name": "Resend Email API", "url": "https://resend.com/pricing"},
+        {"id": "BD-SA10", "name": "Sentry Application Monitoring", "url": "https://sentry.io/pricing/"}
+      ]
+    }
+  }
+}

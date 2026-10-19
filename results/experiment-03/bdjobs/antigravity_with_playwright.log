@@ -1,0 +1,86 @@
+I will now append a work log entry for the information extraction audit of Bdjobs.com to `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`.
+### Strict Information Extraction Audit: Bdjobs.com (`https://www.bdjobs.com`)
+
+Data sources audited:
+- DOM Source: [`bd-cl02-dom.html`](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/raw/bd-cl02-dom.html)
+- High-Resolution Screenshot: [`bd-cl02-fullpage.png`](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/screenshots/bd-cl02-fullpage.png)
+
+---
+
+#### 1. Platform Header Statistics & Metrics
+- **(a) 'LIVE JOBS' Counter**: `6,931`
+- **(b) 'VACANCIES' Counter**: `28,916+`
+- **(c) 'COMPANIES' Counter**: `3,772`
+- **(d) 'NEW JOBS' Counter**: `759`
+
+---
+
+#### 2. Primary Search & Filter Bar
+- **(a) Placeholder text in main job keyword input field (`input[name="txtSearch"]`)**:
+  - **Visual render in screenshot**: `Exe`
+  - **DOM placeholder attribute value**: `placeholder="Execut"`
+  *(Note: The field uses a client-side typewriter animation cycling through search phrases such as "Executive..."; at the moment of capture, the animated string was mid-cycle).*
+- **(b) Placeholder text for Organization Type dropdown selector**:
+  - `Organization Type`
+- **(c) Main search submit button text and styling**:
+  - **Button Text**: `Search`
+  - **Background Color**: `#b8dbb8` (light pale green; hover state `#39873d`)
+  - **Text Color**: `#000000` (black; hover state white)
+  - **Styling Classes**: `w-full lg:w-[15%] px-6 py-2 bg-[#b8dbb8] text-black hover:bg-[#39873d] hover:text-white rounded-sm cursor-pointer transition-colors`
+
+---
+
+#### 3. Division Quick Filters
+- **(a) Dhaka division job count**: `4856` (button label: `Dhaka (4856)`)
+- **(b) Chattogram division job count**: `561` (button label: `Chattogram (561)`)
+- **(c) Barishal division job count**: `76` (button label: `Barishal (76)`)
+
+---
+
+#### 4. Promotional Header Event Banner (`1140X90.jpg`)
+- **(a) Event title displayed across the banner**:
+  - `জাতীয় যুবদিবস ২০২৬ উপলক্ষে জব ফেয়ার` (*Job Fair on the occasion of National Youth Day 2026*)
+- **(b) Specific date badge in red**:
+  - `০১ নভেম্বর` (*01 November*) (white text inside a red rounded badge)
+- **(c) Organizing authorities / government bodies listed with official logos**:
+  - Department of Youth Development (যুব উন্নয়ন অধিদপ্তর)
+  - Ministry of Youth and Sports (যুব ও ক্রীড়া মন্ত্রণালয়)
+  - Government of the People's Republic of Bangladesh (গণপ্রজাতন্ত্রী বাংলাদেশ সরকার - national seal emblem)
+  - Event identity: National Youth Day 2026 (জাতীয় যুব দিবস ২০২৬)
+  - Partner credit: সহযোগিতায়: bdjobs
+
+---
+
+#### 5. Training & Professional Development Promotions (`Friendship-Academy.jpg`)
+- **(a) Exact title of training program**:
+  - `Winter School on Development in Practice 2026`
+  *(Organized in collaboration with the Department of Development Studies, University of Dhaka)*
+- **(b) Application deadline stated on banner**:
+  - `Application Deadline: October 22`
+
+---
+
+#### 6. Sidebar Badges & Category Exploration
+- **(a) Text on right sidebar badge with camouflage background (`Army-Banner.gif`)**:
+  - Displays: `Retired army person?` (alternating in the two-frame GIF with `Post your CV now`)
+- **(b) Text and call-to-action on purple video badge (`video-cv.gif`)**:
+  - **Main Text**: `Video CV` (accompanied by a video camera icon with a user silhouette)
+  - **Call-to-Action**: `click to upload`
+- **(c) Status under 'Discover Jobs Across Popular Category & Industry'**:
+  - **Active / Selected Tab**: `Category` (styled with `bg-[#616161] text-white`)
+  - **Inactive Tab**: `Industry` (styled with `bg-[#f5f5f5] text-gray-500`)
+- **(d) Job count displayed for 'Marketing/Sales'**:
+  - `1273` (rendered as `(1273)`)
+
+---
+
+#### 7. Customer Support & Contact Affordances
+- **(a) Official customer support / helpdesk phone numbers listed in the red footer block**:
+  1. `16479` (Helpdesk shortcode)
+  2. `09638666444` (IP hotline)
+  3. `01897627858` (Customer support contact)
+  *(Rendered in bold red text `#D92D20` under "Need any support? Our Contact Centre is available from 9 am to 8 pm (Sat to Thurs).")*
+
+---
+
+Log updated: /home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md

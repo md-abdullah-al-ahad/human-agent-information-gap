@@ -1,0 +1,135 @@
+I will now update the private autonomous worklog at `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md` with the details and findings of this static DOM audit.
+### Information Extraction Audit: Nagad ([`bd-fn02-dom.html`](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/raw/bd-fn02-dom.html))
+
+The audit was conducted strictly via static inspection of the DOM snapshot ([`bd-fn02-dom.html`](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/raw/bd-fn02-dom.html)) and the companion static full-page asset ([`bd-fn02-fullpage.png`](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/screenshots/bd-fn02-fullpage.png)) without browser automation.
+
+---
+
+### 1. Header Branding & Global Affordances
+
+- **(a) Official Government Service Subtitle / Tagline:**
+  - **Text:** `ডাক বিভাগের ডিজিটাল লেনদেন` (*"Dak Bibhager Digital Lenden"* - Postal Department's Digital Transaction).
+  - **Placement & Association:** Rendered directly beneath the red `নগদ` brand logotype in the header image asset ([`new-logo.14fe8a5.png`](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/raw/bd-fn02-dom.html#L3)). In the page body and footer, Nagad is officially designated as a digital financial service of Bangladesh Post Office (`বাংলাদেশ ডাক বিভাগের ডিজিটাল ফাইন্যান্সিয়াল ডিজিটাল লেনদেন সেবা হচ্ছে নগদ`), accompanied by the Bangladesh Post Office seal linking to [bdpost.gov.bd](https://bdpost.gov.bd/).
+
+- **(b) Active Language & Active State Styling:**
+  - **Active Language:** Bangla (**বাংলা**).
+  - **DOM Node:** `<div class="lang-btn active" data-v-59d59973="">বাংলা</div>`
+  - **Active State Styling:**
+    - Background: Solid red/crimson fill (`background-color: #d0392c`).
+    - Text color: Pure white (`color: #fff`).
+    - Container shape: Fully rounded pill container (`border-radius: 100px`).
+    - Typography & Layout: `font-size: 10px`, `font-weight: 600`, `letter-spacing: .55px`, `padding: 7.9px 15px`, `display: flex`, `align-items: center`.
+    - Inactive option (`English`): Transparent background (`background: 0 0`) with dark slate-gray text (`color: #4e4b66`) resting within the parent light-gray pill container (`background-color: #d9dbe9`).
+
+- **(c) Sixth / Final Navigation Menu Link:**
+  - **Text:** `নগদ ইসলামিক` (*Nagad Islamic*)
+  - **Target URL:** `https://nagadislamic.com.bd/bn/`
+  - **DOM Reference:** `<li class="menu-list" data-v-59d59973=""><a target="_blank" href="https://nagadislamic.com.bd/bn/" class="menu-link font-bn" data-v-59d59973="">নগদ ইসলামিক</a></li>`
+
+---
+
+### 2. Promotional Popup Modal
+
+- **(a) Top Headline Text Inside Graphic:**
+  - **Text:**
+    ```text
+    নগদ অ্যাপে
+    নতুন Experience
+    ```
+  - **Formatting:** Two-line layout with horizontal emphasis line beneath `নতুন Experience`.
+
+- **(b) Central Large 3D Typography Slogan:**
+  - **Slogan:** `সব হবে Nonstop`
+  - **Typography:**
+    - `সব হবে`: Bold Bengali script in white with a dark crimson shadow outline.
+    - `Nonstop`: Prominent 3D block-letter Latin typography rendered in bold red with white interior border contouring and extruded isometric perspective.
+
+- **(c) Featured Athlete / Person:**
+  - **Identity:** **Jamal Bhuyan** (**জামাল ভূঁইয়া**), captain of the Bangladesh National Football Team and official brand ambassador for Nagad (featured in a red athletic jersey, presenting the updated Nagad mobile application interface on a smartphone).
+
+- **(d) Primary Action Button Text & Styling:**
+  - **Exact Text:** `Let's go` followed by a right arrow icon graphic (`→`).
+  - **Destination URL:** `https://onelink.to/nagadapp`
+  - **DOM Reference:** `<a href="https://onelink.to/nagadapp" class="theme-btn" data-v-720338b2="">Let's go <img alt="icon" ...></a>`
+  - **Styling:**
+    - Background: Pure white pill container (`background: #fff; border: 2px solid #fff; border-radius: 100px`).
+    - Typography: Crimson-red text (`color: #d0392c; font-size: 15px; font-weight: 600; line-height: 22px`).
+    - Dimensions & Padding: `display: flex; align-items: center; padding: 20px 32px`.
+    - Icon: 24x24 px inline arrow image placed with `margin-left: 16px`.
+    - Hover Transition: Flips to crimson fill with white text (`background: #d0392c; border: 2px solid #d0392c; color: #fff`) and inverted white icon filter (`filter: brightness(0) invert(1)`).
+
+---
+
+### 3. Hero Banner & Visual Scenery
+
+- **(a) Bengali Slogan on Hero Slider (Behind Modal):**
+  - **Full Slogan:** `লেনদেন যেখানে নগদ সেখানে` (*"Lenden jekhane Nagad sekhane"*)
+  - **Layout:**
+    - Line 1: `লেনদেন যেখানে`
+    - Line 2: `নগদ সেখানে`
+    - Displayed in large white Bengali typography with red outline across the rustic village landscape.
+
+- **(b) Text on Rural Store Red Signboard:**
+  - **Signboard Headline:** `সর্বনিম্ন ক্যাশ আউট চার্জ*` (*"Sorbonimno Cash Out Charge*"*)
+  - **Visual Detail:** Rendered in yellow font (`সর্বনিম্ন`) and white font (`ক্যাশ আউট চার্জ*`) on a red rectangular fascia, flanked on the right by the Nagad logo.
+
+---
+
+### 4. Current Promotional Offers (বর্তমান অফার)
+
+- **(a) Weekend Add Money Required Transaction Amount:**
+  - **Exact Amount:** `৳৮,৮৮০` / `৳8,880` (*"৳৮,৮৮০ অ্যাড মানিতে"* / *"৳8,880 অ্যাড মানিতে"*).
+  - **Context:** Accompanied by the banner subtitle `ব্যাংক থেকে নগদ-এ` and campaign URL slug `2026-october-add-money`.
+
+- **(b) Exact Instant Bonus Amount in Red Box:**
+  - **Exact Bonus:** `৳৮০` / `৳80` (*"৳৮০ ইনস্ট্যান্ট বোনাস*" / *"৳80 ইনস্ট্যান্ট বোনাস*").
+
+- **(c) DeeptoPlay Promotional Card Cashback Percentage:**
+  - **Cashback Rate:** `২০%` / `20%` (*"২০% ক্যাশব্যাক* নগদ পেমেন্টে"*).
+  - **Headline:** `DeeptoPlay-এর সাবস্ক্রিপশনে` (DOM campaign link: `20-cashback-on-deeptoplay`).
+
+---
+
+### 5. Account Opening Workflow (নগদ একাউন্ট খুলুন)
+
+- **(a) Section Heading and Subheading:**
+  - **Section Heading:** `নগদ একাউন্ট খুলুন`
+  - **Subheading:** `আপনার নগদ একাউন্ট তৈরি করার ৩ টি সহজ ধাপ`
+
+- **(b) Step 1 Instruction (ধাপ ১):**
+  - **Verbatim Instruction:** `এন আই ডি স্ক্যান করে প্রয়োজনীয় তথ্য দিন`
+  - *(DOM string contains double space: `এন আই ডি স্ক্যান করে  প্রয়োজনীয় তথ্য দিন`)*
+
+- **(c) Step 2 Instruction (ধাপ ২):**
+  - **Verbatim Instruction:** `সেলফি তুলুন ও নির্দিষ্ট জায়গায় ডিজিটাল স্বাক্ষর দিন`
+
+- **(d) Step 3 Instruction (ধাপ ৩):**
+  - **Verbatim Instruction:** `৪ ডিজিটের পিন সেট করুন`
+
+---
+
+### 6. Corporate Identity & Reach Milestone
+
+- **(a) Journey Launch Date & Milestone Customer Count:**
+  - **Section Reference:** `নগদ - বাংলাদেশ পোস্ট অফিসের একটি ডিএফএস`
+  - **Exact Launch Date:** `২০১৯ সালের ২৬ মার্চ` (March 26, 2019).
+  - **Reported Customer Milestone:** `৯ কোটির অধিক` (Over 90 million / 9 crore customers).
+  - **Verbatim Sentence:**
+    > *"বাংলাদেশ ডাক বিভাগের ডিজিটাল ফাইন্যান্সিয়াল ডিজিটাল লেনদেন সেবা হচ্ছে নগদ। নগদ-এর যাত্রা শুরু ২০১৯ সালের ২৬ মার্চ। শুরুর মাত্র পাঁচ বছরে, ৯ কোটির অধিক মানুষকে আর্থিক লেনদেনের মধ্যে এনেছে নগদ।"*
+
+---
+
+### 7. Footer Affordances & Legal Notice
+
+- **(a) Red App Download Button in Footer:**
+  - **Exact Text:** `ডাউনলোড অ্যাপ`
+  - **DOM Reference:** `<a href="https://onelink.to/nagadapp" target="_blank" class="download-btn font-bn" data-v-1e088745="">ডাউনলোড অ্যাপ</a>`
+  - **Styling:** Red rounded button (`background: #f24f41; border: 2px solid #f24f41; color: #fff; border-radius: 100px; font-weight: 600`).
+
+- **(b) Verbatim Copyright Notice Line:**
+  - **Verbatim Line:** `© 2026 Nagad All rights reserved`
+  - **DOM Reference:** `<div class="copyright-text" data-v-1e088745=""><p data-v-1e088745="">© 2026 Nagad All rights reserved</p></div>`
+
+---
+
+Log updated: `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`

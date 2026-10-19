@@ -1,0 +1,28 @@
+You are conducting a strict information extraction audit of 10 Minute School (https://10minuteschool.com). Extract the following factual details from the site with zero hallucination. If a piece of information is not present or cannot be determined, state 'Not Found':
+
+1. In-Image Hero Graphics: Look closely at the visual graphics inside the 6 main hero category cards at the top of the page:
+   (a) What exact English text/code and icon is stamped inside the image graphic for the first card (HSC ২৬)?
+   (b) For the fourth card labeled 'দশম শ্রেণি', what exact alphanumeric text and icon is rendered inside the visual image itself? Does the text inside the image contradict the Bengali text label underneath it?
+   (c) What exact English text is rendered inside the visual image graphics for '৯ম শ্রেণি' and '৬ষ্ঠ, ৭ম, ৮ম শ্রেণি'?
+2. Subject Bundle Badges: On the online batch subject pills (e.g. under SSC and HSC batches), what specific visual icon badge is attached to several pills (like Science bundle, Bangla-English-ICT 2.0), and what does it signify?
+3. Hero Action Button: What is the exact text and destination link of the prominent green button located directly below the hero category cards?
+4. Offline English Learning Centres: 10 Minute School lists 5 physical English Centre branches. What are the specific branch locations, floor/lift numbers, and specific local landmarks (e.g. Metro rail pillar number, building complex, mosque/circle) for:
+   (a) Uttara branch,
+   (b) Panthapath branch,
+   (c) Mirpur branch,
+   (d) Moghbazar branch, and
+   (e) Chattogram branch?
+5. English Course Target Audiences: For the English learning courses:
+   (a) What is the exact targeted class/age range for "Kids' English"?
+   (b) What is the exact targeted class/age range for "Spoken English Junior"?
+6. Operational Metrics: Under the online batch features grid:
+   (a) Exactly how many weekly live classes are provided?
+   (b) What is the name of the AI 24/7 doubt-solving partner tool?
+7. Platform Statistics: What are the exact reported figures for:
+   (a) The current active academic student count across courses?
+   (b) The total mobile app downloads?
+   (c) The Google Play Store rating and approximate total student reviews?
+8. Testimonial Citation: In the featured parent testimonial section, who is the quoted mother and what is her student child's name?
+9. Customer Support Contacts: What are the official customer support hotline shortcode (available 24x7), the international telephone number, and the official customer support email address?
+
+Extract all details factually based on the page content.

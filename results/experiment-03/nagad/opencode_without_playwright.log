@@ -1,0 +1,66 @@
+I'll start by examining the DOM snapshot file and looking for associated static asset files.
+The file has only 542 lines but 542KB — likely minified/long lines. Let me check the manifest and screenshots.
+Let me read the DOM file in chunks and also view the screenshot.
+Let me read more of the DOM file to extract detailed text content.
+Let me extract more specific content from the DOM.
+The HTML is minified. Let me parse it properly with Python to extract text content.
+Some content (popup, hero, offer amounts) is likely in images. Let me check the DOM for image alt text and asset references.
+The popup, hero, and offer card details are baked into remote images. The local full-page screenshot is my static asset for these. Let me crop and zoom into relevant regions to read the baked-in text.
+ImageMagick is available. Let me crop key regions of the screenshot at high magnification to read the image-baked text.
+Header and popup are now readable. Let me view the remaining crops and zoom into the logo subtitle and signboard.
+Let me get tighter crops of the logo tagline, the full signboard, and the full hero slogan.
+Hero slogan and signboard are now clear. The logo tagline crop was mispositioned — let me redo it.
+Offers are clear. Let me view the remaining crops.
+Footer is clear. Let me zoom the language toggle and logo tagline to finalize details.
+The language toggle is clear. Let me try harder on the tiny logo tagline with contrast enhancement.
+The tagline is small but consistent with "ডাক টিকিট ও ডিজিটাল লেনদেন" — the standard Nagad government-service tagline. Let me do one final precise zoom on that text line.
+The tagline is borderline legible. Let me check if there are local copies of the static assets (like the logo PNG) that would render it crisply.
+There's a pre-existing `header_logo.png`. Let me check it and other relevant crops.
+The static asset crops confirm all the details. Let me check the logo tagline and hero banner crops.
+Let me check the DOM around the logo for any text/aria labels, and check the signboard crop for fine text.
+The signboard reads clearly. The signboard's Nagad logo is larger — let me try reading its tagline line.
+Let me check if earlier stages have higher-resolution Nagad assets.
+No higher-res assets exist. Let me check the DOM for inline SVG logo content and the footer logo context.
+Let me check if the logo PNG is embedded as base64 in the DOM (which would give crisp pixels).
+The base64 images are small icons. Let me make a final attempt on the tagline using the source signboard crop with heavy processing.
+One last approach — pixel-exact upscale to count actual pixels of the tagline.
+The tagline is definitively illegible at snapshot resolution (5px-tall baked-in image text). Now let me verify exact DOM spellings for several answers.
+All details verified. Let me do a final check on the footer DOM text and the exact copyright string.
+All details are now verified against the static DOM and static assets. Here is the audit report:
+
+# Nagad Static Information Extraction Audit
+**Sources:** `data/stage-4/raw/bd-fn02-dom.html` (SSR DOM, Nuxt, BootstrapVue) + `data/stage-4/screenshots/bd-fn02-fullpage.png` + local static crops. Popup/hero/offer graphics are remote JPEGs (backend.nagad.com.bd), so their text is read from the full-page screenshot; all body text is confirmed verbatim from the DOM.
+
+## 1. Header Branding & Global Affordances
+**(a)** **Not Found (illegible in static snapshot).** The header logo is an image (`/_nuxt/img/new-logo.14fe8a5.png`, `alt=""`) with a tiny tagline line baked into the PNG beneath the "নগদ" wordmark. At snapshot resolution it renders at ~5–10 px tall; pixel-level zooms (up to 2000%) confirm the line exists but the glyphs cannot be transcribed with certainty. (The page body separately states Nagad is "বাংলাদেশ পোস্ট অফিসের একটি ডিএফএস", but that is a section heading, not the logo tagline.)
+**(b)** **বাংলা (Bangla) is active.** In the pill-shaped language toggle ("English | বাংলা"), the active state is a **filled dark red/maroon rounded pill with white text** on "বাংলা"; "English" is inactive (plain dark text on the light translucent pill). Corroborated in DOM: logo link `href="/bn"` carries `aria-current="page"`, and all page content is rendered in Bangla.
+**(c)** The sixth/final nav link: **"নগদ ইসলামিক"** (Nagad Islamic). Full order: সার্ভিসেস (dropdown) → সব অফার → ক্যারিয়ার → পরিচিতি → হেল্প (dropdown) → নগদ ইসলামিক.
+
+## 2. Promotional Popup Modal
+**(a)** Top headline: **"নগদ অ্যাপে / নতুন Experience"** (two lines, white with underline accents).
+**(b)** Central 3D slogan: **"সব হবে Nonstop"** — "সব হবে" in white 3D type, "Nonstop" in large red 3D italic type.
+**(c)** A male athlete in a **red Bangladesh national cricket jersey** holding a smartphone showing the Nagad app. **Name: Not Found** — no identifying text exists in the DOM (`alt=""`) or any static asset.
+**(d)** Primary action button: text **"Let's go"** + a right-arrow (→) icon. Styling (from CSS in the DOM): white pill button — `border-radius:100px`, `background:#fff`, `border:2px solid #fff`, `color:#d0392c`, `font-size:15px`, `padding:20px 32px`, flex row with a 24×24 px arrow icon (`margin-left:16px`); on hover: background/border become `#d0392c`, text and icon turn white.
+
+## 3. Hero Banner & Visual Scenery
+**(a)** **"লেনদেন যেকথান / নগদ সেখান"** — two lines of white 3D outlined Bengali text over the rural scene; the second line is partially covered by the popup modal.
+**(b)** Red signboard on the rural store: **"সর্বনিম্ন ক্যাশ আউট চার্জ"** ("Lowest cash-out charge") — "সর্বনিম্ন" in yellow, remainder in white, with a small footnote dagger (†); the right (white) section of the board carries the Nagad logo.
+
+## 4. Current Promotional Offers (বর্তমান অফার)
+**(a)** Weekend Add Money card: required transaction amount **৳8,880** ("ব্যাংক থেকে নগদ-এ ৳8,880 অ্যাড মানিতে").
+**(b)** Red bonus box: **৳80 ইনস্ট্যান্ট বোনাস** (small ৳ + large "80" + "ইনস্ট্যান্ট বোনাস").
+**(c)** DeeptoPlay card: **20% cashback** on subscription via Nagad payment ("DeeptoPlay-এর সাবস্ক্রিপশনে ২০% ক্যাশব্যাক* নগদ পেমেন্টে", footnote "*শর্ত প্রযোজ্য").
+
+## 5. Account Opening Workflow
+**(a)** Heading: **"নগদ একাউন্ট খুলুন"**; subheading: **"আপনার নগদ একাউন্ট তৈরি করার ৩ টি সহজ ধাপ"** (with an active "App" tab).
+**(b)** ধাপ ১: **"এন আই ডি স্ক্যান করে প্রয়োজনীয় তথ্য দিন"**
+**(c)** ধাপ ২: **"সেলফি তুলুন ও নির্দিষ্ট জায়গায় ডিজিটাল স্বাক্ষর দিন"**
+**(d)** ধাপ ৩: **"৪ ডিজিটের পিন সেট করুন"**
+(CTAs below: "অ্যাপ ডাউনলোড" filled red, "আরও জানুন" outline.)
+
+## 6. Corporate Identity & Reach Milestone
+**(a)** Launch date: **"২০১৯ সালের ২৬ মার্চ"** ("নগদ-এর যাত্রা শুরু ২০১৯ সালের ২৬ মার্চ" — 26 March 2019). Milestone: **"৯ কোটির অধিক"** (9+ crore / 90+ million) — "শুরুর মাত্র পাঁচ বছরে, ৯ কোটির অধিক মানুষকে আর্থিক লেনদেনের মধ্যে এনেছে নগদ।" Section heading: "নগদ – বাংলাদেশ পোস্ট অফিসের একটি ডিএফএস"; context: "বাংলাদেশ ডাক বিভাগের ডিজিটাল ফিন্যান্সিয়াল ডিজিটাল লেনদেন সেবা হচ্ছে নগদ।"
+
+## 7. Footer Affordances & Legal Notice
+**(a)** Red app-download button text: **"ডাউনলোড অ্যাপ"** (under the "ডাউনলোড নগদ অ্যাপ" block).
+**(b)** Verbatim copyright line at the very bottom: **"© 2026 Nagad All rights reserved"** (confirmed identically in DOM and screenshot).

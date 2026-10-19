@@ -1,0 +1,81 @@
+### Bdjobs.com Information Extraction Audit (Static DOM Snapshot: [bd-cl02-dom.html](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/raw/bd-cl02-dom.html))
+
+---
+
+#### 1. Platform Header Statistics & Metrics
+- **(a) LIVE JOBS**: `6,931` (DOM node: `<div class="text-[#2a5992] text-xl font-bold inline"> 6,931<!-- --></div>`)
+- **(b) VACANCIES**: `28,916+` (DOM node: `<div class="text-[#2a5992] text-xl font-bold inline"> 28,916+<!-- --></div>`)
+- **(c) COMPANIES**: `3,772` (DOM node: `<div class="text-[#2a5992] text-xl font-bold inline"> 3,772<!-- --></div>`)
+- **(d) NEW JOBS**: `759` (DOM node: `<div class="text-[#2a5992] text-xl font-bold inline"> 759<!-- --></div>`)
+
+---
+
+#### 2. Primary Search & Filter Bar
+- **(a) Keyword Input (`input[name="txtSearch"]`) Placeholder**: 
+  - Exact DOM attribute value: `"Execut"`
+  - *Context*: Captured mid-cycle of the dynamic client-side typewriter effect rotating job title placeholders (e.g., "Executive").
+- **(b) Organization Type Dropdown Placeholder**: 
+  - Exact DOM attribute value: `"Organization Type"` (from `<input placeholder="Organization Type" readonly="" type="text"/>`)
+- **(c) Search Submit Button Styling & Text**:
+  - **Button Text**: `"Search"`
+  - **Background Color**: Light green / pastel green `#b8dbb8` (`bg-[#b8dbb8]`), hovering to dark green `#39873d` (`hover:bg-[#39873d]`)
+  - **Text Color**: Black (`text-black`), hovering to white (`hover:text-white`)
+  - **Styling Classes**: `w-full lg:w-[15%] px-6 py-2 bg-[#b8dbb8] text-black hover:bg-[#39873d] hover:text-white rounded-sm cursor-pointer transition-colors`
+
+---
+
+#### 3. Division Quick Filters
+- **(a) Dhaka Division Job Count**: `4856` (button text: `"Dhaka (4856)"`)
+- **(b) Chattogram Division Job Count**: `561` (button text: `"Chattogram (561)"`)
+- **(c) Barishal Division Job Count**: `76` (button text: `"Barishal (76)"`)
+
+---
+
+#### 4. Promotional Header Event Banner ([1140X90.jpg](file:///home/abdullah/secondary/Research/human-agent-information-gap/scratch/top_banner.jpg))
+- **(a) Bangla Event Title**: 
+  - `"জাতীয় যুবদিবস ২০২৬ উপলক্ষে জব ফেয়ার"` (Job Fair on the occasion of National Youth Day 2026)
+  - *(DOM status: In the DOM snapshot, the image element `<img src="https://static2.bdjobs.com/JobFair/Jubo-Unnoyan/1140X90.jpg" alt="Top Default">` renders textual details exclusively within the raster asset).*
+- **(b) Red Date Badge**: 
+  - `"০১ নভেম্বর"` (01 November)
+- **(c) Organizing Authorities & Ministries with Official Logos**:
+  - **Department of Youth Development** (যুব উন্নয়ন অধিদপ্তর)
+  - **Ministry of Youth and Sports** (যুব ও ক্রীড়া মন্ত্রণালয়)
+  - **Government of the People's Republic of Bangladesh** (গণপ্রজাতন্ত্রী বাংলাদেশ সরকার - official state crest)
+  - *(Additionally features the official emblem of "জাতীয় যুব দিবস ২০২৬ / National Youth Day 2026")*
+
+---
+
+#### 5. Training & Professional Development Promotions ([Friendship-Academy.jpg](file:///home/abdullah/secondary/Research/human-agent-information-gap/scratch/friendship_academy.jpg))
+- **(a) Training Program Title**: 
+  - `"Winter School on Development in Practice 2026"` (jointly organized with Department of Development Studies, University of Dhaka)
+- **(b) Application Deadline**: 
+  - `"October 22"` (displayed on the red pill badge: `"Application Deadline: October 22"`)
+
+---
+
+#### 6. Sidebar Badges & Category Exploration
+- **(a) Green Patterned Sidebar Badge ([Army-Banner.gif](file:///home/abdullah/secondary/Research/human-agent-information-gap/scratch/army_banner.gif))**:
+  - Two-frame alternating animated graphic:
+    - Frame 1: `"Retired army person?"` (white typography over green pattern)
+    - Frame 2: `"Post your CV now"` (yellow typography over dark green splatter)
+- **(b) Purple Video Badge ([video-cv.gif](file:///home/abdullah/secondary/Research/human-agent-information-gap/scratch/video_cv.gif))**:
+  - **Main Text**: `"Video CV"` (with camera glyph)
+  - **Call-to-Action**: `"click to upload"`
+- **(c) Popular Category & Industry Tab States**:
+  - **Active / Selected Tab**: `"Category"` (styled with `bg-[#616161] text-white`)
+  - **Inactive Tab**: `"Industry"` (styled with `bg-[#f5f5f5] text-gray-500`)
+- **(d) Marketing/Sales Category Job Count**: 
+  - `1273` (displayed as `Marketing/Sales (1273)`)
+
+---
+
+#### 7. Customer Support & Contact Affordances
+- **(a) Official Support / Helpdesk Phone Numbers in Red Footer Block**:
+  - `16479`
+  - `09638666444`
+  - `01897627858`
+  - *(Rendered in red text `#D92D20` under `class="text-[#D92D20] font-bold text-base"` beneath operating hours `"9 am to 8 pm (Sat to Thurs)"`)*
+
+---
+
+Log updated: `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`

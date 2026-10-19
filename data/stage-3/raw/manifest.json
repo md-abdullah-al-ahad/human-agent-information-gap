@@ -1,0 +1,46 @@
+[
+  {
+    "slot": "S1",
+    "name": "Star Tech (ASUS TUF Laptop)",
+    "target_url": "https://www.startech.com.bd/asus-tuf-gaming-a15-fa506ncg-ryzen-7-155-gaming-laptop",
+    "final_url": "https://www.startech.com.bd/asus-tuf-gaming-a15-fa506ncg-ryzen-7-155-gaming-laptop",
+    "http_status": 200,
+    "captured_at_utc": "2026-10-18T19:16:30.363307+00:00",
+    "bytes": 432561,
+    "sha256": "6aa27710a94346b84bc96197af0046e168258524d252568a635b8b5e471008a4",
+    "file_path": "data/stage-3/raw/S1-startech-dom.html"
+  },
+  {
+    "slot": "S2",
+    "name": "Evercare Hospital (Health Package)",
+    "target_url": "https://www.evercarebd.com/dhaka/health_package/evercare-executive-health-check-for-male-female",
+    "final_url": "https://www.evercarebd.com/en/dhaka/health_package/evercare-executive-health-check-for-male-female",
+    "http_status": 200,
+    "captured_at_utc": "2026-10-18T19:16:33.896611+00:00",
+    "bytes": 238124,
+    "sha256": "73103e54bf44e03938c607bf4b8e9d45b2c0a628c334abf67019cdae028162b6",
+    "file_path": "data/stage-3/raw/S2-evercare-dom.html"
+  },
+  {
+    "slot": "S3",
+    "name": "Gov.uk (Standard Visitor Visa)",
+    "target_url": "https://www.gov.uk/standard-visitor",
+    "final_url": "https://www.gov.uk/standard-visitor",
+    "http_status": 200,
+    "captured_at_utc": "2026-10-18T19:16:36.852186+00:00",
+    "bytes": 151130,
+    "sha256": "a0742a9a8462a0a5588e26c754797aa501c43692e7e0dbbc96fc2dd054452130",
+    "file_path": "data/stage-3/raw/S3-govuk-dom.html"
+  },
+  {
+    "slot": "S4",
+    "name": "Supabase (Pricing & Limits)",
+    "target_url": "https://supabase.com/pricing",
+    "final_url": "https://supabase.com/pricing",
+    "http_status": 200,
+    "captured_at_utc": "2026-10-18T19:16:39.675157+00:00",
+    "bytes": 385971,
+    "sha256": "2e63368c0ab22acaa59aa12007875067875373f59f409109997ab63bc6e42265",
+    "file_path": "data/stage-3/raw/S4-supabase-dom.html"
+  }
+]

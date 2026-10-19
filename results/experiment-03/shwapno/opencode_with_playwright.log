@@ -1,0 +1,44 @@
+I'll conduct this audit by visiting the actual site and extracting details from the page content. Let me start.
+Page loaded. Let me capture the full snapshot to examine the content.
+The page is large. Let me continue reading the snapshot and also look for specific sections.
+I found the service pillars and modal. Now I'll extract the hero slider image URLs, modal button details, and the fourth pillar's exact text.
+I'll run targeted queries again and download the hero slide image to check the campaign text.
+I need to check the hero banner images for the campaign title and coupons since that text is rendered in the images, so I'll download the first slide to inspect it.
+In-page fetch is blocked. Downloading the image directly instead:
+Audit complete — all details verified against the live page (DOM + hero banner image). Results:
+
+**1. Notification Modal**
+- (a) Heading: **"Get notifications from Shwapno?"** (body: "Don't miss out on exciting new products and incredible offers from Shwapno.")
+- (b) Buttons: **"Yes"** and **"No"**. Primary-styled: **"Yes"** (`bg-yellow`, yellow fill) vs "No" (`bg-darkLight`, dark fill).
+
+**2. Hero Banner ("Puja Special" slide)**
+- (a) Bengali campaign title: **"স্বপ্ন অনলাইনে পুজার সাশ্রয়"**
+- (b) Green ticket: **6% off**, code **PUJA6**, terms: "(২ বার ব্যবহারযোগ্য)" = valid for **2 uses**; Max Discount: **৳150** (on ৳1000+ orders)
+- (c) Teal ticket: **7% off**, code **PUJA7**, terms: "(১ বার ব্যবহারযোগ্য)" = valid for **1 use**; Max Discount: **৳200** (on ৳1500+ orders)
+
+**3. Service Pillars**
+- (a) **60 mins delivery** — "Free shipping over **1500Tk**"
+- (b) Authorized Products — "**within 30 days for an exchange**"
+- (c) Customer Service Support — "**8am to 10pm**"
+- (d) Flexible Payments — "**Pay with multiple credit cards**"
+
+**4. Categories & Recommended**
+- (a) First tile: **"Eggs"**
+- (b) Third tile: **"Soft Drinks"**
+- (c) Egg Loose: **৳12.75** per piece, **Min. 12**
+- (d) Alu (Potato) Regular Loose Kg: selling **৳25**, original **৳30**, discount **৳5 OFF** (per 1kg, min 1kg)
+- (e) ACI Pure Salt 1kg: **৳42**
+
+**5. Weekday Deals & Brands**
+- (a) Fresh Premium Masala Tea 50gm: selling **৳95** (was ৳110), discount **৳15 OFF**
+- (b) Heading: **"Refresh with Himalaya"**
+
+**6. Coverage Area**
+- (a) Dhaka: **290 outlets**
+- (b) Gazipur: **69 outlets**
+
+**7. Support & Corporate**
+- (a) Hotline: **16469 (8am–10pm, Everyday)**; Email: **queries@acilogistics.net**
+- (b) **"ACI SHWAPNO E-COMMERCE LIMITED"** — **"Copyright © 2026"**
+
+Zero items were Not Found.

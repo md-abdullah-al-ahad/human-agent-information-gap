@@ -1,0 +1,39 @@
+Now I need to inspect the banner images. Let me download them.
+Let me zoom into the small banner logo text to verify the ministry names.
+All data extracted. Findings:
+
+**1. Platform Header Statistics**
+- (a) LIVE JOBS: **6,931**
+- (b) VACANCIES: **28,916+**
+- (c) COMPANIES: **3,772**
+- (d) NEW JOBS: **759**
+
+**2. Search & Filter Bar**
+- (a) `input[name="txtSearch"]` has a **rotating/animated placeholder** cycling popular job keywords — no single static value (observed: "Accounts", "Web Developer", "Front-End …", "Execut…")
+- (b) Organization Type selector placeholder: **"Organization Type"** (a read-only text input styled as a dropdown)
+- (c) Button text: **"Search"** — background light green **#b8dbb8** (rgb(184,219,184)), black text, 4px rounded; hover → dark green #39873d with white text
+
+**3. Division Quick Filters**
+- (a) Dhaka: **(4856)**
+- (b) Chattogram: **(561)**
+- (c) Barishal: **(76)**
+
+**4. Header Event Banner (1140X90.jpg)**
+- (a) Bangla title: **"জাতীয় যুবদিবস ২০২৬ উপলক্ষে জব ফেয়ার"** (Job Fair on the occasion of National Youth Day 2026)
+- (b) Red date badge: **"০১ নভেম্বর"** (1 November)
+- (c) Logos left-to-right: (1) circular red emblem with yellow Bangladesh map in a green ring — ring text illegible at source resolution (visually matches Bangladesh Youth Federation emblem, unconfirmed); (2) National Youth Day 2026 logo ("জাতীয় যুব দিবস ২০২৬ / National Youth Day 2026"); (3) green Directorate of Youth Development logo with Bengali text "যুব উন্নয়ন অধিদপ্তর / যুব ও ক্রীড়া মন্ত্রণালয়" (Directorate of Youth Development, Ministry of Youth and Sports). Plus "সহযোগিতায়: bdjobs" (in collaboration with bdjobs).
+
+**5. Friendship Academy Banner**
+- (a) Title: **"Winter School on Development in Practice 2026"** (with "REGISTRATION OPEN" graphic; Friendship Academy logo top-right, Government of Bangladesh logo top-left)
+- (b) Deadline: **"Application Deadline: October 22"**
+
+**6. Sidebar Badges & Categories**
+- (a) Army-Banner.gif (camouflage, animated): **"Retired army person?"** and **"Post your CV now"** (yellow text, alternating frames)
+- (b) video-cv.gif (purple): **"Video CV"** with CTA **"click to upload"** (color-inverting animation)
+- (c) **"Category" tab is active** (dark gray #616161, white text); **"Industry" is inactive** (light gray #f5f5f5, gray text)
+- (d) Marketing/Sales: **(1273)**
+
+**7. Footer Contact Block**
+- (a) Three red (rgb(217,45,32)) numbers under "Need any support? Our Contact Centre is available from 9 am to 8 pm (Sat to Thurs)": **16479**, **09638666444**, **01897627858**
+
+Caveats: header stats are live counters (values change over time); the banner logo ring text (item 4c, logo 1) is below legible resolution in the source image.

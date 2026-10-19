@@ -1,0 +1,58 @@
+[
+  {
+    "slot": "S1",
+    "stratum": "E-Commerce & Retail",
+    "name": "Star Tech (ASUS TUF Gaming Laptop)",
+    "target_url": "https://www.startech.com.bd/asus-tuf-gaming-a15-fa506ncg-ryzen-7-155-gaming-laptop",
+    "dom_file": "data/stage-3/raw/S1-startech-dom.html",
+    "dom_bytes": 432561,
+    "dom_sha256": "6aa27710a94346b84bc96197af0046e168258524d252568a635b8b5e471008a4",
+    "screenshot_file": "data/stage-3/screenshots/S1-startech-fullpage.png",
+    "screenshot_dimensions": "1208x11403",
+    "screenshot_bytes": 1811393,
+    "screenshot_sha256": "52c6cb5a22ed88e7efd557d1e841830e84dba493c1f0ea8f7f3d98472704a1ce",
+    "usability_status": "verified_flawless"
+  },
+  {
+    "slot": "S2",
+    "stratum": "Professional Healthcare Services",
+    "name": "Evercare Hospital Dhaka (Executive Health Check)",
+    "target_url": "https://www.evercarebd.com/dhaka/health_package/evercare-executive-health-check-for-male-female",
+    "dom_file": "data/stage-3/raw/S2-evercare-dom.html",
+    "dom_bytes": 238124,
+    "dom_sha256": "73103e54bf44e03938c607bf4b8e9d45b2c0a628c334abf67019cdae028162b6",
+    "screenshot_file": "data/stage-3/screenshots/S2-evercare-fullpage.png",
+    "screenshot_dimensions": "1208x2946",
+    "screenshot_bytes": 1335388,
+    "screenshot_sha256": "31210c2891e3f0c29b8cb9cf3fbb0f33a092d857d993d239b8324f160367d4a5",
+    "usability_status": "verified_flawless"
+  },
+  {
+    "slot": "S3",
+    "stratum": "Institutional & Public Portal",
+    "name": "Gov.uk (Standard Visitor Visa)",
+    "target_url": "https://www.gov.uk/standard-visitor",
+    "dom_file": "data/stage-3/raw/S3-govuk-dom.html",
+    "dom_bytes": 151130,
+    "dom_sha256": "a0742a9a8462a0a5588e26c754797aa501c43692e7e0dbbc96fc2dd054452130",
+    "screenshot_file": "data/stage-3/screenshots/S3-govuk-fullpage.png",
+    "screenshot_dimensions": "1208x6744",
+    "screenshot_bytes": 1169088,
+    "screenshot_sha256": "4fdadd1d38a786876df29c7a844782bd9e129bb81739929dba813a2d0ead90f5",
+    "usability_status": "verified_flawless"
+  },
+  {
+    "slot": "S4",
+    "stratum": "Technical Documentation & SaaS",
+    "name": "Supabase (Pricing & Limits)",
+    "target_url": "https://supabase.com/pricing",
+    "dom_file": "data/stage-3/raw/S4-supabase-dom.html",
+    "dom_bytes": 385971,
+    "dom_sha256": "2e63368c0ab22acaa59aa12007875067875373f59f409109997ab63bc6e42265",
+    "screenshot_file": "data/stage-3/screenshots/S4-supabase-fullpage.png",
+    "screenshot_dimensions": "1208x16384",
+    "screenshot_bytes": 1713066,
+    "screenshot_sha256": "5568ade6bc0e3912f19c858743e21ab66cbb77d7e29122fe12991c7103ce7916",
+    "usability_status": "verified_flawless"
+  }
+]

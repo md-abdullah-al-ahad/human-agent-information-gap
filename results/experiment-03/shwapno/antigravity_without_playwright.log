@@ -1,0 +1,88 @@
+### Information Extraction Audit: Shwapno Online (`BD-QC02`)
+
+Audit conducted strictly via static inspection of the DOM snapshot [bd-qc02-dom.html](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/raw/bd-qc02-dom.html) and associated static asset file [bd-qc02-fullpage.png](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/screenshots/bd-qc02-fullpage.png).
+
+---
+
+#### 1. Interactive Notification Overlay Modal
+- **(a) Exact Heading Text**:
+  - `Get notifications from Shwapno?`
+- **(b) Action Button Options & Styling**:
+  - **Options**: `Yes` and `No`
+  - **Primary Styled Button**: `Yes` (styled with Shwapno's primary brand yellow class `bg-yellow`, whereas `No` is styled with the secondary neutral class `bg-darkLight`).
+
+---
+
+#### 2. Promotional Hero Banner Campaign
+- **(a) Bengali Campaign Title**:
+  - `স্বপ্ন অনলাইনে পূজার সাশ্রয়`
+- **(b) Coupon 1 (Green Ticket)**:
+  - **Discount Percentage**: `৬%` (6% Discount)
+  - **Coupon Promo Code**: `PUJA6` (displayed as `কোড: PUJA6`)
+  - **Usage Terms**: `(২ বার ব্যবহারযোগ্য)` (Usable 2 times); `Max Discount: ৳১৫০ (৳১০০০+ বাজারে)` (Maximum discount ৳150 on minimum order of ৳1000+)
+- **(c) Coupon 2 (Teal Ticket)**:
+  - **Discount Percentage**: `৭%` (7% Discount)
+  - **Coupon Promo Code**: `PUJA7` (displayed as `কোড: PUJA7`)
+  - **Usage Terms**: `(১ বার ব্যবহারযোগ্য)` (Usable 1 time); `Max Discount: ৳২০০ (৳১৫০০+ বাজারে)` (Maximum discount ৳200 on minimum order of ৳1500+)
+
+---
+
+#### 3. Value Proposition Service Pillars
+- **(a) Pillar 1**:
+  - **Delivery Speed Guarantee**: `60 mins delivery` (or `60 Mins Delivery`)
+  - **Minimum Free Shipping Order Value**: `Free shipping over 1500Tk` (over 1500Tk)
+- **(b) Pillar 2 ('Authorized Products')**:
+  - **Exchange Validity Period**: `within 30 days for an exchange`
+- **(c) Pillar 3 ('Customer Service Support')**:
+  - **Operating Hours**: `8am to 10pm`
+- **(d) Pillar 4 ('Flexible Payments')**:
+  - **Value Proposition**: `Pay with multiple credit cards`
+
+---
+
+#### 4. Category Exploration & Recommended Products
+- **(a) First Quick Tile Label (Brown Eggs)**:
+  - `Eggs`
+- **(b) Third Quick Tile Label (Soft Drinks)**:
+  - `Soft Drinks`
+- **(c) 'Egg Loose' (Recommended For You)**:
+  - **Price**: `৳12.75` (Per Piece)
+  - **Minimum Order Quantity (MOQ)**: `Min. 12` (rendered as `❨Min. 12 ❩`)
+- **(d) 'Alu (Potato) Regular Loose Kg'**:
+  - **Selling Price**: `৳25` (Per 1kg)
+  - **Original Price**: `৳30`
+  - **Discount Amount**: `৳5` (badge: `৳5 OFF`)
+- **(e) 'ACI Pure Salt 1kg'**:
+  - **Selling Price**: `৳42` (Per Piece)
+
+---
+
+#### 5. Weekday Deals & Brand Showcase
+- **(a) 'Fresh Premium Masala Tea 50gm' (Weekday Deals)**:
+  - **Selling Price**: `৳95` (Per Piece; Original Price: `৳110`)
+  - **Discount Amount**: `৳15` (badge: `৳15 OFF`)
+- **(b) Promotional Brand Showcase Heading**:
+  - `Refresh with Himalaya`
+
+---
+
+#### 6. Nationwide Coverage Area Metrics
+- **(a) Outlets Listed for Dhaka**:
+  - `290 outlets`
+- **(b) Outlets Listed for Gazipur**:
+  - `69 outlets`
+
+---
+
+#### 7. Customer Support & Corporate Identity
+- **(a) Customer Support Contact Details**:
+  - **Hotline Number**: `16469` (`Call Us: 16469`)
+  - **Operating Hours**: `8am-10pm, Everyday`
+  - **Inquiry Email Address**: `queries@acilogistics.net` (`Email Us: queries@acilogistics.net`)
+- **(b) Corporate Identity & Legal Line**:
+  - **Full Legal Company Name**: `ACI SHWAPNO E-COMMERCE LIMITED`
+  - **Copyright Line**: `Copyright ©  2026`
+
+---
+
+Log updated: `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`

@@ -1,0 +1,52 @@
+I'll conduct this audit by navigating to the site and inspecting the actual page content.
+I have the base snapshot. Now let me inspect the DOM for details not visible in the accessibility tree (popup modal, placeholder text, footer logos, hero slider).
+The popup modal exists but is hidden and empty in text form (likely an image poster). Let me inspect its full HTML and the footer, plus the hero slider for the mobile app.
+The popup is an image poster and the footer has only one logo. Let me view the popup poster image and locate the mobile app hero slider.
+The key visual details (mobile app calculator labels, popup poster text) are inside images. Let me view them directly.
+This is a static banner image. Let me view it to read the calculator labels.
+Let me view the banner image content directly.
+This banner reveals the app labels. Now let me view the popup health advisory poster.
+Let me check the hidden hotline items (there's a toggle checkbox) and confirm the gallery 4th image order.
+Let me verify the services grid toggle behavior and confirm the 8th card / utility bill visibility.
+Let me zoom into the calculator tiles on the banner to read exact labels with certainty.
+Let me zoom into the calculator tiles for exact text.
+Let me crop and zoom the tile region properly.
+Let me use Python to crop and upscale the calculator tile region for a clearer read.
+The screenshot is low-res. Let me crop from the full-res source image directly.
+I have gathered all the data from the live page. Here is the audit:
+
+## 1. Header Branding & Utility
+- **(a)** Main portal title next to the national emblem: **বাংলাদেশ জাতীয় তথ্য বাতায়ন** (Bangladesh National Information Bureau)
+- **(b)** Exact date string in top header bar: **১৯ অক্টোবর ২০২৬** (19 October 2026)
+- **(c)** Exact search placeholder: **এখানে খুঁজুন...** (Search here...)
+
+## 2. Public Health Popup Advisory Modal
+- **(a)** Main Bengali headline: **পোড়া তেলে ব্যবহার করবেন না** ("Do not use burnt oil")
+- **(b)** Authority + URL: **বাংলাদেশ নিরাপদ খাদ্য কর্তৃপক (Bangladesh Food Safety Authority)** — **www.bfsa.gov.bd** (listed under খাদ্য মন্ত্রণালয় / Food Ministry)
+- **(c)** Medical/cholesterol effects: Burnt oil (trans fat) increases **harmful/bad cholesterol (ক্ষতিকারক কোলেস্টেরল)**, which causes **stroke and heart disease (স্ট্রোক ও হৃদরোগ)**.
+- **(d)** Practical alternative for once-used oil: Instead of re-frying, use it in **হেঁকে তরকারি** (a cooked/sautéed vegetable curry).
+
+## 3. Mobile App Hero Slider Graphics
+- **(a)** Provident fund calculator label: **ডিবিয় তহবিল ক্যালকুলেটর** (Provident Fund Calculator)
+- **(b)** Property inheritance calculator: title **উত্তরাধিকার,বাংলা** with tagline **এক ক্লিকেই সম্পতির হিসাব** ("Property calculation in one click")
+
+## 4. Administrative Division Counters
+- **(a)** Ministries & Divisions (মন্ত্রণালয় ও বিভাগ): **৫৭** (57)
+- **(b)** Upazilas (উপজেলা): **৫০০** (500)
+- **(c)** Union Parishads (ইউনিয়ন): **৪৫৬৮** (4568)
+
+## 5. Government Services Grid
+- **(a)** Default active tab: **জনপ্রিয় সেবা** (Popular Services)
+- **(b)** 8th visible service card: **পাসপোর্ট, ভিসা ও ইমিগ্রেশন** (Passport, Visa & Immigration)
+- **(c)** ইউটিলিটি বিল (Utility Bill): **Hidden** behind the "আরো দেখুন ↓" toggle (not visible on the default initial screen).
+
+## 6. Emergency Helplines
+- **(a)** সরকারি তথ্য ও সেবা (Government Info & Services): **৩৩৩** (333)
+- **(b)** বিআরটিএ সার্ভিস পোর্টাল (বিএসপি) (BRTP): **১৬১০৭** (16107)
+- **(c)** স্মার্ট ভূমি সেবা (Smart Land Services): **১৬১২২** (16122) — **hidden** behind the "আরও" (more) toggle, not in the default viewport.
+
+## 7. Media Gallery
+- **(a)** 4th image (rows of oarsmen): alt text **নৌকা বাইচ** (Nouka Bach / boat racing)
+
+## 8. Footer Institutional Attribution
+- **(a)** Under "পরিকল্পনা এবং বাস্তবায়ন" (Planning and Implementation): only **one** logo is depicted — **a2i**. The cluster does **NOT** include UNDP or Cabinet Division; only the a2i logo is present.

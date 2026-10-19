@@ -1,0 +1,11 @@
+I'll audit Bdjobs.com using static HTTP requests. Let me start by fetching the homepage.
+The site is an Angular SSR app with data embedded in `ng-state` JSON. Let me extract and parse it.
+The rendered DOM is in the `<body>`. Let me extract it and search for the specific items.
+The SSR body is mostly skeleton loaders — data comes from client-side APIs. Let me find the API endpoints in the JS bundles.
+Let me examine the API endpoints in the JS chunks and parse the SSR location data.
+Found the component constants. Let me extract the placeholders, organization list, and division order from the bundle.
+The search bar details are emerging. Let me get the full placeholder phrase list and the service definitions for the API endpoints.
+Now let me extract the search submit button markup and the header counter labels.
+The data comes from static JSON files on GCS. Let me download the relevant ones.
+Now let me find the "Discover Jobs Across Popular Category & Industry" section component and its tab logic.
+I've found the stat template. Now let me find the "currency" pipe and "toBanglaNumber" pipe implementations to confirm number formatting.

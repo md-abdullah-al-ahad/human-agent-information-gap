@@ -1,0 +1,54 @@
+I have the page. Now let me extract the full (untruncated) content of the key lines:
+I'll check the service grid and hotline visibility, then pull the complete slider image list:
+Now let me view the popup advisory poster and the mobile app slider graphics to extract their embedded text:
+Let me crop the poster into sections for higher-accuracy text extraction:
+Now let me examine the mobile app hero slider graphics:
+The MyGov banner isn't it. Let me download and examine the remaining slider images to find the mobile app screen with the calculators:
+Let me zoom into the phone screen in the apps banner, and check the remaining small banners:
+The home slider doesn't show calculators. The "প্ৰযোজনীয় অ্যাপস" (Essential Apps) banner links to a static page that likely hosts the mobile app hero slider. Let me fetch it:
+None of the 7 home slider images show calculators. Let me examine the Essential Apps page content and the app-icon labels, plus the "উত্তরাধিকার" (inheritance) hit:
+The Essential Apps page lists app links including "উত্তরাদিকার" (inheritance) and "আমার সরকার". Let me get those link URLs and inspect the app-icon labels on the banner:
+Let me zoom into the six app-icon labels on the right of the Essential Apps banner:
+The banner is the "মোবাইল অ্যাপস" (Mobile Apps) hero slider. Two tiles are calculators. Let me zoom into the provident-fund tile (#4) and the inheritance tile (#6) for exact text:
+The provident fund tile title is "ভবিষ্য তহবিল ক্যালকুলেটর". Now let me zoom into the inheritance tile (#6) for its exact title and tagline:
+I now have most answers. Let me verify the exact strings for the header, gallery order, and footer from the raw HTML:
+Gallery confirmed. Let me zoom the poster footer to confirm the authority name exactly:
+I have extracted everything via static HTTP fetches (HTML + image downloads, no browser automation). Here are the audit results:
+
+## 1. Header Branding & Utility
+- **(a)** Main portal title next to the emblem: **ব্যাংলাদেশ জাতীয় তথ্য বাতান** (the emblem is `<img class="office-logo" alt="Office Logo">`, title in `<a class="header-title">`)
+- **(b)** Exact date string in top header bar: **১৯ অক্টোবর ২০২৬** (19 October 2026, Bengali numerals)
+- **(c)** Search placeholder: **এখানে খুঁজুন...** ("Search here...")
+
+## 2. Public Health Popup Advisory Modal (extracted from the modal poster image `.../2026/9/c04ef396-...jpeg`)
+- **(a)** Headline: **পোড়া তেল ব্যবহার করবেন না** ("Do not use burnt oil")
+- **(b)** Issuing authority: **বাংলাদেশ নিরাপদ খাদ্য কর্তৃপক্ষ** (Bangladesh Safe Food Authority), URL **www.bfsa.gov.bd** (with tagline "জীবন ও স্বাস্থ্য সুস্থায়ের নিরাপদ খাদ্য" and "খাদ্য মন্ত্রণালয়")
+- **(c)** Effects: burnt oil/trans fat **increases harmful cholesterol (ক্ষতিকারক কোলেস্টেরল বৃদ্ধি)** and **causes stroke (স্ট্রোক) and heart disease (হৃদরোগ)**
+- **(d)** Practical alternative for once-used oil: **don't re-fry — strain it (ছেকে) and use it in making tarkari/curry (তরকারিতে)**
+
+## 3. Mobile App Hero Slider Graphics (the "মোবাইল অ্যাপস" banner)
+- **(a)** Provident fund calculator tile title: **ভবিষ্য তহবিল ক্যালকুলেটর**
+- **(b)** Property inheritance calculator: title **উত্তরাধিকার.বাংলা**, tagline **এক ক্লিকেই সম্পত্তির হিসাব**
+
+## 4. Administrative Division Counters
+- **(a)** মনত্রণালয় ও বিভাগ: **৫৭** (57)
+- **(b)** উপজেলা: **৫০০** (500)
+- **(c)** ইউনিয়ন: **৪৫৬৮** (4568)
+
+## 5. Government Services Grid
+- **(a)** Default active tab: **জনপ্রিয় সেবা** (Popular Services, `data-tab="popular-services"`)
+- **(b)** 8th service card: **পাসপোর্ট, ভিসা ও ইমিগ্রেশন** (Passport, Visa & Immigration)
+- **(c)** ইউটিলিটি বিল (Utility Bill): **hidden behind the "আরো দেখুন ↓" toggle** — it is the 10th card (index 9); the widget JS reveals only the first 8 by default
+
+## 6. Emergency Helplines
+- **(a)** সরকারি তথ্য ও সেবা: **৩৩৩** (333)
+- **(b)** বিআরটিএ সার্ভিস পোর্টাল (বিএসপি): **১৬১০৭** (16107)
+- **(c)** স্মার্ট ভূমি সেবা: **১৬১২২** (16122) — **hidden by default** (it is the 9th item; CSS `nth-child(n+7){display:none}` shows only the first 6 until the toggle is clicked)
+
+## 7. Media Gallery
+- **(a)** 4th image (rows of oarsmen / boat race): alt text **নৌকা বাইচ** ("Boat race")
+
+## 8. Footer Institutional Attribution
+- **(a)** Under "পরিকল্পনা এবং বাস্তবায়ন" (Planning and Implementation) there is **only one logo: a2i** (`<img src="/site-assets/images/a2iset.png" alt="a2i">`). **No — the cluster does NOT include UNDP or Cabinet Division.**
+
+Note: items 2(a–d) and 3(a–b) are rasterized into image assets (no HTML text), so they were extracted by downloading the exact image URLs served on the page and reading them — all other items come directly from the served HTML.

@@ -1,0 +1,33 @@
+You are conducting a strict information extraction audit of US-Bangla Airlines (https://usbair.com). Extract the following factual details from the site with zero hallucination. If a piece of information is not present or cannot be determined, state 'Not Found':
+
+1. Flight Booking Engine UI:
+   (a) What is the default origin airport code and name pre-selected in the 'From' field?
+   (b) What is the exact text and visual styling of the main search CTA button?
+   (c) What are the default passenger count and cabin class selections?
+
+2. Promotional Mastercard Popup Modal:
+   (a) What are the exact domestic and international discount percentages and their respective promo codes?
+   (b) What grand prize holiday trip is offered in the lucky draw, and what are the three domestic destination return ticket options?
+   (c) What is the exact validity expiry date of the promotion (e.g. Till [Date])?
+   (d) What cardholder name is embossed/printed on the black Mastercard credit card image?
+
+3. Sky Star Loyalty Program:
+   (a) What are the exact names of the four loyalty membership tier star badges depicted in the circular icons?
+   (b) What is the primary call-to-action headline for the loyalty club?
+
+4. Vacation Promotion & Marketing:
+   (a) What is the headline of the vacation banner depicting an overwater resort ("Enjoy your favorite...")?
+   (b) What is the exact button text on this vacation banner?
+
+5. Destination from Dhaka Section:
+   (a) What is the default city pre-filled in the origin auto-complete box ("Destination from...")?
+   (b) What specific marketing descriptor or moniker is given to Kolkata ("City of...")?
+   (c) What specific marketing descriptor or moniker is given to Guangzhou ("City of...")?
+   (d) What specific marketing descriptor is given to Kuala Lumpur ("...metropolis")?
+
+6. Footer Affordances & App Promotion:
+   (a) What is the placeholder text for the newsletter offer subscription field, and what is its action button label?
+   (b) What exact value proposition text is advertised for the US-Bangla Airlines App?
+   (c) What is the verbatim copyright notice line at the very bottom of the page?
+
+Extract all details factually based on the page content.

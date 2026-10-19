@@ -1,0 +1,36 @@
+You are conducting a strict information extraction audit of Nagad using the static DOM snapshot data/stage-4/raw/bd-fn02-dom.html and associated static asset files. Do not use browser automation or Playwright. Rely strictly on static inspection of the DOM snapshot and static asset files. Extract the following factual details from the site with zero hallucination. If a piece of information is not present or cannot be determined, state 'Not Found':
+
+1. Header Branding & Global Affordances:
+   (a) What official government service subtitle/tagline is written directly beneath or beside the Nagad brand logo in the header?
+   (b) Which language is currently active in the language toggle switch (English vs Bangla), and how is the active state styled?
+   (c) What is the sixth/final navigation menu link in the main header navbar?
+
+2. Promotional Popup Modal:
+   (a) What is the top headline text rendered inside the popup modal graphic ("নগদ অ্যাপে...")?
+   (b) What is the central large 3D typography slogan displayed across the middle of the popup modal?
+   (c) Who is the featured athlete/person depicted holding a smartphone in the modal?
+   (d) What is the exact text and styling of the primary action button on the modal?
+
+3. Hero Banner & Visual Scenery:
+   (a) What large Bengali slogan appears across the hero slider behind the popup modal ("লেনদেন যেখানে...")?
+   (b) What text is displayed on the red signboard of the rural store visible in the background?
+
+4. Current Promotional Offers (বর্তমান অফার):
+   (a) In the Weekend Add Money offer card, what is the required transaction amount ("৳... অ্যাড মানিতে")?
+   (b) What is the exact instant bonus amount offered for this transaction in the red box ("৳... ইনস্ট্যান্ট বোনাস")?
+   (c) In the DeeptoPlay promotional card, what cashback percentage is offered for subscriptions via Nagad payment?
+
+5. Account Opening Workflow (নগদ একাউন্ট খুলুন):
+   (a) What is the exact section heading and subheading for opening a Nagad account?
+   (b) What is the instruction given for Step 1 (ধাপ ১)?
+   (c) What is the instruction given for Step 2 (ধাপ ২)?
+   (d) What is the instruction given for Step 3 (ধাপ ৩)?
+
+6. Corporate Identity & Reach Milestone:
+   (a) What is the exact journey launch date stated for Nagad ("২০১৯ সালের..."), and what milestone customer count is reported ("...কোটির অধিক")?
+
+7. Footer Affordances & Legal Notice:
+   (a) What is the exact text of the red app download button in the footer?
+   (b) What is the verbatim copyright notice line displayed at the very bottom?
+
+Extract all details factually based on the static snapshot.

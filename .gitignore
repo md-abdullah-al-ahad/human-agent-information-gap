@@ -19,9 +19,17 @@ data/*
 !data/.gitkeep
 !data/pilot-observation-template.json
 !data/pilot-01/
+!data/stage-3/
+!data/stage-4/
 results/*
 !results/.gitkeep
 !results/pilot-results-template.csv
 !results/information-gap-results-template.csv
 !results/experiment-01/
+!results/experiment-02/
+!results/experiment-03/
 
+
+
+# Playwright MCP temporary run artifacts
+.playwright-mcp/

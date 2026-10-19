@@ -1,0 +1,55 @@
+I'll navigate to nagad.com.bd and extract the details factually.
+I can see a lot of it from the snapshot, but some of the text (hero, modals, offer cards, header subtitle) is being rendered in ways that aren't exposed to the accessibility tree. Let me examine the actual DOM/HTML.
+In the header, the logo is displayed as a single image with `alt=""`, and for the language toggle, the "বাংলা" button has the `active` class applied. Let me verify the logo image, the computed styles, and the modal / hero / offer content.
+The page has loaded, and I can see the modal, hero, and header. Next, I'll extract the hero slider HTML, the offer card details, and zoom in on the small text areas (logo tagline, hero slogan, store signboard, athlete).
+Since the hero text is embedded within the image (empty h1/p), I'll download the image and check it directly. First, I'll get the HTML of the offer card, then download the main image.
+The offer cards use CSS background images. Let me extract those.
+Now let me download all the key images to inspect the text baked into them.
+All files are the same size (4547 bytes) — likely an error response. Let me check.
+Cloudflare is blocking curl. Let me fetch the images through the Playwright browser context instead.
+I'll open each image directly in the browser and screenshot them instead.
+I can confirm the logo tagline: "ডাক বিভাগের ডিজিটাল লেনদেন" beneath the নগদ logotype. Next, the hero image and the offer cards.
+The active hero slide is the "Nonstop" creative. The rural village scene with the "লেনদেন যেকোনো..." (transactions anywhere...) slogan is a different slide. I'll check the remaining offer cards and the other hero slides.
+The Weekend offer card (2026-october-add-money) displays "৳৪,৪৪০ অ্যাড মানিতে" and a red box "৳৮০ ইনস্ট্যান্ট বোনাস". DeeptoPlay is showing 20% cashback. Next is the rural hero slide with the "লেনদেন যেকোনো..." slogan.
+Slide 1 is a rural scene that contains the slogan "লেনদেন যেকোনো / নগদ সেখানে" and the shop signboard "সর্বনিম্ন ক্যাশ আউট চার্জ". To avoid transcription errors, let me grab the exact verbatim DOM text for all remaining fields.
+One more check on the footer download button's exact styling (the red one in the footer, not the Play Store button in the account section).
+All evidence gathered. Closing the browser and compiling the audit report.
+# Nagad.com.bd Information Extraction Audit
+
+**Method note:** Site auto-serves the Bangla version (`nagad.com.bd/bn/`). Several strings (logo tagline, modal graphics, hero slides, offer cards) are **rasterized into images**, not DOM text — I extracted those by rendering/downloading the actual image assets served by the site. Page text below is quoted verbatim in the site's own (nonstandard) Bengali spelling.
+
+## 1. Header Branding & Global Affordances
+- **(a) Subtitle beneath logo:** `ডাক বিভাগের ডিজিটাল লেনদেন` ("Post Division's Digital Transaction"). **Caveat:** it is baked into the logo image (`/_nuxt/img/new-logo.14fe8a5.png`, `alt=""`) — no separate DOM text node.
+- **(b) Active language:** **বাংলা (Bangla)** is active. Active state styling: class `lang-btn active` — white text `rgb(255,255,255)` on a red pill background `rgb(208,57,44)`, font-weight 600, 10px, cursor pointer. Inactive "English": dark gray text `rgb(78,75,102)`, transparent background.
+- **(c) Sixth/final nav link:** `নগদ ইসলামিক` → `https://nagadislamic.com.bd/bn/` (opens in new tab). Full menu order: সার্ভিসেস, সব অফার, ক্যারিয়ার, পরিচিতি, হেল্প, নগদ ইসলামিক.
+
+## 2. Promotional Popup Modal
+Modal graphic is a single uploaded image (`/storage/uploads/pop-up-banner/...jpg`); only the close button and CTA are DOM elements.
+- **(a) Top headline:** `নগদ অ্যাপে নতুন Experience` (white text, "Experience" in italic).
+- **(b) Central 3D slogan:** `সব হবে Nonstop` — "সব হবে" in white with red outline above a large red 3D italic "Nonstop".
+- **(c) Featured person:** A male athlete in a red cricket-style jersey holding a smartphone showing the Nagad app UI. **Name: Not Found** — no alt text, caption, or any identifying text exists anywhere on the page.
+- **(d) Primary action button:** Text `Let's go` + red right-arrow icon (→); white pill button (bg `#FFFFFF`, red text `rgb(208,57,44)`, border-radius 100px, 1.6px white border); links to `https://onelink.to/nagadapp`.
+
+## 3. Hero Banner & Visual Scenery
+- **(a) Large Bengali slogan (rural slide):** `লেনদেন যেকোনো / নগদ সেখানে` ("Where transactions happen, Nagad is there") — red lettering with white outline, baked into the slide image.
+- **(b) Red signboard on rural store:** `সর্বনিস ক্যাস আউট চার্জ` (≈ "Lowest cash-out charge") in yellow/white on the red signboard, with the Nagad logo at right. A smaller address/contact line sits beneath it but is not legibly resolvable at asset resolution.
+
+## 4. Current Promotional Offers (বর্তমান অফার)
+Card graphics are background images; DOM only contains category labels (পেমেন্ট / অ্যাড মানি) and "অফারের বিস্তারিত" links.
+- **(a) Weekend Add Money card** (badge "Weekend Offer"; slug `2026-october-add-money`): required transaction `৳ ৪,৪৪০` ("ব্যাংকে থেক নগদ-এ ৳ ৪,৪৪০ অ্যাড মানিতে" = add money of ৳4,440 from bank to Nagad).
+- **(b) Red box bonus:** `৳ ৮০ ইনস্ট্যান্ট বোনাস*` (instant bonus ৳80; "৪০" shown as 80 in Bengali digits ৮০). Small T&C note: offer valid for Oct 2026 weekends (*শর্ত প্রযোজ্য).
+- **(c) DeeptoPlay card:** `২০% ক্যাসব্যাক*` — **20% cashback** on DeeptoPlay subscriptions paid via Nagad ("DeeptoPlay-এর সাবস্ক্রিপশনেন ২০% ক্যাসব্যাক* নগদ পেমেন্টে").
+
+## 5. Account Opening Workflow (নগদ একাউন্ট খুলুন)
+- **(a)** Heading (h2): `নগদ একাউন্ট খুলুন` — Subheading (p): `আপনার নগদ একাউন্ট তৈরি করার ৩ টি সহজ ধাপ` ("3 easy steps to create your Nagad account").
+- **(b) ধাপ ১:** `এন আই ডি স্ক্যান করে প্রয়োজনীয় তথ্য দিন` (Scan your NID and provide required info).
+- **(c) ধাপ ২:** `সেলফি তুলুন ও নির্দিষ্ট জায়গায় ডিজিটাল স্বাক্ষর দিন` (Take a selfie and sign digitally at the designated spot).
+- **(d) ধাপ ৩:** `৪ ডিজিটের পিন সেট করুন` (Set a 4-digit PIN).
+
+## 6. Corporate Identity & Reach Milestone
+Section heading: `নগদ - বাংলাদেশ পোস্ট অফিসের একটি ডিএফএস`. Body (verbatim): `বাংলাদেশ ডাক বিভাগের ডিজিটাল ফাইন্যান্সিয়াল ডিজিটাল লেনদেন সেবা হচ্ছে নগদ। নগদ-এর যাত্রা শুরু ২০১৯ সালের ২৬ মার্চ। শুরুর মাত্র পাঁচ বছরে, ৯ কোটির অধিক মানুষকে আর্থিক লেনদেনের মধ্যে এনেছে নগদ।`
+- **(a)** Launch date: **২০১৯ সালের ২৬ মার্চ** (March 26, 2019). Milestone: **৯ কোটির অধিক** (over 90 million) people brought into financial transactions.
+
+## 7. Footer Affordances & Legal Notice
+- **(a) Red app download button:** `ডাউনলোড অ্যাপ` (class `download-btn`, red background `rgb(242,79,65)`, white text, pill shape) under heading `ডাউনলোড নগদ অ্যাপ`; links to `https://onelink.to/nagadapp`.
+- **(b) Copyright (verbatim, bottom line):** `© 2026 Nagad All rights reserved`

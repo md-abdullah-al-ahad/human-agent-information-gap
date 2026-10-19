@@ -1,0 +1,75 @@
+I'll conduct this audit using static HTTP requests. Let me start by fetching the main page and analyzing its structure.
+It's a Next.js app. Let me read the full HTML content to find the embedded data.
+This is a Next.js app with client-side rendering. Let me extract the `__NEXT_DATA__` and inspect the body for server-rendered content.
+The body is one long line. Let me reformat it by inserting newlines after tags, then search for the specific content.
+The booking form may be client-side. Let me search for all the specific content sections.
+Let me read the main content sections of the page in detail.
+Let me read the footer section and the earlier nav/hero section.
+I have the footer data. Now I need the client-side content: booking defaults, Mastercard modal, star badges, and destination descriptors. Let me examine the JS chunks and find API endpoints.
+Let me search the JS chunks for API endpoints, destination data, star tiers, and promo content.
+There's an API at `alphaapi.usbair.com`. Let me search the JS for the specific content and API endpoint paths.
+Let me extract the context around the key strings in the minified JS.
+The "City of" descriptors and mastercard modal are in the homepage component chunk. Let me download all the homepage's JS chunks and search them.
+`c_7945` is the homepage component. Let me extract context around the key strings there.
+Let me extract the full destination array to get all the city descriptors.
+Got the destination descriptors. Now let me find the booking form defaults, star tiers, and check the API for the mastercard modal.
+Let me find the 4th star tier, the booking form default logic, and the API tags for the mastercard modal.
+Four tiers found: Silver, Gold, Platinum, Titanium. Let me verify the SVG badge labels and find the API tag values for the popup/modal.
+Let me search the homepage component for the popup/modal and any API calls, and find the tag values.
+The popup is fetched via `common-json-view?tag=popup-advertisement` and is an image. Let me fetch that API to get the image URL.
+The popup is a JPG image. Let me determine the CDN base and download it.
+Found it. Let me download the popup images (desktop and mobile) and inspect them.
+No local OCR. Let me view the popup images directly.
+The desktop popup is clear. Let me cross-check the mobile version and investigate the booking-form default origin and the loyalty tier names.
+Both images confirm the Mastercard details. Now let me verify the booking-form default origin and the loyalty tier names.
+The SVG has no text (badges are vector paths). Let me convert it to view, and fetch the Sky Star / membership-tiers pages to confirm the four tier names.
+rsvg-convert is available. Let me convert the homepage loyalty SVG to view the 4 badges, and confirm tier context on the membership-tiers page.
+Four tiers confirmed: Silver, Gold, Platinum, Titanium. Let me view the homepage loyalty SVG to confirm the 4 circular badges.
+The four badges are confirmed: Silver, Gold, Platinum, Titanium. Now let me verify whether the booking form's "From" field has a client-side default origin.
+The booking form's `fromSelectedAddress` is initialized to `null` (no default airport). Let me verify the "Destination from" autocomplete default and confirm the vacation banner image.
+Let me find the "Destination from" section component and its default value, and view the vacation banner.
+Let me view the vacation banner and trace the `d.LZ` context that sets the default city.
+The banner confirms the overwater resort. Now let me trace the `d.LZ` context to determine the "Destination from" default city on the homepage.
+Let me examine the `LZ` context provider to see if there's a fixed default city or if it's IP-derived.
+Let me confirm the initial value of the `city` state in the `LZ` provider.
+I have all the data verified through static requests (cURL of the SSR HTML, Next.js JS chunks, the `alphaapi.usbair.com` API, and direct image inspection of the popup/banner/loyalty graphics). Here is the audit.
+
+---
+
+## US-Bangla Airlines (usbair.com) — Information Extraction Audit
+
+**Method:** static cURL of `https://usbair.com/` (SSR HTML + `__NEXT_DATA__`), Next.js client chunks, `https://alphaapi.usbair.com` API (`/api/common-json-view?tag=popup-advertisement`), and pixel inspection of the popup JPG, loyalty SVG (rendered via rsvg-convert), and vacation banner PNG. No browser automation used.
+
+### 1. Flight Booking Engine UI
+- **(a) Default origin airport in 'From' field:** **Not Found (no airport pre-selected).** The context state `fromSelectedAddress` is initialized to `null` with no mount effect setting it, so the 'From' field renders empty, showing the placeholder label **"Departure"** (at 30% text opacity). No default airport code or name.
+- **(b) Search CTA button:** Text = **"Search Flights"**. Styling: red background `#C30B12`, white text (`text-white`), `rounded`, centered flex layout, `px-10 py-3 lg:px-8` padding, Roboto font, normal weight, with a **white airplane (plane) SVG icon** to the right of the label. It renders **disabled** inside a wrapper with `opacity-50` + `cursor-not-allowed` (greyed out) until From/To are filled.
+- **(c) Default passenger count / cabin class:** **1 Passenger** and **Economy**.
+
+### 2. Promotional Mastercard Popup Modal
+(Served as a single image: `cdn.usbair.com/website/public/images/promotion/mastercard-offer-popup-web.jpg` / `-mobile.jpg`, fetched via `common-json-view?tag=popup-advertisement`.)
+- **(a) Discounts & promo codes:** **Domestic: 15% OFF — code `USBA15`**; **International: 10% OFF — code `USBAIN10`**.
+- **(b) Lucky-draw grand prize:** **"Couple Holiday in Kuala Lumpur!"** (a couple's holiday in Kuala Lumpur). The **three domestic return-ticket options: Cox's Bazar, Sylhet, Chattogram**.
+- **(c) Validity expiry:** **"Till 31st October 2026"** (printed as "Validity: Till 31ST October 2026").
+- **(d) Cardholder name on the black Mastercard:** **"SABRINA ISLAM"** (card face: 5123 4567 8901 2345, expiry 02/31).
+
+### 3. Sky Star Loyalty Program
+- **(a) Four tier star badges (circular icons):** **Silver, Gold, Platinum, Titanium** (confirmed in the homepage `Join-Sky-Star-02.svg` and the membership-tiers page headings "Sky Star Silver / Gold / Platinum / Titanium").
+- **(b) Primary CTA headline for the loyalty club:** **"Join Sky Star"** (heading), with the CTA button labeled **"Join now"**.
+
+### 4. Vacation Promotion & Marketing
+- **(a) Headline (overwater-resort banner):** **"Enjoy your favorite holiday destination and Earn Miles!"**
+- **(b) Button text on the banner:** **"Make Memories"**
+
+### 5. Destination from Dhaka Section
+- **(a) Default city pre-filled in the "Destination from…" auto-complete:** **Dhaka** (the `LZ` geo context defaults location to `BD` → maps to city "Dhaka", which auto-fills the `#auto_com` input on the homepage).
+- **(b) Kolkata moniker:** **"City of Joy"** ("Book Your Flight to the City of Joy").
+- **(c) Guangzhou moniker:** **"City of Flowers"** ("Book Your Flight to the City of Flowers").
+- **(d) Kuala Lumpur descriptor:** **"cosmopolitan metropolis"** ("Book Your Flight to the cosmopolitan metropolis").
+
+### 6. Footer Affordances & App Promotion
+- **(a) Newsletter field:** placeholder = **"Email Address"**; action button label = **"Subscribe"**. (Section heading: "Subscribe to our special offers".)
+- **(b) App value proposition:** **"Book and manage your flight & Get exclusive discounts"** (verbatim, note the double space after "and" in source).
+- **(c) Copyright line (verbatim, bottom of page):** **"© 2026 US-Bangla Airlines. All rights reserved."**
+
+---
+**Notes / caveats:** Items 1(a) and the static `value=""` of the `#auto_com` box are empty in the raw SSR HTML; the "Dhaka" default in 5(a) is a deterministic client-side default (BD→Dhaka) that appears after hydration. The Mastercard modal, its promo codes, dates, and the embossed cardholder name are rendered inside the promotion image (not HTML/JS), so they were extracted by image inspection of both desktop and mobile versions (which agree).

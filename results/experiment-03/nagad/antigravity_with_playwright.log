@@ -1,0 +1,125 @@
+I will wait for the background requests to complete.
+### 1. Header Branding & Global Affordances
+
+- **(a) Government Service Subtitle / Tagline**:
+  - **Subtitle**: `ডাক বিভাগের ডিজিটাল লেনদেন` (*Digital Financial Service of the Bangladesh Post Office*).
+  - **Location**: Rendered directly beneath the red "নগদ" brand logotype in the primary header logo asset ([`new-logo.14fe8a5.png`](file:///home/abdullah/.gemini/antigravity-cli/brain/443314cd-9c22-4197-bd6d-aa728060aa40/new-logo.png)).
+
+- **(b) Active Language Toggle & Styling**:
+  - **Active Language**: Bangla (`বাংলা`).
+  - **Styling**:
+    - Tag / Selector: `.navbar .search-and-lang .language-switcher .lang-btn.active`
+    - Background: Solid red (`rgb(208, 57, 44)` / `#D0392C`)
+    - Text Color: Solid white (`rgb(255, 255, 255)` / `#FFFFFF`)
+    - Border Radius: Full pill / capsule shape (`border-radius: 100px`)
+    - Sizing & Typography: `padding: 7.9px 15px`, `font-size: 10px`, `font-weight: 600`, `letter-spacing: 0.55px`
+    - Inactive counterpart (`English`): Transparent background (`background: none`), dark slate text (`rgb(78, 75, 102)`), nested inside a container background of light grey-blue (`rgb(217, 219, 233)`).
+
+- **(c) Sixth / Final Navigation Menu Link**:
+  - **Link Text**: `নগদ ইসলামিক`
+  - **Target URL**: `https://nagadislamic.com.bd/bn/` (opens in a new tab `target="_blank"`).
+
+---
+
+### 2. Promotional Popup Modal
+
+- **(a) Top Headline Text inside Modal Graphic**:
+  - **Headline**: `নগদ অ্যাপে নতুন Experience`
+  - Rendered across two lines: "নগদ অ্যাপে" on the top line, followed by underlined "নতুন Experience" directly below.
+
+- **(b) Central Large 3D Typography Slogan**:
+  - **Slogan**: `সব হবে Nonstop`
+  - "সব হবে" is rendered in white lettering with dark/red drop shadow, positioned directly above "Nonstop" which appears in large red 3D lettering with white outline and dynamic speed-trail motion effects.
+
+- **(c) Featured Athlete / Person**:
+  - **Person**: **Tariq Kazi** (তারিক কাজী / Tariq Raihan Kazi), Bangladeshi-Finnish professional footballer and defender for the Bangladesh national football team and Bashundhara Kings, depicted wearing a red athletic jersey and holding up a smartphone showing the updated Nagad app interface.
+
+- **(d) Primary Action Button on Modal**:
+  - **Exact Text**: `Let's go` followed by a red right-arrow icon (`→`).
+  - **Styling**:
+    - Selector: `.popup-button a.theme-btn`
+    - Background Color: White (`rgb(255, 255, 255)`)
+    - Text & Icon Color: Red (`rgb(208, 57, 44)`)
+    - Border: `2px solid rgb(255, 255, 255)`
+    - Shape: Rounded pill (`border-radius: 100px`)
+    - Padding: `20px 32px`
+    - Typography: `font-size: 15px`, `font-weight: 600`
+    - Target URL: `https://onelink.to/nagadapp`
+
+---
+
+### 3. Hero Banner & Visual Scenery
+
+- **(a) Large Bengali Slogan across Hero Slider**:
+  - **Slogan**: `লেনদেন যেখানে নগদ সেখানে`
+  - Displayed across two lines:
+    - Line 1: `লেনদেন যেখানে`
+    - Line 2: `নগদ সেখানে`
+    - Styling: Large white Bengali typography with red 3D drop shadow.
+
+- **(b) Text on Rural Store Signboard**:
+  - **Primary Headline (Red Section)**: `সর্বনিম্ন ক্যাশ আউট চার্জ*`
+    - "সর্বনিম্ন" in yellow/gold font, "ক্যাশ আউট চার্জ*" in white font with asterisk.
+    - Subtitle note below: `*শর্ত প্রযোজ্য`
+  - **White Side Section**: Nagad brand logo with text `নগদ` and `ডাক বিভাগের ডিজিটাল লেনদেন`.
+  - **Bottom Store Header**: `বিদ্যুৎপুর ডিপার্টমেন্টাল স্টোর, ৯৫, মতিঝিল বা/এ, ঢাকা-১০০০`.
+
+---
+
+### 4. Current Promotional Offers (বর্তমান অফার)
+
+- **(a) Weekend Add Money Required Transaction Amount**:
+  - **Amount**: `৳ ৪,৪৪০` (`৪,৪৪০ টাকা` / `4,440 BDT`)
+  - Verbatim text: `ব্যাংক থেকে নগদ-এ ৳ ৪,৪৪০ অ্যাড মানিতে`
+
+- **(b) Instant Bonus Amount in Red Box**:
+  - **Bonus Amount**: `৳ ৪০` (`৪০ টাকা` / `40 BDT`)
+  - Verbatim text: Large `৳ ৪০` within a red-bordered box over `ইনস্ট্যান্ট বোনাস*`
+
+- **(c) DeeptoPlay Subscription Cashback Percentage**:
+  - **Cashback**: `২০%` (20% cashback)
+  - Verbatim text: `DeeptoPlay-এর সাবস্ক্রিপশনে ২০% ক্যাশব্যাক* নগদ পেমেন্টে`
+
+---
+
+### 5. Account Opening Workflow (নগদ একাউন্ট খুলুন)
+
+- **(a) Section Heading and Subheading**:
+  - **Section Heading (`<h2>`)**: `নগদ একাউন্ট খুলুন`
+  - **Subheading (`<p>`)**: `আপনার নগদ একাউন্ট তৈরি করার ৩ টি সহজ ধাপ`
+
+- **(b) Instruction for Step 1 (ধাপ ১)**:
+  - `এন আই ডি স্ক্যান করে প্রয়োজনীয় তথ্য দিন`
+
+- **(c) Instruction for Step 2 (ধাপ ২)**:
+  - `সেলফি তুলুন ও নির্দিষ্ট জায়গায় ডিজিটাল স্বাক্ষর দিন`
+
+- **(d) Instruction for Step 3 (ধাপ ৩)**:
+  - `৪ ডিজিটের পিন সেট করুন`
+
+---
+
+### 6. Corporate Identity & Reach Milestone
+
+- **(a) Journey Launch Date & Milestone Customer Count**:
+  - **Journey Launch Date**: `২০১৯ সালের ২৬ মার্চ` (26 March 2019)
+  - **Customer Milestone Count**: `৯ কোটির অধিক` (Over 9 Crore / 90+ million customers)
+  - Full verbatim text:
+    > "বাংলাদেশ ডাক বিভাগের ডিজিটাল ফাইন্যান্সিয়াল ডিজিটাল লেনদেন সেবা হচ্ছে নগদ। নগদ-এর যাত্রা শুরু ২০১৯ সালের ২৬ মার্চ। শুরুর মাত্র পাঁচ বছরে, ৯ কোটির অধিক মানুষকে আর্থিক লেনদেনের মধ্যে এনেছে নগদ।"
+
+---
+
+### 7. Footer Affordances & Legal Notice
+
+- **(a) Red App Download Button in Footer**:
+  - **Exact Text**: `ডাউনলোড অ্যাপ`
+  - Selector: `.download-app a.download-btn.font-bn`
+  - Target URL: `https://onelink.to/nagadapp`
+  - Styling: Red background (`rgb(242, 79, 65)`), white text (`rgb(255, 255, 255)`), rounded pill (`border-radius: 100px`).
+
+- **(b) Verbatim Copyright Notice**:
+  - `© 2026 Nagad All rights reserved`
+
+---
+
+Log updated: `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`

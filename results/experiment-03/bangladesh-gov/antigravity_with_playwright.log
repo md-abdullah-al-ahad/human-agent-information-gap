@@ -1,0 +1,112 @@
+I will run a command to fetch and analyze the raw HTML and scripts of `https://bangladesh.gov.bd` to inspect the popup modal, sliders, search field, and footer attribution.
+I will analyze the HTML structure to locate each of the requested elements.
+I will write a python script using standard library modules to parse `/tmp/bd_portal.html`.
+I will inspect the HTML around the header and top-bar.
+I will search `/tmp/bd_portal.html` for modal/popup content or references to advisory banners.
+I will inspect the HTML of `PopupWidget` and `BannerSliderImageWidget`.
+I will download the popup modal image and the slider banner images to inspect their contents.
+I have launched the image download task and will inspect the images once downloaded.
+I will inspect the HTML of the Administrative Division Counters section.
+I will inspect the HTML of the Administrative Division Counters (`AllSiteCountWidget`).
+I will extract the specific HTML snippet for `AllSiteCountWidget`.
+I will inspect the HTML of the Government Services Grid widget.
+I will inspect the tabs and service cards in `/tmp/services_widget.html`.
+I will inspect all service cards and the see-more toggle under the default active tab `popular-services`.
+I will search the CSS and JS files for rules governing the visibility of service items and the "আরো দেখুন ↓" toggle.
+I will download and inspect the CSS and JS for `NationalPortalServicesWidget`, `BangladeshEmergencyHotlineWidget`, and `NationalPortalGalleryWidget`.
+I will fetch the widget assets with a browser User-Agent header.
+I will inspect the JavaScript and CSS for `NationalPortalServicesWidget` to see how items are displayed and hidden.
+I will inspect the HTML and CSS of the Emergency Hotline Widget.
+I will inspect the HTML of `NationalPortalGalleryWidget` to find the photo gallery images and alt text.
+I will inspect the HTML of the footer widget `NewLandingFooterWidget`.
+I will download and inspect `/site-assets/images/a2iset.png` to see which logos and organizational entity names are depicted in the footer under "পরিকল্পনা এবং বাস্তবায়ন".
+I will check the worklog file in `/home/abdullah/.agent_worklogs/research/`.
+I will update the research work log with the details of this extraction audit.
+### Bangladesh National Portal (bangladesh.gov.bd) Information Extraction Audit
+
+---
+
+#### 1. Header Branding & Utility
+- **(a) Main portal title next to national emblem:**
+  `বাংলাদেশ জাতীয় তথ্য বাতায়ন`
+- **(b) Date string in top header bar:**
+  `১৯ অক্টোবর ২০২৬`
+- **(c) Search input placeholder text:**
+  `এখানে খুঁজুন...`
+
+---
+
+#### 2. Public Health Popup Advisory Modal
+- **(a) Main Bengali headline/title at top of popup modal banner:**
+  `পোড়া তেল ব্যবহার করবেন না`
+- **(b) Official government authority and website URL:**
+  - **Authority:** বাংলাদেশ নিরাপদ খাদ্য কর্তৃপক্ষ (Bangladesh Food Safety Authority), খাদ্য মন্ত্রণালয় (Ministry of Food)
+  - **Website URL:** `www.bfsa.gov.bd`
+- **(c) Medical conditions and cholesterol effects attributed to burnt oil / trans fats:**
+  - **Cholesterol effect:** ক্ষতিকারক কোলেস্টেরল বৃদ্ধি করে (increases harmful cholesterol / LDL).
+  - **Severe medical conditions:** স্ট্রোক ও হৃদরোগ (causes stroke and heart disease).
+- **(d) Recommended culinary alternative for once-used oil:**
+  - Once-used oil should not be re-fried; instead, it can be filtered/strained and used in curries/vegetable dishes: `একবার ভাজা তেল পুনরায় ভাজার কাজে ব্যবহার না করে ছেঁকে তরকারিতে ব্যবহার করতে পারেন।`
+
+---
+
+#### 3. Mobile App Hero Slider Graphics
+- **(a) Provident fund calculator tool title/label:**
+  `ভবিষ্য তহবিল ক্যালকুলেটর`
+- **(b) Property inheritance calculator tool title and tagline:**
+  - **Title:** `উত্তরাধিকার.বাংলা` (also labeled as `উত্তরাধিকার`)
+  - **Tagline:** `এক ক্লিকেই সম্পত্তির হিসাব`
+
+---
+
+#### 4. Administrative Division Counters
+- **(a) Ministries and Divisions (মন্ত্রণালয় ও বিভাগ):**
+  `৫৭` (57)
+- **(b) Upazilas (উপজেলা):**
+  `৫০০` (500)
+- **(c) Union Parishads (ইউনিয়ন):**
+  `৪৫৬৮` (4,568)
+
+---
+
+#### 5. Government Services Grid
+- **(a) Name of default active tab:**
+  `জনপ্রিয় সেবা` (`data-tab="popular-services"`)
+- **(b) Title of the 8th service card visible in this tab:**
+  `পাসপোর্ট, ভিসা ও ইমিগ্রেশন`
+- **(c) Visibility of "ইউটিলিটি বিল" (Utility Bill):**
+  **Hidden behind an interactive toggle ("আরো দেখুন ↓")**.
+  Under the `জনপ্রিয় সেবা` grid, only the first 8 service items (`data-index="0"` to `7`) are rendered visible by default. `ইউটিলিটি বিল` is item index `9` (the 10th card) and is assigned the class `national-portal-services-widget-hidden-item` until the "আরো দেখুন ↓" toggle is triggered.
+
+---
+
+#### 6. Emergency Helplines
+- **(a) 3-digit hotline for "সরকারি তথ্য ও সেবা":**
+  `৩৩৩`
+- **(b) 5-digit hotline for "বিআরটিএ সার্ভিস পোর্টাল (বিএসপি)":**
+  `১৬১০৭`
+- **(c) 5-digit hotline for "স্মার্ট ভূমি সেবা" and visibility:**
+  - **Hotline number:** `১৬১২২`
+  - **Visibility:** **Hidden behind a toggle**. In `BangladeshEmergencyHotlineWidget`, items from the 7th entry onwards are styled with `display: none` (`.emergency-numbers-item:nth-child(n+7){display:none}`). `স্মার্ট ভূমি সেবা` is the 9th item in the list and only displays when `#toggle-hotlines` is expanded.
+
+---
+
+#### 7. Media Gallery
+- **(a) Subject / Alt text of the 4th image (depicting rows of oarsmen):**
+  `নৌকা বাইচ` (Boat Race)
+
+---
+
+#### 8. Footer Institutional Attribution
+- **(a) Entities and logos depicted under "পরিকল্পনা এবং বাস্তবায়ন":**
+  The footer logo cluster (`a2iset.png`) depicts four entities:
+  1. **a2i** (`innovate for all`)
+  2. **Cabinet Division** (`Government of the People's Republic of Bangladesh`)
+  3. **ICT Division** (`FUTURE IS HERE`)
+  4. **UNDP** (`United Nations Development Programme`)
+  
+  **Yes**, the cluster explicitly includes both **UNDP** and **Cabinet Division**.
+
+---
+
+Log updated: `/home/abdullah/.agent_worklogs/research/human-agent-information-gap.log.md`
