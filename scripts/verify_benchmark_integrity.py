@@ -6,10 +6,10 @@ hashes, checking file existence, and verifying dimensional integrity.
 """
 
 import os
-import sys
 import json
 import hashlib
-from PIL import Image
+import struct
+import sys
 
 MANIFEST_PATH = "data/stage-4/manifest.json"
 
@@ -19,6 +19,15 @@ def compute_sha256(filepath):
         while chunk := f.read(65536):
             h.update(chunk)
     return h.hexdigest()
+
+
+def png_dimensions(filepath):
+    """Read PNG IHDR dimensions without optional image packages."""
+    with open(filepath, "rb") as image:
+        header = image.read(24)
+    if header[:8] != b"\x89PNG\r\n\x1a\n" or header[12:16] != b"IHDR":
+        raise ValueError(f"Not a PNG with an IHDR header: {filepath}")
+    return struct.unpack(">II", header[16:24])
 
 def verify_manifest():
     if not os.path.exists(MANIFEST_PATH):
@@ -37,6 +46,9 @@ def verify_manifest():
     for site_id, info in sites.items():
         name = info.get("name", "Unknown")
         print(f"Auditing Site {site_id}: {name}")
+        site_passed = True
+        if info.get("capture_status"):
+            print(f"  Capture status: {info['capture_status']} (content usability is separate from file integrity)")
 
         # Check Screenshot
         ss_info = info.get("screenshot", {})
@@ -52,17 +64,24 @@ def verify_manifest():
         if actual_ss_sha != expected_ss_sha:
             print(f"  [FAIL] Screenshot SHA mismatch! Expected {expected_ss_sha}, got {actual_ss_sha}")
             all_passed = False
+            site_passed = False
         else:
             print(f"  [PASS] Screenshot SHA-256 Verified: {actual_ss_sha[:16]}...")
 
         # Verify image opens and dimensions match
-        with Image.open(ss_path) as im:
-            dims_str = f"{im.size[0]} x {im.size[1]} px"
+        try:
+            width, height = png_dimensions(ss_path)
+            dims_str = f"{width} x {height} px"
             if dims_str != ss_info.get("dimensions"):
                 print(f"  [FAIL] Dimension mismatch: Expected {ss_info.get('dimensions')}, got {dims_str}")
                 all_passed = False
+                site_passed = False
             else:
                 print(f"  [PASS] Dimensions Verified: {dims_str}")
+        except ValueError as exc:
+            print(f"  [FAIL] {exc}")
+            all_passed = False
+            site_passed = False
 
         # Check DOM
         dom_info = info.get("raw_dom", {})
@@ -78,13 +97,14 @@ def verify_manifest():
         if actual_dom_sha != expected_dom_sha:
             print(f"  [FAIL] DOM SHA mismatch! Expected {expected_dom_sha}, got {actual_dom_sha}")
             all_passed = False
+            site_passed = False
         else:
             print(f"  [PASS] DOM SHA-256 Verified: {actual_dom_sha[:16]}... ({os.path.getsize(dom_path):,} bytes)")
 
-        print(f"  Status: ALL GATES VERIFIED for {site_id}\n")
+        print(f"  Status: {'FILE INTEGRITY VERIFIED' if site_passed else 'FILE INTEGRITY FAILED'} for {site_id}\n")
 
     if all_passed:
-        print(f"=== ALL {len(sites)} SITES PASSED 100% BIT-LEVEL CRYPTOGRAPHIC VERIFICATION ===")
+        print(f"=== ALL {len(sites)} REGISTERED FILE PAIRS MATCH THEIR HASHES AND DIMENSIONS ===")
     else:
         print("=== VERIFICATION FAILED ON ONE OR MORE SITES ===")
 

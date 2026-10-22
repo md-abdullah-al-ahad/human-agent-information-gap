@@ -24,7 +24,7 @@
 
 ---
 
-## 2. Evaluation Against Pre-Registered Ground Truth (16 Items)
+## 2. Evaluation Against Researcher-Annotated Reference (16 Items)
 
 | Item ID | Target Information Item | Modality Surface | Human Ground Truth | Qwen Retrieved & Reported | Gemini Retrieved & Reported | Information Gap Classification |
 |---|---|---|---|---|---|---|
@@ -49,16 +49,16 @@
 
 ## 3. Key Empirical Findings on S3
 
-1. **Flawless Negative Constraint Preservation (RQ4: Explicit Negatives vs. Negative Overreach)**:
+1. **Preservation of Four Selected Negative Constraints (RQ4)**:
    - In Pilot 01 (commercial retail product listings on Daraz), when explicit negative claims were absent from the page, both agents committed severe **negative overreach** (Gap 3)—confidently declaring that unlisted tablet models were physically incompatible simply because they were not selectable in a drop-down menu.
-   - On Site S3 (Gov.uk), where negative constraints are explicitly codified under an unambiguous semantic heading (`"You cannot:"`), **both models achieved 100% fidelity**:
+   - On Site S3 (Gov.uk), where negative constraints are explicitly codified under an unambiguous semantic heading (`"You cannot:"`), both agents reported the four selected prohibitions:
      - Neither agent generalized beyond the four stated prohibitions.
      - Both models quoted the exact legal caveats (e.g., noting the exception for permitted paid engagements, and cross-referencing the requirement for a Marriage Visitor visa).
-   - This provides critical empirical support for RQ4: **AI agents preserve negative boundaries accurately when websites provide explicit negative syntax, but infer false negative constraints when websites rely on silent omission.**
+   - These cases are consistent with explicit wording helping the agents preserve listed prohibitions. They do not isolate wording as the cause of the difference between the retail and visa cases.
 
-2. **High Information Retention on Semantic Institutional Markup (16/16 Items, 100%)**:
+2. **High Reported Retention on the Selected Semantic Markup Items (16/16 per agent in the existing case coding)**:
    - Gov.uk utilizes strict semantic HTML (headings, ordered lists, markdown-like callout blocks) without client-side hydration barriers or graphical text embedding.
-   - Both the Playwright accessibility snapshot (OpenCode) and the HTTP fetch / HTML DOM parser (Antigravity) achieved 100% item retention without loss or distortion.
+   - Both agent reports covered the 16 selected items under the case's original coding. This is not a cross-site accuracy estimate.
 
 3. **Ground-Truth Fee Schedule Calibration**:
    - The pre-registration inventory matrix noted a baseline fee of `£120` from prior documentation.

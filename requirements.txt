@@ -1,0 +1,9 @@
+# Optional script dependencies; this is not a reproducible version lockfile.
+# Real OCR additionally requires a system Tesseract binary with eng and ben language data.
+Pillow
+playwright
+fastmcp
+trafilatura
+readability-lxml
+beautifulsoup4
+html2text

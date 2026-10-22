@@ -1,5 +1,7 @@
 # Site BD-ED01: 10 Minute School — Controlled Playwright vs. Static Tool Ablation Audit
 
+> **Scoring correction (2026-10-21):** BD-ED01-17 and BD-ED01-19 contain a numerical and a named-entity mismatch in the Qwen-with-Playwright answer. The original `PASS` labels in the master CSV remain historical; downstream aggregate scores have not been recomputed. See [the correction ledger](../scoring-corrections.md).
+
 **Target URL:** `https://10minuteschool.com`  
 **Platform Architecture:** Next.js SSR with Tailwind CSS, Cloudflare Obfuscation, and Dynamic Media CDN (10 Minute School)  
 **Evaluation Date:** 2026-10-19  
@@ -19,7 +21,7 @@
 
 ---
 
-## 2. Evaluation Against Pre-Registered Ground Truth (20 Items)
+## 2. Evaluation Against Researcher-Annotated Reference (20 Items)
 
 | Item ID | Target Information Fact | Modality Surface | Human Ground Truth | Qwen (With Playwright) | Gemini (With Playwright) | Qwen (Without Playwright) | Gemini (Without Playwright) | Empirical Tool Ablation Finding |
 |---|---|---|---|---|---|---|---|---|
@@ -39,9 +41,9 @@
 | **BD-ED01-14** | **Weekly Live Classes Metric (`10টি`)** | `TEXT / METRIC` | `10টি সাপ্তাহিক লাইভ ক্লাস` (10 classes) | **PASS** (10 classes) | **PASS** (10 classes) | **PASS** (10 classes) | **PASS** (10 classes) | Static parity |
 | **BD-ED01-15** | **AI Doubt Solver Brand (`TenTen`)** | `TEXT / BRAND` | `TenTen` (24/7 AI learning partner) | **PASS** (TenTen) | **PASS** (TenTen) | **PASS** (TenTen) | **PASS** (TenTen) | Static parity |
 | **BD-ED01-16** | **Active Academic Students (`৩০+ হাজার`)** | `TEXT / METRIC` | `৩০+ হাজার Academic স্টুডেন্ট` (30,000+) | **PASS** (30,000+) | **PASS** (30,000+) | **PASS** (30,000+) | **PASS** (30,000+) | Static parity |
-| **BD-ED01-17** | **App Downloads Metric (`৪,৫৮,৫৪৩+` / `৫,০০,০০০+`)** | `TEXT / METRIC` | `৪,৫৮,৫৪৩+` / `৫,০০,০০০+` app downloads | **PASS** (454,545+) | **PASS** (500,000+) | **PASS** (500,000+) | **PASS** (500,000+) | Metric variation noted |
+| **BD-ED01-17** | **App Downloads Metric (`৪,৫৮,৫৪৩+` / `৫,০০,০০০+`)** | `TEXT / METRIC` | `৪,৫৮,৫৪৩+` / `৫,০০,০০০+` app downloads | **DISPUTED** (454,545+; matches neither documented reference value; historically PASS) | **PASS** (500,000+) | **PASS** (500,000+) | **PASS** (500,000+) | Metric variation and capture timing need adjudication |
 | **BD-ED01-18** | **Play Store Rating & Reviews (`৪.৫+`, `৩,০০,০০০`)** | `TEXT / METRIC` | `৪.৫+` rating, approx `৩,০০,০০০` students | **PASS** (4.5+, 300,000) | **PASS** (4.5+, 300,000) | **PASS** (4.5+, 300,000) | **PASS** (4.5+, 300,000) | Static parity |
-| **BD-ED01-19** | **Parent Testimonial (`পূর্ণিমা লস্কর`)** | `IN_IMAGE_GRAPHIC` | `পূর্ণিমা লস্কর` (Mother of `পারমিতা লস্কর`) | **PASS** (Purnoma Lakshmi) | **PASS** (Purnima Laskar) | **FAIL (Reported Not Found)** | **PASS** (Downloaded image + OCR) | **Gap 1 Confirmed**: Dropped in static Qwen |
+| **BD-ED01-19** | **Parent Testimonial (`পূর্ণিমা লস্কর`)** | `IN_IMAGE_GRAPHIC` | `পূর্ণিমা লস্কর` (Mother of `পারমিতা লস্কর`) | **DISPUTED** (Purnoma Lakshmi; different name; historically PASS) | **PASS** (Purnima Laskar) | **FAIL (Reported Not Found)** | **PASS** (Downloaded image + OCR) | Static Qwen did not report the name; Qwen browser answer needs correction |
 | **BD-ED01-20** | **Customer Support Hotline & Email** | `TEXT / CONTACT` | `16910` (24x7), `+880 9610916910`, `support@10ms` | **PASS** (All 3) | **PASS** (All 3) | **PASS** (All 3) | **PASS** (Decoded Cloudflare hex) | Obfuscation decoded |
 
 ---

@@ -9,6 +9,7 @@ __pycache__/
 
 # Virtual environments and local environment files
 .venv/
+.venv-lwa-v2/
 venv/
 env/
 .env
@@ -25,9 +26,13 @@ results/*
 !results/.gitkeep
 !results/pilot-results-template.csv
 !results/information-gap-results-template.csv
+!results/item-adjudication-worklist.csv
+!results/offline-mcp-acceptance.md
 !results/experiment-01/
 !results/experiment-02/
 !results/experiment-03/
+!results/reproduced-*
+results/experiment-03/offline-agent-pilot-run-*/captures/
 
 
 

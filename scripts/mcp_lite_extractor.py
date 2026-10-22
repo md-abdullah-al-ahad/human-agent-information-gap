@@ -1,27 +1,39 @@
-"""
-LWA-Web MCP Server: Lightweight Web Extraction Tool
-===================================================
-A standard Model Context Protocol (MCP) server providing autonomous web agents
-with ultra-fast, low-token, visually-enriched web page extraction.
+"""LWA-Web MCP server exposing source-linked evidence extraction.
 
-Features:
-- 96%+ Token Pruning via AST Semantic Condensation
-- Selective Visual Micro-Triage for Trapped Raster Pixels (Banners/Coupons)
-- Deterministic Omission & Affordance Normalization
+The older ``extract_web_page`` fixture function remains importable for historical
+reproduction but is not exposed to agents as an MCP tool.
 """
 
 import os
+import json
 import sys
 import time
 import re
 import urllib.request
+from urllib.parse import urlparse
 from typing import Dict, List, Optional, Tuple
 from html.parser import HTMLParser
+from pathlib import Path
 from fastmcp import FastMCP
+from fastmcp.utilities.types import Image
+
+try:
+    from .lwa_evidence import inspect_page
+    from .lwa_evidence_store import (inspect_evidence as read_saved_evidence,
+                                     inspect_image_crop as read_saved_image_crop,
+                                     check_claim as check_saved_claim,
+                                     check_structured_claim as check_saved_structured_claim)
+except ImportError:  # Direct execution: python scripts/mcp_lite_extractor.py
+    from lwa_evidence import inspect_page
+    from lwa_evidence_store import (inspect_evidence as read_saved_evidence,
+                                    inspect_image_crop as read_saved_image_crop,
+                                    check_claim as check_saved_claim,
+                                    check_structured_claim as check_saved_structured_claim)
 
 mcp = FastMCP("lite-web-extractor")
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
-# Known benchmark cache mapping for high-fidelity offline/deterministic evaluation
+# Known benchmark cache mapping for explicitly requested offline evaluation.
 BENCHMARK_CACHE = {
     'shwapno.com': 'data/stage-4/raw/bd-qc02-dom.html',
     'nagad.com.bd': 'data/stage-4/raw/bd-fn02-dom.html',
@@ -34,14 +46,75 @@ BENCHMARK_CACHE = {
     'usbair.com': 'data/stage-4/raw/bd-tr03-dom.html'
 }
 
-# Ground truth visual enrichments for benchmark sites
+
+@mcp.tool()
+def inspect_web_evidence(
+    target: str,
+    question: str = "",
+    mode: str = "live",
+    snapshot_captured_at_utc: Optional[str] = None,
+    image_paths: Optional[List[str]] = None,
+    render: str = "http",
+) -> dict:
+    """Return source-linked page evidence and unresolved states for an agent.
+
+    Use mode='live' for an HTTP(S) URL or mode='snapshot' for a saved local HTML
+    file. Snapshot mode never makes a network request. Image paths are optional
+    saved local assets for OCR; unavailable OCR is reported, never invented.
+    Set render='browser' in live mode to capture a bounded Chromium DOM. This
+    does not guarantee that every lazy or interactive state was visited. The
+    tool can fetch up to three referenced live-page raster assets for OCR when
+    Tesseract is available. Snapshot OCR uses only caller-supplied image paths.
+    """
+    return inspect_page(target, question, mode, snapshot_captured_at_utc, image_paths, render)
+
+
+@mcp.tool()
+def inspect_evidence(capture_id: str, evidence_ids: List[str]) -> dict:
+    """Retrieve exact saved observations and bounded source excerpts by capture handle."""
+    return read_saved_evidence(capture_id, evidence_ids)
+
+
+@mcp.tool()
+def inspect_image_crop(
+    capture_id: str, image_sha256: str, bbox: Optional[List[int]] = None,
+) -> list:
+    """View bounded saved pixels by capture/image hash and original-pixel bbox.
+
+    Without bbox, a large image becomes an overview; request a bbox for legible
+    text. The text block identifies the exact source and returned crop hash.
+    """
+    metadata, pixels = read_saved_image_crop(capture_id, image_sha256, bbox)
+    return [json.dumps(metadata, ensure_ascii=False), Image(data=pixels, format="png")]
+
+
+@mcp.tool()
+def check_claim(capture_id: str, claim: str, evidence_ids: List[str]) -> dict:
+    """Check literal quotation support; abstain on unverified semantic claims."""
+    return check_saved_claim(capture_id, claim, evidence_ids)
+
+
+@mcp.tool()
+def check_structured_claim(
+    capture_id: str, subject: str, predicate: str, expected_value: str,
+    evidence_ids: List[str], object_name: str = "",
+) -> dict:
+    """Check explicit stock/compatibility wording for a named subject in cited HTML text.
+
+    Supports or contradicts only the captured source statement, not real-world
+    stock or physical compatibility. Unstated facts and OCR remain unresolved.
+    """
+    return check_saved_structured_claim(capture_id, subject, predicate,
+                                        expected_value, evidence_ids, object_name)
+
+# Hand-entered annotations for known benchmark assets; not OCR output.
 VISUAL_ENRICHMENTS = {
     'shwapno': {
         'puja': 'স্বপ্ন অনলাইনে পূজার সাশ্রয় | PUJA6: 6% discount (max ৳150 on ৳1000+) | PUJA7: 7% discount (max ৳200 on ৳1500+)',
         '6aca72b5': 'স্বপ্ন অনলাইনে পূজার সাশ্রয় | PUJA6: 6% discount (max ৳150 on ৳1000+) | PUJA7: 7% discount (max ৳200 on ৳1500+)'
     },
     'nagad': {
-        'nagad': 'উইকেন্ডে লেনদেন হবে ননস্টপ | ৮,৮৮০ টাকা লেনদেনে ৮০ টাকা ইনস্ট্যান্ট বোনাস | তারিক কাজী'
+        'nagad': 'উইকেন্ডে লেনদেন হবে ননস্টপ | ৮,৮৮০ টাকা লেনদেনে ৮০ টাকা ইনস্ট্যান্ট বোনাস'
     }
 }
 
@@ -141,15 +214,15 @@ class ASTSemanticCondenser(HTMLParser):
         return clean_text
 
 
-@mcp.tool()
-def extract_web_page(target: str) -> str:
+def extract_web_page(target: str, use_benchmark_cache: bool = False) -> str:
     """
-    Extracts and condenses a web page into high-fidelity, ultra-low-token semantic markdown.
-    Prunes 96%+ of DOM bloat (scripts, styles, SVGs) while enriching trapped raster banner text
-    (promotional coupon codes, monetary bonuses) and normalizing missing inventory states.
+    Legacy static condensation fixture, deliberately not registered as an MCP
+    tool. Its optional benchmark cache and known-image annotations are manually
+    supplied; this function does not render pages or perform OCR.
 
     Args:
-        target: Full HTTP(S) URL (e.g. 'https://www.shwapno.com') or local HTML file path.
+        target: Full HTTP(S) URL or local HTML file path.
+        use_benchmark_cache: Serve a saved DOM for known domains only when True.
     """
     start_time = time.perf_counter()
     html_content = ""
@@ -157,15 +230,19 @@ def extract_web_page(target: str) -> str:
 
     # 1. Resolve source (Benchmark Cache, Local File, or Live HTTP fetch)
     matched_cache = None
-    for domain, path in BENCHMARK_CACHE.items():
-        if domain in target:
-            matched_cache = path
-            break
+    using_saved_cache = False
+    if use_benchmark_cache and target.startswith(('http://', 'https://')):
+        host = (urlparse(target).hostname or '').lower()
+        for domain, path in BENCHMARK_CACHE.items():
+            if host == domain or host.endswith('.' + domain):
+                matched_cache = path
+                break
 
-    if matched_cache and os.path.exists(matched_cache):
-        with open(matched_cache, 'r', encoding='utf-8', errors='ignore') as f:
+    if matched_cache and (REPO_ROOT / matched_cache).exists():
+        with (REPO_ROOT / matched_cache).open('r', encoding='utf-8', errors='ignore') as f:
             html_content = f.read()
-        source_label = f"{target} (Loaded from high-fidelity benchmark DOM: {matched_cache})"
+        source_label = f"{target} (saved benchmark DOM: {matched_cache})"
+        using_saved_cache = True
     elif os.path.exists(target):
         with open(target, 'r', encoding='utf-8', errors='ignore') as f:
             html_content = f.read()
@@ -183,17 +260,18 @@ def extract_web_page(target: str) -> str:
 
     raw_bytes = len(html_content.encode('utf-8'))
 
-    # 2. AST Semantic Condensation
+    # 2. HTML text condensation
     condenser = ASTSemanticCondenser()
     condenser.feed(html_content)
     condensed_md = condenser.get_condensed_markdown()
 
-    # 3. Visual Micro-Triage: Enrich Trapped Banner Pixels
+    # 3. Inject known benchmark annotations; no pixels are inspected.
     site_enrichments = {}
-    for site_key, enrich_dict in VISUAL_ENRICHMENTS.items():
-        if site_key in target.lower() or (matched_cache and site_key in matched_cache.lower()):
-            site_enrichments = enrich_dict
-            break
+    if using_saved_cache:
+        for site_key, enrich_dict in VISUAL_ENRICHMENTS.items():
+            if site_key in matched_cache.lower():
+                site_enrichments = enrich_dict
+                break
 
     enriched_count = 0
     for idx, img in enumerate(condenser.images):
@@ -211,25 +289,25 @@ def extract_web_page(target: str) -> str:
                 enriched_count += 1
 
     # 4. Deterministic Omission & Affordance Normalization
-    pattern = r"(\[BUTTON:[^\]]*(?:Add to Cart|Buy Now|অর্ডার করুন)[^\]]*\])"
+    pattern = r"(\[BUTTON[^\]]*:[^\]]*(?:Add to Cart|Buy Now|অর্ডার করুন)[^\]]*\])"
     def annotate_button(match):
         btn = match.group(1)
-        return f"{btn} <!-- data-stock-status='EXPLICITLY_UNSTATED: Do not infer inventory from button clickability' -->"
+        return f"{btn} <!-- Purchase-button state alone does not establish inventory status. -->"
     final_doc = re.sub(pattern, annotate_button, condensed_md, flags=re.IGNORECASE)
 
     # 5. Performance Metrics
     duration_ms = (time.perf_counter() - start_time) * 1000.0
     final_bytes = len(final_doc.encode('utf-8'))
-    reduction_pct = (1.0 - (final_bytes / raw_bytes)) * 100.0
+    reduction_pct = (1.0 - (final_bytes / raw_bytes)) * 100.0 if raw_bytes else 0.0
 
     header = (
         f"=== LWA-WEB MCP EXTRACTION REPORT ===\n"
         f"Source: {source_label}\n"
-        f"Raw DOM Size: {raw_bytes:,} bytes (~{raw_bytes//4:,} tokens)\n"
-        f"Condensed Output: {final_bytes:,} bytes (~{final_bytes//4:,} tokens)\n"
-        f"Token Savings: {reduction_pct:.2f}% REDUCTION\n"
+        f"Raw DOM Size: {raw_bytes:,} bytes (bytes/4 proxy: {raw_bytes//4:,})\n"
+        f"Condensed Output: {final_bytes:,} bytes (bytes/4 proxy: {final_bytes//4:,})\n"
+        f"Byte-Size Reduction: {reduction_pct:.2f}% (token count estimated as bytes/4)\n"
         f"Processing Time: {duration_ms:.2f} ms\n"
-        f"Trapped Visual Banners Enriched: {enriched_count}\n"
+        f"Known-Asset Fixture Annotations: {enriched_count}\n"
         f"=====================================\n\n"
     )
 

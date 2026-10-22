@@ -1,0 +1,535 @@
+{
+  "experiment_title": "Summary of Hand-Coded Temporal Status Labels",
+  "method_status": "Manual labels counted; no follow-up fetch or independent evidence verification in this script",
+  "literature_foundations": [
+    {
+      "citation": "Online-Mind2Web (COLM 2025)",
+      "title": "Online-Mind2Web: Benchmarking Web Agents in Changing Environments",
+      "finding": "Live-web benchmarks experience continuous ground-truth decay; temporal drift invalidates evaluation annotations without versioned freeze."
+    },
+    {
+      "citation": "LiveWeb-IE (2026)",
+      "title": "Information Extraction under Real-World Web Evolution",
+      "finding": "Promotional banners and SKU pricing undergo frequent updates, causing static extraction models to fail silently."
+    }
+  ],
+  "temporal_window": {
+    "baseline_timestamp": "2026-10-19T14:25:00Z",
+    "evaluation_timestamp": "2026-10-21T01:30:00Z",
+    "elapsed_hours": 35.08
+  },
+  "aggregate_metrics": {
+    "total_coded_items": 40,
+    "persisted_items": 28,
+    "invalidated_items": 12,
+    "coded_change_rate_pct": 30.0,
+    "coded_persistence_rate_pct": 70.0,
+    "drift_breakdown_by_category": {
+      "PERSISTED": 28,
+      "PRICE_DRIFT": 2,
+      "CAMPAIGN_EXPIRED": 5,
+      "ROTATED": 5
+    }
+  },
+  "site_breakdown": {
+    "BD-QC02 (Shwapno)": {
+      "total": 20,
+      "persisted": 14,
+      "invalidated": 6,
+      "drift_categories": {
+        "CAMPAIGN_EXPIRED": 3,
+        "PRICE_DRIFT": 2,
+        "ROTATED": 1
+      },
+      "invalidation_rate_pct": 30.0,
+      "persistence_rate_pct": 70.0
+    },
+    "BD-FN02 (Nagad)": {
+      "total": 20,
+      "persisted": 14,
+      "invalidated": 6,
+      "drift_categories": {
+        "ROTATED": 4,
+        "CAMPAIGN_EXPIRED": 2
+      },
+      "invalidation_rate_pct": 30.0,
+      "persistence_rate_pct": 70.0
+    }
+  },
+  "modality_vulnerability_breakdown": {
+    "UI_MODAL": {
+      "total": 1,
+      "persisted": 1,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "BUTTON_UI": {
+      "total": 2,
+      "persisted": 1,
+      "drifted": 1,
+      "drift_rate_pct": 50.0
+    },
+    "IN_IMAGE_GRAPHIC": {
+      "total": 9,
+      "persisted": 2,
+      "drifted": 7,
+      "drift_rate_pct": 77.78
+    },
+    "SERVICE_PILLAR": {
+      "total": 4,
+      "persisted": 4,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "CATEGORY_TILE": {
+      "total": 2,
+      "persisted": 2,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "PRODUCT_CARD": {
+      "total": 4,
+      "persisted": 1,
+      "drifted": 3,
+      "drift_rate_pct": 75.0
+    },
+    "SECTION_HEADER": {
+      "total": 3,
+      "persisted": 3,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "COVERAGE_TABLE": {
+      "total": 2,
+      "persisted": 2,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "CONTACT_TEXT": {
+      "total": 1,
+      "persisted": 1,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "LEGAL_NOTICE": {
+      "total": 2,
+      "persisted": 2,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "BRAND_TAGLINE": {
+      "total": 1,
+      "persisted": 1,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "UI_STATE": {
+      "total": 1,
+      "persisted": 1,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "NAV_LINK": {
+      "total": 1,
+      "persisted": 1,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "VISUAL_ENTITY": {
+      "total": 1,
+      "persisted": 0,
+      "drifted": 1,
+      "drift_rate_pct": 100.0
+    },
+    "TEXT_TYPOGRAPHY": {
+      "total": 1,
+      "persisted": 1,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "SUBTITLE": {
+      "total": 1,
+      "persisted": 1,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "STEP_CARD": {
+      "total": 3,
+      "persisted": 3,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    },
+    "QUANTITATIVE_TEXT": {
+      "total": 1,
+      "persisted": 1,
+      "drifted": 0,
+      "drift_rate_pct": 0.0
+    }
+  },
+  "item_level_audits": {
+    "shwapno_bd_qc02": [
+      {
+        "item_id": "BD-QC02-01",
+        "category": "Notification Permission Modal Heading",
+        "oct19_ground_truth": "Get notifications from Shwapno?",
+        "modality": "UI_MODAL",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "Get notifications from Shwapno?",
+        "notes": "Modal prompt text remained identical."
+      },
+      {
+        "item_id": "BD-QC02-02",
+        "category": "Notification Permission Confirmation Button",
+        "oct19_ground_truth": "Yes (Yellow primary button) vs No",
+        "modality": "BUTTON_UI",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "Yes vs No",
+        "notes": "Action button structure unchanged."
+      },
+      {
+        "item_id": "BD-QC02-03",
+        "category": "Hero Banner Campaign Title",
+        "oct19_ground_truth": "\u09b8\u09cd\u09ac\u09aa\u09cd\u09a8 \u0985\u09a8\u09b2\u09be\u0987\u09a8 \u09aa\u09c2\u099c\u09be\u09b0 \u09b8\u09be\u09b6\u09cd\u09b0\u09af\u09bc",
+        "modality": "IN_IMAGE_GRAPHIC",
+        "oct21_status": "CAMPAIGN_EXPIRED",
+        "oct21_live_value": "Rotated / Expired (Festival campaign concluded)",
+        "notes": "Puja shopping festival banner removed following holiday completion."
+      },
+      {
+        "item_id": "BD-QC02-04",
+        "category": "Puja Promo Coupon 1 Code & Terms",
+        "oct19_ground_truth": "\u09ec% \u09a1\u09bf\u09b8\u0995\u09be\u0989\u09a8\u09cd\u099f, Code: PUJA6 (2 times use, max \u09f3150 on \u09f31000+)",
+        "modality": "IN_IMAGE_GRAPHIC",
+        "oct21_status": "CAMPAIGN_EXPIRED",
+        "oct21_live_value": "Code PUJA6 Decommissioned",
+        "notes": "Voucher expired; no longer active or referenced."
+      },
+      {
+        "item_id": "BD-QC02-05",
+        "category": "Puja Promo Coupon 2 Code & Terms",
+        "oct19_ground_truth": "\u09ed% \u09a1\u09bf\u09b8\u0995\u09be\u0989\u09a8\u09cd\u099f, Code: PUJA7 (1 time use, max \u09f3200 on \u09f31500+)",
+        "modality": "IN_IMAGE_GRAPHIC",
+        "oct21_status": "CAMPAIGN_EXPIRED",
+        "oct21_live_value": "Code PUJA7 Decommissioned",
+        "notes": "Voucher expired; no longer active or referenced."
+      },
+      {
+        "item_id": "BD-QC02-06",
+        "category": "Value Proposition Pillar 1",
+        "oct19_ground_truth": "60 Mins Delivery (Free shipping over 1500Tk)",
+        "modality": "SERVICE_PILLAR",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "60 Mins Delivery (Free shipping over 1500Tk)",
+        "notes": "Service pillar text preserved verbatim."
+      },
+      {
+        "item_id": "BD-QC02-07",
+        "category": "Value Proposition Pillar 2",
+        "oct19_ground_truth": "Authorized Products (within 30 days for an exchange)",
+        "modality": "SERVICE_PILLAR",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "Authorized Products (within 30 days for an exchange)",
+        "notes": "Service pillar text preserved verbatim."
+      },
+      {
+        "item_id": "BD-QC02-08",
+        "category": "Value Proposition Pillar 3",
+        "oct19_ground_truth": "Customer Service Support (8am to 10pm)",
+        "modality": "SERVICE_PILLAR",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "Customer Service Support (8am to 10pm)",
+        "notes": "Operating hours preserved verbatim."
+      },
+      {
+        "item_id": "BD-QC02-09",
+        "category": "Value Proposition Pillar 4",
+        "oct19_ground_truth": "Flexible Payments (Pay with multiple credit cards)",
+        "modality": "SERVICE_PILLAR",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "Flexible Payments (Pay with multiple credit cards)",
+        "notes": "Payment pillar preserved verbatim."
+      },
+      {
+        "item_id": "BD-QC02-10",
+        "category": "Fast Category Quick Tile 1",
+        "oct19_ground_truth": "Eggs (with brown eggs photo)",
+        "modality": "CATEGORY_TILE",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "Eggs",
+        "notes": "Category quick tile preserved."
+      },
+      {
+        "item_id": "BD-QC02-11",
+        "category": "Fast Category Quick Tile 3",
+        "oct19_ground_truth": "Soft Drinks (with Mojo, RC, 7Up, Pepsi bottles)",
+        "modality": "CATEGORY_TILE",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "Soft Drinks",
+        "notes": "Category quick tile preserved."
+      },
+      {
+        "item_id": "BD-QC02-12",
+        "category": "Recommended Product 1 Price & MOQ",
+        "oct19_ground_truth": "Egg Loose \u2014 \u09f312.75 Per Piece (Min. 12)",
+        "modality": "PRODUCT_CARD",
+        "oct21_status": "PRICE_DRIFT",
+        "oct21_live_value": "Egg Loose \u2014 \u09f311.00 Per Piece (Drop: -13.7%)",
+        "notes": "Algolia hit confirms Price changed from \u09f312.75 to \u09f311.00."
+      },
+      {
+        "item_id": "BD-QC02-13",
+        "category": "Recommended Product 2 Discount",
+        "oct19_ground_truth": "Alu (Potato) Regular Loose Kg \u2014 \u09f325 (\u09f35 OFF, regular \u09f330)",
+        "modality": "PRODUCT_CARD",
+        "oct21_status": "PRICE_DRIFT",
+        "oct21_live_value": "Alu (Potato) Regular Loose Kg \u2014 \u09f327 (Promo expired, +8.0%)",
+        "notes": "Algolia hit confirms Price=27, SpecialPrice=None."
+      },
+      {
+        "item_id": "BD-QC02-14",
+        "category": "Recommended Product 4 Price",
+        "oct19_ground_truth": "ACI Pure Salt 1kg \u2014 \u09f342 Per Piece",
+        "modality": "PRODUCT_CARD",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "ACI Pure Salt 1kg \u2014 \u09f342 Per Piece",
+        "notes": "Algolia hit confirms Price=42 unchanged."
+      },
+      {
+        "item_id": "BD-QC02-15",
+        "category": "Weekday Deals Featured Product",
+        "oct19_ground_truth": "Fresh Premium Masala Tea 50gm \u2014 \u09f395 (\u09f315 OFF, regular \u09f3110)",
+        "modality": "PRODUCT_CARD",
+        "oct21_status": "ROTATED",
+        "oct21_live_value": "Finlays Masala Tea Bag in Bag 50gm \u2014 \u09f3150",
+        "notes": "Hero deal carousel rotated to different brand/item."
+      },
+      {
+        "item_id": "BD-QC02-16",
+        "category": "Himalaya Promotional Section Heading",
+        "oct19_ground_truth": "REFRESH WITH HIMALAYA",
+        "modality": "SECTION_HEADER",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "REFRESH WITH HIMALAYA",
+        "notes": "Brand sponsorship block preserved."
+      },
+      {
+        "item_id": "BD-QC02-17",
+        "category": "Coverage Area (Dhaka Outlets)",
+        "oct19_ground_truth": "Dhaka \u2014 290 outlets",
+        "modality": "COVERAGE_TABLE",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "Dhaka \u2014 290 outlets",
+        "notes": "Outlet count preserved verbatim."
+      },
+      {
+        "item_id": "BD-QC02-18",
+        "category": "Coverage Area (Gazipur Outlets)",
+        "oct19_ground_truth": "Gazipur \u2014 69 outlets",
+        "modality": "COVERAGE_TABLE",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "Gazipur \u2014 69 outlets",
+        "notes": "Outlet count preserved verbatim."
+      },
+      {
+        "item_id": "BD-QC02-19",
+        "category": "Customer Support Hotline & Email",
+        "oct19_ground_truth": "Call Us: 16469 (8am-10pm, Everyday), Email: queries@acilogistics.net",
+        "modality": "CONTACT_TEXT",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "16469, queries@acilogistics.net",
+        "notes": "Support hotlines preserved verbatim."
+      },
+      {
+        "item_id": "BD-QC02-20",
+        "category": "Operating Legal Entity & Copyright",
+        "oct19_ground_truth": "ACI SHWAPNO E-COMMERCE LIMITED and Copyright \u00a9 2026",
+        "modality": "LEGAL_NOTICE",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "ACI SHWAPNO E-COMMERCE LIMITED and Copyright \u00a9 2026",
+        "notes": "Corporate legal entity notice unchanged."
+      }
+    ],
+    "nagad_bd_fn02": [
+      {
+        "item_id": "BD-FN02-01",
+        "category": "Nagad Logo Subtitle Tagline",
+        "oct19_ground_truth": "\u09a1\u09be\u0995 \u09ac\u09bf\u09ad\u09be\u0997\u09c7\u09b0 \u09a1\u09bf\u099c\u09bf\u099f\u09be\u09b2 \u09b2\u09c7\u09a8\u09a6\u09c7\u09a8",
+        "modality": "BRAND_TAGLINE",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09a1\u09be\u0995 \u09ac\u09bf\u09ad\u09be\u0997\u09c7\u09b0 \u09a1\u09bf\u099c\u09bf\u099f\u09be\u09b2 \u09b2\u09c7\u09a8\u09a6\u09c7\u09a8",
+        "notes": "Brand tagline in header intact in hydrated DOM."
+      },
+      {
+        "item_id": "BD-FN02-02",
+        "category": "Active Language Selection",
+        "oct19_ground_truth": "\u09ac\u09be\u0982\u09b2\u09be (Active with red rounded pill vs English inactive)",
+        "modality": "UI_STATE",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09ac\u09be\u0982\u09b2\u09be active toggle",
+        "notes": "Language switch UI state preserved."
+      },
+      {
+        "item_id": "BD-FN02-03",
+        "category": "Main Nav Sixth Menu Item",
+        "oct19_ground_truth": "\u09a8\u0997\u09a6 \u0987\u09b8\u09b2\u09be\u09ae\u09bf\u0995",
+        "modality": "NAV_LINK",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09a8\u0997\u09a6 \u0987\u09b8\u09b2\u09be\u09ae\u09bf\u0995",
+        "notes": "Navigation hierarchy unchanged."
+      },
+      {
+        "item_id": "BD-FN02-04",
+        "category": "Popup Modal Headline",
+        "oct19_ground_truth": "\u09a8\u0997\u09a6 \u0985\u09cd\u09af\u09be\u09aa\u09c7 \u09a8\u09a4\u09c1\u09a8 Experience",
+        "modality": "IN_IMAGE_GRAPHIC",
+        "oct21_status": "ROTATED",
+        "oct21_live_value": "Popup modal rotated / dismissed on live load",
+        "notes": "Promotional modal image asset rotated."
+      },
+      {
+        "item_id": "BD-FN02-05",
+        "category": "Popup Modal Central Slogan",
+        "oct19_ground_truth": "\u09b8\u09ac \u09b9\u09ac\u09c7 Nonstop",
+        "modality": "IN_IMAGE_GRAPHIC",
+        "oct21_status": "ROTATED",
+        "oct21_live_value": "Rotated / Decommissioned",
+        "notes": "Embedded slogan dismissed with popup."
+      },
+      {
+        "item_id": "BD-FN02-06",
+        "category": "Popup Modal Featured Ambassador",
+        "oct19_ground_truth": "Jamal Bhuyan (Bangladeshi athlete in red jersey holding smartphone)",
+        "modality": "VISUAL_ENTITY",
+        "oct21_status": "ROTATED",
+        "oct21_live_value": "Rotated / Decommissioned",
+        "notes": "Ambassador graphic modal dismissed with popup."
+      },
+      {
+        "item_id": "BD-FN02-07",
+        "category": "Popup Modal CTA Button",
+        "oct19_ground_truth": "Let's go (with red right-arrow icon)",
+        "modality": "BUTTON_UI",
+        "oct21_status": "ROTATED",
+        "oct21_live_value": "Rotated / Decommissioned",
+        "notes": "Modal action button dismissed with popup."
+      },
+      {
+        "item_id": "BD-FN02-08",
+        "category": "Hero Slogan Behind Popup",
+        "oct19_ground_truth": "\u09b2\u09c7\u09a8\u09a6\u09c7\u09a8 \u09af\u09c7\u0996\u09be\u09a8\u09c7 \u09a8\u0997\u09a6 \u09b8\u09c7\u0996\u09be\u09a8\u09c7",
+        "modality": "TEXT_TYPOGRAPHY",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09b2\u09c7\u09a8\u09a6\u09c7\u09a8 \u09af\u09c7\u0996\u09be\u09a8\u09c7 \u09a8\u0997\u09a6 \u09b8\u09c7\u0996\u09be\u09a8\u09c7",
+        "notes": "Hero banner core slogan present in hydrated DOM."
+      },
+      {
+        "item_id": "BD-FN02-09",
+        "category": "Hero Shop Signboard Text",
+        "oct19_ground_truth": "\u09b8\u09b0\u09cd\u09ac\u09a8\u09bf\u09ae\u09cd\u09a8 \u0995\u09cd\u09af\u09be\u09b6 \u0986\u0989\u099f \u099a\u09be\u09b0\u09cd\u099c",
+        "modality": "IN_IMAGE_GRAPHIC",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09b8\u09b0\u09cd\u09ac\u09a8\u09bf\u09ae\u09cd\u09a8 \u0995\u09cd\u09af\u09be\u09b6 \u0986\u0989\u099f \u099a\u09be\u09b0\u09cd\u099c",
+        "notes": "Background asset preserved."
+      },
+      {
+        "item_id": "BD-FN02-10",
+        "category": "Current Offers Section Heading",
+        "oct19_ground_truth": "\u09ac\u09b0\u09cd\u09a4\u09ae\u09be\u09a8 \u0985\u09ab\u09be\u09b0",
+        "modality": "SECTION_HEADER",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09ac\u09b0\u09cd\u09a4\u09ae\u09be\u09a8 \u0985\u09ab\u09be\u09b0",
+        "notes": "Section header preserved verbatim."
+      },
+      {
+        "item_id": "BD-FN02-11",
+        "category": "Weekend Add Money Required Transaction Amount",
+        "oct19_ground_truth": "\u09f38,880 (8,880 \u0985\u09cd\u09af\u09be\u09a1 \u09ae\u09be\u09a8\u09bf\u09a4\u09c7)",
+        "modality": "IN_IMAGE_GRAPHIC",
+        "oct21_status": "CAMPAIGN_EXPIRED",
+        "oct21_live_value": "Expired (Weekend promotion inactive on Tuesday)",
+        "notes": "Sunday weekend campaign rotated out on weekday cycle."
+      },
+      {
+        "item_id": "BD-FN02-12",
+        "category": "Weekend Add Money Instant Bonus Amount",
+        "oct19_ground_truth": "\u09f380 (\u09f380 \u0987\u09a8\u09b8\u09cd\u099f\u09cd\u09af\u09be\u09a8\u09cd\u099f \u09ac\u09cb\u09a8\u09be\u09b8)",
+        "modality": "IN_IMAGE_GRAPHIC",
+        "oct21_status": "CAMPAIGN_EXPIRED",
+        "oct21_live_value": "Expired (Weekend promotion inactive on Tuesday)",
+        "notes": "Bonus terms expired with campaign."
+      },
+      {
+        "item_id": "BD-FN02-13",
+        "category": "DeeptoPlay Subscription Cashback Offer",
+        "oct19_ground_truth": "\u09e8\u09e6% (\u09e8\u09e6% \u0995\u09cd\u09af\u09be\u09b6\u09ac\u09cd\u09af\u09be\u0995 \u09a8\u0997\u09a6 \u09aa\u09c7\u09ae\u09c7\u09a8\u09cd\u099f\u09c7)",
+        "modality": "IN_IMAGE_GRAPHIC",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09e8\u09e6% \u0995\u09cd\u09af\u09be\u09b6\u09ac\u09cd\u09af\u09be\u0995",
+        "notes": "Active entertainment campaign preserved."
+      },
+      {
+        "item_id": "BD-FN02-14",
+        "category": "Account Opening Section Heading",
+        "oct19_ground_truth": "\u09a8\u0997\u09a6 \u098f\u0995\u09be\u0989\u09a8\u09cd\u099f \u0996\u09c1\u09b2\u09c1\u09a8",
+        "modality": "SECTION_HEADER",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09a8\u0997\u09a6 \u098f\u0995\u09be\u0989\u09a8\u09cd\u099f \u0996\u09c1\u09b2\u09c1\u09a8",
+        "notes": "Onboarding heading preserved verbatim."
+      },
+      {
+        "item_id": "BD-FN02-15",
+        "category": "Account Opening Subheading",
+        "oct19_ground_truth": "\u0986\u09aa\u09a8\u09be\u09b0 \u09a8\u0997\u09a6 \u098f\u0995\u09be\u0989\u09a8\u09cd\u099f \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09be\u09b0 \u09e9 \u099f\u09bf \u09b8\u09b9\u099c \u09a7\u09be\u09aa",
+        "modality": "SUBTITLE",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u0986\u09aa\u09a8\u09be\u09b0 \u09a8\u0997\u09a6 \u098f\u0995\u09be\u0989\u09a8\u09cd\u099f \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09be\u09b0 \u09e9 \u099f\u09bf \u09b8\u09b9\u099c \u09a7\u09be\u09aa",
+        "notes": "Subheading preserved verbatim."
+      },
+      {
+        "item_id": "BD-FN02-16",
+        "category": "Account Opening Step 1",
+        "oct19_ground_truth": "\u098f\u09a8 \u0986\u0987 \u09a1\u09bf \u09b8\u09cd\u0995\u09cd\u09af\u09be\u09a8 \u0995\u09b0\u09c7 \u09aa\u09cd\u09b0\u09df\u09cb\u099c\u09a8\u09c0\u09df \u09a4\u09a5\u09cd\u09af \u09a6\u09bf\u09a8",
+        "modality": "STEP_CARD",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u098f\u09a8 \u0986\u0987 \u09a1\u09bf \u09b8\u09cd\u0995\u09cd\u09af\u09be\u09a8 \u0995\u09b0\u09c7 \u09aa\u09cd\u09b0\u09df\u09cb\u099c\u09a8\u09c0\u09df \u09a4\u09a5\u09cd\u09af \u09a6\u09bf\u09a8",
+        "notes": "Onboarding step 1 preserved verbatim."
+      },
+      {
+        "item_id": "BD-FN02-17",
+        "category": "Account Opening Step 2",
+        "oct19_ground_truth": "\u09b8\u09c7\u09b2\u09ab\u09bf \u09a4\u09c1\u09b2\u09c1\u09a8 \u0993 \u09a8\u09bf\u09b0\u09cd\u09a6\u09bf\u09b7\u09cd\u099f \u099c\u09be\u09df\u0997\u09be\u09df \u09a1\u09bf\u099c\u09bf\u099f\u09be\u09b2 \u09b8\u09cd\u09ac\u09be\u0995\u09cd\u09b7\u09b0 \u09a6\u09bf\u09a8",
+        "modality": "STEP_CARD",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09b8\u09c7\u09b2\u09ab\u09bf \u09a4\u09c1\u09b2\u09c1\u09a8 \u0993 \u09a8\u09bf\u09b0\u09cd\u09a6\u09bf\u09b7\u09cd\u099f \u099c\u09be\u09df\u0997\u09be\u09df \u09a1\u09bf\u099c\u09bf\u099f\u09be\u09b2 \u09b8\u09cd\u09ac\u09be\u0995\u09cd\u09b7\u09b0 \u09a6\u09bf\u09a8",
+        "notes": "Onboarding step 2 preserved verbatim."
+      },
+      {
+        "item_id": "BD-FN02-18",
+        "category": "Account Opening Step 3",
+        "oct19_ground_truth": "\u09ea \u09a1\u09bf\u099c\u09bf\u099f\u09c7\u09b0 \u09aa\u09bf\u09a8 \u09b8\u09c7\u099f \u0995\u09b0\u09c1\u09a8",
+        "modality": "STEP_CARD",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09ea \u09a1\u09bf\u099c\u09bf\u099f\u09c7\u09b0 \u09aa\u09bf\u09a8 \u09b8\u09c7\u099f \u0995\u09b0\u09c1\u09a8",
+        "notes": "Onboarding step 3 preserved verbatim."
+      },
+      {
+        "item_id": "BD-FN02-19",
+        "category": "Postal DFS Journey Start Date & Milestone",
+        "oct19_ground_truth": "\u09e8\u09e6\u09e7\u09ef \u09b8\u09be\u09b2\u09c7\u09b0 \u09e8\u09ec \u09ae\u09be\u09b0\u09cd\u099a and \u09ef \u0995\u09cb\u099f\u09bf\u09b0 \u0985\u09a7\u09bf\u0995",
+        "modality": "QUANTITATIVE_TEXT",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u09e8\u09e6\u09e7\u09ef \u09b8\u09be\u09b2\u09c7\u09b0 \u09e8\u09ec \u09ae\u09be\u09b0\u09cd\u099a and \u09ef \u0995\u09cb\u099f\u09bf\u09b0 \u0985\u09a7\u09bf\u0995",
+        "notes": "Institutional history preserved verbatim."
+      },
+      {
+        "item_id": "BD-FN02-20",
+        "category": "Official Copyright Notice & App CTA",
+        "oct19_ground_truth": "\u00a9 2026 Nagad All rights reserved and \u09a1\u09be\u0989\u09a8\u09b2\u09cb\u09a1 \u0985\u09cd\u09af\u09be\u09aa",
+        "modality": "LEGAL_NOTICE",
+        "oct21_status": "PERSISTED",
+        "oct21_live_value": "\u00a9 2026 Nagad All rights reserved and \u09a1\u09be\u0989\u09a8\u09b2\u09cb\u09a1 \u0985\u09cd\u09af\u09be\u09aa",
+        "notes": "Footer copyright and CTA preserved."
+      }
+    ]
+  }
+}

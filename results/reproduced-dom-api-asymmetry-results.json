@@ -1,0 +1,147 @@
+{
+  "shwapno_algolia_asymmetry": [
+    {
+      "product": "Egg Loose",
+      "id": "65effb7bae4f247aa6eeae01",
+      "price": 11,
+      "total_quantity_sold": 3830554.0,
+      "api_latency_ms": 1668.3475829995587,
+      "api_payload_bytes": 4954,
+      "total_tested_fields": 24,
+      "present_in_dom_count": 5,
+      "omitted_from_dom_count": 19,
+      "asymmetry_ratio": 79.16666666666666,
+      "omitted_samples": [
+        [
+          "ShortDescription",
+          "Fresh farm eggs for a nutritious and del"
+        ],
+        [
+          "MarkAsNewStartDateTimeUtc",
+          "638458441800000000"
+        ],
+        [
+          "IsFreeShipping",
+          "False"
+        ],
+        [
+          "MarkAsNewFacetValue",
+          "0--638458441800000000--63847485780000000"
+        ],
+        [
+          "MetaDescription_BN",
+          "Discover the best Egg Loose on the top e"
+        ]
+      ]
+    },
+    {
+      "product": "Alu (Potato) Regular Loose Kg",
+      "id": "696e027a310037bf2881247d",
+      "price": 27,
+      "total_quantity_sold": 171014201.0,
+      "api_latency_ms": 945.957145999273,
+      "api_payload_bytes": 12237,
+      "total_tested_fields": 21,
+      "present_in_dom_count": 5,
+      "omitted_from_dom_count": 16,
+      "asymmetry_ratio": 76.19047619047619,
+      "omitted_samples": [
+        [
+          "MetaDescription_BN",
+          "Discover the best Alu Regular Loose Kg o"
+        ],
+        [
+          "Sku",
+          "2400818"
+        ],
+        [
+          "objectID",
+          "696e027a310037bf2881247d"
+        ],
+        [
+          "Tags",
+          "['Dry-Vegies']"
+        ],
+        [
+          "MetaTitle_BN",
+          "Shop Alu Regular Loose Kg at Shwapno.com"
+        ]
+      ]
+    },
+    {
+      "product": "ACI Pure Salt 1kg",
+      "id": "65efed5a4029080802d0391f",
+      "price": 42,
+      "total_quantity_sold": 141382.0,
+      "api_latency_ms": 911.1795040007564,
+      "api_payload_bytes": 7093,
+      "total_tested_fields": 23,
+      "present_in_dom_count": 8,
+      "omitted_from_dom_count": 15,
+      "asymmetry_ratio": 65.21739130434783,
+      "omitted_samples": [
+        [
+          "ShortDescription_BN",
+          "1kg of high quality salt for various cul"
+        ],
+        [
+          "MarkAsNewEndDateTimeUtc",
+          "638474857800000000"
+        ],
+        [
+          "MetaDescription",
+          "Discover the best ACI Pure Salt 1kg on t"
+        ],
+        [
+          "MarkAsNewStartDateTimeUtc",
+          "638458441800000000"
+        ],
+        [
+          "MetaTitle",
+          "Shop ACI Pure Salt 1kg at Shwapno.com"
+        ]
+      ]
+    },
+    {
+      "product": "Finlays Masala Tea Bag in Bag 50gm",
+      "id": "6655aa16112c66696f320663",
+      "price": 150.0,
+      "total_quantity_sold": 189.0,
+      "api_latency_ms": 911.4607580013399,
+      "api_payload_bytes": 5383,
+      "total_tested_fields": 24,
+      "present_in_dom_count": 7,
+      "omitted_from_dom_count": 17,
+      "asymmetry_ratio": 70.83333333333334,
+      "omitted_samples": [
+        [
+          "ShortDescription_BN",
+          "Rich and robust masala tea blend in bag "
+        ],
+        [
+          "MetaTitle",
+          "Shop Finlays Masala Tea Bag in Bag 50gm "
+        ],
+        [
+          "Categories",
+          "[{'Id': '66a85505e058eb2613a8c838', 'Nam"
+        ],
+        [
+          "Price",
+          "150.0"
+        ],
+        [
+          "MetaDescription",
+          "Discover the best Finlays Masala Tea Bag"
+        ]
+      ]
+    }
+  ],
+  "chaldal_state_asymmetry": {
+    "total_categories_state": 230,
+    "rendered_categories_dom": 230,
+    "hidden_cat_ids_ratio": 0.0,
+    "total_banners_state": 47,
+    "cf_email_obfuscated": true
+  }
+}

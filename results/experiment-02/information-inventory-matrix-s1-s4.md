@@ -1,6 +1,6 @@
 # Information Inventory & Surface Grounding Matrix (Stage 3: S1–S4)
 
-**Status:** Pre-registered ground truth for Stage 3 Multi-Domain Expansion.  
+**Status:** Researcher-annotated reference matrix for Stage 3 Multi-Domain Expansion. The external worklog records this inventory before the Stage-3 agent runs, although its stated item total is arithmetically wrong; factual labels still require separate adjudication.
 **Framework:** 4-Stage Human–Agent Information Accessibility Pipeline.  
 **Evidence Sources:** Synchronized Human Visual Full-Page Captures (`data/stage-3/screenshots/`) and Machine DOM HTML (`data/stage-3/raw/`).  
 **Pre-Registration Date:** 2026-10-19.
@@ -57,7 +57,7 @@ Every item is tagged with its **Observable Modality Surface**:
 | Item ID | Information Category & Fact | Modality Surface | Human-Observable Location | Exposed in Raw DOM? | Target Research Check |
 |---|---|---|---|---|---|
 | S2-01 | Package Title: `EXECUTIVE HEALTH CHECK (MALE / FEMALE)` | `TEXT` | Main heading | Yes | Service entity extraction |
-| S2-02 | **Package Price: `18,000 BDT`** | `DYNAMIC` | Sub-heading below title | **No (Omitted from raw static DOM)** | **Gap 1: Client-Side JS Dynamic Barrier** |
+| S2-02 | **Package Price: `18,000 BDT`** | `DYNAMIC` (original label; hydration dependence unverified) | Sub-heading below title | **Yes in saved browser-captured DOM** (`<h3 class="package-price ...">18,000 BDT</h3>`) | Both agents retained the price; no saved initial HTTP response establishes a static-fetch gap. |
 | S2-03 | Kidney Function: `CREATININE-SERUM` | `TEXT` | Investigation list item 1 | Yes | Itemized diagnostic fidelity |
 | S2-04 | Kidney Function: `UREA-SERUM` | `TEXT` | Investigation list item 2 | Yes | Itemized diagnostic fidelity |
 | S2-05 | Uric Acid: `URIC ACID-SERUM` | `TEXT` | Investigation list item 3 | Yes | Itemized diagnostic fidelity |
@@ -156,4 +156,4 @@ Every item is tagged with its **Observable Modality Surface**:
   - `IMAGE_TEXT` (In-image raster banner): 1 item
   - `ABSENT` (Unstated hardware facts): 1 item
 
-This matrix is now frozen. All subsequent agent outputs in Stage 3 will be scored strictly against these 74 pre-registered items.
+This matrix contains 78 researcher-annotated items. The repository does not independently establish prospective freeze timing for every item or a complete adjudication rubric.

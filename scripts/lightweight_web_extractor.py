@@ -2,14 +2,16 @@
 Lightweight Web Extraction Framework (LWA-Web) Prototype
 =========================================================
 Authors: Empirical AI & Agent Research Group
-Objective: High-efficiency, low-token, low-latency web extraction pipeline
-designed to resolve Human-Agent Information Gaps without the heavy browser/VLM tax.
+Objective: Explore HTML condensation and hand-entered fixture annotations.
 
 Core Modules:
-1. AST-Based Semantic Condenser (96%+ token reduction)
-2. Selective Visual Micro-Triage & Pixel-to-Text Injection (resolves In-Image Gaps)
-3. Deterministic Omission & Affordance Normalizer (prevents Affordance Overreach)
-4. Empirical Performance & Token Reduction Benchmarking
+1. HTMLParser-based text condenser (byte-size reduction varies by page)
+2. Optional, hand-entered annotations for known benchmark image filenames
+3. Neutral warning that a purchase button alone does not prove stock
+4. Offline byte-size and literal-string checks
+
+This prototype does not perform OCR, browser acquisition, or end-to-end agent
+evaluation. Its fixture checks must not be reported as general extraction accuracy.
 """
 
 from html.parser import HTMLParser
@@ -21,8 +23,8 @@ from typing import Dict, List, Optional, Tuple
 
 class ASTSemanticCondenser(HTMLParser):
     """
-    Parses raw HTML and condenses it into an ultra-low-token semantic markdown representation,
-    stripping inline scripts, stylesheets, SVG path bloat, and redundant layout wrappers.
+    Parses raw HTML into selected text and element references, omitting script,
+    style, SVG, and other skipped blocks. It does not measure tokenizer usage.
     """
     def __init__(self, strip_classes: bool = True):
         super().__init__()
@@ -129,8 +131,8 @@ class ASTSemanticCondenser(HTMLParser):
 
 class VisualMicroTriageEngine:
     """
-    Selective visual processor: identifies candidate images containing trapped raster pixels,
-    and enriches the semantic DOM with localized OCR / metadata without full-page VLM token burn.
+    Identifies candidate image references and injects supplied fixture annotations.
+    No image bytes are opened and no OCR or vision model is called.
     """
     def __init__(self, ground_truth_enrichments: Optional[Dict[str, str]] = None):
         self.known_enrichments = ground_truth_enrichments or {}
@@ -157,15 +159,15 @@ class VisualMicroTriageEngine:
 
 class DeterministicOmissionNormalizer:
     """
-    Scans interactive elements to detect missing explicit inventory or constraint declarations,
-    labeling them as EXPLICITLY_UNSTATED to prevent LLM Affordance Overreach.
+    Adds a neutral reminder beside purchase buttons. It cannot determine from a
+    button alone whether an explicit stock statement exists elsewhere on a page.
     """
     def normalize(self, markdown_text: str) -> str:
-        pattern = r"(\[BUTTON:[^\]]*(?:Add to Cart|Buy Now|অর্ডার করুন)[^\]]*\])"
+        pattern = r"(\[BUTTON[^\]]*:[^\]]*(?:Add to Cart|Buy Now|অর্ডার করুন)[^\]]*\])"
         
         def annotate_button(match):
             btn = match.group(1)
-            return f"{btn} <!-- data-stock-status='EXPLICITLY_UNSTATED: Do not infer inventory from button clickability' -->"
+            return f"{btn} <!-- Purchase-button state alone does not establish inventory status. -->"
             
         normalized = re.sub(pattern, annotate_button, markdown_text, flags=re.IGNORECASE)
         return normalized
@@ -173,12 +175,8 @@ class DeterministicOmissionNormalizer:
 
 class LightweightWebExtractor:
     """
-    Unified LWA-Web pipeline:
-    1. Ingests DOM
-    2. Runs AST Semantic Condenser
-    3. Executes Visual Micro-Triage
-    4. Applies Deterministic Omission Normalizer
-    5. Returns high-fidelity, low-token context document
+    Offline HTML condenser with optional known-site fixture annotations.
+    Output size and speed do not establish factual completeness.
     """
     def __init__(self, ground_truth_enrichments: Optional[Dict[str, str]] = None):
         self.triage = VisualMicroTriageEngine(ground_truth_enrichments)
@@ -188,12 +186,12 @@ class LightweightWebExtractor:
         start_time = time.perf_counter()
         raw_bytes = len(html_content.encode('utf-8'))
 
-        # Step 1: AST Semantic Condensation
+        # Step 1: HTML text condensation
         condenser = ASTSemanticCondenser()
         condenser.feed(html_content)
         condensed_md = condenser.get_condensed_markdown()
 
-        # Step 2: Visual Micro-Triage Injection
+        # Step 2: Optional hand-entered fixture annotation
         enriched_md, trapped_count = self.triage.enrich_semantic_markdown(
             condensed_md, condenser.images
         )
@@ -203,7 +201,7 @@ class LightweightWebExtractor:
 
         processing_time_ms = (time.perf_counter() - start_time) * 1000.0
         final_bytes = len(final_doc.encode('utf-8'))
-        token_reduction_pct = (1.0 - (final_bytes / raw_bytes)) * 100.0
+        byte_reduction_pct = (1.0 - (final_bytes / raw_bytes)) * 100.0 if raw_bytes else 0.0
 
         raw_tokens_est = raw_bytes // 4
         condensed_tokens_est = final_bytes // 4
@@ -211,19 +209,19 @@ class LightweightWebExtractor:
         return {
             'raw_bytes': raw_bytes,
             'condensed_bytes': final_bytes,
-            'token_reduction_pct': token_reduction_pct,
+            'byte_reduction_pct': byte_reduction_pct,
             'raw_tokens_est': raw_tokens_est,
             'condensed_tokens_est': condensed_tokens_est,
-            'trapped_pixels_enriched': trapped_count,
+            'fixture_annotations_inserted': trapped_count,
             'processing_time_ms': processing_time_ms,
             'document': final_doc
         }
 
 
 def run_benchmark():
-    """Runs causal evaluation of LWA-Web on benchmark platforms."""
+    """Runs an offline fixture demonstration on existing HTML captures."""
     print("=" * 80)
-    print("LIGHTWEIGHT WEB EXTRACTION FRAMEWORK (LWA-WEB) BENCHMARK EVALUATION")
+    print("LIGHTWEIGHT WEB EXTRACTION FRAMEWORK (LWA-WEB) FIXTURE DEMO")
     print("=" * 80)
 
     test_sites = [
@@ -240,7 +238,7 @@ def run_benchmark():
             'name': 'Nagad (BD-FN02)',
             'dom_path': 'data/stage-4/raw/bd-fn02-dom.html',
             'enrichments': {
-                'nagad': 'উইকেন্ডে লেনদেন হবে ননস্টপ | ৮,৮৮০ টাকা লেনদেনে ৮০ টাকা ইনস্ট্যান্ট বোনাস | তারিক কাজী'
+                'nagad': 'উইকেন্ডে লেনদেন হবে ননস্টপ | ৮,৮৮০ টাকা লেনদেনে ৮০ টাকা ইনস্ট্যান্ট বোনাস'
             },
             'target_checks': ['৮,৮৮০', '৮০', 'নগদ', 'ইসলামিক', '২০১৯', '৯ কোটির অধিক']
         },
@@ -267,9 +265,9 @@ def run_benchmark():
         print(f"\n[BENCHMARK] Target: {site['name']}")
         print(f"  Raw DOM Payload:          {res['raw_bytes']:,} bytes (~{res['raw_tokens_est']:,} tokens)")
         print(f"  LWA-Web Condensed Output: {res['condensed_bytes']:,} bytes (~{res['condensed_tokens_est']:,} tokens)")
-        print(f"  Token Savings:            {res['token_reduction_pct']:.2f}% REDUCTION")
+        print(f"  Byte-Size Reduction:      {res['byte_reduction_pct']:.2f}% (not measured tokenizer savings)")
         print(f"  Processing Latency:       {res['processing_time_ms']:.2f} ms")
-        print(f"  Trapped Pixels Enriched:  {res['trapped_pixels_enriched']} banner(s)")
+        print(f"  Fixture Annotations:      {res['fixture_annotations_inserted']} image reference(s)")
 
         doc = res['document']
         checks = {}
@@ -282,7 +280,7 @@ def run_benchmark():
             print(f"    - Target '{check}': [{status}]")
 
     print("\n" + "=" * 80)
-    print("BENCHMARK COMPLETED: All targeted information units retained at 96-98% lower token cost.")
+    print("FIXTURE DEMO COMPLETED: These selected string checks do not measure general recall.")
     print("=" * 80)
 
 if __name__ == "__main__":

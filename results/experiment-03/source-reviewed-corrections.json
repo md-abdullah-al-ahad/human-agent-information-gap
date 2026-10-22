@@ -1,0 +1,205 @@
+[
+  {
+    "source_csv_row": 361,
+    "item_id": "BD2-20",
+    "expected_agent_setup": "Antigravity/Gemini 3.8 Flash (With Playwright)",
+    "expected_agent_reported": "Reported Fresh from filename fresh.png",
+    "review_state": "source_verified",
+    "corrected_outcome": "partial_brand_list",
+    "adjudicated_claim": "Eighth Chaldal partner logo visibly reads MGI; saved DOM asset path ends in fresh.png",
+    "evidence_locator": "data/stage-4/screenshots/chaldal-fullpage.png#pixels:x=735..985,y=1200..1380; data/stage-4/raw/chaldal-dom.html:12#fresh.png",
+    "adjudicator_notes": "Agent included Fresh from the filename. Seven other brands may be correct, but this eighth logo is wrong; score this list as partial under the case-report rubric.",
+    "evidence_artifacts": [
+      {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988"
+      },
+      {
+        "path": "data/stage-4/raw/chaldal-dom.html",
+        "sha256": "07388b92389166834a7bb390ddee1b36a0ff1b8a057d9864ad4dbf8e3617649c"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 362,
+    "item_id": "BD2-20",
+    "expected_agent_setup": "OpenCode/Qwen3.8-27B (Without Playwright)",
+    "expected_agent_reported": "Reported Fresh from filename fresh.png",
+    "review_state": "source_verified",
+    "corrected_outcome": "partial_brand_list",
+    "adjudicated_claim": "Eighth Chaldal partner logo visibly reads MGI; saved DOM asset path ends in fresh.png",
+    "evidence_locator": "data/stage-4/screenshots/chaldal-fullpage.png#pixels:x=735..985,y=1200..1380; data/stage-4/raw/chaldal-dom.html:12#fresh.png",
+    "adjudicator_notes": "Agent included Fresh from the filename. Seven other brands may be correct, but this eighth logo is wrong; score this list as partial under the case-report rubric.",
+    "evidence_artifacts": [
+      {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988"
+      },
+      {
+        "path": "data/stage-4/raw/chaldal-dom.html",
+        "sha256": "07388b92389166834a7bb390ddee1b36a0ff1b8a057d9864ad4dbf8e3617649c"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 363,
+    "item_id": "BD2-20",
+    "expected_agent_setup": "Antigravity/Gemini 3.8 Flash (Without Playwright)",
+    "expected_agent_reported": "Reported Fresh from filename fresh.png",
+    "review_state": "source_verified",
+    "corrected_outcome": "partial_brand_list",
+    "adjudicated_claim": "Eighth Chaldal partner logo visibly reads MGI; saved DOM asset path ends in fresh.png",
+    "evidence_locator": "data/stage-4/screenshots/chaldal-fullpage.png#pixels:x=735..985,y=1200..1380; data/stage-4/raw/chaldal-dom.html:12#fresh.png",
+    "adjudicator_notes": "Agent included Fresh from the filename. Seven other brands may be correct, but this eighth logo is wrong; score this list as partial under the case-report rubric.",
+    "evidence_artifacts": [
+      {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988"
+      },
+      {
+        "path": "data/stage-4/raw/chaldal-dom.html",
+        "sha256": "07388b92389166834a7bb390ddee1b36a0ff1b8a057d9864ad4dbf8e3617649c"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 596,
+    "item_id": "BD-ED01-17",
+    "expected_agent_setup": "OpenCode/Qwen3.8-27B (With Playwright)",
+    "expected_agent_reported": "PASS",
+    "review_state": "source_checked_unresolved",
+    "corrected_outcome": "unresolved",
+    "adjudicated_claim": "Saved DOM advertises 5,00,000+ app downloads; historical inventory says ৪,৫৮,৫৪৩+; agent wrote 454,545+",
+    "evidence_locator": "data/stage-4/raw/bd-ed01-dom.html:185; embedded app-download card",
+    "adjudicator_notes": "Neither saved value matches the answer, but aligned historical run timing and reference version are unproved. Do not count a pass or exact failure yet.",
+    "evidence_artifacts": [
+      {
+        "path": "data/stage-4/raw/bd-ed01-dom.html",
+        "sha256": "fc5d302c4c55b6405506d5d28b26e51a21c7ed308c0bfd6b948014ccfd685a4d"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 604,
+    "item_id": "BD-ED01-19",
+    "expected_agent_setup": "OpenCode/Qwen3.8-27B (With Playwright)",
+    "expected_agent_reported": "PASS",
+    "review_state": "source_verified",
+    "corrected_outcome": "fail_named_entity_exact",
+    "adjudicated_claim": "Saved testimonial crop prints পূর্ণিমা লস্কর, মা, শিক্ষার্থী: পারমিতা লস্কর",
+    "evidence_locator": "scratch/visual_crops/testimonial2.png#lower-left name; saved crop 1536x848",
+    "adjudicator_notes": "Agent wrote Purnoma Lakshmi. This is not an exact name match; crop time is not independently recorded.",
+    "evidence_artifacts": [
+      {
+        "path": "scratch/visual_crops/testimonial2.png",
+        "sha256": "e5ac64c06816b66201627a99e245b293b2b4838e2768e423f32241c98aa4a315"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 636,
+    "item_id": "BD-GV01-07",
+    "expected_agent_setup": "OpenCode/Qwen3.8-27B (With Playwright)",
+    "expected_agent_reported": "PASS (হেঁকে তরকারি)",
+    "review_state": "source_verified",
+    "corrected_outcome": "fail_exact_text",
+    "adjudicated_claim": "Saved advisory poster says ছেঁকে তরকারিতে ব্যবহার করতে পারেন",
+    "evidence_locator": "scratch/bd_gv01_popup_crop.png#purple fourth panel; saved crop 480x580",
+    "adjudicator_notes": "Agent wrote হেঁকে. This fails exact OCR transcription; semantic partial credit remains rubric-dependent.",
+    "evidence_artifacts": [
+      {
+        "path": "scratch/bd_gv01_popup_crop.png",
+        "sha256": "5933647e01b7a0ddf9cdf59dd16b4713d6a241cece68200656d26873d53e4465"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 640,
+    "item_id": "BD-GV01-08",
+    "expected_agent_setup": "OpenCode/Qwen3.8-27B (With Playwright)",
+    "expected_agent_reported": "PASS (ডিবিয় তহবিল)",
+    "review_state": "source_checked_unresolved",
+    "corrected_outcome": "fail_key_term_provisional",
+    "adjudicated_claim": "Case reports identify ভবিষ্য তহবিল ক্যালকুলেটর; agent wrote ডিবিয় তহবিল",
+    "evidence_locator": "data/stage-4/raw/bd-gv01-dom.html:224 references slider image; data/stage-4/screenshots/bd-gv01-fullpage.png does not show that carousel frame",
+    "adjudicator_notes": "The referenced frame pixels were not retained locally. Wrong-key-term correction remains based on case reports, not independently source-verified.",
+    "evidence_artifacts": [
+      {
+        "path": "data/stage-4/raw/bd-gv01-dom.html",
+        "sha256": "f88cec77e4f0cc642932d692afb5c45a463ea62e37d69a2b16205746a62ead38"
+      },
+      {
+        "path": "data/stage-4/screenshots/bd-gv01-fullpage.png",
+        "sha256": "01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 704,
+    "item_id": "BD-TR03-04",
+    "expected_agent_setup": "OpenCode/Qwen3.8-27B (With Playwright)",
+    "expected_agent_reported": "PASS (USBAT15)",
+    "review_state": "source_verified",
+    "corrected_outcome": "fail_exact_text",
+    "adjudicated_claim": "Domestic promo code shown in saved popup: USBA15",
+    "evidence_locator": "scratch/usbair_popup_crop.png#domestic-code; saved crop 710x730",
+    "adjudicator_notes": "Agent wrote USBAT15. Code exactness is necessary; crop capture time is not separately recorded.",
+    "evidence_artifacts": [
+      {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 708,
+    "item_id": "BD-TR03-05",
+    "expected_agent_setup": "OpenCode/Qwen3.8-27B (With Playwright)",
+    "expected_agent_reported": "PASS (USBAINT10)",
+    "review_state": "source_verified",
+    "corrected_outcome": "fail_exact_text",
+    "adjudicated_claim": "International promo code shown in saved popup: USBAIN10",
+    "evidence_locator": "scratch/usbair_popup_crop.png#international-code; saved crop 710x730",
+    "adjudicator_notes": "Agent wrote USBAINT10. Code exactness is necessary; crop capture time is not separately recorded.",
+    "evidence_artifacts": [
+      {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 873,
+    "item_id": "BD-FN02-06",
+    "expected_agent_setup": "Antigravity/Gemini 3.8 Flash (With Playwright)",
+    "expected_agent_reported": "PASS (Tariq Kazi)",
+    "review_state": "source_checked_unresolved",
+    "corrected_outcome": "unresolved",
+    "adjudicated_claim": "The saved Nagad screenshot has an unlabeled person in the hero popup; identity cannot be established from it",
+    "evidence_locator": "data/stage-4/screenshots/bd-fn02-fullpage.png#hero-popup person",
+    "adjudicator_notes": "This arm says Tariq Kazi; the other Gemini arm says Jamal Bhuyan. Neither identity is verified by the saved screenshot.",
+    "evidence_artifacts": [
+      {
+        "path": "data/stage-4/screenshots/bd-fn02-fullpage.png",
+        "sha256": "0c552ce11775c4cdeee17a4645ad9c8c6e9a95d1efc6e9c7a10f15e3895dfc50"
+      }
+    ]
+  },
+  {
+    "source_csv_row": 875,
+    "item_id": "BD-FN02-06",
+    "expected_agent_setup": "Antigravity/Gemini 3.8 Flash (Without Playwright)",
+    "expected_agent_reported": "PASS (Jamal Bhuyan)",
+    "review_state": "source_checked_unresolved",
+    "corrected_outcome": "unresolved",
+    "adjudicated_claim": "The saved Nagad screenshot has an unlabeled person in the hero popup; identity cannot be established from it",
+    "evidence_locator": "data/stage-4/screenshots/bd-fn02-fullpage.png#hero-popup person",
+    "adjudicator_notes": "This arm says Jamal Bhuyan; the other Gemini arm says Tariq Kazi. Neither identity is verified by the saved screenshot.",
+    "evidence_artifacts": [
+      {
+        "path": "data/stage-4/screenshots/bd-fn02-fullpage.png",
+        "sha256": "0c552ce11775c4cdeee17a4645ad9c8c6e9a95d1efc6e9c7a10f15e3895dfc50"
+      }
+    ]
+  }
+]

@@ -1,0 +1,87 @@
+{
+  "kind": "local_component_demonstration_not_agent_evaluation",
+  "source_bytes": 14261,
+  "certificate_bytes": 1057,
+  "replay_certificate_identical": true,
+  "different_question_reused_index": true,
+  "first_usage": {
+    "index_cache_hit": false,
+    "indexed_records": 202,
+    "query_cache_hit": false,
+    "source_html_bytes": 14261,
+    "source_image_bytes": 0,
+    "worker_ms": 75.37,
+    "certificate_bytes": 1057,
+    "tokenizer": "cl100k_base",
+    "certificate_tokens": 350,
+    "elapsed_ms": 374.33
+  },
+  "replay_usage": {
+    "query_cache_hit": true,
+    "certificate_bytes": 1057,
+    "tokenizer": "cl100k_base",
+    "certificate_tokens": 350,
+    "elapsed_ms": 230.76
+  },
+  "certificate": {
+    "answer_type": "exact_code",
+    "candidates": [],
+    "capture_id": "capture:600e400024a2bf946aebfe5f30e71428c0b4077c1b03cbeb9c9458b19f799827",
+    "captured_at": null,
+    "certificate_id": "cert:2699beb06a6db08aad1518d705eb69652e58f8393fb59b1f533ec56f1bf07a3b",
+    "checks": [
+      "subject_bound",
+      "qualifiers_bound",
+      "typed_extraction"
+    ],
+    "coverage": [
+      "external_css_visibility_unverified",
+      "interactive_states_unchecked",
+      "saved_html"
+    ],
+    "evidence": [
+      {
+        "human_visibility": "unverified",
+        "id": "ev:d2dfd911908ba62995df521ddae37ff82083fb0d5e21e6c70e2debbbf4f143b2",
+        "locator": "html:1:21",
+        "source_kind": "dom_text",
+        "source_sha256": "a25aad6985c789e30562d28741579add332a1cd61c682a603fab2c3d93ff6610",
+        "text": "Travel offer 7% Code: DEMON10"
+      }
+    ],
+    "interpretation": {
+      "as_of": "capture",
+      "field": "",
+      "position": null,
+      "qualifiers": {
+        "discount": "7%"
+      },
+      "scope": "page",
+      "subject": "Travel offer"
+    },
+    "next_action": null,
+    "reason": "Exact extraction from a subject-bound captured source.",
+    "snapshot_id": "snapshot:d639c385c3255ce3d7010ae9bac17b919036bb8413891afcc5dc775a8b0ff7a8",
+    "status": "supported",
+    "value": "DEMON10",
+    "version": "2.0.0"
+  },
+  "correct_answer_gate": {
+    "status": "accepted",
+    "certificate_id": "cert:2699beb06a6db08aad1518d705eb69652e58f8393fb59b1f533ec56f1bf07a3b",
+    "reason": null,
+    "answer": {
+      "value": "DEMON10",
+      "evidence_ids": [
+        "ev:d2dfd911908ba62995df521ddae37ff82083fb0d5e21e6c70e2debbbf4f143b2"
+      ],
+      "evidence_status": "supported",
+      "captured_at": null
+    }
+  },
+  "wrong_answer_gate": {
+    "status": "rejected",
+    "certificate_id": "cert:2699beb06a6db08aad1518d705eb69652e58f8393fb59b1f533ec56f1bf07a3b",
+    "reason": "exact_value_or_required_steps_mismatch"
+  }
+}

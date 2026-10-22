@@ -1,18 +1,18 @@
 # Comprehensive Cross-Site Benchmark Synthesis Report: Empirical Investigation into the Human-Agent Information Gap
 
-**Target Benchmark:** Full 15-Platform Multi-Modal Benchmark across 10 Strategic Domains  
-**Dataset Scale:** 1,010 Evaluated Observations across 323 Pre-Registered Ground-Truth Target Items  
-**Experimental Design:** Controlled 2x2 Factorial Tool Ablation (With Playwright vs. Without Playwright across OpenCode [Qwen 3.8 27B] and Antigravity [Gemini 3.8 Flash])  
-**Cryptographic Grounding:** 100% Bit-Level SHA-256 Hash Verification across all DOM Snapshots and Full-Page Visual Renderings  
-**Evaluation Date:** 2026-10-20  
+**Scope:** 15 full platforms across the collected rounds; 100-site registry remains a plan
+**Dataset Scale:** 1,010 agent-item rows across 323 distinct information items
+**Experimental Design:** Nine Stage-4 sites have four labeled arms in the master CSV (182 items per arm). Shohoz has four runs in its site report but only two unlabeled agent arms in the CSV; the earlier seven pages have two-agent comparisons.
+**Artifact Integrity:** SHA-256 hashes match the 11 Stage-4 DOM/screenshot pairs registered in the manifest. Hashes verify stored bytes, not item-level ground truth.
+**Evaluation Date:** 2026-10-20
 
 ---
 
 ## 1. Executive Summary & Benchmark Overview
 
-Autonomous web agents are increasingly deployed to navigate, parse, and execute tasks across modern web interfaces. However, significant discrepancies exist between what human users perceive on a graphical display and what autonomous agents extract through programmatic tooling. This research presents the first comprehensive empirical investigation of the **Human-Agent Information Gap** across web modalities (Rendered DOM text, Dynamic Client JavaScript, In-Image Raster Graphics, and Silent/Omitted Fields) evaluated against strict pre-registered ground truth.
+This repository audits how webpage information passes from a captured human-visible surface through tools and agent retrieval into a final answer. The observations include rendered text, interactive states, raster graphics, and unstated fields. The item inventories are researcher-annotated; independent human adjudication and prospective preregistration are not established for every item.
 
-Across 15 strategic platforms, we executed a controlled **2x2 factorial tool ablation** to evaluate how access to headless browser automation (Playwright) versus static DOM retrieval (cURL/HTTP requests) impacts information extraction yield, task latency, token economics, and error modes across two distinct agent architectures:
+The Stage-4 site reports compare access to Playwright with static retrieval across two agent setups. Nine sites have all four arm labels represented in the master CSV. Shohoz's four runs are documented separately in its site report; its CSV rows do not identify the two tool conditions. The pilot and Stage-3 pages were two-agent comparisons, not factorial ablations:
 1. **Single-Pass Tool Agent (OpenCode / Qwen 3.8 27B)**: Employs standard sequential tool calling.
 2. **Multi-Step Code-Executing Agent (Antigravity / Gemini 3.8 Flash)**: Employs iterative terminal bash commands, Python scripting, and visual crop manipulation.
 
@@ -20,9 +20,9 @@ Across 15 strategic platforms, we executed a controlled **2x2 factorial tool abl
 +----------------------------------------------------------------------------------------------------+
 |                                    15-PLATFORM BENCHMARK OVERVIEW                                  |
 |                                                                                                    |
-| Total Pre-Registered Ground Truth Items: 323 Items                                                 |
-| Total Evaluated Empirical Observations: 1,010 Observations                                         |
-| Cryptographic Hash Integrity Pass Rate: 100% across all 11 registered Stage-4 sites                |
+| Distinct Information Item IDs: 323                                                                  |
+| Agent-Item Rows in the CSV: 1,010                                                                    |
+| Hash-Matched DOM/Screenshot Pairs: 11 of 11 registered Stage-4 sites                                |
 +----------------------------------------------------------------------------------------------------+
 ```
 
@@ -32,7 +32,7 @@ Across 15 strategic platforms, we executed a controlled **2x2 factorial tool abl
 
 The benchmark spans 10 distinct industry domains, incorporating both international reference platforms and major domestic Bangladeshi services exhibiting complex real-world web architectures:
 
-| Platform ID | Platform Name | Industry Domain | Target URL | Pre-Registered Items | Evaluated Observations | Key Architectural & Modality Properties |
+| Platform ID | Platform Name | Industry Domain | Target URL | Reference Item IDs | Evaluated Observations | Key Architectural & Modality Properties |
 |---|---|---|---|---|---|---|
 | **P1–P3** | Daraz Bangladesh | E-Commerce Retail | `https://www.daraz.com.bd` | 41 | 82 | Multi-SKU variants, trapped promo banners, stock status fields |
 | **S1** | Star Tech | Tech Retail & Hardware | `https://www.startech.com.bd` | 20 | 40 | Cash discount pricing vs. regular price, stock availability buttons |
@@ -49,31 +49,27 @@ The benchmark spans 10 distinct industry domains, incorporating both internation
 | **BD-CL02** | Bdjobs.com | Job Recruitment Marketplace | `https://bdjobs.com` | 20 | 80 | Angular typewriter JS hydration, animated GIF military recruitment banners |
 | **BD-FN02** | Nagad | Postal DFS & Mobile Banking | `https://nagad.com.bd` | 20 | 80 | CSS `background-image` pixel trapping, unlabeled brand ambassador grounding |
 | **BD-QC02** | Shwapno Online | Superstore Retail & Quick-Commerce | `https://www.shwapno.com` | 20 | 80 | Next.js Algolia index queries, trapped raster festival promo vouchers |
-| **Total** | **15 Platforms** | **10 Domains** | — | **323 Items** | **1,010 Observations** | **Complete Factorial Multi-Modal Benchmark** |
+| **Total** | **15 Full Platforms** | **10 Domains** | — | **323 Distinct Items** | **1,010 Agent-Item Rows** | **Mixed two-agent and tool-ablation designs** |
 
 ---
 
 ## 3. Quantitative Factorial Tool Ablation Analysis
 
-In the controlled factorial evaluation across Stage-4 platforms (182 comparative ground-truth items per arm), agents were audited across two distinct tool environments:
+In the nine-site factorial subset represented with explicit tool-condition labels in the CSV, each arm has 182 item rows. Shohoz's 22 items are excluded from these four CSV arm counts because its 44 rows lack tool-condition labels:
 - **Condition 1 (With Playwright)**: Direct headless browser automation with full DOM execution, CSS rendering, and visual screenshot capture.
 - **Condition 2 (Without Playwright)**: Static DOM retrieval (cURL/HTTP fetch) supplemented by static asset inspection.
 
-### 3.1 Information Extraction Yield (Accuracy)
+### 3.1 Recorded Outcome Labels (Accuracy Requires Re-Adjudication)
 
-| Experimental Arm | Model & Architecture | Total Items Evaluated | Successful Extractions (PASS) | Failed Extractions (FAIL / BLOCKED) | Extraction Accuracy (%) | Empirical Accuracy Impact of Disabling Playwright |
-|---|---|---|---|---|---|---|
-| **OpenCode (With Playwright)** | Qwen 3.8 27B (Single-Pass) | 182 | 158 | 24 | **86.8%** | Baseline |
-| **OpenCode (Without Playwright)** | Qwen 3.8 27B (Single-Pass) | 182 | 123 | 59 | **67.6%** | **-19.2% Absolute Accuracy Drop** |
-| **Antigravity (With Playwright)** | Gemini 3.8 Flash (Multi-Step Scripting) | 182 | 159 | 23 | **87.4%** | Baseline |
-| **Antigravity (Without Playwright)** | Gemini 3.8 Flash (Multi-Step Scripting) | 182 | 160 | 22 | **87.9%** | **+0.5% (Preserved via Compensatory Code)** |
+| Experimental arm | Item rows | `PASS` prefix | `FAIL` prefix | Descriptive Chaldal rows without a score code |
+|---|---:|---:|---:|---:|
+| OpenCode with Playwright | 182 | 158 | 2 | 22 |
+| OpenCode without Playwright | 182 | 123 | 37 | 22 |
+| Antigravity with Playwright | 182 | 159 | 1 | 22 |
+| Antigravity without Playwright | 182 | 160 | 0 | 22 |
 
 ```
-EXTRACTION ACCURACY BY EXPERIMENTAL ARM:
-OpenCode (With Playwright):    [========================================>      ] 86.8%
-OpenCode (Without Playwright): [===============================>               ] 67.6% (-19.2% DROP)
-Antigravity (With Playwright): [========================================>      ] 87.4%
-Antigravity (Without Playwright): [========================================>   ] 87.9% (Preserved via code)
+These are counts of existing CSV labels, not reconciled accuracy estimates. The 22 Chaldal rows per arm use prose such as "Reported Chaldal"; the Chaldal case table marks 21 items successful in three arms, 22 in one arm, and one logo-identification item partial in three arms. Some other `PASS` rows contain incorrect exact promo codes or OCR text. The former percentages counted all 22 uncoded Chaldal rows in every arm as failures and are withdrawn pending a consistent scoring pass.
 ```
 
 ### 3.2 The Latency Surge & Inverted Scraping Economics
@@ -87,7 +83,7 @@ A conventional assumption in web scraping is that headless browsers are computat
 | **BD-CL02 (Bdjobs)** | Angular SSR / Typewriter JS | **208.2 s** (3.47 min) | **Halted (Exhausted Quota)** | **Inf. (Catastrophic)** | Downloaded 82 JS chunks, ran 1,484 terminal steps, consumed $2.01 cap |
 | **BD-TR03 (US-Bangla)** | Dynamic jQuery / AJAX State | **112.5 s** (1.88 min) | **341.0 s** (5.68 min) | **3.03x Surge (+203%)** | Iteratively decoded localized JSON payloads to locate flight schedules |
 
-**Empirical Finding**: Deprived of browser automation on dynamic SPAs, agents do not simply fail silently; they enter **hyper-active compensatory loops**, writing ad-hoc shell scripts, downloading minified JavaScript chunks, executing regex string splits, and cropping visual assets. This causes token consumption and wall-clock execution time to surge by **2.5x to 7.0x**, inverting the economic profile of web scraping.
+**Observed pattern in these selected runs:** Some agents used long sequences of scripts and asset inspection when browser tools were unavailable; the cited Qwen runs took 2.5 to 7.0 times as long on selected sites. Other site and agent comparisons differ. These run-specific costs do not establish a general cost law for static retrieval.
 
 ---
 
@@ -126,22 +122,22 @@ Synthesizing observations across the 1,010 evaluated records yields a five-tier 
 ### Gap 3: Alt-Text Truncation & Unlabeled Entity Visual Grounding
 - **Mechanism**: Visual elements depicting specific named entities (brand ambassadors, partner institutions, regulatory seals) lack semantic annotations or names in markup.
 - **Benchmark Instances**:
-  - *Nagad (`BD-FN02`)*: The promotional popup featured Bangladesh national football team captain/defender Tariq Kazi / Jamal Bhuyan. The markup provided zero textual clues. Single-pass text models reported "Not Found", while multi-modal visual agents successfully grounded the individual from face pixels.
+  - *Nagad (`BD-FN02`)*: The promotional popup featured an unlabeled person. The reference lists two different names, Tariq Kazi / Jamal Bhuyan, and the two Gemini arms reported different identities. Correct identification is unresolved pending visual adjudication.
   - *Gov.uk (`S3`)*: Statutory agency partner crests were embedded as unlabelled SVGs.
-- **Agent Consequence**: Text-centric agents misclassify entity presence as missing data, while multi-modal vision models resolve entity identity directly from pixel layout.
+- **Agent Consequence**: Text-centric agents may be unable to identify an unlabeled person; visual identification must be checked independently before scoring.
 
 ### Gap 4: Anti-Bot Automated Defense Barriers on Static Scrapers
-- **Mechanism**: Modern edge CDNs (Cloudflare, Akamai, AWS CloudFront) employ bot management algorithms that inspect HTTP headers, TLS fingerprints, and JavaScript challenge tokens.
+- **Mechanism**: Edge services can return a verification page instead of the requested site content. The saved files show the access outcome; they do not isolate which client feature caused it.
 - **Benchmark Instances**:
-  - *Biman Bangladesh Airlines (`BD-TR02`)*: Static cURL and raw HTTP requests consistently yielded HTTP 403 Forbidden with Cloudflare Turnstile challenge bodies ("Attention Required! | Cloudflare").
+  - *Biman Bangladesh Airlines (`BD-TR02`)*: Static requests were reported blocked. The **saved Playwright screenshot and DOM also show a Cloudflare human-verification challenge**, not the airline page. Biman is a blocked probe and is not in the 323-item scoring set.
   - *Nagad Asset Host (`BD-FN02`)*: Static cURL requests to backend API hosts (`backend.nagad.com.bd:8443`) were blocked with Cloudflare 403 error screens.
-- **Agent Consequence**: Headless Chromium browsers executing complete TLS negotiation and JavaScript challenge execution pass through seamlessly, while static retrieval tools suffer catastrophic failure.
+- **Agent Consequence**: A browser does not guarantee access through an anti-bot challenge. Agents should report the block and avoid treating the challenge page as the requested content.
 
 ### Gap 5: Inverted Scraping Economics & Computational Divergence
 - **Mechanism**: The architectural difference between single-pass agents and multi-step code-executing agents causes divergent failure profiles when tools are restricted.
 - **Benchmark Observations**:
-  - Single-pass agents (OpenCode) experience a severe drop in task success (-19.2%) and risk API quota exhaustion from iterative bash grep loops.
-  - Multi-step agents (Antigravity) maintain high accuracy (87.9%) by dynamically writing custom Python parsers and ImageMagick cropping pipelines, but at the cost of expanding token usage to over 1.1 million tokens and multiplying wall-clock execution time.
+  - Some OpenCode static-tool runs required longer search loops, and one Bdjobs run exhausted its API quota.
+  - Some Antigravity runs used scripts and image crops to recover facts, but their token use, cost, and latency varied by site. Reconciled accuracy figures are not available.
 
 ---
 
@@ -149,21 +145,22 @@ Synthesizing observations across the 1,010 evaluated records yields a five-tier 
 
 Based on the empirical findings across 1,010 observations, we propose the following architectural guidelines for future autonomous agent design:
 
-1. **Mandatory Dynamic Tooling for Production Agents**: Pure HTTP/cURL retrieval is insufficient for modern SPAs. Autonomous agents must be equipped with headless browser automation (Playwright/Puppeteer) to ensure complete DOM hydration and bypass edge anti-bot challenges.
-2. **Integrated Dual-Stream Perception (DOM + Visual Cropping)**: Agents must not rely solely on DOM tree text. Trapped raster pixels account for critical commercial facts (discounts, terms, brand identity). A hybrid perception pipeline that automatically segments and OCRs high-resolution visual crops of banner elements eliminates Gap 1 blindness.
-3. **Execution Guardrails on Compensatory Tool Loops**: When static retrieval fails to find target data, agents should not be permitted unbounded terminal trial-and-error loops. Introducing intelligent fallback detection prevents catastrophic token burn and API budget exhaustion.
-4. **Standardization of Benchmark Ground Truth Verification**: Benchmark evaluations of web agents must incorporate cryptographic verification (SHA-256) of visual and structural captures to guarantee zero data contamination and absolute reproducibility.
+1. **Dynamic tooling when required**: A browser can expose content missing from initial HTML, but the captured Biman probe shows that it does not guarantee passage through an anti-bot challenge. Detect and report access blocks explicitly.
+2. **Integrated text and image inspection**: Some saved image text is unavailable in ordinary DOM text. Localized image inspection could help, but its performance must be measured rather than assumed.
+3. **Execution guardrails on compensatory tool loops**: A step or cost budget could limit runaway retrieval. It may also stop useful investigation, so its effect requires evaluation.
+4. **Artifact integrity and adjudication**: Hash captured visual and structural files to detect later modification, and separately verify the facts annotated from them. Hashes alone cannot establish annotation correctness or eliminate temporal differences between runs.
 
 ---
 
 ## 6. Benchmark Completion Status & Artifact Links
 
-- **Master Evaluation Dataset**: [`results/information-gap-results-template.csv`](file:///home/abdullah/secondary/Research/human-agent-information-gap/results/information-gap-results-template.csv) (1,010 observations across 323 items).
-- **Master Manifest**: [`data/stage-4/manifest.json`](file:///home/abdullah/secondary/Research/human-agent-information-gap/data/stage-4/manifest.json).
-- **Cryptographic Verification Script**: [`scripts/verify_benchmark_integrity.py`](file:///home/abdullah/secondary/Research/human-agent-information-gap/scripts/verify_benchmark_integrity.py).
+- **Master Evaluation Dataset**: [`results/information-gap-results-template.csv`](../information-gap-results-template.csv) (1,010 rows across 323 item IDs).
+- **Scoring Correction Ledger**: [`scoring-corrections.md`](scoring-corrections.md) (historical PASS conflicts and unresolved references).
+- **Master Manifest**: [`data/stage-4/manifest.json`](../../data/stage-4/manifest.json).
+- **Cryptographic Verification Script**: [`scripts/verify_benchmark_integrity.py`](../../scripts/verify_benchmark_integrity.py).
 - **Site-Specific Ablation Reports**:
-  - Shohoz (`BD-01`): [`results/experiment-03/shohoz/paired-shohoz-tool-ablation-analysis.md`](file:///home/abdullah/secondary/Research/human-agent-information-gap/results/experiment-03/shohoz/paired-shohoz-tool-ablation-analysis.md)
-  - Chaldal (`BD-02`): [`results/experiment-03/chaldal/chaldal-tool-ablation-analysis.md`](file:///home/abdullah/secondary/Research/human-agent-information-gap/results/experiment-03/chaldal/chaldal-tool-ablation-analysis.md)
-  - Bdjobs (`BD-CL02`): [`results/experiment-03/bdjobs/paired-bdjobs-tool-ablation-analysis.md`](file:///home/abdullah/secondary/Research/human-agent-information-gap/results/experiment-03/bdjobs/paired-bdjobs-tool-ablation-analysis.md)
-  - Nagad (`BD-FN02`): [`results/experiment-03/nagad/paired-nagad-tool-ablation-analysis.md`](file:///home/abdullah/secondary/Research/human-agent-information-gap/results/experiment-03/nagad/paired-nagad-tool-ablation-analysis.md)
-  - Shwapno Online (`BD-QC02`): [`results/experiment-03/shwapno/paired-shwapno-tool-ablation-analysis.md`](file:///home/abdullah/secondary/Research/human-agent-information-gap/results/experiment-03/shwapno/paired-shwapno-tool-ablation-analysis.md)
+  - Shohoz (`BD-01`): [`paired-shohoz-tool-ablation-analysis.md`](shohoz/paired-shohoz-tool-ablation-analysis.md)
+  - Chaldal (`BD-02`): [`paired-chaldal-tool-ablation-analysis.md`](chaldal/paired-chaldal-tool-ablation-analysis.md)
+  - Bdjobs (`BD-CL02`): [`paired-bdjobs-tool-ablation-analysis.md`](bdjobs/paired-bdjobs-tool-ablation-analysis.md)
+  - Nagad (`BD-FN02`): [`paired-nagad-tool-ablation-analysis.md`](nagad/paired-nagad-tool-ablation-analysis.md)
+  - Shwapno Online (`BD-QC02`): [`paired-shwapno-tool-ablation-analysis.md`](shwapno/paired-shwapno-tool-ablation-analysis.md)

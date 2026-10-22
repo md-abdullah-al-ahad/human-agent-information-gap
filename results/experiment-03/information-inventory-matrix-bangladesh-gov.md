@@ -1,4 +1,4 @@
-# Pre-Registered Information Inventory Matrix: Bangladesh National Portal (Site ID: BD-GV01)
+# Information Inventory Matrix: Bangladesh National Portal (Site ID: BD-GV01)
 
 - **Domain Category**: Public Administration & Statutory Portals
 - **Platform Name**: Bangladesh National Portal (বাংলাদেশ জাতীয় তথ্য বাতায়ন)
@@ -9,7 +9,7 @@
 
 ---
 
-## 20 Pre-Registered Ground-Truth Inventory Items
+## 20 Researcher-Annotated Reference Inventory Items
 
 | Item ID | Target Information Unit | Expected Value / Ground Truth | Modality & Physical Location | DOM Presence | Visual Visibility | Grounding Coordinates / DOM Selector |
 |---|---|---|---|---|---|---|

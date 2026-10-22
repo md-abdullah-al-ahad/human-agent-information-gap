@@ -1,5 +1,7 @@
 # Site BD-GV01: Bangladesh National Portal — Controlled Playwright vs. Static Tool Ablation Audit
 
+> **Scoring correction (2026-10-21):** The Qwen-with-Playwright OCR in BD-GV01-07/08 is not verbatim. BD-GV01-08 changes the key term. Historical `PASS` labels in the master CSV and unrecomputed report totals should not be read as exact-text accuracy. See [the correction ledger](../scoring-corrections.md).
+
 **Target URL:** `https://bangladesh.gov.bd`  
 **Platform Architecture:** Custom Component-Based Public Sector Portal with Micro-Widgets, CDN-Hosted Media, and Dynamic Overlay Modals (a2i / ICT Division)  
 **Evaluation Date:** 2026-10-19  
@@ -19,7 +21,7 @@
 
 ---
 
-## 2. Evaluation Against Pre-Registered Ground Truth (20 Items)
+## 2. Evaluation Against Researcher-Annotated Reference (20 Items)
 
 | Item ID | Target Information Fact | Modality Surface | Human Ground Truth | Qwen (With Playwright) | Gemini (With Playwright) | Qwen (Without Playwright) | Gemini (Without Playwright) | Empirical Tool Ablation Finding |
 |---|---|---|---|---|---|---|---|---|
@@ -29,8 +31,8 @@
 | **BD-GV01-04** | **Food Safety Popup Headline** | `IN_IMAGE_GRAPHIC` | পোড়া তেল ব্যবহার করবেন না | **PASS** (পোড়া তেলে ব্যবহার করবেন না) | **PASS** (Verbatim) | **PASS** (Downloaded image + OCR) | **PASS** (Downloaded image + OCR) | Trapped pixel extracted |
 | **BD-GV01-05** | **Food Safety Popup Authority & URL** | `IN_IMAGE_GRAPHIC` | বাংলাদেশ নিরাপদ খাদ্য কর্তৃপক্ষ / www.bfsa.gov.bd | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped pixel extracted |
 | **BD-GV01-06** | **Food Safety Popup Health Risks** | `IN_IMAGE_GRAPHIC` | ক্ষতিকারক কোলেস্টেরল বৃদ্ধি, স্ট্রোক ও হৃদরোগ | **PASS** (Stroke & heart disease) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped pixel extracted |
-| **BD-GV01-07** | **Food Safety Popup Culinary Advice** | `IN_IMAGE_GRAPHIC` | ছেঁকে তরকারিতে ব্যবহার করতে পারেন | **PASS** (হেঁকে তরকারি - minor OCR error) | **PASS** (Verbatim) | **PASS** (ছেকে তরকারিতে) | **PASS** (Verbatim) | Trapped pixel extracted |
-| **BD-GV01-08** | **Banner Applet: GPF Calculator** | `IN_IMAGE_GRAPHIC` | ভবিষ্য তহবিল ক্যালকুলেটর | **PASS** (ডিবিয় তহবিল - minor OCR error) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped pixel in hero slider |
+| **BD-GV01-07** | **Food Safety Popup Culinary Advice** | `IN_IMAGE_GRAPHIC` | ছেঁকে তরকারিতে ব্যবহার করতে পারেন | **PARTIAL / OCR mismatch** (হেঁকে তরকারি; historically PASS) | **PASS** (Verbatim) | **PASS** (ছেকে তরকারিতে) | **PASS** (Verbatim) | Exact-text criterion needs adjudication |
+| **BD-GV01-08** | **Banner Applet: GPF Calculator** | `IN_IMAGE_GRAPHIC` | ভবিষ্য তহবিল ক্যালকুলেটর | **FAIL under key-term criterion** (ডিবিয় তহবিল; historically PASS) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Key term differs from reference |
 | **BD-GV01-09** | **Banner Applet: Inheritance Tool** | `IN_IMAGE_GRAPHIC` | উত্তরাধিকার.বাংলা / এক ক্লিকেই সম্পত্তির হিসাব | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped pixel in hero slider |
 | **BD-GV01-10** | **Counter: Ministries & Divisions** | `STRUCTURED_NUMERIC` | ৫৭ মন্ত্রণালয় ও বিভাগ | **PASS** (57) | **PASS** (57) | **PASS** (57) | **PASS** (57) | Static parity |
 | **BD-GV01-11** | **Counter: Upazilas** | `STRUCTURED_NUMERIC` | ৫০০ উপজেলা | **PASS** (500) | **PASS** (500) | **PASS** (500) | **PASS** (500) | Static parity |

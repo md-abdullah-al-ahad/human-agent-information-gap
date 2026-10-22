@@ -1,4 +1,4 @@
-# Pre-Registered Information Inventory Matrix: US-Bangla Airlines (Site ID: BD-TR03)
+# Information Inventory Matrix: US-Bangla Airlines (Site ID: BD-TR03)
 
 - **Domain Category**: Transit, Aviation & Intercity Rail
 - **Platform Name**: US-Bangla Airlines
@@ -9,7 +9,7 @@
 
 ---
 
-## 20 Pre-Registered Ground-Truth Inventory Items
+## 20 Researcher-Annotated Reference Inventory Items
 
 | Item ID | Target Information Unit | Expected Value / Ground Truth | Modality & Physical Location | DOM Presence | Visual Visibility | Grounding Coordinates / DOM Selector |
 |---|---|---|---|---|---|---|

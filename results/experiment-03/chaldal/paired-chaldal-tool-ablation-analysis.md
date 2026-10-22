@@ -1,5 +1,7 @@
 # Site BD-02: Chaldal Grocery Delivery — Controlled Playwright vs. Static Tool Ablation Audit
 
+> **CSV reconciliation note (2026-10-21):** The table below calls BD2-20 partial in three arms, while the master CSV's gap field says `None` for those rows. The CSV prose also lacks PASS/FAIL codes for all 22 Chaldal items per arm. Treat the site-level ratings as a separate historical assessment until one scoring rubric reconciles both files. See [the correction ledger](../scoring-corrections.md).
+
 **Target URL:** `https://chaldal.com`  
 **Platform Architecture:** React/Egg Single Page Application with Server-Pre-rendered Components  
 **Evaluation Date:** 2026-10-19  
@@ -19,7 +21,7 @@
 
 ---
 
-## 2. Evaluation Against Pre-Registered Ground Truth (22 Items)
+## 2. Evaluation Against Researcher-Annotated Reference (22 Items)
 
 | Item ID | Target Information Fact | Modality Surface | Human Ground Truth | Qwen (With Playwright) | Gemini (With Playwright) | Qwen (Without Playwright) | Gemini (Without Playwright) | Empirical Tool Ablation Finding |
 |---|---|---|---|---|---|---|---|---|

@@ -24,7 +24,7 @@
 
 ---
 
-## 2. Evaluation Against Pre-Registered Ground Truth (22 Items)
+## 2. Evaluation Against Researcher-Annotated Reference (22 Items)
 
 | Item ID | Target Information Item | Modality Surface | Human Ground Truth | Qwen Retrieved & Reported | Gemini Retrieved & Reported | Information Gap Classification |
 |---|---|---|---|---|---|---|

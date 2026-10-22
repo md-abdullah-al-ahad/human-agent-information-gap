@@ -1,0 +1,118 @@
+{
+  "analysis_status": "Descriptive recount of legacy CSV labels; not an adjudicated claim-precision study",
+  "method_limitations": [
+    "Each row is an information item for one agent, not necessarily one atomic factual claim.",
+    "The CSV uses prose outcomes for some sites and PASS/FAIL codes for others.",
+    "Tool exposure fields refer to different tool scopes and cannot be pooled as a single four-stage recall metric.",
+    "Unstated/absent items should not be counted as human-visible positive facts.",
+    "No independent claim-to-evidence adjudication is performed by this script."
+  ],
+  "dataset_item_rows": 1010,
+  "distinct_item_ids": 323,
+  "rows_with_nonpositive_human_reference": 16,
+  "results_by_setup": {
+    "Antigravity/Gemini 3.8 Flash": {
+      "item_rows": 141,
+      "outcome_label_counts": {
+        "DESCRIPTIVE_UNSCORED": 141
+      },
+      "descriptive_rows_by_page": {
+        "P1": 14,
+        "P2": 14,
+        "P3": 13,
+        "S1": 15,
+        "S2": 25,
+        "S3": 16,
+        "S4": 22,
+        "BD1": 22
+      }
+    },
+    "Antigravity/Gemini 3.8 Flash (With Playwright)": {
+      "item_rows": 182,
+      "outcome_label_counts": {
+        "DESCRIPTIVE_UNSCORED": 22,
+        "PASS_PREFIX": 159,
+        "FAIL_PREFIX": 1
+      },
+      "descriptive_rows_by_page": {
+        "BD2": 22
+      }
+    },
+    "Antigravity/Gemini 3.8 Flash (Without Playwright)": {
+      "item_rows": 182,
+      "outcome_label_counts": {
+        "DESCRIPTIVE_UNSCORED": 22,
+        "PASS_PREFIX": 160
+      },
+      "descriptive_rows_by_page": {
+        "BD2": 22
+      }
+    },
+    "OpenCode/Qwen3.8-27B": {
+      "item_rows": 141,
+      "outcome_label_counts": {
+        "DESCRIPTIVE_UNSCORED": 140,
+        "PARTIAL_PREFIX": 1
+      },
+      "descriptive_rows_by_page": {
+        "P1": 14,
+        "P2": 13,
+        "P3": 13,
+        "S1": 15,
+        "S2": 25,
+        "S3": 16,
+        "S4": 22,
+        "BD1": 22
+      }
+    },
+    "OpenCode/Qwen3.8-27B (With Playwright)": {
+      "item_rows": 182,
+      "outcome_label_counts": {
+        "DESCRIPTIVE_UNSCORED": 22,
+        "PASS_PREFIX": 158,
+        "FAIL_PREFIX": 2
+      },
+      "descriptive_rows_by_page": {
+        "BD2": 22
+      }
+    },
+    "OpenCode/Qwen3.8-27B (Without Playwright)": {
+      "item_rows": 182,
+      "outcome_label_counts": {
+        "DESCRIPTIVE_UNSCORED": 22,
+        "PASS_PREFIX": 123,
+        "FAIL_PREFIX": 37
+      },
+      "descriptive_rows_by_page": {
+        "BD2": 22
+      }
+    }
+  },
+  "pilot_examples": {
+    "stock_affordance": {
+      "item_ids": [
+        "P1-06",
+        "P1-07",
+        "P2-05",
+        "P2-06",
+        "P3-04",
+        "P3-05"
+      ],
+      "rows": 12,
+      "note": "Six item IDs duplicate three page-level stock assertions across two agents. The pilot reports six agent answers asserting stock without an explicit stock statement; physical stock is unknown."
+    },
+    "absence_to_negation": {
+      "item_ids": [
+        "P2-12",
+        "P3-13"
+      ],
+      "rows": 4,
+      "note": "Four agent-item rows describe categorical incompatibility claims from missing selector options. Physical compatibility is unknown."
+    }
+  },
+  "known_scoring_conflicts": [
+    "BD2-20: three arms report Fresh from an asset filename where the site audit identifies MGI; the CSV gap field says None.",
+    "BD-TR03-04/05: exact promo codes differ in one PASS-labeled arm.",
+    "BD-ED01-17/19 and BD-GV01-07/08: PASS labels coexist with different numbers, names, or OCR text in site tables."
+  ]
+}

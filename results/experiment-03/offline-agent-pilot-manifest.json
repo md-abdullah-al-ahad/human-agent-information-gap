@@ -1,0 +1,425 @@
+{
+  "status": "frozen_not_run",
+  "version": 1,
+  "purpose": "Offline pilot preparation; no agent trial has been run.",
+  "source_sets": {
+    "chaldal": {
+      "site_id": "BD-02",
+      "url": "https://chaldal.com",
+      "dom": {
+        "path": "data/stage-4/raw/chaldal-dom.html",
+        "sha256": "07388b92389166834a7bb390ddee1b36a0ff1b8a057d9864ad4dbf8e3617649c",
+        "bytes": 1788792
+      },
+      "screenshot": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "bytes": 2286316,
+        "dimensions": "1208 x 5635 px"
+      },
+      "supplemental_images": []
+    },
+    "usbair": {
+      "site_id": "BD-TR03",
+      "url": "https://usbair.com",
+      "dom": {
+        "path": "data/stage-4/raw/bd-tr03-dom.html",
+        "sha256": "df2a017b6356ae3b3dc4513d6c8ee0a4872e5d67c140e3a48c6b9bb627f92e73",
+        "bytes": 102426
+      },
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-tr03-fullpage.png",
+        "sha256": "ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a",
+        "bytes": 1334278,
+        "dimensions": "1333 x 3866 px",
+        "pixel_luminance_std": 85.88
+      },
+      "supplemental_images": [],
+      "researcher_site_timestamp_utc": "2026-10-19T12:23:50Z"
+    },
+    "shwapno": {
+      "site_id": "BD-QC02",
+      "url": "https://www.shwapno.com",
+      "dom": {
+        "path": "data/stage-4/raw/bd-qc02-dom.html",
+        "sha256": "c2bbca2e09a29d3e2a29e5f36e11ca13f9e8931856b53ae5e17b82e925c496e6",
+        "bytes": 2415352
+      },
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-qc02-fullpage.png",
+        "sha256": "0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b",
+        "bytes": 1987100,
+        "dimensions": "1280 x 10217 px",
+        "pixel_luminance_std": 42.62
+      },
+      "supplemental_images": [],
+      "researcher_site_timestamp_utc": "2026-10-19T14:25:15Z"
+    },
+    "bangladesh-gov": {
+      "site_id": "BD-GV01",
+      "url": "https://bangladesh.gov.bd",
+      "dom": {
+        "path": "data/stage-4/raw/bd-gv01-dom.html",
+        "sha256": "f88cec77e4f0cc642932d692afb5c45a463ea62e37d69a2b16205746a62ead38",
+        "bytes": 139768
+      },
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-gv01-fullpage.png",
+        "sha256": "01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888",
+        "bytes": 1673427,
+        "dimensions": "1280 x 2693 px",
+        "pixel_luminance_std": 90.32
+      },
+      "supplemental_images": [],
+      "researcher_site_timestamp_utc": "2026-10-19T11:32:19Z"
+    },
+    "10ms": {
+      "site_id": "BD-ED01",
+      "url": "https://10minuteschool.com",
+      "dom": {
+        "path": "data/stage-4/raw/bd-ed01-dom.html",
+        "sha256": "fc5d302c4c55b6405506d5d28b26e51a21c7ed308c0bfd6b948014ccfd685a4d",
+        "bytes": 462374
+      },
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-ed01-fullpage.png",
+        "sha256": "8578ef854d2ba3a50f5fefc001d26cdbd1bed884b7bb88c2b06d606affb1f5e3",
+        "bytes": 3253733,
+        "dimensions": "1280 x 9779 px",
+        "pixel_luminance_std": 46.14
+      },
+      "supplemental_images": [
+        {
+          "path": "scratch/visual_crops/testimonial2.png",
+          "sha256": "e5ac64c06816b66201627a99e245b293b2b4838e2768e423f32241c98aa4a315"
+        }
+      ]
+    },
+    "biman": {
+      "site_id": "BD-TR02",
+      "url": "https://www.biman-airlines.com",
+      "dom": {
+        "path": "data/stage-4/raw/bd-tr02-dom.html",
+        "sha256": "3547e7bf39ef9110f726ef0661a8ba236558c7a0f0f53faa4f7690e6153eea04",
+        "bytes": 28725
+      },
+      "screenshot": {
+        "path": "data/stage-4/screenshots/bd-tr02-fullpage.png",
+        "sha256": "7c00434d2551708541093b92c525cefcaed8a6f3b14402ecc4a4a680e9ef906a",
+        "bytes": 35298,
+        "dimensions": "1280 x 900 px",
+        "pixel_luminance_std": 20.18
+      },
+      "supplemental_images": []
+    }
+  },
+  "scored_cases": [
+    {
+      "case_id": "BD2-02",
+      "site": "chaldal",
+      "question": "What is the main service headline on this captured Chaldal page?",
+      "expected": "Grocery Delivered at your Doorstep",
+      "rubric": "normalized_literal",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "hero heading, x=335..810,y=195..275"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD2-10",
+      "site": "chaldal",
+      "question": "How many warehouses does the captured page claim?",
+      "expected": "26",
+      "rubric": "exact_number",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "statistics card, x=380..750,y=3060..3170"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD2-11",
+      "site": "chaldal",
+      "question": "How many orders does the captured page say have been delivered?",
+      "expected": "5 million",
+      "rubric": "exact_quantity",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "statistics card, x=775..1140,y=3060..3170"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD2-14",
+      "site": "chaldal",
+      "question": "Which three cities are listed under Currently Delivering in this capture?",
+      "expected": [
+        "Dhaka",
+        "Chattogram",
+        "Jashore"
+      ],
+      "rubric": "complete_set",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "delivery cities section, x=390..1130,y=3450..3650"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD2-15",
+      "site": "chaldal",
+      "question": "What is the delivery fee in Dhaka for orders below 400 BDT in the captured FAQ?",
+      "expected": "59 BDT",
+      "rubric": "exact_quantity",
+      "modality": "rendered_table",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "FAQ fee table, x=470..825,y=3950..4200"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD2-20",
+      "site": "chaldal",
+      "question": "What brand is shown by the eighth logo in the Popular on Chaldal strip?",
+      "expected": "MGI",
+      "rubric": "exact_visual_entity",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "brand strip, x=840..955,y=1280..1360"
+      },
+      "reference_note": "The saved DOM names the asset fresh.png; answer must follow pixels."
+    },
+    {
+      "case_id": "BD-TR03-04",
+      "site": "usbair",
+      "question": "What is the domestic Mastercard promo code in the captured popup?",
+      "expected": "USBA15",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "domestic ticket at x=170..300,y=520..610"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD-TR03-05",
+      "site": "usbair",
+      "question": "What is the international Mastercard promo code in the captured popup?",
+      "expected": "USBAIN10",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "international ticket at x=300..440,y=520..610"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD-TR03-06",
+      "site": "usbair",
+      "question": "What grand prize does the Mastercard popup advertise?",
+      "expected": "Couple Holiday in Kuala Lumpur!",
+      "rubric": "normalized_literal",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "red prize text at x=150..470,y=325..380"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD-TR03-08",
+      "site": "usbair",
+      "question": "Until what date is the captured Mastercard offer valid?",
+      "expected": "31st October 2026",
+      "rubric": "calendar_date",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "validity footer at x=150..480,y=615..645"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD-TR03-10",
+      "site": "usbair",
+      "question": "Name all four Sky Star loyalty tiers shown in the capture.",
+      "expected": [
+        "Silver",
+        "Gold",
+        "Platinum",
+        "Titanium"
+      ],
+      "rubric": "complete_set",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_loyalty_crop.png",
+        "sha256": "f21f244744adf7b70df067bd5d580803e6f751d228bb562e9d9fbf9c2b6a2bff",
+        "locator": "four colored badges, entire crop"
+      },
+      "reference_note": "Saved crop time is not separately recorded."
+    },
+    {
+      "case_id": "BD-QC02-04",
+      "site": "shwapno",
+      "question": "What exact code is printed on the 6% Puja coupon?",
+      "expected": "PUJA6",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/shwapno_crop_hero.png",
+        "sha256": "c40e1b0cdfb08f1ab1db5e883e3a9d7b7deec00098b92186e31f1983dfe82cee",
+        "locator": "green 6% voucher, x=745..965,y=175..280"
+      },
+      "reference_note": "OCR previously missed this exact code; this is a deliberate hard case."
+    },
+    {
+      "case_id": "BD-QC02-05",
+      "site": "shwapno",
+      "question": "What exact code is printed on the 7% Puja coupon?",
+      "expected": "PUJA7",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/shwapno_crop_hero.png",
+        "sha256": "c40e1b0cdfb08f1ab1db5e883e3a9d7b7deec00098b92186e31f1983dfe82cee",
+        "locator": "green 7% voucher, x=980..1200,y=175..280"
+      },
+      "reference_note": "OCR previously missed this exact code; this is a deliberate hard case."
+    },
+    {
+      "case_id": "BD-QC02-12",
+      "site": "shwapno",
+      "question": "What price per piece and minimum quantity are shown for Egg Loose?",
+      "expected": "৳12.75 per piece; minimum 12",
+      "rubric": "price_and_minimum",
+      "modality": "rendered_product_card",
+      "reference": {
+        "path": "scratch/shwapno_crop_hero.png",
+        "sha256": "c40e1b0cdfb08f1ab1db5e883e3a9d7b7deec00098b92186e31f1983dfe82cee",
+        "locator": "recommended first product card, x=60..280,y=730..1085"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD-QC02-17",
+      "site": "shwapno",
+      "question": "How many Dhaka outlets are listed in the captured coverage table?",
+      "expected": "290",
+      "rubric": "exact_number",
+      "modality": "rendered_table",
+      "reference": {
+        "path": "scratch/shwapno_crop_footer.png",
+        "sha256": "ea6fd5f6d757a1f927eb4e73bd4bd235bbfae1b3c76e2dcfdece6e1720f9265c",
+        "locator": "coverage table, x=845..1220,y=1090..1240"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD-QC02-19",
+      "site": "shwapno",
+      "question": "What customer-service phone number appears in the captured footer?",
+      "expected": "16469",
+      "rubric": "exact_number",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "scratch/shwapno_crop_footer.png",
+        "sha256": "ea6fd5f6d757a1f927eb4e73bd4bd235bbfae1b3c76e2dcfdece6e1720f9265c",
+        "locator": "footer contact block, x=50..300,y=1450..1570"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD-GV01-04",
+      "site": "bangladesh-gov",
+      "question": "What is the food-safety popup headline in Bengali?",
+      "expected": "পোড়া তেল ব্যবহার করবেন না",
+      "rubric": "normalized_literal",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/bd_gv01_popup_crop.png",
+        "sha256": "5933647e01b7a0ddf9cdf59dd16b4713d6a241cece68200656d26873d53e4465",
+        "locator": "green title bar, x=60..430,y=55..110"
+      },
+      "reference_note": "Unicode NFC and equivalent Bengali nukta forms are normalized."
+    },
+    {
+      "case_id": "BD-GV01-07",
+      "site": "bangladesh-gov",
+      "question": "What does the fourth panel advise doing with once-used oil?",
+      "expected": "ছেঁকে তরকারিতে ব্যবহার করতে পারেন",
+      "rubric": "exact_key_phrase",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/bd_gv01_popup_crop.png",
+        "sha256": "5933647e01b7a0ddf9cdf59dd16b4713d6a241cece68200656d26873d53e4465",
+        "locator": "purple fourth panel, x=55..250,y=445..540"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD-GV01-11",
+      "site": "bangladesh-gov",
+      "question": "What Upazila count is displayed in the captured statistics bar?",
+      "expected": "৫০০",
+      "rubric": "exact_number",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/bd-gv01-fullpage.png",
+        "sha256": "01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888",
+        "locator": "statistics bar, x=935..1015,y=630..710"
+      },
+      "reference_note": ""
+    },
+    {
+      "case_id": "BD-ED01-19",
+      "site": "10ms",
+      "question": "What is the featured parent testimonial speaker’s name?",
+      "expected": "পূর্ণিমা লস্কর",
+      "rubric": "exact_entity",
+      "modality": "rendered_testimonial",
+      "reference": {
+        "path": "scratch/visual_crops/testimonial2.png",
+        "sha256": "e5ac64c06816b66201627a99e245b293b2b4838e2768e423f32241c98aa4a315",
+        "locator": "speaker name, x=230..345,y=485..530"
+      },
+      "reference_note": "The supplemental crop is supplied to the agent; this case tests reading, not image localization. Accept Purnima Laskar transliteration only."
+    }
+  ],
+  "diagnostic_controls": [
+    {
+      "control_id": "BD-TR02-access",
+      "site": "biman",
+      "question": "Does this saved Biman capture contain usable flight information? Report the access state.",
+      "expected_state": "access_blocked",
+      "scored_in_accuracy": false,
+      "reason": "Cloudflare verification page; access-state control, not a factual question."
+    },
+    {
+      "control_id": "BD-ED01-17-reference-conflict",
+      "site": "10ms",
+      "question": "What app download count does this saved DOM state, and does it settle the historical disagreement?",
+      "expected_state": "reference_conflict_unresolved",
+      "scored_in_accuracy": false,
+      "reason": "Saved DOM has 5,00,000+; prior inventory lists ৪,৫৮,৫৪৩+; historical run timing is unaligned."
+    }
+  ]
+}

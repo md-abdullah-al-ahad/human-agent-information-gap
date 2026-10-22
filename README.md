@@ -1,90 +1,44 @@
 # Human–Agent Information Gap
 
-An empirical research project investigating the gap between information human users can perceive and verify on modern websites, and the information autonomous AI browsing agents reliably retrieve, interpret, and report.
+This repository studies how facts on websites pass through a browser or retrieval tool into an AI agent's final answer. It contains saved page captures, item inventories, agent traces, case reports, a 1,010-row CSV, and exploratory extraction scripts. The data are observational and heterogeneous; the repository does **not** establish a single cross-site agent accuracy rate.
 
----
+The intended research trajectory is to identify information failures on real sites, especially Bangladeshi sites; compare what agents retrieve with and without Playwright alongside measured tokens, billed or equivalent cost, and latency; then build a lightweight **MCP retrieval tool** that an agent calls itself. The longer-term website-design guidance and controlled prototype testbed follow from that evidence. A manuscript is a later output of the research, not a substitute for finishing and honestly validating the tool. See the [research direction note](docs/research-direction.md).
 
-## 1. Research Objectives
+The audit follows four stages: (1) the human-visible or explicitly unstated reference, (2) what a specified tool exposes, (3) what an agent retrieves, and (4) what the agent reports. A saved file hash verifies that the file has not changed; it does not independently verify a ground-truth annotation or an agent score.
 
-When humans browse the web, they integrate rendered typography, contextual styling, embedded imagery, diagrams, and dynamic UI affordances. Autonomous AI browsing agents, however, interact with websites through intermediate layers (accessibility trees, DOM snapshots, API scrapers, or browser-automation protocols).
+## What is in the repository
 
-This research investigates:
-1. **The Information Accessibility Pipeline**: Where does human-accessible information drop off across the boundary between website, browser tools, agent exploration, and final output?
-2. **Modality Barriers**: How does information retention vary when critical facts are stored in plain HTML text versus raster images, dynamic JavaScript dropdowns, or pure visual affordances?
-3. **Inference Overreach & Uncertainty**: When an information item is missing or silent on a website (e.g., warehouse stock levels or unlisted device compatibility), under what conditions do agents appropriately abstain versus making unsupported, overconfident positive or negative assertions?
+| Location | Contents |
+|---|---|
+| [`data/pilot-01/`](data/pilot-01/) | Three Daraz page selections, captures, and observations. The human print-to-PDF files referenced in reports are not stored here. |
+| [`results/experiment-01/`](results/experiment-01/) | Daraz P1–P3 item inventory and paired agent trace reports. |
+| [`results/experiment-02/`](results/experiment-02/) | Four Stage-3 sites (Star Tech, Evercare, Gov.uk, Supabase), item matrices, and synthesis. |
+| [`data/stage-4/`](data/stage-4/) | Registered Stage-4 DOM and screenshot assets. Eleven registered file pairs match their manifest hashes; the Biman pair contains a Cloudflare challenge. |
+| [`results/experiment-03/`](results/experiment-03/) | Ten Stage-4 site reports, cross-site synthesis, and [scoring correction ledger](results/experiment-03/scoring-corrections.md). |
+| [`results/information-gap-results-template.csv`](results/information-gap-results-template.csv) | Historical coded master table: 1,010 agent-item rows for 323 distinct item IDs. Despite its name, this is the populated dataset. |
+| [`results/item-adjudication-worklist.csv`](results/item-adjudication-worklist.csv) | Row-level review queue with capture links and documented disputes; most corrected outcomes remain unreviewed. |
+| [`results/offline-mcp-acceptance.md`](results/offline-mcp-acceptance.md) | Saved-case and synthetic component-check results, with incomplete gates stated. |
+| [`scripts/`](scripts/) | Capture integrity checks, a capture ingester, exploratory extractors, and artifact reanalysis scripts. |
+| [`requirements.txt`](requirements.txt) | Optional third-party imports used by capture, MCP, and extractor-comparison scripts; versions are not locked. |
+| [`requirements-v2.lock.txt`](requirements-v2.lock.txt) | Pinned Python dependencies for the v2 evidence gateway and its tests. |
+| [`docs/`](docs/) | Protocols, proposed framework, literature notes, and the [repository consistency audit](docs/repository-consistency-audit.md). |
 
----
+Across the collected rounds, there are 15 full platforms: one Daraz platform represented by three pages, four Stage-3 platforms, and ten Stage-4 platforms. The [100-site specification](docs/benchmark-100-sites-spec.md) is a plan, not an executed dataset. Biman is a blocked access probe and is not one of the 323 scored items.
 
-## 2. The 4-Stage Information Pipeline Model
+The nine Stage-4 sites with explicit tool-condition labels in the CSV each have two agents with and without Playwright (182 rows per arm). Shohoz has four runs in its case report but only two unlabeled agent arms in the CSV. Earlier rounds compare two agents without a four-arm tool ablation. These different designs should not be pooled as though every item was evaluated under one factorial experiment.
 
-```
-[Stage 1: Website & Human Surface] 
-  Rendered text, structured attributes, in-image graphics, interactive states
-       │
-       ▼  GAP 1: Tool Exposure Barrier (What Playwright/DOM/Scraper exposes)
-[Stage 2: Tool-Exposed Information]
-  Accessibility tree, DOM snapshot, evaluate scripts, downloaded media
-       │
-       ▼  GAP 2: Agent Exploration & Retrieval Barrier (What the agent actually inspects)
-[Stage 3: Agent-Retrieved Information]
-  Content retrieved into the agent context and tool histories
-       │
-       ▼  GAP 3: Output Reporting & Inference Barrier (What the agent conveys vs. invents)
-[Stage 4: Final Reported Output]
-  Information faithfully communicated, omitted, or converted into unsupported claims
-```
+## Current interpretation
 
----
+The [cross-site report](results/experiment-03/cross-site-benchmark-synthesis-report.md) gives raw label counts instead of the former headline accuracy percentages. Its Chaldal rows are prose rather than PASS/FAIL codes, and some PASS labels coexist with wrong promo codes, numbers, names, or OCR text. The [correction ledger](results/experiment-03/scoring-corrections.md) identifies examples and unresolved scoring questions. Item-level ground truth is researcher-annotated; independent human adjudication and prospective preregistration are not established for every item.
 
-## 3. Repository Structure
+The proposed [LWA-Web framework](docs/failure-point-analysis-and-lightweight-framework.md) is only partially implemented. The legacy fixture extractor condenses HTML and inserts manually written annotations for recognized image filenames. Its historical wrapper function may serve benchmark snapshots only when its cache is explicitly enabled, but is no longer registered as an agent-facing MCP tool. The `inspect_web_evidence` MCP tool separates live HTTP, explicitly requested Chromium rendering, and saved snapshots; reports source hashes and uncertainty states; compares available extractors; tags embedded JSON and passively captured browser JSON separately; and stores captures under an explicit handle. Live mode can fetch up to three referenced raster images, including inline CSS backgrounds, for OCR **when Tesseract with English/Bangla data is available**. Snapshot mode only reads explicitly supplied local image files. OCR candidates carry unverified exactness; an [offline Shwapno check](results/offline-mcp-acceptance.md) did not recover the exact coupon codes. The agent can now request bounded saved pixels with `inspect_image_crop(capture_id, image_sha256, bbox)`; its MCP response includes a real image block and source coordinates. Image coverage, interactive-state coverage, and general claim entailment are not guaranteed. The accompanying `inspect_evidence` tool resolves saved observations; `check_claim` confirms exact non-OCR source quotations. `check_structured_claim` checks only explicit English stock/compatibility statements that contain a named subject in one saved HTML text node; it does not infer physical truth. A [fresh Qwen session](results/experiment-03/shwapno/lwa-web-fresh-opencode-session.json) answered questions from a **pre-generated** Shwapno Markdown file; it did not call the MCP tool, and the claimed 20/20 score is not independently supported by exact reference matching. End-to-end agent improvement, cost reduction, and universal anti-bot success have not been established.
 
-```
-├── docs/
-│   ├── audit-protocol.md                         # Stage 1 audit protocol (v0.2) and question families (Q1-Q9)
-│   ├── pilot-01-findings.md                      # Provisional findings from initial 3-page Daraz pilot
-│   ├── stage-3-reference-adjudication.md         # Grounded reference of human-accessible surfaces (P1-P3)
-│   ├── stage-3-blind-human-review-worksheet.md   # Blank worksheet for independent human surface audit
-│   └── stage-3-next-experiment-design-v0.1.md    # Multi-domain follow-up experiment design (Tracks A & B)
-├── data/
-│   └── pilot-01/
-│       ├── selection.json                        # Query ranks, URLs, and sampling rules for P1-P3
-│       ├── observations.json                     # Structured pilot observations for Q1-Q9
-│       ├── addendum-01.json                      # Independent Chrome headless verification of alternate SKUs
-│       ├── screenshots/                          # Timestamped initial and alternate viewport PNGs
-│       ├── raw/                                  # Firecrawl scrapes, search logs, and browser interact files
-│       └── human-capture-P*-ai-review.json       # AI-assisted audits of human print-to-PDFs
-└── results/
-    ├── information-gap-results-template.csv      # Standard tabular schema for information-item drop-off
-    ├── pilot-results-template.csv                # Legacy per-question evaluation template
-    └── experiment-01/
-        ├── information-inventory-matrix-p1-p3.md # Itemized 41-item empirical inventory across P1-P3
-        ├── cross-case-synthesis-p1-p3.md         # Cross-case synthesis of agent browsing behaviors
-        ├── P1/                                   # Trace audit and raw outputs for P1 (ESR Screen Protector)
-        ├── P2/                                   # Paired trace audit and raw outputs for P2 (2PCS Screen Protector)
-        └── P3/                                   # Paired trace audit and raw outputs for P3 (3+Y-fold Folio Case)
-```
+For v1-only component checks, run `python3 -m unittest tests.test_lwa_evidence -v`; include Pillow to run the optional crop test. The historical MCP server with crop support starts with `uv run --with fastmcp --with Pillow python scripts/mcp_lite_extractor.py`; install the other optional extractors listed in [`requirements.txt`](requirements.txt) to enable their views. `inspect_web_evidence(target, question, mode="snapshot")` reads only a local HTML file, while `mode="live"` requests initial HTTP HTML and `render="browser"` explicitly chooses bounded Chromium rendering. No mode silently substitutes a benchmark capture for a URL. Captures are saved privately under `~/.cache/lwa-web/captures` by default; set `LWA_EVIDENCE_DIR` to change that location. The [adjudication worklist](results/item-adjudication-worklist.csv), [source review manifest](results/experiment-03/source-reviewed-corrections.json), and [protocol](docs/item-adjudication-protocol.md) organize the 1,010 historical rows without asserting a corrected aggregate score.
 
----
+The [offline new-agent pilot](results/experiment-03/offline-agent-pilot-run-20261021/report.md) ran 20 hash-checked questions and two diagnostics through fresh Qwen/OpenCode sessions calling the real LWA MCP. It matched 15/20 frozen answers; one scored task timed out, and exact visual readings caused several failures. The Biman access control passed; the disputed-download control timed out. This is a saved-capture pilot without a matched baseline, so it does not establish an accuracy or cost improvement. The [protocol](docs/offline-agent-pilot-protocol.md), [run traces](results/experiment-03/offline-agent-pilot-run-20261021/run-results.jsonl), and [per-item adjudication](results/experiment-03/offline-agent-pilot-run-20261021/scored-results.json) distinguish this real MCP test from the older pre-generated Markdown session.
 
-## 4. Empirical Status (Pilot 01 / Experiment 01)
+The [artifact reanalysis](results/reproduced-literature-gaps-synthesis-report.md) checks saved extraction, API, label, and temporal files. Its temporal change statuses are hand-coded and lack separate follow-up captures. It is not a new experiment.
 
-- **Dataset**: Three diverse e-commerce listings audited on Daraz Bangladesh:
-  - **P1**: ESR Magnetic Paper-Feel Removable Screen Protector.
-  - **P2**: 2PCS Glass Screen Protector (with ambiguous "Case/Cover" in title).
-  - **P3**: 3+Y-fold Clear iPad Folio Case.
-- **Instruments**: Two paired agent setups equipped with Playwright MCP:
-  - `OpenCode` running `qwen/qwen3.8-27b` (Medium) via OpenRouter.
-  - `Antigravity CLI` running `Gemini 3.8 Flash` (Medium).
-- **Core Findings to Date**:
-  - **Interactive State Success**: Both agents successfully manipulated dynamic UI selectors to extract correct alternate SKU prices and URLs across all three pages.
-  - **The In-Image Tool Barrier (Gap 1)**: When critical specifications or model restrictions were embedded inside images (e.g., P1 restrictive compatibility notice), DOM snapshots suffered a 100% omission rate. Information was only accessible when agents took extra shell steps to download and view image pixels.
-  - **Affordance-to-Stock Overreach (Gap 3)**: In 6 out of 6 runs, both agents asserted items were "in stock" despite empty stock fields, relying solely on active purchase buttons.
-  - **Negative-Evidence Overreach (Gap 3)**: Both agents repeatedly converted the absence of a device option in a selector menu into a definitive claim of physical device incompatibility.
+The first [LWA-Web v2 implementation](docs/evidence-gateway-v2-implementation-report.md) now provides registered snapshots, reusable content-addressed captures, typed question resolution, bounded visual inspection, and an exact-answer gate through a separate three-tool MCP server. Follow the [v2 usage guide](docs/evidence-gateway-v2-usage.md) to install the pinned environment, run the complete test suite, register sources, and connect the server. Its component checks do not establish a v2 agent accuracy score or end-to-end token saving over v1.
 
----
-
-## 5. Next Steps
-
-1. Complete independent human verification using [`docs/stage-3-blind-human-review-worksheet.md`](docs/stage-3-blind-human-review-worksheet.md).
-2. Execute the multi-domain prospective expansion ([`docs/stage-3-next-experiment-design-v0.1.md`](docs/stage-3-next-experiment-design-v0.1.md)) across Retail, Professional Services, Public Portals, and Technical Documentation.
-3. Compare free ecological browsing (Track A) against controlled sealed packets with and without image pixels (Track B) to formally quantify Gap 1 and Gap 2 across the web.
+For the full list of corrected statements and remaining limitations, start with the [consistency audit](docs/repository-consistency-audit.md). The [MCP mitigation design](docs/lwa-web-mcp-mitigation-design.md) maps the four literature-reproduction attempts to a concrete evidence-preserving tool contract and offline checks. The [LWA-Web v2 architecture](docs/evidence-gateway-v2-architecture.md) explains the broader design and its determinism limits. The raw agent traces, captures, and historical CSV labels are preserved so a later reviewer can re-adjudicate them against a stated rubric.

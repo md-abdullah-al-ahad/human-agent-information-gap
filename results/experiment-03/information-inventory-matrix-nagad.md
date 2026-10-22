@@ -1,4 +1,4 @@
-# Pre-Registered Information Inventory Matrix: Nagad (Site ID: BD-FN02)
+# Information Inventory Matrix: Nagad (Site ID: BD-FN02)
 
 - **Domain Category**: Banking, Fintech & Postal Mobile Financial Services (MFS)
 - **Platform Name**: Nagad
@@ -9,7 +9,7 @@
 
 ---
 
-## 20 Pre-Registered Ground-Truth Inventory Items
+## 20 Researcher-Annotated Reference Inventory Items
 
 | Item ID | Target Information Unit | Expected Value / Ground Truth | Modality & Physical Location | DOM Presence | Visual Visibility | Grounding Coordinates / DOM Selector |
 |---|---|---|---|---|---|---|

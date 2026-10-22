@@ -1,0 +1,909 @@
+{
+  "run_spec_sha256": "5c5080bb6337a1a83e5c73e09bd2d3fdf0da563f19f1aa2616359343e6737cfc",
+  "scored": [
+    {
+      "case_id": "BD2-02",
+      "site": "chaldal",
+      "rubric": "normalized_literal",
+      "expected": "Grocery Delivered at your Doorstep",
+      "agent_status": "answered",
+      "agent_answer": "The main service headline on the captured Chaldal page is 'Grocery Delivered at your Doorstep', displayed in the hero banner at the top of the landing page.",
+      "agent_evidence": [
+        "image_sha256=8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988 bbox=[360,120,950,380] (hero headline 'Grocery Delivered at your Doorstep')",
+        "image_sha256=8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988 bbox=[0,0,800,800] (top-of-page view showing the same headline and search bar)",
+        "obs-003 / obs-009 ('Popular on Chaldal') and obs-004/obs-006 confirmed as lower section headers, not the main headline"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 35.961,
+      "session_ids": [
+        "ses_ea1d07903ffePNS1LWdV58OOSm"
+      ],
+      "trace": "traces/BD2-02.jsonl.gz",
+      "execute_calls": 7,
+      "nested_tool_calls": 9,
+      "nested_tool_errors": 3,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 490933,
+      "opencode_reported_cost_usd": 0.00671896,
+      "opencode_reported_tokens": {
+        "input": 18902,
+        "output": 1550,
+        "reasoning": 2471,
+        "cache_read": 29696,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD2-10",
+      "site": "chaldal",
+      "rubric": "exact_number",
+      "expected": "26",
+      "agent_status": "answered",
+      "agent_answer": "26 — the captured Chaldal page states \"26 warehouses\" in its HTML text, corroborated by the screenshot OCR region.",
+      "agent_evidence": [
+        "obs-001",
+        "obs-002",
+        "image:8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988 bbox [403,3080,545,3095] crop sha 36a13dcbcbc1ba641eeecf68aa7caa08d49e2ef7cc5168065a58e12d6903929d"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 29.46,
+      "session_ids": [
+        "ses_ea1cf7eb7ffeFwsagW6u1PLSeS"
+      ],
+      "trace": "traces/BD2-10.jsonl.gz",
+      "execute_calls": 4,
+      "nested_tool_calls": 3,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.check_claim",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 20821,
+      "opencode_reported_cost_usd": 0.00273773,
+      "opencode_reported_tokens": {
+        "input": 7759,
+        "output": 858,
+        "reasoning": 840,
+        "cache_read": 7504,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD2-11",
+      "site": "chaldal",
+      "rubric": "exact_quantity",
+      "expected": "5 million",
+      "agent_status": "answered",
+      "agent_answer": "5 million orders",
+      "agent_evidence": [
+        "obs-004",
+        "obs-001",
+        "obs-009",
+        "obs-010",
+        "image 8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988 bbox [792,3080,940,3132]"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 20.89,
+      "session_ids": [
+        "ses_ea1cf0b88ffeOYE6yYuHYt6icm"
+      ],
+      "trace": "traces/BD2-11.jsonl.gz",
+      "execute_calls": 3,
+      "nested_tool_calls": 2,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_evidence",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 30139,
+      "opencode_reported_cost_usd": 0.00132893,
+      "opencode_reported_tokens": {
+        "input": 8200,
+        "output": 395,
+        "reasoning": 314,
+        "cache_read": 2432,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD2-14",
+      "site": "chaldal",
+      "rubric": "complete_set",
+      "expected": [
+        "Dhaka",
+        "Chattogram",
+        "Jashore"
+      ],
+      "agent_status": "answered",
+      "agent_answer": "Dhaka, Chattogram, and Jashore.",
+      "agent_evidence": [
+        "obs-002: HTML section with <h2>Currently Delivering in</h2> containing exactly three cityContainer divs: Dhaka, Chattogram, Jashore (locator html:12:701996)",
+        "screenshot.png sha256 8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988, bbox [280,3450,1150,3800]: 'Currently Delivering in' header with three purple pill buttons reading Dhaka, Chattogram, Jashore",
+        "obs-001: FAQ text 'We are currently serving in three big cities of Bangladesh including Dhaka, Chattogram, Jashore.' (corroborating)",
+        "obs-003: footer 'Cities:' list Dhaka, Chattogram, Jashore (corroborating)"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 21.615,
+      "session_ids": [
+        "ses_ea1ceb9f2ffe0I772JeQ2kTBx1"
+      ],
+      "trace": "traces/BD2-14.jsonl.gz",
+      "execute_calls": 5,
+      "nested_tool_calls": 4,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_evidence",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 397998,
+      "opencode_reported_cost_usd": 0.00294619,
+      "opencode_reported_tokens": {
+        "input": 18005,
+        "output": 811,
+        "reasoning": 715,
+        "cache_read": 9216,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD2-15",
+      "site": "chaldal",
+      "rubric": "exact_quantity",
+      "expected": "59 BDT",
+      "agent_status": "answered",
+      "agent_answer": "59 BDT (the FAQ table lists Dhaka as 59 under the 'Orders below 400' column).",
+      "agent_evidence": [
+        "obs-001 (html text: 'A. The delivery fee across the country is in the table below:' with source excerpt '| Dhaka      | 59      | 49      |')",
+        "obs-006 (html table row '| | Orders | Orders |')",
+        "obs-007 (html table row '| | below | above |')",
+        "obs-008 (html table row '| | 400 | 400 |')",
+        "image 8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988 bbox [380,3880,1000,4300] (screenshot crop of the FAQ table showing '| Dhaka | 59 | 49 |' under 'Orders below 400')"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 70.857,
+      "session_ids": [
+        "ses_ea1ce65beffe6eRubpWEWVgCNC"
+      ],
+      "trace": "traces/BD2-15.jsonl.gz",
+      "execute_calls": 4,
+      "nested_tool_calls": 3,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_evidence",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 77411,
+      "opencode_reported_cost_usd": 0.00228328,
+      "opencode_reported_tokens": {
+        "input": 8400,
+        "output": 696,
+        "reasoning": 714,
+        "cache_read": 2432,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD2-20",
+      "site": "chaldal",
+      "rubric": "exact_visual_entity",
+      "expected": "MGI",
+      "agent_status": null,
+      "agent_answer": null,
+      "agent_evidence": [],
+      "outcome": "timeout",
+      "exact_pass": false,
+      "source_support": "no_answer",
+      "adjudication_note": "The 180-second limit stopped the session before a final answer.",
+      "run_reason": "wall_timeout",
+      "wall_seconds": 180.014,
+      "session_ids": [
+        "ses_ea1cd50f5ffelutkGuTmLstyOO"
+      ],
+      "trace": "traces/BD2-20.jsonl.gz",
+      "execute_calls": 6,
+      "nested_tool_calls": 5,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_evidence",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 266040,
+      "opencode_reported_cost_usd": 0.00506201,
+      "opencode_reported_tokens": {
+        "input": 20091,
+        "output": 1299,
+        "reasoning": 1709,
+        "cache_read": 10976,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-TR03-04",
+      "site": "usbair",
+      "rubric": "exact_code",
+      "expected": "USBA15",
+      "agent_status": "answered",
+      "agent_answer": "USBA15",
+      "agent_evidence": [
+        "obs-003",
+        "obs-004",
+        "image ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a bbox [420,580,680,700] crop_sha256 813ac89ff3fa0dba3ccbb8a7a1ddd944d99eb40c7dc26d84beef8e1a4f1fc7c7",
+        "image ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a bbox [430,640,580,680] crop_sha256 f0d72f6b99385956c2a1223e82fd008761e82c51873016ac25942a98fb1e9c10"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 46.68,
+      "session_ids": [
+        "ses_ea1ca9174ffe8bvNgwHjjMV107"
+      ],
+      "trace": "traces/BD-TR03-04.jsonl.gz",
+      "execute_calls": 4,
+      "nested_tool_calls": 3,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 85792,
+      "opencode_reported_cost_usd": 0.00169126,
+      "opencode_reported_tokens": {
+        "input": 4990,
+        "output": 685,
+        "reasoning": 309,
+        "cache_read": 8320,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-TR03-05",
+      "site": "usbair",
+      "rubric": "exact_code",
+      "expected": "USBAIN10",
+      "agent_status": "answered",
+      "agent_answer": "USBAIR10",
+      "agent_evidence": [
+        "obs-003 (OCR 'Code:' label in promo area, screenshot bbox [497,656,521,663])",
+        "screenshot.png (sha256 ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a), zoomed crop bbox [580,645,730,700] showing 'Promo Code: USBAIR10' on the International Routes 10% OFF card",
+        "screenshot.png, zoomed crop bbox [150,480,950,760] showing both 'Domestic Routes 15% OFF / Promo Code: USBAS...' and 'International Routes 10% OFF / Promo Code: USBAIR10' cards with validity 'Till 31st October 2026'"
+      ],
+      "outcome": "wrong",
+      "exact_pass": false,
+      "source_support": "contradicted",
+      "adjudication_note": "The saved popup prints USBAIN10; the agent answered USBAIR10.",
+      "run_reason": "completed",
+      "wall_seconds": 29.035,
+      "session_ids": [
+        "ses_ea1c9db70ffex1hTw79XmGGxhV"
+      ],
+      "trace": "traces/BD-TR03-05.jsonl.gz",
+      "execute_calls": 5,
+      "nested_tool_calls": 5,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 458204,
+      "opencode_reported_cost_usd": 0.00419018,
+      "opencode_reported_tokens": {
+        "input": 11271,
+        "output": 1155,
+        "reasoning": 1492,
+        "cache_read": 9216,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-TR03-06",
+      "site": "usbair",
+      "rubric": "normalized_literal",
+      "expected": "Couple Holiday in Kuala Lumpur!",
+      "agent_status": "answered",
+      "agent_answer": "The Mastercard popup ('Fly BEYOND with mastercard!') advertises the chance to win a Couple Holiday in Kuala Lumpur as the top prize (with return tickets to Cox's Bazar, Sylhet, or Chattogram mentioned alongside).",
+      "agent_evidence": [
+        "image sha256 ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a, bbox [317, 166, 995, 856] (screenshot.png popup crop, directly read: 'Get a chance to win Couple Holiday in Kuala Lumpur!')",
+        "obs-001 ('with mastercard!', bbox [445,300,656,319]) and obs-002 ('Pay with Mastercard', bbox [449,343,611,359]) confirming the popup is the Mastercard offer",
+        "html image candidate 'US-Bangla Master Card Offer' (mastercard-offer-popup-web.jpg) at html:84:1384"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 72.289,
+      "session_ids": [
+        "ses_ea1c969c7ffeivAZdCKDSQ6xbu"
+      ],
+      "trace": "traces/BD-TR03-06.jsonl.gz",
+      "execute_calls": 5,
+      "nested_tool_calls": 4,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.check_claim",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 1071117,
+      "opencode_reported_cost_usd": 0.00309969,
+      "opencode_reported_tokens": {
+        "input": 6989,
+        "output": 888,
+        "reasoning": 1038,
+        "cache_read": 12224,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-TR03-08",
+      "site": "usbair",
+      "rubric": "calendar_date",
+      "expected": "31st October 2026",
+      "agent_status": "answered",
+      "agent_answer": "The captured Mastercard offer is valid until 31 October 2026. The offer banner ('Fly BEYOND with mastercard!') states '*T&C Apply | Validity: Till 31st October 2026'.",
+      "agent_evidence": [
+        "image ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a bbox [330, 655, 800, 705] (zoomed text: '*T&C Apply | Validity: Till 31ST October 2026')",
+        "image ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a bbox [250, 440, 1030, 720] (banner showing '15% OFF' / '10% OFF' and validity line)",
+        "image ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a bbox [250, 240, 1030, 460] ('Fly BEYOND with mastercard!' / 'Pay with Mastercard' / 'Enjoy up to 15% OFF')",
+        "obs-003, obs-004 (OCR candidates 'with mastercard!' and 'Pay with Mastercard' confirming the banner is the Mastercard offer)"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 79.764,
+      "session_ids": [
+        "ses_ea1c84f95ffeU4mrzsL2gmoK5E"
+      ],
+      "trace": "traces/BD-TR03-08.jsonl.gz",
+      "execute_calls": 5,
+      "nested_tool_calls": 4,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 686474,
+      "opencode_reported_cost_usd": 0.00351474,
+      "opencode_reported_tokens": {
+        "input": 9286,
+        "output": 1007,
+        "reasoning": 1165,
+        "cache_read": 11728,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-TR03-10",
+      "site": "usbair",
+      "rubric": "complete_set",
+      "expected": [
+        "Silver",
+        "Gold",
+        "Platinum",
+        "Titanium"
+      ],
+      "agent_status": "answered",
+      "agent_answer": "Silver, Gold, Platinum, Titanium",
+      "agent_evidence": [
+        "image ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a bbox [40, 830, 460, 990]: zoomed 'Join Sky Star' banner showing four star badges labeled Silver, Gold, Platinum, Titanium",
+        "image ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a bbox [0, 640, 1333, 1280]: full 'Join Sky Star' banner context (badge row + 'Join now' button)"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 153.939,
+      "session_ids": [
+        "ses_ea1c71807ffei91Nu656hUy4G9"
+      ],
+      "trace": "traces/BD-TR03-10.jsonl.gz",
+      "execute_calls": 8,
+      "nested_tool_calls": 6,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 1361293,
+      "opencode_reported_cost_usd": 0.00928224,
+      "opencode_reported_tokens": {
+        "input": 15524,
+        "output": 2199,
+        "reasoning": 3587,
+        "cache_read": 47232,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-QC02-04",
+      "site": "shwapno",
+      "rubric": "exact_code",
+      "expected": "PUJA6",
+      "agent_status": "answered",
+      "agent_answer": "PUJA6",
+      "agent_evidence": [
+        "image sha256 0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b, bbox [0,0,1280,300] (Puja campaign banner showing two green coupons: '6% discount code: PUJA6' and '7% discount code: PUJA7')",
+        "image sha256 0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b, bbox [620,130,950,260] (zoomed 6% coupon: '৬% ডিসকাউন্ট কোড: PUJA6', '(2-বার ব্যবহারযোগ্য)', 'Max Discount: ৳100')"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 81.654,
+      "session_ids": [
+        "ses_ea1c4beb3ffeZ3rWxNF2D6nAUI"
+      ],
+      "trace": "traces/BD-QC02-04.jsonl.gz",
+      "execute_calls": 8,
+      "nested_tool_calls": 8,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 1452799,
+      "opencode_reported_cost_usd": 0.01219324,
+      "opencode_reported_tokens": {
+        "input": 28253,
+        "output": 1774,
+        "reasoning": 5792,
+        "cache_read": 47168,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-QC02-05",
+      "site": "shwapno",
+      "rubric": "exact_code",
+      "expected": "PUJA7",
+      "agent_status": "abstained",
+      "agent_answer": "The saved capture does not contain a 7% Puja coupon. The only Puja coupon banners visible (in the hero carousel's active slide) are a 6% coupon printed with code 'PUJA6' and a 9% coupon printed with code 'PUJA7'. Therefore the exact code on a '7% Puja coupon' cannot be established from this capture; if the intended coupon is the one whose code ends in 7, that coupon is printed at 9%, not 7%.",
+      "agent_evidence": [
+        "image sha256 0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b, bbox [0,0,1280,600] — hero 'পুজার সাশ্রয়' Puja banner with two green discount-code badges",
+        "image sha256 0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b, bbox [740,165,985,265] — left badge reads '6% ডিসকাউন্ট কোড: PUJA6' (6% off, 2 uses, max ৳500)",
+        "image sha256 0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b, bbox [980,165,1220,265] — right badge reads '9% ডিসকাউন্ট কোড: PUJA7' (9% off, 1 use, max ৳200)",
+        "image sha256 0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b, bbox [995,175,1090,245] and [750,175,845,245] — zoomed percentage digits confirming 9% and 6% (not 7%)",
+        "image sha256 0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b, bbox [0,560,1280,1080] and [0,2200,1280,3100] — remaining page sections show only fixed-Taka OFF ribons, no other percentage coupons",
+        "capture b8f6d95f459b2c1ca43e285d2797b5eb9a5010e4a7d1389103c5d24c484ecb61 — HTML text nodes contain no 'Puja'/coupon-code string; OCR matcher reported no question-term matches, so codes are supported only by the saved screenshot pixels"
+      ],
+      "outcome": "abstained",
+      "exact_pass": false,
+      "source_support": "contradicted",
+      "adjudication_note": "The saved 7% coupon visibly prints PUJA7; the agent falsely described it as a 9% coupon.",
+      "run_reason": "completed",
+      "wall_seconds": 89.392,
+      "session_ids": [
+        "ses_ea1c37fb4ffedt0hKAWXNdfkpZ"
+      ],
+      "trace": "traces/BD-QC02-05.jsonl.gz",
+      "execute_calls": 11,
+      "nested_tool_calls": 15,
+      "nested_tool_errors": 1,
+      "non_lwa_attempts": 1,
+      "tools": [
+        "fetch",
+        "lwa.check_claim",
+        "lwa.inspect_evidence",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 1504068,
+      "opencode_reported_cost_usd": 0.0180065,
+      "opencode_reported_tokens": {
+        "input": 18870,
+        "output": 2739,
+        "reasoning": 9313,
+        "cache_read": 54528,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-QC02-12",
+      "site": "shwapno",
+      "rubric": "price_and_minimum",
+      "expected": "৳12.75 per piece; minimum 12",
+      "agent_status": "answered",
+      "agent_answer": "Egg Loose is shown at ৳12.75 per piece (12.75 Taka per piece), with a minimum quantity of 12 pieces (\"Min. 12\").",
+      "agent_evidence": [
+        "obs-001 (html_text_node 'Egg Loose', locator html:13:246197, product card link /egg-loose)",
+        "obs-002 (html_text_node 'Per Piece', locator html:13:246741; source excerpt in same card shows '৳12.75' in the active-price span, 'Per Piece', and '❨Min. 12 ❩')",
+        "obs-009 (OCR 'Egg Loose', image sha256 0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b, bbox [136,925,204,940])",
+        "image crop sha256 0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b, bbox [30,900,340,1010] — visually shows 'Egg Loose' with '৳12.75 Per Piece ( Min. 12 )'"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 55.192,
+      "session_ids": [
+        "ses_ea1c2227affePjOTbNicz1FSiZ"
+      ],
+      "trace": "traces/BD-QC02-12.jsonl.gz",
+      "execute_calls": 5,
+      "nested_tool_calls": 4,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_evidence",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 48289,
+      "opencode_reported_cost_usd": 0.00481373,
+      "opencode_reported_tokens": {
+        "input": 10479,
+        "output": 1034,
+        "reasoning": 1939,
+        "cache_read": 21168,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-QC02-17",
+      "site": "shwapno",
+      "rubric": "exact_number",
+      "expected": "290",
+      "agent_status": "answered",
+      "agent_answer": "290 outlets (the Dhaka row of the captured 'Shwapno Coverage area' table reads 'Dhaka - 290 outlets').",
+      "agent_evidence": [
+        "obs-003",
+        "obs-004",
+        "obs-005",
+        "image:0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b bbox [800, 9600, 1120, 9760]",
+        "obs-010"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 24.885,
+      "session_ids": [
+        "ses_ea1c14aa3ffe7nKRi7mz4z1tLc"
+      ],
+      "trace": "traces/BD-QC02-17.jsonl.gz",
+      "execute_calls": 7,
+      "nested_tool_calls": 4,
+      "nested_tool_errors": 1,
+      "non_lwa_attempts": 1,
+      "tools": [
+        "fetch",
+        "lwa.inspect_evidence",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 63692,
+      "opencode_reported_cost_usd": 0.00399358,
+      "opencode_reported_tokens": {
+        "input": 11063,
+        "output": 1029,
+        "reasoning": 1342,
+        "cache_read": 19456,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-QC02-19",
+      "site": "shwapno",
+      "rubric": "exact_number",
+      "expected": "16469",
+      "agent_status": "answered",
+      "agent_answer": "The customer-service phone number in the captured footer is 16469, shown as 'Call Us: 16469 (8am-10pm, Everyday)' in the 'Always Here for You' block of the footer (below the Shwapno logo, next to the Information / Customer Service columns).",
+      "agent_evidence": [
+        "0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b bbox [0,9830,1280,10110] (footer band showing 'Always Here for You', 'Call Us: 16469 (8am-10pm, Everyday)', 'Email Us: queries@acilogistics.net', 'ACI SHWAPNO E-COMMERCE LIMITED')",
+        "0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b bbox [25,10005,320,10050] (zoomed crop confirming the digits '16469')",
+        "obs-002 (footer 'Customer Service' column, html:27:552093, capture c2bbca2e09a29d3e2a29e5f36e11ca13f9e8931856b53ae5e17b82e925c496e6)",
+        "obs-001 ('Customer Service Support ... 8am to 10pm', html:13:239432 / html:27:546939)"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 50.386,
+      "session_ids": [
+        "ses_ea1c0e9affferVnVaFOFG9DgkC"
+      ],
+      "trace": "traces/BD-QC02-19.jsonl.gz",
+      "execute_calls": 9,
+      "nested_tool_calls": 9,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_evidence",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 210204,
+      "opencode_reported_cost_usd": 0.01244213,
+      "opencode_reported_tokens": {
+        "input": 22007,
+        "output": 1744,
+        "reasoning": 5967,
+        "cache_read": 64000,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-GV01-04",
+      "site": "bangladesh-gov",
+      "rubric": "normalized_literal",
+      "expected": "পোড়া তেল ব্যবহার করবেন না",
+      "agent_status": "answered",
+      "agent_answer": "পোড়া তেল ব্যবহার করবেন না (\"Do not use burnt/reused oil\")",
+      "agent_evidence": [
+        "obs-009 (OCR candidate, screenshot.png bbox [462,115,819,149], min confidence 94.4)",
+        "obs-011, obs-012 (OCR candidate body text confirming the food-safety popup: reused oil heated repeatedly/for long periods creates burnt oil/transfats)",
+        "image crop: image_sha256 01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888, bbox [420,80,860,260], capture_id b3ae8ce87874af8d72bc3af00ed1a8d12eedf8877422e83d448644a5a7c590fe — visually confirms the green banner headline 'পোড়া তেল ব্যবহার করবেন না'"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 22.108,
+      "session_ids": [
+        "ses_ea1c024a9ffe1QQAMB0UfPD0J8"
+      ],
+      "trace": "traces/BD-GV01-04.jsonl.gz",
+      "execute_calls": 5,
+      "nested_tool_calls": 4,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.check_claim",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 148456,
+      "opencode_reported_cost_usd": 0.00336296,
+      "opencode_reported_tokens": {
+        "input": 15129,
+        "output": 853,
+        "reasoning": 1084,
+        "cache_read": 7936,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-GV01-07",
+      "site": "bangladesh-gov",
+      "rubric": "exact_key_phrase",
+      "expected": "ছেঁকে তরকারিতে ব্যবহার করতে পারেন",
+      "agent_status": "answered",
+      "agent_answer": "The fourth (bottom, purple) panel of the Bangladesh Food Safety Authority notice says that oil which has been used once for frying must not be reused for frying again; instead it can be repurposed in a cooked vegetable dish (torkari). In Bengali: 'একবার ভাজা তেল পুনরায় ভাজার কাজে ব্যবহার না করে ... তরকারিতে ব্যবহার করতে পারেন।'",
+      "agent_evidence": [
+        "image_sha256:01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888 bbox:[430,130,920,660] (dialog with four panels; panel 4 is the bottom purple row)",
+        "image_sha256:01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888 bbox:[435,450,655,585] (fourth panel text, OCR: 'একবার ভাজা তেল পুনরায় ভাজার কাজে ব্যবহার না করে ... তরকারিতে ব্যবহার করতে পারেন।')",
+        "image_sha256:01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888 bbox:[460,510,640,565] (zoom of the line 'না করে ... তরকারিতে ব্যবহার করতে পারেন।')"
+      ],
+      "outcome": "partial",
+      "exact_pass": false,
+      "source_support": "partial",
+      "adjudication_note": "The answer says to use the oil in a vegetable dish but omits the required instruction to strain it (ছেঁকে).",
+      "run_reason": "completed",
+      "wall_seconds": 36.589,
+      "session_ids": [
+        "ses_ea1bfce85ffeaWw4D5P4v2FnN0"
+      ],
+      "trace": "traces/BD-GV01-07.jsonl.gz",
+      "execute_calls": 6,
+      "nested_tool_calls": 5,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 1251439,
+      "opencode_reported_cost_usd": 0.00595118,
+      "opencode_reported_tokens": {
+        "input": 12781,
+        "output": 1105,
+        "reasoning": 2672,
+        "cache_read": 18944,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-GV01-11",
+      "site": "bangladesh-gov",
+      "rubric": "exact_number",
+      "expected": "৫০০",
+      "agent_status": "answered",
+      "agent_answer": "The statistics bar displays 500 Upazilas, shown in Bengali as '৫০০ উপজেলা'.",
+      "agent_evidence": [
+        "image sha256 01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888, bbox [0, 630, 1280, 780] (statistics bar: ... ৬৪ জেলা, ৫০০ উপজেলা, ৪৫৬৯ ইউনিয়ন ...)",
+        "image sha256 01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888, bbox [880, 645, 1140, 715] (zoomed crop reading '৫০০ উপজেলা' at full resolution)"
+      ],
+      "outcome": "exact",
+      "exact_pass": true,
+      "source_support": "source_linked",
+      "adjudication_note": "Answer matches frozen reference and cites a saved observation or image crop.",
+      "run_reason": "completed",
+      "wall_seconds": 27.92,
+      "session_ids": [
+        "ses_ea1bf3f93ffe6i2OsdWYtnshDI"
+      ],
+      "trace": "traces/BD-GV01-11.jsonl.gz",
+      "execute_calls": 6,
+      "nested_tool_calls": 5,
+      "nested_tool_errors": 1,
+      "non_lwa_attempts": 1,
+      "tools": [
+        "fetch",
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 775209,
+      "opencode_reported_cost_usd": 0.0046635,
+      "opencode_reported_tokens": {
+        "input": 12692,
+        "output": 1099,
+        "reasoning": 1778,
+        "cache_read": 15104,
+        "cache_write": 0
+      }
+    },
+    {
+      "case_id": "BD-ED01-19",
+      "site": "10ms",
+      "rubric": "exact_entity",
+      "expected": "পূর্ণিমা লস্কর",
+      "agent_status": "answered",
+      "agent_answer": "Purnima Lakshmi (Bengali: পূর্ণিমা লক্ষ্মী) — the featured parent testimonial is attributed to her, with the sub-caption noting her student/daughter as Paramita Lakshmi (শিক্ষার্থী: পারমিতা লক্ষ্মী).",
+      "agent_evidence": [
+        "obs-004 (OCR candidate, screenshot.png sha256 8578ef854d2ba3a50f5fefc001d26cdbd1bed884b7bb88c2b06d606affb1f5e3, bbox [130,8842,703,8884]): line of the featured parent quote 'ফ্রুলকে দিয়ে দিয়েছি। আমি এখন নিশ্চিন্ত। আমি জানি ও ভালো'",
+        "image e5ac64c06816b66201627a99e245b293b2b4838e2768e423f32241c98aa4a315 bbox [0,0,1536,848] (supplemental-1.png): featured testimonial card — quote, speaker name, role line, mother-and-daughter photo",
+        "image e5ac64c06816b66201627a99e245b293b2b4838e2768e423f32241c98aa4a315 bbox [180,460,640,610]: name line with 'শিক্ষার্থী: পারমিতা লক্ষ্মী'",
+        "image e5ac64c06816b66201627a99e245b293b2b4838e2768e423f32241c98aa4a315 bbox [195,485,420,535]: zoomed speaker name 'পূর্ণিমা লক্ষ্মী'"
+      ],
+      "outcome": "wrong",
+      "exact_pass": false,
+      "source_support": "contradicted",
+      "adjudication_note": "The saved testimonial says পূর্ণিমা লস্কর; the agent answered পূর্ণিমা লক্ষ্মী / Purnima Lakshmi.",
+      "run_reason": "completed",
+      "wall_seconds": 75.305,
+      "session_ids": [
+        "ses_ea1bed27cffelkdg5Vz2xHHMPd"
+      ],
+      "trace": "traces/BD-ED01-19.jsonl.gz",
+      "execute_calls": 9,
+      "nested_tool_calls": 8,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 1419894,
+      "opencode_reported_cost_usd": 0.01105326,
+      "opencode_reported_tokens": {
+        "input": 21065,
+        "output": 2711,
+        "reasoning": 4122,
+        "cache_read": 54784,
+        "cache_write": 0
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "control_id": "BD-TR02-access",
+      "expected_state": "access_blocked",
+      "agent_answer": "No. The saved Biman capture does not contain usable flight information. The snapshot access state is 'blocked' (unresolved state 'access_blocked'): the LWA inspector returned zero page observations from the saved HTML (28,725 bytes, no HTTP status or final URL recorded) and registered no image evidence from screenshot.png. No flight numbers, routes, times, or status data could be extracted.",
+      "passed": true,
+      "run_reason": "completed",
+      "wall_seconds": 21.146,
+      "session_ids": [
+        "ses_ea1bdac27ffehgBiftNYdqmaR8"
+      ],
+      "trace": "traces/BD-TR02-access.jsonl.gz",
+      "execute_calls": 4,
+      "nested_tool_calls": 3,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_evidence",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 9100,
+      "opencode_reported_cost_usd": 0.00267403,
+      "opencode_reported_tokens": {
+        "input": 3259,
+        "output": 552,
+        "reasoning": 1281,
+        "cache_read": 3840,
+        "cache_write": 0
+      }
+    },
+    {
+      "control_id": "BD-ED01-17-reference-conflict",
+      "expected_state": "reference_conflict_unresolved",
+      "agent_answer": null,
+      "passed": false,
+      "run_reason": "wall_timeout",
+      "wall_seconds": 180.012,
+      "session_ids": [
+        "ses_ea1bd5984ffeo3T1x3v7bIMxHJ"
+      ],
+      "trace": "traces/BD-ED01-17-reference-conflict.jsonl.gz",
+      "execute_calls": 10,
+      "nested_tool_calls": 9,
+      "nested_tool_errors": 0,
+      "non_lwa_attempts": 0,
+      "tools": [
+        "lwa.inspect_image_crop",
+        "lwa.inspect_web_evidence"
+      ],
+      "serialized_tool_payload_bytes": 3228499,
+      "opencode_reported_cost_usd": 0.0133402,
+      "opencode_reported_tokens": {
+        "input": 40353,
+        "output": 2205,
+        "reasoning": 6366,
+        "cache_read": 8624,
+        "cache_write": 0
+      }
+    }
+  ],
+  "summary": {
+    "exact": 15,
+    "scored_total": 20,
+    "wrong": 2,
+    "partial": 1,
+    "abstained": 1,
+    "timeout": 1,
+    "diagnostics_passed": 1,
+    "diagnostics_total": 2,
+    "nested_tool_calls_total": 122,
+    "non_lwa_attempts_total": 3,
+    "opencode_reported_cost_usd": 0.13534952
+  }
+}

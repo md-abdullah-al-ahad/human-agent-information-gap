@@ -1,5 +1,7 @@
 # Site BD-FN02: Nagad — Controlled Playwright vs. Static Tool Ablation Audit
 
+> **Ground-truth ambiguity (2026-10-21):** BD-FN02-06 names two distinct people as acceptable references while the two Gemini arms name different people. Neither identity can be confirmed from the written label alone; both `PASS` scores are suspended pending review of the saved image. See [the correction ledger](../scoring-corrections.md).
+
 **Target URL:** `https://nagad.com.bd`  
 **Platform Architecture:** Nuxt.js / Vue.js SSR with Client-Side Hydration, Cloudflare CDN Asset Defense, and Dynamic Mobile Financial Promotion Engine (Nagad Limited)  
 **Evaluation Date:** 2026-10-19  
@@ -19,7 +21,7 @@
 
 ---
 
-## 2. Evaluation Against Pre-Registered Ground Truth (20 Items)
+## 2. Evaluation Against Researcher-Annotated Reference (20 Items)
 
 | Item ID | Target Information Fact | Modality Surface | Human Ground Truth | Qwen (With Playwright) | Gemini (With Playwright) | Qwen (Without Playwright) | Gemini (Without Playwright) | Empirical Tool Ablation Finding |
 |---|---|---|---|---|---|---|---|---|
@@ -28,7 +30,7 @@
 | **BD-FN02-03** | **Main Nav Sixth Menu Link** | `TEXT / NAV` | `নগদ ইসলামিক` | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Navigation DOM parity |
 | **BD-FN02-04** | **Popup Modal Headline** | `IN_IMAGE_GRAPHIC` | `নগদ অ্যাপে নতুন Experience` | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped Raster Typography |
 | **BD-FN02-05** | **Popup Modal Central Slogan** | `IN_IMAGE_GRAPHIC` | `সব হবে Nonstop` | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped 3D Raster Typography |
-| **BD-FN02-06** | **Popup Modal Brand Ambassador** | `VISUAL_ENTITY` | Jamal Bhuyan / Tariq Kazi (National football player) | **FAIL (Reported Not Found)** | **PASS** (Identified Tariq Kazi) | **FAIL (Reported Not Found)** | **PASS** (Identified Jamal Bhuyan) | **Unlabeled Entity Visual Grounding Gap** |
+| **BD-FN02-06** | **Popup Modal Brand Ambassador** | `VISUAL_ENTITY` | Ambiguous reference: Jamal Bhuyan / Tariq Kazi (distinct people) | **Reported Not Found** | **UNRESOLVED** (identified Tariq Kazi; historically PASS) | **Reported Not Found** | **UNRESOLVED** (identified Jamal Bhuyan; historically PASS) | Visual identity needs independent adjudication |
 | **BD-FN02-07** | **Popup Modal CTA Button** | `BUTTON_UI` | `Let's go` with red right-arrow | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Button styling parity |
 | **BD-FN02-08** | **Hero Slogan Behind Popup** | `TEXT / HERO` | `লেনদেন যেখানে নগদ সেখানে` | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Hero typography parity |
 | **BD-FN02-09** | **Hero Shop Signboard Text** | `IN_IMAGE_GRAPHIC` | `সর্বনিম্ন ক্যাশ আউট চার্জ` | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped Background Signboard |

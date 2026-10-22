@@ -9,7 +9,7 @@
 
 ---
 
-## 1. Pre-Registered Ground-Truth Inventory (20 Discrete Items)
+## 1. Researcher-Annotated Reference Inventory (20 Discrete Items)
 
 | Item ID | Information Category & Fact | Modality Surface | Human-Observable Location | Exposed in Raw Static DOM? | Target Research Check |
 |---|---|---|---|---|---|
@@ -29,7 +29,7 @@
 | **BD-ED01-14** | **Online Batch Delivery Metric: Weekly Live Classes (`10টি সাপ্তাহিক লাইভ ক্লাস`)** | `TEXT / METRIC` | Features grid, Card 1 | Yes (`10টি সাপ্তাহিক লাইভ ক্লাস`) | Operational metric |
 | **BD-ED01-15** | **AI Doubt Solver Brand Name (`TenTen` / `SuperSolve`)** | `TEXT / BRAND` | Features grid, Card 6 | Yes (`TenTen`, `SuperSolve`) | Proprietary tool entity |
 | **BD-ED01-16** | **Current Active Academic Student Count Statistic (`৩০+ হাজার`)** | `TEXT / METRIC` | Online batch subtitle | Yes (`৩০+ হাজার Academic স্টুডেন্ট`) | Scale metric |
-| **BD-ED01-17** | **Mobile App Total Downloads Metric (`৪,৫৮,৫৪৩+ অ্যাপ ডাউনলোড`)** | `TEXT / METRIC` | App download banner Card 1 | Yes (`৪,৫৮,৫৪৩+`) | Engagement metric |
+| **BD-ED01-17** | **Mobile App Total Downloads Metric (reference version disputed)** | `TEXT / METRIC` | App download banner Card 1 | Saved raw DOM contains `৫,০০,০০০+` in embedded card data, not the previously listed `৪,৫৮,৫৪৩+`. Historical run timing is not aligned. | Engagement metric; exact value unresolved |
 | **BD-ED01-18** | **Google Play Store Rating & Reviewer Count (`৪.৫+`, `৩,০০,০০০ শিক্ষার্থী`)** | `TEXT / METRIC` | App download banner Card 2 | Yes (`৪.৫+`, `প্রায় ৩,০০,০০০`) | Social proof metric |
-| **BD-ED01-19** | **Featured Parent Testimonial (`পূর্ণিমা লস্কর`, মা, শিক্ষার্থী: পারমিতা লস্কর)** | `TEXT / TESTIMONIAL` | Testimonial carousel | Yes (`পূর্ণিমা লস্কর`) | Attributed quote grounding |
+| **BD-ED01-19** | **Featured Parent Testimonial (`পূর্ণিমা লস্কর`, মা, শিক্ষার্থী: পারমিতা লস্কর)** | `RENDERED_TEXT / TESTIMONIAL` | Testimonial carousel in saved visual crop | Exact Bengali name absent from saved raw DOM; visible in `scratch/visual_crops/testimonial2.png`. Whether a later rendered DOM exposes it is unverified. | Attributed quote grounding |
 | **BD-ED01-20** | **Customer Support Hotline (`16910`, `+880 9610916910`, `support@10minuteschool.com`)** | `TEXT / CONTACT` | Footer support column | Yes (Hotline 16910, email support) | Official support channels |

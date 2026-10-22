@@ -1,0 +1,400 @@
+{
+  "BD-QC02": {
+    "Trafilatura": {
+      "hits": 8,
+      "total": 17,
+      "recall": 47.05882352941176,
+      "chars": 34883,
+      "tokens_est": 8720,
+      "token_reduction": 98.55577986148603,
+      "latency_ms": 159.71667600024375,
+      "missed_labels": [
+        "Notification Heading",
+        "Egg Pricing",
+        "Alu Discount",
+        "Support Hotline",
+        "Support Email",
+        "Legal Entity",
+        "Copyright Line",
+        "Trapped Coupon 1",
+        "Trapped Coupon 2"
+      ]
+    },
+    "Readability": {
+      "hits": 4,
+      "total": 17,
+      "recall": 23.52941176470588,
+      "chars": 189,
+      "tokens_est": 47,
+      "token_reduction": 99.99217505357397,
+      "latency_ms": 141.6266579999501,
+      "missed_labels": [
+        "Notification Heading",
+        "Value Pillar 1",
+        "Value Pillar 2",
+        "Value Pillar 3",
+        "Value Pillar 4",
+        "Alu Discount",
+        "Tea Deal Price",
+        "Brand Showcase",
+        "Dhaka Outlets",
+        "Gazipur Outlets",
+        "Copyright Line",
+        "Trapped Coupon 1",
+        "Trapped Coupon 2"
+      ]
+    },
+    "BeautifulSoup4": {
+      "hits": 14,
+      "total": 17,
+      "recall": 82.35294117647058,
+      "chars": 15152,
+      "tokens_est": 3788,
+      "token_reduction": 99.3726794272636,
+      "latency_ms": 116.53967199890758,
+      "missed_labels": [
+        "Copyright Line",
+        "Trapped Coupon 1",
+        "Trapped Coupon 2"
+      ]
+    },
+    "html2text": {
+      "hits": 14,
+      "total": 17,
+      "recall": 82.35294117647058,
+      "chars": 59350,
+      "tokens_est": 14837,
+      "token_reduction": 97.54280121489538,
+      "latency_ms": 99.4805529990117,
+      "missed_labels": [
+        "Alu Discount",
+        "Trapped Coupon 1",
+        "Trapped Coupon 2"
+      ]
+    },
+    "LWA-Web Condenser": {
+      "hits": 15,
+      "total": 17,
+      "recall": 88.23529411764706,
+      "chars": 114242,
+      "tokens_est": 28560,
+      "token_reduction": 95.27017180104598,
+      "latency_ms": 41.91596999953617,
+      "missed_labels": [
+        "Trapped Coupon 1",
+        "Trapped Coupon 2"
+      ]
+    },
+    "Extractor Union": {
+      "hits": 15,
+      "total": 17,
+      "recall": 88.23529411764706,
+      "chars": 223886,
+      "tokens_est": 55971,
+      "token_reduction": 90.73070922995903,
+      "latency_ms": 559.2795289976493,
+      "missed_labels": [
+        "Trapped Coupon 1",
+        "Trapped Coupon 2"
+      ]
+    }
+  },
+  "BD-FN02": {
+    "Trafilatura": {
+      "hits": 5,
+      "total": 14,
+      "recall": 35.714285714285715,
+      "chars": 750,
+      "tokens_est": 187,
+      "token_reduction": 99.86170475625002,
+      "latency_ms": 18.565837001006003,
+      "missed_labels": [
+        "Tagline",
+        "Menu Link",
+        "Hero Slogan",
+        "Section Heading",
+        "Hotline",
+        "Copyright Line",
+        "App CTA",
+        "Trapped Bonus Amount",
+        "Trapped Threshold"
+      ]
+    },
+    "Readability": {
+      "hits": 0,
+      "total": 14,
+      "recall": 0.0,
+      "chars": 291,
+      "tokens_est": 72,
+      "token_reduction": 99.94634144542502,
+      "latency_ms": 29.200682000009692,
+      "missed_labels": [
+        "Tagline",
+        "Active Lang",
+        "Menu Link",
+        "Hero Slogan",
+        "Section Heading",
+        "Onboarding Step 1",
+        "Onboarding Step 3",
+        "Milestone Date",
+        "Milestone Scale",
+        "Hotline",
+        "Copyright Line",
+        "App CTA",
+        "Trapped Bonus Amount",
+        "Trapped Threshold"
+      ]
+    },
+    "BeautifulSoup4": {
+      "hits": 9,
+      "total": 14,
+      "recall": 64.28571428571429,
+      "chars": 1843,
+      "tokens_est": 460,
+      "token_reduction": 99.66016248769172,
+      "latency_ms": 16.005737999876146,
+      "missed_labels": [
+        "Tagline",
+        "Hero Slogan",
+        "Hotline",
+        "Trapped Bonus Amount",
+        "Trapped Threshold"
+      ]
+    },
+    "html2text": {
+      "hits": 9,
+      "total": 14,
+      "recall": 64.28571428571429,
+      "chars": 7047,
+      "tokens_est": 1761,
+      "token_reduction": 98.70057788972521,
+      "latency_ms": 31.59939699980896,
+      "missed_labels": [
+        "Tagline",
+        "Hero Slogan",
+        "Hotline",
+        "Trapped Bonus Amount",
+        "Trapped Threshold"
+      ]
+    },
+    "LWA-Web Condenser": {
+      "hits": 9,
+      "total": 14,
+      "recall": 64.28571428571429,
+      "chars": 8073,
+      "tokens_est": 2018,
+      "token_reduction": 98.51138999627524,
+      "latency_ms": 6.339674999253475,
+      "missed_labels": [
+        "Tagline",
+        "Hero Slogan",
+        "Hotline",
+        "Trapped Bonus Amount",
+        "Trapped Threshold"
+      ]
+    },
+    "Extractor Union": {
+      "hits": 9,
+      "total": 14,
+      "recall": 64.28571428571429,
+      "chars": 18074,
+      "tokens_est": 4518,
+      "token_reduction": 96.66726901928388,
+      "latency_ms": 101.71132899995428,
+      "missed_labels": [
+        "Tagline",
+        "Hero Slogan",
+        "Hotline",
+        "Trapped Bonus Amount",
+        "Trapped Threshold"
+      ]
+    }
+  },
+  "BD-01": {
+    "Trafilatura": {
+      "hits": 1,
+      "total": 11,
+      "recall": 9.090909090909092,
+      "chars": 743,
+      "tokens_est": 185,
+      "token_reduction": 99.51493706585887,
+      "latency_ms": 13.755424000919447,
+      "missed_labels": [
+        "Navbar Air",
+        "Navbar Launch",
+        "Helpline Number",
+        "Support Email",
+        "Operating Hours",
+        "Cancellation Policy",
+        "Payment Channels",
+        "Platform Scale Users",
+        "Platform Scale Tickets",
+        "Dynamic Unified Login Banner"
+      ]
+    },
+    "Readability": {
+      "hits": 1,
+      "total": 11,
+      "recall": 9.090909090909092,
+      "chars": 261,
+      "tokens_est": 65,
+      "token_reduction": 99.82960777145244,
+      "latency_ms": 15.3221559994563,
+      "missed_labels": [
+        "Navbar Air",
+        "Navbar Launch",
+        "Helpline Number",
+        "Support Email",
+        "Operating Hours",
+        "Cancellation Policy",
+        "Payment Channels",
+        "Platform Scale Users",
+        "Platform Scale Tickets",
+        "Dynamic Unified Login Banner"
+      ]
+    },
+    "BeautifulSoup4": {
+      "hits": 9,
+      "total": 11,
+      "recall": 81.81818181818183,
+      "chars": 3523,
+      "tokens_est": 880,
+      "token_reduction": 97.70003133650181,
+      "latency_ms": 18.95967200107407,
+      "missed_labels": [
+        "Platform Scale Users",
+        "Dynamic Unified Login Banner"
+      ]
+    },
+    "html2text": {
+      "hits": 8,
+      "total": 11,
+      "recall": 72.72727272727273,
+      "chars": 6189,
+      "tokens_est": 1547,
+      "token_reduction": 95.95954979892412,
+      "latency_ms": 12.315332000071066,
+      "missed_labels": [
+        "Platform Scale Users",
+        "Platform Scale Tickets",
+        "Dynamic Unified Login Banner"
+      ]
+    },
+    "LWA-Web Condenser": {
+      "hits": 9,
+      "total": 11,
+      "recall": 81.81818181818183,
+      "chars": 8021,
+      "tokens_est": 2005,
+      "token_reduction": 94.76353998015354,
+      "latency_ms": 6.648197999311378,
+      "missed_labels": [
+        "Platform Scale Users",
+        "Dynamic Unified Login Banner"
+      ]
+    },
+    "Extractor Union": {
+      "hits": 9,
+      "total": 11,
+      "recall": 81.81818181818183,
+      "chars": 18807,
+      "tokens_est": 4701,
+      "token_reduction": 87.72196688776309,
+      "latency_ms": 67.00078200083226,
+      "missed_labels": [
+        "Platform Scale Users",
+        "Dynamic Unified Login Banner"
+      ]
+    }
+  },
+  "BD-02": {
+    "Trafilatura": {
+      "hits": 6,
+      "total": 10,
+      "recall": 60.0,
+      "chars": 3127,
+      "tokens_est": 781,
+      "token_reduction": 99.82518928975533,
+      "latency_ms": 27.85643099923618,
+      "missed_labels": [
+        "Search Placeholder",
+        "Delivery Hours",
+        "Hotline",
+        "Return Window"
+      ]
+    },
+    "Readability": {
+      "hits": 2,
+      "total": 10,
+      "recall": 20.0,
+      "chars": 116,
+      "tokens_est": 29,
+      "token_reduction": 99.99351517672261,
+      "latency_ms": 23.489565999625484,
+      "missed_labels": [
+        "Default City",
+        "Search Placeholder",
+        "Scale Warehouses",
+        "Scale Orders",
+        "Scale Families",
+        "Delivery Hours",
+        "Hotline",
+        "Return Window"
+      ]
+    },
+    "BeautifulSoup4": {
+      "hits": 7,
+      "total": 10,
+      "recall": 70.0,
+      "chars": 3901,
+      "tokens_est": 975,
+      "token_reduction": 99.78191986547345,
+      "latency_ms": 26.483235000341665,
+      "missed_labels": [
+        "Search Placeholder",
+        "Delivery Hours",
+        "Return Window"
+      ]
+    },
+    "html2text": {
+      "hits": 7,
+      "total": 10,
+      "recall": 70.0,
+      "chars": 11659,
+      "tokens_est": 2914,
+      "token_reduction": 99.34821935697387,
+      "latency_ms": 45.846641000025556,
+      "missed_labels": [
+        "Search Placeholder",
+        "Delivery Hours",
+        "Return Window"
+      ]
+    },
+    "LWA-Web Condenser": {
+      "hits": 8,
+      "total": 10,
+      "recall": 80.0,
+      "chars": 13116,
+      "tokens_est": 3279,
+      "token_reduction": 99.26676774046396,
+      "latency_ms": 12.174325000160025,
+      "missed_labels": [
+        "Delivery Hours",
+        "Return Window"
+      ]
+    },
+    "Extractor Union": {
+      "hits": 8,
+      "total": 10,
+      "recall": 80.0,
+      "chars": 31989,
+      "tokens_est": 7997,
+      "token_reduction": 98.21169817396321,
+      "latency_ms": 135.8501979993889,
+      "missed_labels": [
+        "Delivery Hours",
+        "Return Window"
+      ]
+    }
+  }
+}

@@ -9,7 +9,7 @@
 
 ---
 
-## 1. Pre-Registered Ground-Truth Inventory (22 Discrete Items)
+## 1. Researcher-Annotated Reference Inventory (22 Discrete Items)
 
 | Item ID | Information Category & Fact | Modality Surface | Human-Observable Location | Exposed in Raw Static DOM? | Target Research Check |
 |---|---|---|---|---|---|

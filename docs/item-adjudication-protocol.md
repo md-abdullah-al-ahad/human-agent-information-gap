@@ -1,0 +1,15 @@
+# Item-level adjudication protocol
+
+The [worklist](../results/item-adjudication-worklist.csv) has one row per historical agent-item record: 1,010 rows for 323 item IDs. It copies the old labels without treating them as validated scores. The [generator](../scripts/build_adjudication_worklist.py) links each row to the corresponding saved DOM/screenshot where available and flags known disputes. The [source review manifest](../results/experiment-03/source-reviewed-corrections.json) records 11 disputed rows: seven have direct saved-pixel support and four remain unresolved or provisional. The generator verifies every cited file hash and the corresponding historical CSV row before carrying these reviews into the worklist. The original pilot human print-to-PDF files are absent.
+
+For each row, an adjudicator should first identify one claim-sized reference and its exact source locator (DOM text node, image crop with coordinates, interactive state, or trace step). Record the capture timestamp, URL, selected product/variant, locale, and whether the evidence is a visible UI statement, image pixels, embedded state, network JSON, or a researcher inference. Mark the reference **unverifiable** when the needed source is missing or the item has changed across nonaligned captures.
+
+Then classify the historical answer using this order:
+
+1. **Tool exposure:** Was the reference fact present in the tool output available to that arm? Use `exposed`, `not_exposed_in_inspected_scope`, or `unknown`. An API-only value does not establish that the human-facing page displayed it.
+2. **Agent retrieval:** Did the trace show the agent encountering the fact? Use `retrieved`, `not_retrieved`, or `unknown`.
+3. **Final report:** Compare the answer to the reference under an explicit item rule: `exact_match`, `meaning_match`, `partial`, `wrong`, `omitted`, `unsupported_inference`, or `unverifiable`. Coupon codes, numbers, named entities, and legal key terms require exact or explicitly specified matching; a useful paraphrase may suffice for explanatory prose.
+
+Keep a missing or unstated field out of the denominator for positive visible-fact recall. A Buy button is an observed affordance, not stock status; an unlisted variant is not proof of physical incompatibility. Record `not_observed_in_inspected_scope` separately from a verified negative claim. Preserve each arm's original answer and label, and write adjudicated values in separate fields. Do not compute cross-site accuracy until every included row has a reviewed rule and source locator; report excluded or unverifiable rows explicitly.
+
+The worklist is a review queue, not the completed adjudication. `source_verified` means the cited saved pixels support the stated *capture-level* correction; it does not establish current truth or align all historical capture times. `source_checked_unresolved` means inspected sources did not settle the historical claim. `corrected_outcome` outside these reviewed rows still quotes prior documented corrections and does not by itself establish a new aggregate rate.

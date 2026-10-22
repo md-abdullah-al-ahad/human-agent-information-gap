@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-Automated Batch Ingestion & Self-Evaluation Pipeline for Benchmark 100.
+Capture utility for the collected benchmark sites.
 Executes headless Chromium to capture:
   1. Full-page high-resolution visual screenshot (PNG).
   2. Complete machine DOM (HTML).
   3. Computes cryptographic SHA-256 hashes.
-  4. Runs 5 automated self-evaluation gates (HTTP liveness, image dimensions, pixel variance, DOM non-triviality, manifest registration).
+  4. Checks HTTP status, common challenge-page markers, image dimensions,
+     pixel variance, and DOM size before manifest registration. These checks
+     cannot establish content or annotation correctness.
 """
 
 import os
@@ -16,7 +18,7 @@ import argparse
 from PIL import Image, ImageStat
 from playwright.sync_api import sync_playwright
 
-CHROME_PATH = "/home/abdullah/.local/bin/chromium"
+CHROME_PATH = os.environ.get("CHROMIUM_EXECUTABLE")
 MANIFEST_PATH = "data/stage-4/manifest.json"
 SCREENSHOT_DIR = "data/stage-4/screenshots"
 RAW_DOM_DIR = "data/stage-4/raw"
@@ -77,7 +79,20 @@ def ingest_site(site_id, name, url, category):
         page.screenshot(path=screenshot_file, full_page=True)
         browser.close()
 
-    # --- Self-Evaluation Gates ---
+    # --- Capture quality gates ---
+    challenge_markers = (
+        "performing security verification",
+        "verify you are human",
+        "attention required! | cloudflare",
+        "cf-chl-widget",
+    )
+    if not isinstance(status_code, int) or not 200 <= status_code < 400:
+        print(f"[FAIL GATE 1: HTTP status {status_code}; captured files remain for access diagnosis]")
+        return False
+    if any(marker in dom_content.lower() for marker in challenge_markers):
+        print("[FAIL GATE 1: anti-bot verification page captured instead of target content]")
+        return False
+
     # Gate 2: DOM non-triviality
     dom_bytes = os.path.getsize(dom_file)
     if dom_bytes < 5000 or "<html" not in dom_content.lower():
@@ -123,7 +138,7 @@ def ingest_site(site_id, name, url, category):
     with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
 
-    print(f"[PASS GATE 1: HTTP {status_code}]")
+    print(f"[PASS GATE 1: HTTP {status_code}; no recognized challenge marker]")
     print(f"[PASS GATE 2: DOM {dom_bytes:,} bytes, SHA: {dom_sha[:16]}...]")
     print(f"[PASS GATE 3: Screenshot {dims[0]}x{dims[1]} px, StdDev: {std_dev:.2f}, SHA: {screenshot_sha[:16]}...]")
     print(f"[PASS GATE 4: Manifest registered for {site_id}]")

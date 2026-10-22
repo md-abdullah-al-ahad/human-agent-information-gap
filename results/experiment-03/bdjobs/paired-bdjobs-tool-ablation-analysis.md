@@ -19,7 +19,7 @@
 
 ---
 
-## 2. Evaluation Against Pre-Registered Ground Truth (20 Items)
+## 2. Evaluation Against Researcher-Annotated Reference (20 Items)
 
 | Item ID | Target Information Fact | Modality Surface | Human Ground Truth | Qwen (With Playwright) | Gemini (With Playwright) | Qwen (Without Playwright) | Gemini (Without Playwright) | Empirical Tool Ablation Finding |
 |---|---|---|---|---|---|---|---|---|

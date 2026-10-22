@@ -1,8 +1,8 @@
 # Failure Point Analysis & Lightweight Web Extraction Framework (LWA-Web)
 
-**Authors:** Empirical AI & Agent Research Group  
-**Benchmark Reference:** 15-Platform Multi-Modal Benchmark (1,010 Observations across 323 Pre-Registered Ground-Truth Items)  
-**Date:** 2026-10-20  
+**Authors:** Empirical AI & Agent Research Group
+**Benchmark Reference:** 15-platform collected dataset (1,010 agent-item rows across 323 researcher-annotated item IDs; prospective preregistration and independent human adjudication are not established for every item)
+**Date:** 2026-10-20
 **Core Objective:** Conduct a rigorous root-cause failure point analysis of modern web architectures under autonomous agent interaction, and formulate a high-efficiency, lightweight framework to resolve information gaps with minimal token usage and low latency.
 
 ---
@@ -13,22 +13,22 @@ Modern autonomous web agents face an acute operational dilemma when interacting 
 
 1. **The Heavy Browser Tax (Playwright / Puppeteer + VLM)**:
    - Captures high-fidelity dynamic DOM and full-page screenshots.
-   - **Cost & Latency Barrier**: Consumes 25,000 to 50,000+ tokens per interaction ($0.02 to $0.05 per query) and requires 1.5 to 20+ minutes of wall-clock latency per session.
+   - **Cost & Latency Barrier**: Some recorded browser-agent runs were lengthy and costly; these ranges are not measured consistently across the whole dataset.
    - **Downsampling Blindness**: A 10,000-pixel full-page screenshot downscaled into standard VLM vision tokens (e.g., 1024x1024 or 768x768) renders critical text (discounts, terms, dates) illegible due to pixel compression.
 
 2. **The Static Scraping Trap (cURL / HTTP Requests + Text LLM)**:
-   - Fast and cheap on paper (~2,000 to 5,000 tokens, <2 seconds).
-   - **Catastrophic Accuracy Drop**: Drops extraction accuracy by 19.2% on modern Single-Page Applications (SPAs) due to unhydrated skeleton markup.
+   - A single HTTP request may be fast, but complete agent sessions include follow-up retrieval and reasoning.
+   - **Hydration Gap**: Some initial HTML responses omit content later rendered by JavaScript. The claimed 19.2-point accuracy drop is withdrawn because the master CSV has uncoded and disputed scores.
    - **The Compensatory Loop**: When faced with missing data, unconstrained agents trigger explosive bash/scripting loops (downloading 80+ JavaScript chunks, executing 1,400+ terminal steps), resulting in **7.01x latency surges** and API budget exhaustion.
    - **Total Visual Blindness**: Zero access to text trapped inside raster banner pixels or CSS background images.
 
-To solve this, we must systematically dissect the empirical failure points and engineer a **Lightweight Agentic Web Extraction Framework (LWA-Web)** that provides the fidelity of full browser automation at the token cost and speed of static scraping.
+The proposed **Lightweight Agentic Web Extraction Framework (LWA-Web)** explores ways to reduce these barriers. The current code is a fixture-based prototype, not a validated replacement for full browser automation.
 
 ---
 
 ## 2. Empirical Failure Point & Root Cause Analysis
 
-Synthesizing the 1,010 evaluated observations across the 15-platform benchmark reveals seven distinct failure points:
+The 1,010 rows across 15 platforms suggest seven candidate failure points. The rows are not 1,010 independent facts or uniformly adjudicated successes.
 
 ```
 +----------------------------------------------------------------------------------------------------+
@@ -68,26 +68,26 @@ Synthesizing the 1,010 evaluated observations across the 15-platform benchmark r
   - *Bdjobs (`BD-CL02`)*: OpenCode without Playwright downloaded 82 client JS chunks, executed 1,484 terminal steps, and exhausted the OpenRouter $2.01 credit limit without completing the audit.
   - *Shwapno (`BD-QC02`)*: OpenCode without Playwright required 617 seconds (10.28 minutes) vs. 88 seconds with Playwright (**7.01x latency surge**), executing dozens of ImageMagick crop passes and regex parsers.
   - *Nagad (`BD-FN02`)*: Latency surged from 9.47 minutes to 23.83 minutes (**2.52x surge**).
-- **Agent Failure Mechanism**: Static tools do not save cost or time when applied to complex dynamic targets; they trigger runaway agent computation.
+- **Agent Failure Mechanism**: In these selected runs, missing content prompted long follow-up retrieval sequences. This does not establish that static retrieval is generally slower or costlier.
 
 ### FP-4: DOM Bloat & Context Window Congestion (Token Inefficiency)
 - **Root Cause**: Production web pages bundle massive inline scripts (Next.js data bundles, webpack chunks), inline CSS stylesheets, tracking scripts, and deep nested div hierarchies.
 - **Empirical Evidence**:
-  - Raw DOM sizes: Shwapno (2.41 MB / ~600,000 tokens), Chaldal (1.78 MB / ~450,000 tokens), Nagad (542 KB / ~135,000 tokens).
-  - Ingesting a single raw DOM exceeds or monopolizes model context windows, introduces high token billing, and distracts attention mechanisms with minified JavaScript.
-- **Agent Failure Mechanism**: LLMs suffer "needle-in-a-haystack" degradation and latency degradation from context bloat.
+  - Reported raw DOM sizes: Shwapno (2.41 MB), Chaldal (1.78 MB), Nagad (542 KB). Dividing bytes by four gives only a rough token proxy, not tokenizer-measured usage.
+  - Sending an entire DOM to an LLM could incur large token costs; saved byte counts alone do not establish actual model context or billing.
+- **Agent Failure Mechanism**: Irrelevant markup can make retrieval harder; this dataset has not isolated its effect on answer quality.
 
 ### FP-5: Alt-Text Truncation & Unlabeled Entity Grounding (Semantic Flattening)
 - **Root Cause**: Real-world visual assets depicting named public entities (brand ambassadors, partner institutions, regulatory seals) lack semantic labeling or alt attributes.
 - **Empirical Evidence**:
-  - *Nagad (`BD-FN02`)*: Bangladesh national football captain Jamal Bhuyan / Tariq Kazi was prominently featured in the promotional popup modal. The markup contained zero textual identification.
+  - *Nagad (`BD-FN02`)*: A popup figure lacks useful textual identification in the markup. The existing ground-truth label gives two different names, Jamal Bhuyan and Tariq Kazi; identity and associated PASS scores require visual adjudication.
   - *Gov.uk (`S3`)*: Statutory agency partner crests were embedded as unlabelled SVGs.
 - **Agent Failure Mechanism**: Pure text scrapers report "Not Found" because no textual signal exists, while multi-modal visual agents ground entity identities directly from facial features and logos.
 
 ### FP-6: Affordance Overreach on Silent Omission (Hallucinated Inferences)
-- **Root Cause**: Web interfaces frequently convey negative information (e.g., out of stock, exclusions) through omission rather than explicit negative declaration.
+- **Root Cause**: An omitted status leaves the answer unknown; it is not evidence of a negative status.
 - **Empirical Evidence**:
-  - *Star Tech (`S1`)*: When a product had no explicit stock text, both models observed an enabled "Buy Now" button and inferred that the product was physically in stock at the central warehouse (**Gap 3 Affordance Overreach**).
+  - *Star Tech (`S1`)*: Its captured page contains an explicit "In Stock" badge, so this case does not demonstrate stock inferred solely from a purchase button.
   - *Daraz (`P1–P3`)*: Models converted lack of selectable color/size SKUs into claims of technical incompatibility.
 - **Agent Failure Mechanism**: LLMs have a strong inductive bias to treat clickable UI affordances as positive verification of backend transactional states.
 
@@ -96,13 +96,13 @@ Synthesizing the 1,010 evaluated observations across the 15-platform benchmark r
 - **Empirical Evidence**:
   - *Biman Bangladesh Airlines (`BD-TR02`)*: Static cURL requests were blocked with HTTP 403 Forbidden ("Attention Required! | Cloudflare").
   - *Nagad Asset Host (`BD-FN02`)*: Requests to `https://backend.nagad.com.bd:8443` triggered Cloudflare 403 blocking pages.
-- **Agent Failure Mechanism**: Static crawlers are immediately locked out, whereas browser automation engines executing legitimate Chromium TLS handshakes navigate through smoothly.
+- **Agent Failure Mechanism**: Both access paths can be blocked. The saved Biman browser screenshot and DOM show a Cloudflare verification page, not the airline content.
 
 ---
 
 ## 3. Architecture of the Lightweight Web Extraction Framework (LWA-Web)
 
-To resolve these seven failure points while slashing token usage by 95%+ and reducing latency to under 3 seconds, we introduce the **Lightweight Web Extraction Framework (LWA-Web)**.
+The proposed **Lightweight Web Extraction Framework (LWA-Web)** has modules that remain to be implemented and evaluated. No end-to-end accuracy, cost, or latency target has been validated.
 
 LWA-Web operates on a dual-sided architectural paradigm:
 1. **Agent-Facing Client Middleware (LiteAgent-Extractor)**: An intelligent preprocessing pipeline that extracts, condenses, and enriches web content before passing it to LLM reasoning.
@@ -116,40 +116,38 @@ LWA-Web operates on a dual-sided architectural paradigm:
 |          |                                                                                         |
 |          v                                                                                         |
 |   +--------------------------------------------------------------------------------------------+   |
-|   | 1. Single-Pass Hydration Runner (CDP / Headless Chromium, <2s single lifecycle)           |   |
+|   | 1. Bounded Chromium capture; question-relevant readiness still proposed                   |   |
 |   +--------------------------------------------------------------------------------------------+   |
 |          |                                                                                         |
 |          +--------------------------------------+                                                  |
 |          | (DOM Tree)                           | (Asset URLs & Bounding Boxes)                    |
 |          v                                      v                                                  |
 |   +----------------------------------+   +-----------------------------------------------------+   |
-|   | 2. AST Semantic Condenser        |   | 3. Selective Visual Micro-Triage Pipeline           |   |
+|   | 2. HTML text condenser           |   | 3. Proposed visual micro-triage pipeline            |   |
 |   | - Strips <script>, <style>, <svg>|   | - Filters untagged banners/promos (generic/no alt)  |   |
-|   | - Prunes redundant div chains    |   | - Extracts localized raster crops (200x100 to 800)  |   |
-|   | - Generates clean Markdown       |   | - Executes local OCR / Micro-VLM                   |   |
-|   | - Token Reduction: 96% to 99%    |   | - Emits synthetic: data-trapped-text="..."          |   |
+|   | - Emits compact text/links       |   | - Referenced live images fetched within limits      |   |
+|   | - Generates compact text         |   | - Optional Tesseract OCR; crops unimplemented       |   |
+|   | - Measures output bytes          |   | - Legacy fixtures outside the agent-facing path     |   |
 |   +----------------------------------+   +-----------------------------------------------------+   |
 |          |                                      |                                                  |
 |          +-------------------+------------------+                                                  |
 |                              v                                                                     |
 |   +--------------------------------------------------------------------------------------------+   |
 |   | 4. Deterministic Omission & Affordance Normalizer                                          |   |
-|   | - Labels empty fields as data-explicit-state="UNSTATED" (halts affordance overreach)       |   |
+|   | - MCP emits unknown states; purchase controls are observed affordances                    |   |
 |   +--------------------------------------------------------------------------------------------+   |
 |                              |                                                                     |
 |                              v                                                                     |
 |   +--------------------------------------------------------------------------------------------+   |
-|   | 5. Circuit-Breaker Guardrail (Enforces max step/token budget, kills compensatory loops)    |   |
+|   | 5. Proposed circuit breaker (not implemented)                                             |   |
 |   +--------------------------------------------------------------------------------------------+   |
 |                              |                                                                     |
 |                              v                                                                     |
-|   [Clean Semantic Enriched Document (<15 KB, ~3,000 Tokens)]                                       |
+|   [Bounded evidence JSON plus retrievable local capture handle]                                   |
 |                              |                                                                     |
 |                              v                                                                     |
 |   [LLM Reasoning Agent (Qwen / Gemini / Claude / GPT-4o)]                                          |
-|   - 100% Extraction Accuracy (Captures DOM + Trapped Pixels + Dynamic States)                      |
-|   - Zero Compensatory Loop Latency                                                                 |
-|   - Cost per Query: <$0.001 (Slashing Token Usage by 95%+)                                         |
+|   - Accuracy, latency, and API cost have not been established                                      |
 +----------------------------------------------------------------------------------------------------+
 ```
 
@@ -158,69 +156,59 @@ LWA-Web operates on a dual-sided architectural paradigm:
 ## 4. Key Modules of LiteAgent-Extractor
 
 ### Module 1: Single-Pass Hydration Runner (Fast Lifecycle)
-- **Problem Solved**: FP-2 (Hydration Asymmetry) & FP-7 (Edge Anti-Bot).
+- **Targeted problems**: FP-2 (hydration asymmetry) and some access barriers. The MCP tool now offers explicitly selected bounded Chromium capture; question-relevant readiness and interactive-state coverage remain future work.
 - **Design**: Instead of keeping an open interactive browser session or running static cURL, execute a targeted single-pass headless Chromium fetch using the Chrome DevTools Protocol (CDP) or Playwright.
-- **Lifecycle**: Navigates to target, waits for network idle (DOM hydration), extracts the post-rendered DOM tree and image bounding boxes, and immediately terminates.
-- **Execution Time**: ~1.5 to 2.5 seconds.
-- **Edge Compatibility**: Legitimate browser TLS handshake passes Cloudflare and WAF checks seamlessly.
+- **Lifecycle**: Navigates to target, waits for question-relevant content or state to stabilize within a declared timeout, extracts the rendered DOM tree and image bounding boxes, and terminates. `networkidle` alone does not establish that hydration or lazy loading is complete.
+- **Execution time**: Not established across the benchmark.
+- **Edge compatibility**: Browser automation cannot be assumed to pass Cloudflare or other access controls; Biman's saved browser capture is a challenge page.
 
-### Module 2: AST-Based Semantic DOM Condenser & Token Compressor
+### Module 2: HTML Text Condenser
 - **Problem Solved**: FP-4 (DOM Bloat & Token Waste).
-- **Design**: Traverses the HTML AST and strips:
-  1. All `<script>` and `<noscript>` blocks (eliminating 50%+ of bytes).
-  2. All `<style>` and `<link rel="stylesheet">` tags (eliminating 25%+ of bytes).
-  3. All `<svg>` paths, converting them to compact semantic descriptors (`[ICON]`).
-  4. Base64-encoded inline images, replacing them with placeholders.
-  5. Redundant layout wrapper containers (`<div>` and `<span>` chains without classes or semantic value).
-- **Output**: Generates structured, human-readable Semantic Markdown preserving headings, paragraphs, lists, tables, links, buttons, inputs, and image descriptors.
-- **Empirical Token Savings**:
-  - Shwapno Online: 2,415,352 bytes -> 73,398 bytes (**96.96% token reduction**).
-  - Chaldal: 1,788,792 bytes -> 52,110 bytes (**97.09% token reduction**).
-  - Nagad: 542,318 bytes -> 24,650 bytes (**95.45% token reduction**).
+- **Current implementation**: `scripts/lightweight_web_extractor.py` uses Python's `HTMLParser` to omit script and style content and collect selected text, links, buttons, and image references. It does not parse an AST, collapse wrapper chains, or guarantee retention of all tables and interactive states.
+- **Measurement**: Compare input and output bytes for a specific fixture if useful. Byte reduction is not tokenizer-measured savings and says nothing by itself about retained facts.
 
 ### Module 3: Selective Visual Micro-Triage & Pixel-to-Text Injection
-- **Problem Solved**: FP-1 (In-Image Pixel Trapping) & FP-5 (Unlabeled Entities).
-- **Design**:
+- **Targeted problems**: FP-1 (in-image text) and FP-5 (unlabeled entities). The following fuller micro-triage design is only partly implemented.
+- **Proposed design**:
   1. The condenser inspects all `<img>` and visual elements in the DOM.
   2. It identifies candidate trapped images using heuristics:
      - Missing or generic alt attributes (`alt=""`, `alt="ACI Banner"`, `alt="Nagad Offer"`).
      - Promotional keywords in class names or URLs (`banner`, `slider`, `offer`, `coupon`, `promo`).
      - High aspect ratio hero elements.
-  3. Rather than feeding a massive 10,000px screenshot to an expensive VLM (which causes downsampling blur and burns 10,000+ vision tokens), the extractor crops **only** the candidate image (e.g. an 80 KB banner crop).
+  3. Crop candidate images instead of submitting an entire screenshot to a vision model.
   4. It executes fast localized OCR (or calls a lightweight micro-vision model on just that 200x100 crop).
   5. The extracted text is injected directly into the semantic markdown tree:
      ```markdown
      [IMG alt='ACI Banner' data-trapped-text="স্বপ্ন অনলাইনে পূজার সাশ্রয় | PUJA6: 6% off up to ৳150 | PUJA7: 7% off up to ৳200" src='slider_1_puja.webp']
      ```
-- **Result**: The downstream LLM reads the trapped text directly from the text stream, achieving 100% ground-truth accuracy with **zero VLM token bloat**.
+- **Current implementation**: The old fixture extractor has manually entered text in an asset-name lookup table, but is outside the agent-facing MCP path. The MCP tool can automatically fetch at most three live-page `<img>` or inline CSS-background raster references and run Tesseract OCR on their pixels if the binary and English/Bangla data are available. It records image bytes, hash, source URL, and OCR line coordinates. OCR lines are unverified candidates and cannot alone pass `check_claim`. It does not discover external stylesheet backgrounds, crop screenshots by rendered geometry, identify people, or prove that an asset was visible in the human viewport. A user-local Tesseract runtime could not read the exact `PUJA6`/`PUJA7` codes from the saved Shwapno crop, so that mitigation remains unverified on this case. A fresh agent answered from one pre-generated Shwapno document; its published 20/20 assessment was not independently exact-match adjudicated and it did not call the MCP tool.
 
 ### Module 4: Deterministic Omission & Affordance Normalizer
-- **Problem Solved**: FP-6 (Affordance Overreach on Silent Omission).
-- **Design**:
+- **Targeted problem**: FP-6 (affordance overreach). The MCP tool returns an unknown state for stock/compatibility questions without bound explicit evidence. Its `check_claim` tool confirms exact source quotations only and abstains on semantic claims.
+- **Proposed design**:
   - The condenser audits interactive buttons and transactional cards.
-  - If a product card has an active `[BUTTON: Buy Now]` but contains no explicit stock availability field in the DOM, the normalizer injects an explicit marker:
-    `data-inventory-status="EXPLICITLY_UNSTATED"`.
-  - Prompts are configured with a strict rule: "If `data-inventory-status` is `EXPLICITLY_UNSTATED`, do NOT infer stock availability from button affordance."
-- **Result**: Stops agents from fabricating positive inventory claims.
+  - If a product card has an active `[BUTTON: Buy Now]` but no explicit stock field in the **inspected scope**, return `stock_status=unknown` and cite the button only as an observed affordance. Do not describe the full page or actual inventory as explicitly unstated unless the relevant scope was fully inspected.
+  - The agent-facing evidence contract requires explicit support for an `in_stock` or `out_of_stock` claim; an enabled control is insufficient.
+- **Status**: No agent follow-up test establishes that this note prevents unsupported inventory claims. The absence of stock text in a parsed fragment also does not prove absence from the whole site.
 
 ### Module 5: Autonomous Circuit-Breaker Guardrail
-- **Problem Solved**: FP-3 (The Compensatory Loop).
+- **Targeted problem**: FP-3 (the compensatory loop). This is not implemented.
 - **Design**:
   - In an autonomous agent environment, enforces a hard policy budget:
     - Maximum terminal bash commands per retrieval query: 3 steps.
     - If data is not resolved within 3 steps, the agent is forced to emit a structured `MISSING_FIELD` response rather than downloading arbitrary client bundles.
-- **Result**: Eliminates catastrophic budget blowouts ($2.01 cap exhaustion) and collapses multi-minute latency to constant time.
+- **Status**: The proposed budget policy has not been evaluated; it may also reduce information retrieval if stopped too early.
 
 ---
 
 ## 5. Publisher-Side Protocol: The Web-for-Agents Standard
 
-To enable websites to become natively agent-accessible without forcing agents to reverse-engineer client code, we specify three developer standards:
+To enable websites to become natively agent-accessible without forcing agents to reverse-engineer client code, we propose three publisher-side design ideas. These are not established web standards or evaluated interventions:
 
 1. **Pixel-to-Text Parity Requirement**:
    - Any promotional code, monetary threshold, delivery guarantee, or legal disclaimer rendered inside an image must be mirrored in a structured attribute:
      ```html
-     <img src="puja_banner.webp" 
+     <img src="puja_banner.webp"
           alt="Shwapno Puja Savings: 6% off with code PUJA6 (min 1000Tk, max 150Tk); 7% off with code PUJA7 (min 1500Tk, max 200Tk)"
           data-agent-promo="PUJA6:6%:150;PUJA7:7%:200">
      ```
@@ -232,14 +220,6 @@ To enable websites to become natively agent-accessible without forcing agents to
 
 ---
 
-## 6. Implementation & Empirical Validation Plan
+## 6. Implementation Status
 
-To validate LWA-Web causally against the benchmark baseline, we will implement a working Python prototype in [`scripts/lightweight_web_extractor.py`](file:///home/abdullah/secondary/Research/human-agent-information-gap/scripts/lightweight_web_extractor.py) and test it on raw captured assets from:
-1. Shwapno Online (`BD-QC02`): Next.js Turbopack + Trapped Promo Banners.
-2. Nagad (`BD-FN02`): Inline CSS Background Images + Unlabeled Entities.
-3. Shohoz Bus (`BD-01`): Dynamic React Banner Hydration.
-
-We will measure:
-- **Token Reduction Ratio**: Raw bytes vs. Condensed Semantic Markdown.
-- **Information Recovery Rate**: Verification of `PUJA6`/`PUJA7` and Nagad bonus recovery.
-- **Processing Latency**: Wall-clock milliseconds to process raw DOM into agent-ready context.
+The existing [fixture extractor](../scripts/lightweight_web_extractor.py) and legacy `extract_web_page` function condense selected saved or fetched HTML. Their known-image annotations are manually supplied fixtures, and their benchmark cache is explicitly enabled and potentially stale. The legacy function is no longer registered as an agent-facing MCP tool. The newer `inspect_web_evidence` tool uses the [evidence core](../scripts/lwa_evidence.py) for explicit snapshot/live-HTTP modes, optional bounded Chromium rendering, provenance, challenge detection, extractor views, embedded JSON, passive browser JSON, and unknown states. It can fetch a few referenced live raster assets for OCR when Tesseract is installed; snapshot OCR requires explicit local image paths. The [capture store](../scripts/lwa_evidence_store.py) supports `inspect_evidence`, bounded `inspect_image_crop`, and an exact-quotation-only `check_claim`. Verified interactive coverage, reliable entity binding, general semantic claim checking, and circuit breaking remain unimplemented. The earlier [OpenCode session](../results/experiment-03/shwapno/lwa-web-fresh-opencode-session.json) read a pre-generated Markdown file. A later [actual MCP pilot](../results/experiment-03/offline-agent-pilot-run-20261021/report.md) matched 15/20 frozen saved-capture answers, with exact-code, entity, omission, and timeout failures; without a matched baseline it cannot establish a causal accuracy or cost advantage. The [MCP mitigation design](lwa-web-mcp-mitigation-design.md) states the remaining acceptance checks.

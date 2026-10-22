@@ -1,4 +1,4 @@
-# Pre-Registered Information Inventory Matrix: Bdjobs.com (Site ID: BD-CL02)
+# Information Inventory Matrix: Bdjobs.com (Site ID: BD-CL02)
 
 - **Domain Category**: Jobs, Classifieds & Employment Marketplace
 - **Platform Name**: Bdjobs.com
@@ -9,7 +9,7 @@
 
 ---
 
-## 20 Pre-Registered Ground-Truth Inventory Items
+## 20 Researcher-Annotated Reference Inventory Items
 
 | Item ID | Target Information Unit | Expected Value / Ground Truth | Modality & Physical Location | DOM Presence | Visual Visibility | Grounding Coordinates / DOM Selector |
 |---|---|---|---|---|---|---|

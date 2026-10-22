@@ -1,5 +1,7 @@
 # Site BD-TR03: US-Bangla Airlines — Controlled Playwright vs. Static Tool Ablation Audit
 
+> **Scoring correction (2026-10-21):** Rows BD-TR03-04/05 below contain wrong exact promo codes in the Qwen-with-Playwright answer. Earlier `PASS` labels in this report and the master CSV are historical and do not satisfy an exact-code criterion. See [the correction ledger](../scoring-corrections.md). Other aggregate scores in this report have not been recomputed.
+
 **Target URL:** `https://usbair.com`  
 **Platform Architecture:** Next.js React SSR with Client-Side Store Hydration, Tailwind CSS, and Dynamic Promotion CDN (US-Bangla Airlines)  
 **Evaluation Date:** 2026-10-19  
@@ -19,15 +21,15 @@
 
 ---
 
-## 2. Evaluation Against Pre-Registered Ground Truth (20 Items)
+## 2. Evaluation Against Researcher-Annotated Reference (20 Items)
 
 | Item ID | Target Information Fact | Modality Surface | Human Ground Truth | Qwen (With Playwright) | Gemini (With Playwright) | Qwen (Without Playwright) | Gemini (Without Playwright) | Empirical Tool Ablation Finding |
 |---|---|---|---|---|---|---|---|---|
 | **BD-TR03-01** | **Default Origin Airport** | `UI_INPUT / HYDRATION` | Dhaka (DAC) / Hazrat Shahjalal Int Airport | **PASS** (Verbatim) | **PASS** (Verbatim) | **FAIL (Reported Not Found)** | **PASS** (Traced client hydration) | **Dynamic Client Hydration Gap** |
 | **BD-TR03-02** | **Flight Search CTA Button** | `BUTTON_UI` | Search Flights (Red `#C30B12`, airplane icon) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Static parity |
 | **BD-TR03-03** | **Default Passenger & Class** | `UI_DROPDOWN` | 1 Passenger, Economy | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Static parity |
-| **BD-TR03-04** | **Mastercard Promo Code (Domestic)** | `IN_IMAGE_GRAPHIC` | 15% OFF, Promo Code: USBA15 | **PASS** (USBAT15 - minor OCR error) | **PASS** (USBA15) | **PASS** (USBA15) | **PASS** (USBA15) | Trapped pixel extracted |
-| **BD-TR03-05** | **Mastercard Promo Code (International)** | `IN_IMAGE_GRAPHIC` | 10% OFF, Promo Code: USBAIN10 | **PASS** (USBAINT10 - minor OCR error) | **PASS** (USBAIN10) | **PASS** (USBAIN10) | **PASS** (USBAIN10) | Trapped pixel extracted |
+| **BD-TR03-04** | **Mastercard Promo Code (Domestic)** | `IN_IMAGE_GRAPHIC` | 15% OFF, Promo Code: USBA15 | **FAIL under exact-code criterion** (USBAT15; historically PASS) | **PASS** (USBA15) | **PASS** (USBA15) | **PASS** (USBA15) | Wrong exact code in one arm |
+| **BD-TR03-05** | **Mastercard Promo Code (International)** | `IN_IMAGE_GRAPHIC` | 10% OFF, Promo Code: USBAIN10 | **FAIL under exact-code criterion** (USBAINT10; historically PASS) | **PASS** (USBAIN10) | **PASS** (USBAIN10) | **PASS** (USBAIN10) | Wrong exact code in one arm |
 | **BD-TR03-06** | **Mastercard Popup Grand Prize** | `IN_IMAGE_GRAPHIC` | Couple Holiday in Kuala Lumpur! | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped pixel extracted |
 | **BD-TR03-07** | **Mastercard Domestic Return Options** | `IN_IMAGE_GRAPHIC` | Cox's Bazar, Sylhet, Chattogram | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped pixel extracted |
 | **BD-TR03-08** | **Mastercard Campaign Validity** | `IN_IMAGE_GRAPHIC` | Till 31st October 2026 | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | **PASS** (Verbatim) | Trapped pixel extracted |

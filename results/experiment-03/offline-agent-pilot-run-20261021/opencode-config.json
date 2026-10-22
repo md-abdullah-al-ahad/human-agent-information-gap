@@ -1,0 +1,122 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "playwright": {
+        "type": "local",
+        "command": [
+          "/bin/false"
+        ],
+        "disabled": true
+      },
+      "lwa": {
+        "type": "local",
+        "command": [
+          "/home/abdullah/.local/bin/uv",
+          "run",
+          "--no-project",
+          "--with",
+          "fastmcp",
+          "--with",
+          "Pillow",
+          "python",
+          "/mnt/secondary/Research/human-agent-information-gap/scripts/mcp_lite_extractor.py"
+        ],
+        "disabled": false,
+        "codemode": true,
+        "timeout": {
+          "startup": 30000,
+          "catalog": 30000,
+          "execution": 30000
+        },
+        "environment": {
+          "LWA_EVIDENCE_DIR": "/mnt/secondary/Research/human-agent-information-gap/results/experiment-03/offline-agent-pilot-run-20261021/captures",
+          "PATH": "/home/abdullah/.cache/lwa-web/ocr-runtime/usr/bin:/home/abdullah/.local/bin:/home/abdullah/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/abdullah/.codex/tmp/arg0-linux/codex-arg03Y1M0E:/home/abdullah/.codex/tmp/arg0/codex-arg0SPTcNs:/home/abdullah/.codex/packages/standalone/releases/0.162.1-x86_64-unknown-linux-musl/codex-path:/home/abdullah/.local/share/pnpm/bin:/home/abdullah/.local/bin:/home/abdullah/.opencode/bin:/home/abdullah/.local/share/omarchy/bin:/home/abdullah/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl",
+          "LD_LIBRARY_PATH": "/home/abdullah/.cache/lwa-web/ocr-runtime/usr/lib",
+          "TESSDATA_PREFIX": "/home/abdullah/.cache/lwa-web/ocr-runtime/usr/share/tessdata"
+        }
+      }
+    }
+  },
+  "permissions": [
+    {
+      "action": "read",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "glob",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "grep",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "subagent",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "skill",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "question",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "webfetch",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "websearch",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "browser",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "opencode_list_mcp_resources",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "opencode_read_mcp_resource",
+      "resource": "*",
+      "effect": "deny"
+    }
+  ],
+  "agent": {
+    "pilot": {
+      "mode": "primary",
+      "model": "openrouter/qwen/qwen3.8-27b",
+      "temperature": 0,
+      "steps": 20,
+      "prompt": "Answer questions about a saved web capture using only the LWA MCP tools. Call tools.lwa.inspect_web_evidence through execute with mode='snapshot' and the supplied absolute HTML and image paths. Never use live mode or a URL as the target. Inspect cited observations or image crops when needed. Treat OCR as tentative; do not infer words from image filenames or unrelated page text. If the capture cannot support an exact answer, abstain. Return one JSON object with keys status ('answered' or 'abstained'), answer, evidence (list of observation IDs or image SHA/bbox citations), and uncertainty. The question is about the supplied saved capture, not today's website."
+    }
+  }
+}

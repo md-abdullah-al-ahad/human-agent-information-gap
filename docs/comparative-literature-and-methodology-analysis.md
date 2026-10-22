@@ -4,12 +4,12 @@
 
 A common question in web agent research is: **Can existing benchmarking tools (such as BrowserGym, WebVoyager, or WebArena) be run on regional or live third-party websites instead of developing a dedicated information gap audit?**
 
-While existing frameworks provide browser execution harnesses capable of launching automated navigation sessions on any URL, **they measure an entirely different dimension of agent behavior and suffer from severe methodological barriers on live websites**. 
+Existing frameworks primarily evaluate navigation or task completion. The repository's item-level audit asks a different question, but its present labels and ground truth have the limitations described in [the consistency audit](repository-consistency-audit.md).
 
 Existing benchmarks measure **macroscopic, end-to-end task completion** (treating the web interface and agent cognition as a black box). Our benchmark measures **microscopic, boundary-level information degradation** across the **4-stage pipeline**:
 `[1. Surface Modality] -> [2. Tool-Exposed State] -> [3. Agent-Retrieved Context] -> [4. Agent-Reported Output]`.
 
-This document synthesizes findings across 11 primary research papers and contrasts their experimental setups with our empirical methodology.
+This document is a working literature comparison. Its paper-level numerical claims have not been independently source-checked in this repository.
 
 ---
 
@@ -49,11 +49,11 @@ This document synthesizes findings across 11 primary research papers and contras
 
 | Methodological Challenge | Existing Benchmark Tools (BrowserGym / WebVoyager) | Our Human–Agent Information Gap Benchmark |
 |---|---|---|
-| **Live Ground-Truth Verification** | **Cannot verify live state without backend access.** Relies on LLM judges that hallucinate and agree with flawed agent outputs. | **Pre-registered cryptographic ground truth**: Each factual unit is verified with SHA-256 asset hashes, exact pixel coordinates, and DOM absence proofs. |
+| **Live Ground-Truth Verification** | Benchmark designs vary; live third-party state can be difficult to verify without backend access. | Researcher-annotated facts linked to captured surfaces. Eleven Stage-4 DOM/screenshot pairs have matching SHA-256 hashes, but hashes prove file integrity, not factual correctness or preregistration. |
 | **Destructive / Financial Actions** | Cannot complete transactions on real e-commerce, banking, or ticketing portals without spending real currency or creating fake bookings. | Audits **informational and affordance integrity** across high-stakes domains (telecom, fintech, government, healthcare) without requiring fraudulent checkouts. |
 | **Granularity of Failure Attribution** | **Binary End-State**: Output is `0` or `1`. Fails to explain *why* the model failed. | **Decomposed Boundary Analysis**: Traces the fact through 4 distinct physical boundaries to pinpoint whether the drop-off occurred in the tool, the agent retrieval, or the agent report. |
 | **Cross-Modal Contradictions** | Treats image alt text or filenames as equivalent to visual content. | Probes **Pixel vs. Code Contradictions** (e.g., Chaldal Fresh vs. MGI asset filenames, Bikroy trapped raster watermarks). |
-| **Economic & Cognitive Profiling** | Ignores monetary cost or treats it as monotonic with step count. | Discovered the **Inverted Cost Paradox**: Ablating browser tools doubles token costs and latency due to runaway compensatory loops. |
+| **Economic & Cognitive Profiling** | Different suites emphasize different metrics. | Selected tool-ablation runs record longer retrieval loops without browser access; effects vary across sites and setups. |
 
 ---
 
@@ -63,10 +63,10 @@ This document synthesizes findings across 11 primary research papers and contras
    - On Bikroy (BD-CL01), anti-fraud seller watermarks (`POSTED ON BIKROY <SELLER_NAME>`) have **0% DOM presence**.
    - In static conditions, LLMs completely dropped this information (`Not Found`), confirming that standard DOM extraction creates total informational blindness for non-visual tools.
 2. **The Inverted Cost Paradox**:
-   - Ablating Playwright browser automation does not decrease API expense; it inflates it by **100% to 117%**:
+   - Two recorded agent-run comparisons report higher API expense without Playwright; this is a selected observation, not a general effect:
      - OpenCode (Qwen 3.8 27B): $0.079 -> $0.159 (+100.1%).
      - Antigravity (Gemini 3.8 Flash): $0.068 -> $0.147 (+117.0%).
-   - When deprived of browser visual inspection, agents enter desperate compensatory loops (writing 40+ iterative Python scripts to download assets and parse raw HTML dumps).
+   - In some recorded runs, agents attempted many follow-up scripts and asset downloads.
 3. **Dynamic Client Hydration & Skeleton Drop-Off**:
    - Modern Nuxt and React SSR shells deliver empty skeleton placeholders (`<div class="fw-skeleton-loader">`) for numerical metrics, misleading static tools into concluding data is absent.
 
@@ -76,4 +76,4 @@ This document synthesizes findings across 11 primary research papers and contras
 
 Existing benchmarking suites (like BrowserGym and WebVoyager) are **action drivers**—they test whether an agent can execute a policy graph to reach a target URL.
 
-Our benchmark is an **epistemological diagnostic instrument**—it investigates whether agents and tools can perceive reality accurately across disparate web modalities. Rather than competing, our benchmark provides the diagnostic foundation and empirical evidence needed to design the next generation of **AI-Friendly Web Interfaces**.
+The repository's audit is an item-level diagnostic attempt across web modalities. Its scored claims require consistent adjudication before they can support strong cross-site accuracy conclusions.

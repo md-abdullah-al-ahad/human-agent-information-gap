@@ -1,0 +1,80 @@
+test_configured_vision_adapter_is_bounded_and_cached (test_evidence_gateway_v2.ExtendedGatewayTests.test_configured_vision_adapter_is_bounded_and_cached) ... ok
+test_current_certificate_is_checked_again_at_emission (test_evidence_gateway_v2.ExtendedGatewayTests.test_current_certificate_is_checked_again_at_emission) ... ok
+test_heading_binds_a_nested_field_without_card_classes (test_evidence_gateway_v2.ExtendedGatewayTests.test_heading_binds_a_nested_field_without_card_classes) ... ok
+test_inspection_of_oversized_sequence_is_bounded (test_evidence_gateway_v2.ExtendedGatewayTests.test_inspection_of_oversized_sequence_is_bounded) ... ok
+test_nested_cards_never_borrow_inner_coupon (test_evidence_gateway_v2.ExtendedGatewayTests.test_nested_cards_never_borrow_inner_coupon) ... ok
+test_nested_fields_cannot_supply_another_subjects_name (test_evidence_gateway_v2.ExtendedGatewayTests.test_nested_fields_cannot_supply_another_subjects_name) ... ok
+test_temporal_reference_reports_both_observations (test_evidence_gateway_v2.ExtendedGatewayTests.test_temporal_reference_reports_both_observations) ... ok
+test_timeout_terminates_a_slow_adapter (test_evidence_gateway_v2.ExtendedGatewayTests.test_timeout_terminates_a_slow_adapter) ... ok
+test_unknown_reference_alignment_does_not_establish_drift (test_evidence_gateway_v2.ExtendedGatewayTests.test_unknown_reference_alignment_does_not_establish_drift) ... ok
+test_agent_request_cannot_supply_paths_or_enable_live (test_evidence_gateway_v2.GatewayTests.test_agent_request_cannot_supply_paths_or_enable_live) ... ok
+test_bangla_number_normalization_and_date_ambiguity (test_evidence_gateway_v2.GatewayTests.test_bangla_number_normalization_and_date_ambiguity) ... ok
+test_blocked_page_has_no_answer (test_evidence_gateway_v2.GatewayTests.test_blocked_page_has_no_answer) ... ok
+test_call_budget_is_persistent_and_counts_actual_tool_entries (test_evidence_gateway_v2.GatewayTests.test_call_budget_is_persistent_and_counts_actual_tool_entries) ... ok
+test_competing_same_subject_codes_are_ambiguous (test_evidence_gateway_v2.GatewayTests.test_competing_same_subject_codes_are_ambiguous) ... ok
+test_content_identity_deduplicates_acquisitions_but_preserves_times (test_evidence_gateway_v2.GatewayTests.test_content_identity_deduplicates_acquisitions_but_preserves_times) ... ok
+test_coupon_binding_and_exact_gate (test_evidence_gateway_v2.GatewayTests.test_coupon_binding_and_exact_gate) ... ok
+test_current_query_does_not_reuse_historical_answer (test_evidence_gateway_v2.GatewayTests.test_current_query_does_not_reuse_historical_answer) ... ok
+test_data_stays_separate_and_conflict_is_explicit (test_evidence_gateway_v2.GatewayTests.test_data_stays_separate_and_conflict_is_explicit) ... ok
+test_gate_rejects_added_prose_and_wrong_citations (test_evidence_gateway_v2.GatewayTests.test_gate_rejects_added_prose_and_wrong_citations) ... ok
+test_hidden_nodes_do_not_supply_answers (test_evidence_gateway_v2.GatewayTests.test_hidden_nodes_do_not_supply_answers) ... ok
+test_host_adapter_only_emits_permitted_final_artifact (test_evidence_gateway_v2.GatewayTests.test_host_adapter_only_emits_permitted_final_artifact) ... ok
+test_image_crop_and_no_filename_answer (test_evidence_gateway_v2.GatewayTests.test_image_crop_and_no_filename_answer) ... ok
+test_instruction_sequence_cannot_drop_a_step (test_evidence_gateway_v2.GatewayTests.test_instruction_sequence_cannot_drop_a_step) ... ok
+test_names_preserve_script_and_require_exact_value (test_evidence_gateway_v2.GatewayTests.test_names_preserve_script_and_require_exact_value) ... ok
+test_no_stock_from_button_or_another_subject (test_evidence_gateway_v2.GatewayTests.test_no_stock_from_button_or_another_subject) ... ok
+test_position_resolves_within_named_list (test_evidence_gateway_v2.GatewayTests.test_position_resolves_within_named_list) ... ok
+test_registration_copies_sources_and_rejects_outside_and_symlink (test_evidence_gateway_v2.GatewayTests.test_registration_copies_sources_and_rejects_outside_and_symlink) ... ok
+test_replay_certificate_and_different_question_reuse_index (test_evidence_gateway_v2.GatewayTests.test_replay_certificate_and_different_question_reuse_index) ... ok
+test_response_is_bounded_and_contains_no_page_dump (test_evidence_gateway_v2.GatewayTests.test_response_is_bounded_and_contains_no_page_dump) ... ok
+test_source_integrity_and_cross_capture_evidence (test_evidence_gateway_v2.GatewayTests.test_source_integrity_and_cross_capture_evidence) ... ok
+test_visual_agreement_is_labeled_and_gate_defaults_to_reject (test_evidence_gateway_v2.GatewayTests.test_visual_agreement_is_labeled_and_gate_defaults_to_reject) ... ok
+test_visual_disagreement_is_not_a_supported_code (test_evidence_gateway_v2.GatewayTests.test_visual_disagreement_is_not_a_supported_code) ... ok
+test_wrong_card_and_percentage_substring_do_not_bind (test_evidence_gateway_v2.GatewayTests.test_wrong_card_and_percentage_substring_do_not_bind) ... ok
+test_standalone_stdio_server (test_evidence_gateway_v2.MCPIntegrationTests.test_standalone_stdio_server) ... Executing <Task pending name='Task-2' coro=<MCPIntegrationTests.test_standalone_stdio_server() running at /mnt/secondary/Research/human-agent-information-gap/tests/test_evidence_gateway_v2.py:489> cb=[_run_until_complete_cb() at /home/abdullah/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py:181] created at /home/abdullah/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py:101> took 0.741 seconds
+
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│                         ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+│                         █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                FastMCP 4.1.3                                 │
+│                            https://gofastmcp.com                             │
+│                                                                              │
+│                🖥  Server:      lwa-evidence-gateway-v2, 4.1.3                │
+│                🚀 Deploy free: https://horizon.prefect.io                    │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+[10/23/26 05:35:29] INFO     Starting MCP server                transport.py:241
+                             'lwa-evidence-gateway-v2' with                     
+                             transport 'stdio'                                  
+ok
+test_three_tool_surface_and_real_calls (test_evidence_gateway_v2.MCPIntegrationTests.test_three_tool_surface_and_real_calls) ... ok
+test_local_browser_hydration_geometry_and_hidden_css (test_evidence_gateway_v2.RuntimeIntegrationTests.test_local_browser_hydration_geometry_and_hidden_css) ... ok
+test_real_ocr_reads_saved_pixels_and_caches (test_evidence_gateway_v2.RuntimeIntegrationTests.test_real_ocr_reads_saved_pixels_and_caches) ... ok
+test_adjudication_worklist_preserves_all_rows_without_new_accuracy (test_lwa_evidence.EvidenceContractTests.test_adjudication_worklist_preserves_all_rows_without_new_accuracy) ... ok
+test_cloudflare_capture_is_blocked (test_lwa_evidence.EvidenceContractTests.test_cloudflare_capture_is_blocked) ... ok
+test_embedded_chaldal_state_is_not_called_visible_page_text (test_lwa_evidence.EvidenceContractTests.test_embedded_chaldal_state_is_not_called_visible_page_text) ... ok
+test_explicit_snapshot_mode_rejects_a_url (test_lwa_evidence.EvidenceContractTests.test_explicit_snapshot_mode_rejects_a_url) ... ok
+test_frozen_pilot_packet_withholds_reference_answers (test_lwa_evidence.EvidenceContractTests.test_frozen_pilot_packet_withholds_reference_answers) ... ok
+test_image_crop_is_bound_to_saved_hash_and_original_coordinates (test_lwa_evidence.EvidenceContractTests.test_image_crop_is_bound_to_saved_hash_and_original_coordinates) ... ok
+test_inline_css_background_is_an_image_candidate (test_lwa_evidence.EvidenceContractTests.test_inline_css_background_is_an_image_candidate) ... ok
+test_live_image_acquisition_uses_pixels_then_records_source (test_lwa_evidence.EvidenceContractTests.test_live_image_acquisition_uses_pixels_then_records_source) ... ok
+test_network_json_keeps_separate_provenance (test_lwa_evidence.EvidenceContractTests.test_network_json_keeps_separate_provenance) ... ok
+test_ocr_candidate_is_not_claim_support (test_lwa_evidence.EvidenceContractTests.test_ocr_candidate_is_not_claim_support) ... ok
+test_ocr_does_not_fill_question_with_unrelated_first_lines (test_lwa_evidence.EvidenceContractTests.test_ocr_does_not_fill_question_with_unrelated_first_lines) ... ok
+test_purchase_question_does_not_infer_stock (test_lwa_evidence.EvidenceContractTests.test_purchase_question_does_not_infer_stock) ... ok
+test_saved_handle_resolves_quote_but_abstains_on_stock_inference (test_lwa_evidence.EvidenceContractTests.test_saved_handle_resolves_quote_but_abstains_on_stock_inference) ... ok
+test_snapshot_time_and_missing_ocr_are_explicit (test_lwa_evidence.EvidenceContractTests.test_snapshot_time_and_missing_ocr_are_explicit) ... ok
+test_structured_claim_requires_explicit_subject_bound_statement (test_lwa_evidence.EvidenceContractTests.test_structured_claim_requires_explicit_subject_bound_statement) ... ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 14.679s
+
+OK

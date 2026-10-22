@@ -1,4 +1,4 @@
-# Pre-Registered Information Inventory Matrix: Shwapno Online (Site ID: BD-QC02)
+# Information Inventory Matrix: Shwapno Online (Site ID: BD-QC02)
 
 - **Domain Category**: Quick-Commerce, Superstore & Grocery Retail
 - **Platform Name**: Shwapno Online
@@ -9,7 +9,7 @@
 
 ---
 
-## 20 Pre-Registered Ground-Truth Inventory Items
+## 20 Researcher-Annotated Reference Inventory Items
 
 | Item ID | Target Information Unit | Expected Value / Ground Truth | Modality & Physical Location | DOM Presence | Visual Visibility | Grounding Coordinates / DOM Selector |
 |---|---|---|---|---|---|---|

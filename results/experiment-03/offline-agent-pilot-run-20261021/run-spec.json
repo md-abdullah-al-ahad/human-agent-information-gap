@@ -1,0 +1,11 @@
+{
+  "opencode_version": "v2.1.1",
+  "model": "openrouter/qwen/qwen3.8-27b",
+  "agent_prompt": "Answer questions about a saved web capture using only the LWA MCP tools. Call tools.lwa.inspect_web_evidence through execute with mode='snapshot' and the supplied absolute HTML and image paths. Never use live mode or a URL as the target. Inspect cited observations or image crops when needed. Treat OCR as tentative; do not infer words from image filenames or unrelated page text. If the capture cannot support an exact answer, abstain. Return one JSON object with keys status ('answered' or 'abstained'), answer, evidence (list of observation IDs or image SHA/bbox citations), and uncertainty. The question is about the supplied saved capture, not today's website.",
+  "packet_tasks_sha256": "d97ef987eb3fea8050ea55dd8c9be9464291e3ddd9ee6cb3e9a273a657f54fe5",
+  "packet_hashes_sha256": "a9f2a507028bd737a1cd56327b368d3586f9464ef8536eb568813c13c8890040",
+  "config_sha256": "42436097b4e3885f54ef1bf33bb4273e5f5bf5480430349ead64032bee05542e",
+  "max_tool_calls_per_task": 20,
+  "max_wall_seconds_per_task": 180,
+  "ocr_runtime_enabled": true
+}

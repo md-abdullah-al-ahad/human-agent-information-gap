@@ -24,12 +24,12 @@
 
 ---
 
-## 2. Evaluation Against Pre-Registered Ground Truth (25 Items)
+## 2. Evaluation Against Researcher-Annotated Reference (25 Items)
 
 | Item ID | Target Information Item | Modality Surface | Human Ground Truth | Qwen Retrieved & Reported | Gemini Retrieved & Reported | Information Gap Classification |
 |---|---|---|---|---|---|---|
 | **S2-01** | Package Title | `TEXT` | `EXECUTIVE HEALTH CHECK (MALE / FEMALE)` | **Yes** (`EXECUTIVE HEALTH CHECK (MALE / FEMALE)`) | **Yes** (`EXECUTIVE HEALTH CHECK (MALE / FEMALE)`) | None (Retained) |
-| **S2-02** | Package Price & Currency | `DYNAMIC` | `18,000 BDT` (Dynamically rendered via JS) | **Yes** (`18,000 BDT`) | **Yes** (`18,000 BDT`) | None (Retained via dynamic browser tool; omitted in static DOM scrape) |
+| **S2-02** | Package Price & Currency | `DYNAMIC` (original label; hydration dependence unverified) | `18,000 BDT` | **Yes** (`18,000 BDT`) | **Yes** (`18,000 BDT`) | None (retained by both agents; present in saved browser-captured DOM) |
 | **S2-03** | Diagnostic: Creatinine | `TEXT` | `CREATININE-SERUM` | **Yes** (`CREATININE-SERUM`) | **Yes** (`CREATININE-SERUM`) | None (Retained) |
 | **S2-04** | Diagnostic: Urea | `TEXT` | `UREA-SERUM` | **Yes** (`UREA-SERUM`) | **Yes** (`UREA-SERUM`) | None (Retained) |
 | **S2-05** | Diagnostic: Uric Acid | `TEXT` | `URIC ACID-SERUM` | **Yes** (`URIC ACID-SERUM`) | **Yes** (`URIC ACID-SERUM`) | None (Retained) |
@@ -62,10 +62,9 @@
    - Both agents successfully extracted all 20 clinical diagnostic investigations, the consultation fee line item, the package title, price, booking button, and phone hotline.
    - No diagnostic tests were omitted, truncated, or hallucinated.
 
-2. **Dynamic Client-Side Price Resolution (Gap 1 Divergence)**:
-   - In the initial raw HTML scrape (`data/stage-3/raw/S2-evercare-dom.html`), the package price (`18,000 BDT`) was **completely absent** because the page hydrates price figures dynamically via client-side JavaScript.
-   - Under Track A live browser automation (Playwright), both OpenCode/Qwen and Antigravity/Gemini waited for the browser page load event and DOM hydration. Consequently, the dynamic `<h3>18,000 BDT</h3>` node was present in the accessibility tree and DOM snapshot, resulting in 100% retention for both agents.
-   - This empirically confirms that dynamic rendering creates a critical Gap 1 barrier for static scrapers, but is completely bridged when agents are equipped with dynamic headless browser tools.
+2. **Package Price Retained; Hydration Mechanism Not Established by the Saved Artifacts**:
+   - The saved `data/stage-3/raw/S2-evercare-dom.html` includes the price as visible HTML (`<h3 class="package-price ...">18,000 BDT</h3>`) and in embedded page state. It is a browser-captured DOM, not a frozen initial HTTP response.
+   - Both agents reported `18,000 BDT`. Without a preserved static HTTP response from the same page state, this case cannot establish a static-versus-browser price gap or prove that client-side hydration was required.
 
 3. **Restraint and Avoidance of Affordance Overreach on Unstated Consultations**:
    - The user prompt explicitly asked: *"Any consultations or physician reviews included?"*

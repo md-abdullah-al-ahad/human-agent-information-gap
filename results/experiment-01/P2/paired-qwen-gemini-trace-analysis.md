@@ -8,7 +8,7 @@
 - Both original user prompts ask the same nine natural-language shopping questions and request the `For iPad A16 2025` option.
 - **Correct Qwen/OpenCode session:** user-uploaded `p2real-qwen.json`, SHA-256 `48968cc962dc19219ed07ae69f9818af90b05fd7a0568a9cfe26c878dff6888b`, session `ses_eb1c8c316ffe1B4eNz4zjbvuLR`; OpenCode 1.19.3, OpenRouter `qwen/qwen3.8-27b`, `medium`. Original final answer is archived without editing at [Qwen response](opencode-qwen-user-exported-answer.md).
 - **Gemini/Antigravity session:** user-uploaded `p2-gemini.json` (and its JSONL serialization), SHA-256 `d477dace04f39d5a6b7b0168bf8aeeda74d0264a090db67383ae994081ff561e`, session `3745efbd-e86a-464b-a8e6-9823779e820e`; session model label `Gemini 3.8 Flash (Medium)`. Final answer archived at [Gemini response](antigravity-gemini-user-exported-answer.md); previous [Gemini-only trace audit](gemini-trace-audit.md) predates the corrected Qwen export.
-- Human-facing evidence: 6-page user-captured P2 PDF dated 2026-10-18 01:29 local, plus [AI-assisted P2 review](../../../../data/pilot-01/human-capture-P2-ai-review.json). That PDF is in the original ChatGPT conversation, not this repository. Its page state predates the live agent sessions.
+- Human-facing evidence: 6-page user-captured P2 PDF dated 2026-10-18 01:29 local, plus [AI-assisted P2 review](../../../data/pilot-01/human-capture-P2-ai-review.json). That PDF is in the original ChatGPT conversation, not this repository. Its page state predates the live agent sessions.
 - The mistakenly uploaded `p2-qwen.json` is the earlier P1 session and **must not** count toward this P2 experiment.
 - Neither raw agent JSON export is committed here: they contain local files, extensive tool payloads and potentially sensitive metadata.
 

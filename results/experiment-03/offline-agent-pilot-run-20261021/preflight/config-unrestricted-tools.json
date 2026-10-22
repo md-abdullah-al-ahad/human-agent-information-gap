@@ -1,0 +1,43 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "playwright": {
+      "type": "local",
+      "command": [
+        "/bin/false"
+      ],
+      "enabled": false
+    },
+    "lwa": {
+      "type": "local",
+      "command": [
+        "/home/abdullah/.local/bin/uv",
+        "run",
+        "--no-project",
+        "--with",
+        "fastmcp",
+        "--with",
+        "Pillow",
+        "python",
+        "/mnt/secondary/Research/human-agent-information-gap/scripts/mcp_lite_extractor.py"
+      ],
+      "enabled": true,
+      "timeout": 30000,
+      "environment": {
+        "LWA_EVIDENCE_DIR": "/mnt/secondary/Research/human-agent-information-gap/results/experiment-03/offline-agent-pilot-run-20261021/captures",
+        "PATH": "/home/abdullah/.cache/lwa-web/ocr-runtime/usr/bin:/home/abdullah/.local/bin:/home/abdullah/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/abdullah/.codex/tmp/arg0-linux/codex-arg03Y1M0E:/home/abdullah/.codex/tmp/arg0/codex-arg0SPTcNs:/home/abdullah/.codex/packages/standalone/releases/0.162.1-x86_64-unknown-linux-musl/codex-path:/home/abdullah/.local/share/pnpm/bin:/home/abdullah/.local/bin:/home/abdullah/.opencode/bin:/home/abdullah/.local/share/omarchy/bin:/home/abdullah/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl",
+        "LD_LIBRARY_PATH": "/home/abdullah/.cache/lwa-web/ocr-runtime/usr/lib",
+        "TESSDATA_PREFIX": "/home/abdullah/.cache/lwa-web/ocr-runtime/usr/share/tessdata"
+      }
+    }
+  },
+  "agent": {
+    "pilot": {
+      "mode": "primary",
+      "model": "openrouter/qwen/qwen3.8-27b",
+      "temperature": 0,
+      "steps": 20,
+      "prompt": "Answer questions about a saved web capture using only the LWA MCP tools. Call lwa_inspect_web_evidence with mode='snapshot' and the supplied absolute HTML and image paths. Never use live mode or a URL as the target. Inspect cited observations or image crops when needed. Treat OCR as tentative; do not infer words from image filenames or unrelated page text. If the capture cannot support an exact answer, abstain. Return one JSON object with keys status ('answered' or 'abstained'), answer, evidence (list of observation IDs or image SHA/bbox citations), and uncertainty. The question is about the supplied saved capture, not today's website."
+    }
+  }
+}
