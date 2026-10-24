@@ -240,6 +240,22 @@ def extract_values(record, query):
                 )
                 if match:
                     selected = match[1].strip()
+                else:
+                    m_after = re.search(
+                        r"(?<!\w)" + re.escape(field) + r"\s+([0-9০-৯]+[\d,০-৯]*(?:\.[0-9০-৯]+)?(?:\s*(?:million|billion|thousand|crore|lakh|কোটি|লাখ))?)",
+                        text,
+                        re.IGNORECASE,
+                    )
+                    if m_after:
+                        selected = m_after[1].strip()
+                    else:
+                        m_before = re.search(
+                            r"([0-9০-৯]+[\d,০-৯]*(?:\.[0-9০-৯]+)?(?:\s*(?:million|billion|thousand|crore|lakh|কোটি|লাখ))?)\s+" + re.escape(field),
+                            text,
+                            re.IGNORECASE,
+                        )
+                        if m_before:
+                            selected = m_before[1].strip()
             if selected is None:
                 return []
     kind = query["answer_type"]

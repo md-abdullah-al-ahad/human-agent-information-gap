@@ -1,0 +1,75 @@
+{
+  "root": "/tmp/lwa-offline-agent-pilot-packet-20261021",
+  "files": [
+    {
+      "path": "assets/10ms/page.html",
+      "sha256": "fc5d302c4c55b6405506d5d28b26e51a21c7ed308c0bfd6b948014ccfd685a4d",
+      "bytes": 462374
+    },
+    {
+      "path": "assets/10ms/screenshot.png",
+      "sha256": "8578ef854d2ba3a50f5fefc001d26cdbd1bed884b7bb88c2b06d606affb1f5e3",
+      "bytes": 3253733
+    },
+    {
+      "path": "assets/10ms/supplemental-1.png",
+      "sha256": "e5ac64c06816b66201627a99e245b293b2b4838e2768e423f32241c98aa4a315",
+      "bytes": 717661
+    },
+    {
+      "path": "assets/bangladesh-gov/page.html",
+      "sha256": "f88cec77e4f0cc642932d692afb5c45a463ea62e37d69a2b16205746a62ead38",
+      "bytes": 139768
+    },
+    {
+      "path": "assets/bangladesh-gov/screenshot.png",
+      "sha256": "01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888",
+      "bytes": 1673427
+    },
+    {
+      "path": "assets/biman/page.html",
+      "sha256": "3547e7bf39ef9110f726ef0661a8ba236558c7a0f0f53faa4f7690e6153eea04",
+      "bytes": 28725
+    },
+    {
+      "path": "assets/biman/screenshot.png",
+      "sha256": "7c00434d2551708541093b92c525cefcaed8a6f3b14402ecc4a4a680e9ef906a",
+      "bytes": 35298
+    },
+    {
+      "path": "assets/chaldal/page.html",
+      "sha256": "07388b92389166834a7bb390ddee1b36a0ff1b8a057d9864ad4dbf8e3617649c",
+      "bytes": 1788792
+    },
+    {
+      "path": "assets/chaldal/screenshot.png",
+      "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+      "bytes": 2286316
+    },
+    {
+      "path": "assets/shwapno/page.html",
+      "sha256": "c2bbca2e09a29d3e2a29e5f36e11ca13f9e8931856b53ae5e17b82e925c496e6",
+      "bytes": 2415352
+    },
+    {
+      "path": "assets/shwapno/screenshot.png",
+      "sha256": "0348507c8962d0df4e255c1204d329d2e3069a79b25dcd3fb6e0f8fe860db50b",
+      "bytes": 1987100
+    },
+    {
+      "path": "assets/usbair/page.html",
+      "sha256": "df2a017b6356ae3b3dc4513d6c8ee0a4872e5d67c140e3a48c6b9bb627f92e73",
+      "bytes": 102426
+    },
+    {
+      "path": "assets/usbair/screenshot.png",
+      "sha256": "ae78ad793638d08931fc8e80f69e0f1a9f1a8b776b2f9337bfe9b715dac73c4a",
+      "bytes": 1334278
+    },
+    {
+      "path": "tasks.json",
+      "sha256": "d97ef987eb3fea8050ea55dd8c9be9464291e3ddd9ee6cb3e9a273a657f54fe5",
+      "bytes": 5991
+    }
+  ]
+}

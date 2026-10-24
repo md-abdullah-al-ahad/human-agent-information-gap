@@ -38,6 +38,11 @@ CHALLENGES = (
     "verify you are human",
     "attention required! | cloudflare",
     "cloudflare ray id",
+    "challenges.cloudflare.com",
+    "performing security verification",
+    "just a moment...",
+    "cf-turnstile",
+    "cf-chl-widget",
 )
 STOP = {
     "a",

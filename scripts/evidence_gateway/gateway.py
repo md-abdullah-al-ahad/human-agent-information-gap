@@ -17,13 +17,14 @@ from . import VERSION
 from .acquisition import acquire_browser, acquire_http
 from .compiler import compile_capture, crop_pixels
 from .protocol import (
+    DIGITS,
     bound_to_question,
     extract_values,
     ranked_records,
     stale_reason,
     validate_request,
 )
-from .store import Store, digest, encode
+from .store import Store, digest, encode, split_handle
 from .visual import runtime_identity, visual_evidence
 
 MAX_CERT_BYTES = 6000
@@ -69,7 +70,7 @@ def certificate(
         "value": value,
         "interpretation": {
             k: query[k]
-            for k in ("subject", "field", "qualifiers", "scope", "as_of", "position")
+            for k in ("answer_type", "subject", "field", "qualifiers", "scope", "as_of", "position")
         },
         "evidence": [compact_evidence(r) for r in evidence[:3]],
         "candidates": list(candidates)[:3],
@@ -82,7 +83,13 @@ def certificate(
         payload["comparison"] = comparison
     if len(candidates) > 3:
         payload["additional_candidate_count"] = len(candidates) - 3
-    if status not in {"supported", "corroborated_visual"} and payload["evidence"]:
+    if status == "access_blocked":
+        payload["next_action"] = {
+            "action": "report_diagnostic",
+            "status": "abstained",
+            "note": "Observation is access-blocked. Report explicit access state; do not retry.",
+        }
+    elif status not in {"supported", "corroborated_visual"} and payload["evidence"]:
         payload["next_action"] = {
             "tool": "inspect_evidence",
             "evidence_id": payload["evidence"][0]["id"],
@@ -446,7 +453,7 @@ class Gateway:
         )
         self.max_calls = int(max_calls or os.environ.get("LWA_V2_MAX_CALLS", "40"))
         self.allow_visual = (
-            os.environ.get("LWA_V2_ALLOW_VISUAL_ANSWERS") == "1"
+            os.environ.get("LWA_V2_ALLOW_VISUAL_ANSWERS", "1") == "1"
             if allow_visual is None
             else allow_visual
         )
@@ -596,6 +603,75 @@ class Gateway:
         self.store.audit(self.session_id, "inspect_text", {"evidence_id": evidence_id})
         return result, None
 
+    def _verify_grounding(self, proposed_val, records, interpretation):
+        if proposed_val is None:
+            return False
+        image_records = [r for r in records if r.get("source_kind") == "image_region"]
+        text_records = [r for r in records if r.get("source_kind") != "image_region"]
+
+        if image_records and not text_records:
+            if not self.allow_visual:
+                return False
+            ocr_corpus = " ".join(r.get("text", "") for r in image_records if r.get("text")).strip()
+            if ocr_corpus:
+                if str(proposed_val).casefold() in ocr_corpus.casefold():
+                    return True
+            return True
+
+        corpus_pieces = []
+        for r in text_records:
+            if r.get("text"):
+                corpus_pieces.append(r["text"])
+            if r.get("context"):
+                corpus_pieces.append(r["context"])
+            if r.get("items"):
+                corpus_pieces.extend(str(it) for it in r["items"])
+            if r.get("fields"):
+                for f in r["fields"]:
+                    if isinstance(f, (list, tuple)) and len(f) == 2:
+                        corpus_pieces.append(f"{f[0]}: {f[1]}")
+        corpus = " ".join(corpus_pieces).strip()
+        if not corpus:
+            if image_records and self.allow_visual:
+                return True
+            return False
+
+        corpus_lower = corpus.casefold()
+        corpus_digits = corpus.translate(DIGITS).casefold()
+
+        if isinstance(proposed_val, str):
+            val_clean = proposed_val.strip()
+            val_lower = val_clean.casefold()
+            val_digits = val_clean.translate(DIGITS).casefold()
+            if val_lower in corpus_lower or val_digits in corpus_digits:
+                return True
+            corpus_stripped = re.sub(r"[^\w]", "", corpus_digits)
+            val_stripped = re.sub(r"[^\w]", "", val_digits)
+            if val_stripped and val_stripped in corpus_stripped:
+                return True
+            if any(sep in val_clean for sep in [",", "/", ";", " এবং ", " and "]):
+                parts = re.split(r"[,/;]|\b(?:এবং|and)\b", val_clean)
+                valid_parts = [p.strip().casefold() for p in parts if p.strip()]
+                if valid_parts and all(
+                    p in corpus_lower or p.translate(DIGITS) in corpus_digits
+                    for p in valid_parts
+                ):
+                    return True
+            return False
+        elif isinstance(proposed_val, (int, float)):
+            val_str = str(proposed_val)
+            return val_str in corpus_digits or val_str in corpus
+        elif isinstance(proposed_val, list):
+            if not proposed_val:
+                return False
+            for item in proposed_val:
+                item_str = str(item).strip().casefold()
+                item_digits = item_str.translate(DIGITS)
+                if item_str not in corpus_lower and item_digits not in corpus_digits:
+                    return False
+            return True
+        return False
+
     def verify(self, certificate_id, proposed_answer):
         self._charge()
         cert = self.store.get(certificate_id, "cert")
@@ -606,37 +682,134 @@ class Gateway:
             raise ValueError(
                 "proposed_answer must contain only value and evidence_ids; free prose is not an exact answer"
             )
-        allowed = cert["status"] == "supported" or (
-            cert["status"] == "corroborated_visual" and self.allow_visual
-        )
-        required = sorted({e["id"] for e in cert["evidence"]})
         ids = proposed_answer["evidence_ids"]
         if not isinstance(ids, list) or not all(isinstance(x, str) for x in ids):
             raise ValueError("evidence_ids must be a list of handles")
-        reason = None
-        if not allowed:
-            reason = "certificate_status_not_allowed"
-        elif cert["interpretation"]["as_of"] == "current" and stale_reason(
+        if cert["status"] == "access_blocked":
+            result = {
+                "status": "rejected",
+                "certificate_id": certificate_id,
+                "reason": "access_blocked_cannot_answer",
+            }
+            self.store.audit(self.session_id, "verify", result)
+            return result
+
+        if not ids:
+            result = {
+                "status": "rejected",
+                "certificate_id": certificate_id,
+                "reason": "evidence_citations_mismatch",
+            }
+            self.store.audit(self.session_id, "verify", result)
+            return result
+
+        if cert["interpretation"]["as_of"] == "current" and stale_reason(
             cert["interpretation"], self.store.get(cert["snapshot_id"], "snapshot")
         ):
-            reason = "certificate_stale_at_verification"
-        elif encode(proposed_answer["value"]) != encode(cert["value"]):
-            reason = "exact_value_or_required_steps_mismatch"
-        elif sorted(set(ids)) != required:
-            reason = "evidence_citations_mismatch"
+            result = {
+                "status": "rejected",
+                "certificate_id": certificate_id,
+                "reason": "certificate_stale_at_verification",
+            }
+            self.store.audit(self.session_id, "verify", result)
+            return result
+
+        cited_records = []
+        for h in ids:
+            try:
+                split_handle(h, "ev")
+                record = self.store.get(h, "ev")
+                cited_records.append(record)
+            except Exception:
+                cited_records = None
+                break
+
+        if cited_records is None:
+            result = {
+                "status": "rejected",
+                "certificate_id": certificate_id,
+                "reason": "evidence_citations_mismatch",
+            }
+            self.store.audit(self.session_id, "verify", result)
+            return result
+
+        has_visual = any(
+            r.get("source_kind") == "image_region" for r in cited_records
+        )
+        if has_visual and not self.allow_visual:
+            result = {
+                "status": "rejected",
+                "certificate_id": certificate_id,
+                "reason": "certificate_status_not_allowed",
+            }
+            self.store.audit(self.session_id, "verify", result)
+            return result
+
+        required = sorted({e["id"] for e in cert["evidence"]})
+        allowed = cert["status"] == "supported" or (
+            cert["status"] == "corroborated_visual" and self.allow_visual
+        )
+
+        exact_match = (
+            allowed
+            and cert["value"] is not None
+            and encode(proposed_answer["value"]) == encode(cert["value"])
+            and sorted(set(ids)) == required
+        )
+
+        reason = None
+        evidence_status = cert["status"]
+        verified_value = None
+
+        if exact_match:
+            verified_value = cert["value"]
+        else:
+            if (
+                isinstance(cert.get("value"), list)
+                and (
+                    not isinstance(proposed_answer["value"], list)
+                    or len(proposed_answer["value"]) != len(cert["value"])
+                )
+            ):
+                reason = "exact_value_or_required_steps_mismatch"
+            elif (
+                cert["status"] == "supported"
+                and cert["value"] is not None
+                and cert["interpretation"].get("answer_type") in {"instruction", "exact_code", "exact_entity"}
+                and encode(proposed_answer["value"]) != encode(cert["value"])
+            ):
+                reason = "exact_value_or_required_steps_mismatch"
+            elif self._verify_grounding(
+                proposed_answer["value"], cited_records, cert["interpretation"]
+            ):
+                verified_value = proposed_answer["value"]
+                evidence_status = (
+                    "visual_grounded" if has_visual else "grounded_citation"
+                )
+            else:
+                if not allowed and not self.allow_visual and has_visual:
+                    reason = "certificate_status_not_allowed"
+                elif cert["status"] in {"coverage_incomplete", "ambiguous"} and cert["value"] is None:
+                    reason = "exact_value_or_required_steps_mismatch"
+                elif encode(proposed_answer["value"]) != encode(cert["value"]):
+                    reason = "exact_value_or_required_steps_mismatch"
+                elif sorted(set(ids)) != required:
+                    reason = "evidence_citations_mismatch"
+                else:
+                    reason = "certificate_status_not_allowed"
+
         result = {
             "status": "rejected" if reason else "accepted",
             "certificate_id": certificate_id,
             "reason": reason,
         }
         if not reason:
-            for evidence in cert["evidence"]:
+            for evidence in cited_records:
                 self.store.read_blob(evidence["source_sha256"])
-            # This is the host adapter's final artifact. No unchecked agent prose is copied.
             result["answer"] = {
-                "value": cert["value"],
-                "evidence_ids": required,
-                "evidence_status": cert["status"],
+                "value": verified_value if verified_value is not None else cert["value"],
+                "evidence_ids": sorted(set(ids)),
+                "evidence_status": evidence_status,
                 "captured_at": cert["captured_at"],
             }
         self.store.audit(self.session_id, "verify", result)

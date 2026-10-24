@@ -1,0 +1,119 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "playwright": {
+        "type": "local",
+        "command": [
+          "/bin/false"
+        ],
+        "disabled": true
+      },
+      "lwa": {
+        "type": "local",
+        "command": [
+          "/mnt/secondary/Research/human-agent-information-gap/.venv-lwa-v2/bin/python",
+          "/mnt/secondary/Research/human-agent-information-gap/scripts/mcp_evidence_gateway.py"
+        ],
+        "disabled": false,
+        "codemode": true,
+        "timeout": {
+          "startup": 30000,
+          "catalog": 30000,
+          "execution": 30000
+        },
+        "environment": {
+          "LWA_V2_STORE": "/mnt/secondary/Research/human-agent-information-gap/results/experiment-03/offline-agent-pilot-run-v2-20261023/captures/BD-ED01-19",
+          "LWA_V2_SESSION_ID": "BD-ED01-19",
+          "LWA_V2_MAX_CALLS": "20",
+          "LWA_V2_ALLOW_LIVE": "0",
+          "LWA_V2_ALLOW_VISUAL_ANSWERS": "0",
+          "LWA_V2_TESSERACT": "/home/abdullah/.cache/lwa-web/ocr-runtime/usr/bin/tesseract",
+          "LD_LIBRARY_PATH": "/home/abdullah/.cache/lwa-web/ocr-runtime/usr/lib",
+          "TESSDATA_PREFIX": "/home/abdullah/.cache/lwa-web/ocr-runtime/usr/share/tessdata"
+        }
+      }
+    }
+  },
+  "permissions": [
+    {
+      "action": "read",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "glob",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "grep",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "subagent",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "skill",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "question",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "webfetch",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "websearch",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "browser",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "opencode_list_mcp_resources",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "opencode_read_mcp_resource",
+      "resource": "*",
+      "effect": "deny"
+    }
+  ],
+  "agent": {
+    "pilot": {
+      "mode": "primary",
+      "model": "openrouter/qwen/qwen3.8-27b",
+      "temperature": 0,
+      "steps": 20,
+      "prompt": "Answer questions about a saved web capture using only the LWA v2 MCP tools. Use tools.lwa.resolve_evidence through execute with the supplied snapshot handle. Choose the answer_type, subject (an exact source entity/container label), field, qualifiers and optional position appropriate to the question. You may inspect returned evidence IDs using inspect_evidence, with view='text' or 'crop', and refine requests within the budget. Do not use file, shell, fetch, live-web, other tools, filenames, or outside knowledge as answer evidence. The question concerns the supplied capture, not today's website. Treat OCR as tentative and unresolved searches as incomplete coverage, not global absence. For a factual answer, call verify_answer with its certificate_id and proposed_answer={value: the exact certificate value, evidence_ids: supporting IDs}. Only return status='answered' for a value accepted by verify_answer. Do not bypass a rejection with your own visual reading. Otherwise abstain. For access-state or unresolved-reference diagnostics you may report the explicit certificate status and its limitations, citing the certificate. Return one JSON object with keys status ('answered' or 'abstained'), answer, evidence (list of IDs), certificate_id, verification_status, and uncertainty. Keep the final answer concise; do not add unsupported claims."
+    }
+  }
+}

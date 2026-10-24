@@ -1,0 +1,1680 @@
+[
+  {
+    "case_id": "BD-TR02-access",
+    "site": "biman",
+    "diagnostic": true,
+    "reference": {
+      "control_id": "BD-TR02-access",
+      "site": "biman",
+      "question": "Does this saved Biman capture contain usable flight information? Report the access state.",
+      "expected_state": "access_blocked",
+      "scored_in_accuracy": false,
+      "reason": "Cloudflare verification page; access-state control, not a factual question."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": "No usable flight information in this saved Biman capture. The captured response is an access challenge or denial; certificate status is 'access_blocked' (reason: 'The captured response is an access challenge or denial.'), with zero candidate records and no flight evidence. Per the certificate's next_action, this access-blocked observation should be reported, not retried.",
+      "evidence": [],
+      "certificate_id": "cert:8176fbf5c3d3e34e40802fb45c66cf4f911920e5823d4af618b22e320b5b3de8",
+      "verification_status": "rejected (access_blocked_cannot_answer)",
+      "uncertainty": "Coverage limited to the saved HTML only; external CSS visibility, image assets/text, and interactive states are unverified, and captured_at is null. The capture's flight content beyond the access-blocked page cannot be assessed; this reports the explicit certificate access state, not a global absence."
+    },
+    "final_text": "\n\nThe gate rejected the answer (`access_blocked_cannot_answer`), and the certificate's own next_action says to report the diagnostic without retrying. I'll return the abstention with the certificate diagnostic.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": \"No usable flight information in this saved Biman capture. The captured response is an access challenge or denial; certificate status is 'access_blocked' (reason: 'The captured response is an access challenge or denial.'), with zero candidate records and no flight evidence. Per the certificate's next_action, this access-blocked observation should be reported, not retried.\",\n  \"evidence\": [],\n  \"certificate_id\": \"cert:8176fbf5c3d3e34e40802fb45c66cf4f911920e5823d4af618b22e320b5b3de8\",\n  \"verification_status\": \"rejected (access_blocked_cannot_answer)\",\n  \"uncertainty\": \"Coverage limited to the saved HTML only; external CSS visibility, image assets/text, and interactive states are unverified, and captured_at is null. The capture's flight content beyond the access-blocked page cannot be assessed; this reports the explicit certificate access state, not a global absence.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 63.02,
+    "session_ids": [
+      "ses_e99b34ac0ffeVUGVmEDke9l2f0"
+    ],
+    "trace": "traces/BD-TR02-access.jsonl.gz",
+    "trace_sha256": "4fc23310c5fcfb822fda78d9c7f7d0d1945f5a5fcfc9bc753a14ba8f9606725a",
+    "citation_handles_exist": {},
+    "gate_events": [
+      {
+        "certificate_id": "cert:8176fbf5c3d3e34e40802fb45c66cf4f911920e5823d4af618b22e320b5b3de8",
+        "reason": "access_blocked_cannot_answer",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-TR02-access",
+        "calls": 2,
+        "image_pixels": 0
+      }
+    ],
+    "execute_calls": 3,
+    "nested_tool_calls": 2,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 5350,
+    "opencode_reported_cost_usd": 0.00354941,
+    "opencode_reported_tokens": {
+      "input": 8481,
+      "output": 595,
+      "reasoning": 1762,
+      "cache_read": 1568,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-04",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-04",
+      "site": "usbair",
+      "question": "What is the domestic Mastercard promo code in the captured popup?",
+      "expected": "USBA15",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "domestic ticket at x=170..300,y=520..610"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "USBANIS",
+      "evidence": [
+        "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a"
+      ],
+      "certificate_id": "cert:086afe4f9252d605451198cbdc855d163418f89bb86a069bf8b499c016610f46",
+      "verification_status": "accepted",
+      "uncertainty": "Low. Value read from the 'Domestic Routes / 15% OFF' promo-code box in the popup crop and accepted by verify_answer as visual_grounded. Certificate noted incomplete coverage of image text generally, but the subject-bound answer passed the gate; OCR treated as tentative and the distinction from the international code (USBANIO) is visually clear in the crop."
+    },
+    "final_text": "**Case BD-TR03-04**\n\nThe captured popup (US-Bangla Airlines × Mastercard \"Fly Beyond\" banner) shows two promo-code boxes: under **Domestic Routes — 15% OFF**, \"Promo Code: **USBANIS**\", and under International Routes — 10% OFF, \"Promo Code: USBANIO\". The final gate accepted the domestic value with visual grounding.\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"USBANIS\",\n  \"evidence\": [\"ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a\"],\n  \"certificate_id\": \"cert:086afe4f9252d605451198cbdc855d163418f89bb86a069bf8b499c016610f46\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low. Value read from the 'Domestic Routes / 15% OFF' promo-code box in the popup crop and accepted by verify_answer as visual_grounded. Certificate noted incomplete coverage of image text generally, but the subject-bound answer passed the gate; OCR treated as tentative and the distinction from the international code (USBANIO) is visually clear in the crop.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 49.518,
+    "session_ids": [
+      "ses_e99b21bf7ffeCD7Cah02Ux2GEH"
+    ],
+    "trace": "traces/BD-TR03-04.jsonl.gz",
+    "trace_sha256": "50594152500fe1c93db69733664c182cd7851dabbe2af89bc55a035cf040b44a",
+    "citation_handles_exist": {
+      "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": "USBANIS"
+        },
+        "certificate_id": "cert:086afe4f9252d605451198cbdc855d163418f89bb86a069bf8b499c016610f46",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD-TR03-04",
+        "calls": 6,
+        "image_pixels": 1162752
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 7,
+    "nested_tool_errors": 1,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 1005629,
+    "opencode_reported_cost_usd": 0.00491733,
+    "opencode_reported_tokens": {
+      "input": 14540,
+      "output": 1252,
+      "reasoning": 1690,
+      "cache_read": 20224,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-02",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-02",
+      "site": "chaldal",
+      "question": "What is the main service headline on this captured Chaldal page?",
+      "expected": "Grocery Delivered at your Doorstep",
+      "rubric": "normalized_literal",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "hero heading, x=335..810,y=195..275"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "Grocery Delivered at your Doorstep",
+      "evidence": [
+        "ev:64baddeba463ee204c8380a9f8b86639d3906239cb0a91ef6e46dc8934d3f8a3"
+      ],
+      "certificate_id": "cert:d6715387997e90cc3ae21c3092ee64cb2e9f100f521a8d12d8e972b45a9b94d2",
+      "verification_status": "accepted",
+      "uncertainty": "Low: subject-bound exact extraction from saved DOM (dom_text at html:12:579743) matched the rendered hero crop (\"Grocery Delivered at you… Doorstep\") and was accepted by verify_answer. Note: initial broad subject 'Chaldal' was ambiguous, and 'h1' scope was coverage_incomplete, so the headline was confirmed via the subject-bound quote and visual crop rather than a single unambiguous h1 lookup."
+    },
+    "final_text": "\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"Grocery Delivered at your Doorstep\",\n  \"evidence\": [\"ev:64baddeba463ee204c8380a9f8b86639d3906239cb0a91ef6e46dc8934d3f8a3\"],\n  \"certificate_id\": \"cert:d6715387997e90cc3ae21c3092ee64cb2e9f100f521a8d12d8e972b45a9b94d2\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low: subject-bound exact extraction from saved DOM (dom_text at html:12:579743) matched the rendered hero crop (\\\"Grocery Delivered at you… Doorstep\\\") and was accepted by verify_answer. Note: initial broad subject 'Chaldal' was ambiguous, and 'h1' scope was coverage_incomplete, so the headline was confirmed via the subject-bound quote and visual crop rather than a single unambiguous h1 lookup.\"\n}\n```\n\nThe main service headline on the captured Chaldal page is **\"Grocery Delivered at your Doorstep\"**, confirmed by the exact DOM text evidence and corroborated by the rendered hero-section crop, with the answer accepted by the verify_answer gate.",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 132.139,
+    "session_ids": [
+      "ses_e99b1220dffekaEzld9aoNE4iH"
+    ],
+    "trace": "traces/BD2-02.jsonl.gz",
+    "trace_sha256": "6385f03df1d8fd6baf0a2ec9026a9ba6355d3a25ca7569f87af822dee44e13bd",
+    "citation_handles_exist": {
+      "ev:64baddeba463ee204c8380a9f8b86639d3906239cb0a91ef6e46dc8934d3f8a3": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:64baddeba463ee204c8380a9f8b86639d3906239cb0a91ef6e46dc8934d3f8a3"
+          ],
+          "evidence_status": "supported",
+          "value": "Grocery Delivered at your Doorstep"
+        },
+        "certificate_id": "cert:d6715387997e90cc3ae21c3092ee64cb2e9f100f521a8d12d8e972b45a9b94d2",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD2-02",
+        "calls": 7,
+        "image_pixels": 1026048
+      }
+    ],
+    "execute_calls": 7,
+    "nested_tool_calls": 7,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 310722,
+    "opencode_reported_cost_usd": 0.00706935,
+    "opencode_reported_tokens": {
+      "input": 8738,
+      "output": 1757,
+      "reasoning": 2695,
+      "cache_read": 39424,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-10",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-10",
+      "site": "chaldal",
+      "question": "How many warehouses does the captured page claim?",
+      "expected": "26",
+      "rubric": "exact_number",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "statistics card, x=380..750,y=3060..3170"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "26",
+      "evidence": [
+        "ev:63e4b8e56941a00345d148dc3160e007067cd56915ff62fcc5d0d563a5e4f673"
+      ],
+      "certificate_id": "cert:955f97844c428e02d19264ad03b0db923b958e5c6985008421e1ea1c80dabada",
+      "verification_status": "accepted",
+      "uncertainty": "Low. The page's stat card reads '26 warehouses / all over bangladesh' (visible in saved-pixel crop ev:63e4b8e5...); verify_answer accepted '26' with evidence_status='visual_grounded'. Note: the resolve certificate was coverage_incomplete because the figure is embedded in page imagery (OCR/text index did not bind the value), so the claim is grounded in the visual crop rather than indexed text."
+    },
+    "final_text": "\n\nThe verification gate accepted the answer. Final result:\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"26\",\n  \"evidence\": [\"ev:63e4b8e56941a00345d148dc3160e007067cd56915ff62fcc5d0d563a5e4f673\"],\n  \"certificate_id\": \"cert:955f97844c428e02d19264ad03b0db923b958e5c6985008421e1ea1c80dabada\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low. The page's stat card reads '26 warehouses / all over bangladesh' (visible in saved-pixel crop ev:63e4b8e5...); verify_answer accepted '26' with evidence_status='visual_grounded'. Note: the resolve certificate was coverage_incomplete because the figure is embedded in page imagery (OCR/text index did not bind the value), so the claim is grounded in the visual crop rather than indexed text.\"\n}\n```\n\n**Answer: The captured page (Chaldal, case BD2-10) claims 26 warehouses, \"all over bangladesh\".**",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 35.772,
+    "session_ids": [
+      "ses_e99af1df9ffe2XaH1wMyD61WHH"
+    ],
+    "trace": "traces/BD2-10.jsonl.gz",
+    "trace_sha256": "68ef7c3be170dc1406decd1a6a20d83f33a9bddcb890c64d2f1f82f2bca1c4de",
+    "citation_handles_exist": {
+      "ev:63e4b8e56941a00345d148dc3160e007067cd56915ff62fcc5d0d563a5e4f673": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:63e4b8e56941a00345d148dc3160e007067cd56915ff62fcc5d0d563a5e4f673"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": "26"
+        },
+        "certificate_id": "cert:955f97844c428e02d19264ad03b0db923b958e5c6985008421e1ea1c80dabada",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD2-10",
+        "calls": 6,
+        "image_pixels": 1615872
+      }
+    ],
+    "execute_calls": 5,
+    "nested_tool_calls": 6,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 449654,
+    "opencode_reported_cost_usd": 0.00380815,
+    "opencode_reported_tokens": {
+      "input": 18275,
+      "output": 1088,
+      "reasoning": 1083,
+      "cache_read": 8128,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-11",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-11",
+      "site": "chaldal",
+      "question": "How many orders does the captured page say have been delivered?",
+      "expected": "5 million",
+      "rubric": "exact_quantity",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "statistics card, x=775..1140,y=3060..3170"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f",
+        "ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee",
+        "ev:6959e0808c8bcfb161c3acf7a4b171376b6e706e7b95f5b625a605bc2843a62d"
+      ],
+      "certificate_id": "cert:f1fdc44340dd4235539f5094d212c8c1dfe38e28da03b550740be542a5cc62ea",
+      "verification_status": "not_submitted",
+      "uncertainty": "No delivered-order count was observed in any inspected evidence. All resolve_evidence certificates returned status='coverage_incomplete' with reason 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.', with coverage flags image_text_unverified, image_asset_coverage_unverified, and data_index_truncated. The likely location (the stats card adjacent to '340 million Taka / customer savings', whose text sits above the captured crop boundary at y≈3200) could not be read because the session call/image-pixel budget was exhausted ('session call or image-pixel budget exhausted') before further resolution or inspection; two candidate regions remained uninspected. The value could not be grounded, so verify_answer was not called."
+    },
+    "final_text": "All further LWA calls are blocked by the session/image-pixel budget, and I have not observed a delivered-orders figure in any inspected evidence. Per the protocol, I will not guess a value; I report an abstention with the certificate diagnostics.\n\n**What was observed (for context):**\n- Top region (`ev:814b…`): hero text \"Grocery Delivered at your Doorstep\", \"+15000 products to shop from\", \"Get your delivery within 1 hour\".\n- Stats region (`ev:09e0…`): a stats card reading \"340 million Taka / customer savings\" and \"Currently Delivering in\" — the adjacent card at the top-left of this crop is cut off above y=3200, and its label/number were never readable.\n- FAQ region (`ev:6959…`): delivery-fee table (\"Orders below 400 / Orders above 400\") and FAQ items.\n\n**Certificate diagnostics:** Every `resolve_evidence` call (subjects \"Delivered\", \"orders delivered\", \"orders\", \"customer savings\", \"Chattogram\", etc., across `page`/`data`/`all_sources` scopes) returned `status: \"coverage_incomplete\"`, `value: null`, reason: \"No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.\" Coverage flags include `image_text_unverified`, `image_asset_coverage_unverified`, `data_index_truncated`. Before any value could be grounded, the session/image-pixel budget was exhausted (\"session call or image-pixel budget exhausted\"), blocking further resolves and inspections — including two uninspected regions that could have covered the stats row.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f\",\n    \"ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee\",\n    \"ev:6959e0808c8bcfb161c3acf7a4b171376b6e706e7b95f5b625a605bc2843a62d\"\n  ],\n  \"certificate_id\": \"cert:f1fdc44340dd4235539f5094d212c8c1dfe38e28da03b550740be542a5cc62ea\",\n  \"verification_status\": \"not_submitted\",\n  \"uncertainty\": \"No delivered-order count was observed in any inspected evidence. All resolve_evidence certificates returned status='coverage_incomplete' with reason 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.', with coverage flags image_text_unverified, image_asset_coverage_unverified, and data_index_truncated. The likely location (the stats card adjacent to '340 million Taka / customer savings', whose text sits above the captured crop boundary at y≈3200) could not be read because the session call/image-pixel budget was exhausted ('session call or image-pixel budget exhausted') before further resolution or inspection; two candidate regions remained uninspected. The value could not be grounded, so verify_answer was not called.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 119.192,
+    "session_ids": [
+      "ses_e99ae923effeNB8Hob0b4Ip4OS"
+    ],
+    "trace": "traces/BD2-11.jsonl.gz",
+    "trace_sha256": "1ac21d672c1ebd63f8275193763bd0f95f23391a3e971cdbb19fb31e5b37da9e",
+    "citation_handles_exist": {
+      "ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f": true,
+      "ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee": true,
+      "ev:6959e0808c8bcfb161c3acf7a4b171376b6e706e7b95f5b625a605bc2843a62d": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD2-11",
+        "calls": 20,
+        "image_pixels": 1462272
+      }
+    ],
+    "execute_calls": 12,
+    "nested_tool_calls": 35,
+    "nested_tool_errors": 15,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 416715,
+    "opencode_reported_cost_usd": 0.02431029,
+    "opencode_reported_tokens": {
+      "input": 25289,
+      "output": 4052,
+      "reasoning": 11486,
+      "cache_read": 129024,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-14",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-14",
+      "site": "chaldal",
+      "question": "Which three cities are listed under Currently Delivering in this capture?",
+      "expected": [
+        "Dhaka",
+        "Chattogram",
+        "Jashore"
+      ],
+      "rubric": "complete_set",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "delivery cities section, x=390..1130,y=3450..3650"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": [
+        "Dhaka",
+        "Chattogram",
+        "Jashore"
+      ],
+      "evidence": [
+        "ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4",
+        "ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee",
+        "ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f"
+      ],
+      "certificate_id": "cert:1e0354fd434c04ef9937191c71f49bbea5711fa49c0aa86bdc1aad68f8a33653",
+      "verification_status": "accepted",
+      "uncertainty": "Low: the three city badges ('Dhaka', 'Chattogram', 'Jashore') under the 'Currently Delivering' heading were read from the captured image region and the answer passed the verify_answer gate (visual_grounded)."
+    },
+    "final_text": "\n\nThe gate accepted the answer. Here is the final result.\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": [\"Dhaka\", \"Chattogram\", \"Jashore\"],\n  \"evidence\": [\n    \"ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4\",\n    \"ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee\",\n    \"ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f\"\n  ],\n  \"certificate_id\": \"cert:1e0354fd434c04ef9937191c71f49bbea5711fa49c0aa86bdc1aad68f8a33653\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low: the three city badges ('Dhaka', 'Chattogram', 'Jashore') under the 'Currently Delivering' heading were read from the captured image region and the answer passed the verify_answer gate (visual_grounded).\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 44.534,
+    "session_ids": [
+      "ses_e99acc0a6ffeiaHk8NRbzyTvsw"
+    ],
+    "trace": "traces/BD2-14.jsonl.gz",
+    "trace_sha256": "82677a5b8e01756b85de521410f0df5864e475102db1724c2908fc2fa1f45643",
+    "citation_handles_exist": {
+      "ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4": true,
+      "ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee": true,
+      "ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee",
+            "ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f",
+            "ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": [
+            "Dhaka",
+            "Chattogram",
+            "Jashore"
+          ]
+        },
+        "certificate_id": "cert:1e0354fd434c04ef9937191c71f49bbea5711fa49c0aa86bdc1aad68f8a33653",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD2-14",
+        "calls": 8,
+        "image_pixels": 1615872
+      }
+    ],
+    "execute_calls": 5,
+    "nested_tool_calls": 8,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 434243,
+    "opencode_reported_cost_usd": 0.00345451,
+    "opencode_reported_tokens": {
+      "input": 13857,
+      "output": 1338,
+      "reasoning": 690,
+      "cache_read": 9024,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-15",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-15",
+      "site": "chaldal",
+      "question": "What is the delivery fee in Dhaka for orders below 400 BDT in the captured FAQ?",
+      "expected": "59 BDT",
+      "rubric": "exact_quantity",
+      "modality": "rendered_table",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "FAQ fee table, x=470..825,y=3950..4200"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4",
+        "ev:6959e0808c8bcfb161c3acf7a4b171376b6e706e7b95f5b625a605bc2843a62d",
+        "ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee"
+      ],
+      "certificate_id": "cert:ec117749b45053c9eab4d2f3a59eab630ea62f6832ea4e9f91a8f97c9287a287",
+      "verification_status": "not_verified",
+      "uncertainty": "Abstained. The captured page (Chaldal) shows a 'Common Questions' FAQ item 'How much do deliveries cost?' whose answer is a table with columns 'Orders below 400' and 'Orders above 400' and three city rows; the city chips above the table list Dhaka, Chattogram, Jashore. However, in every returned crop the first column's leading digit(s) are truncated at the crop edge (only trailing '9' digits and second-column values 49/49/19 are visible), and the city column (including the Dhaka row label) lies in a lower-left image region the resolver never returned. All image-region evidence has empty OCR text (certificate coverage flags: image_text_unverified, interactive_states_unchecked, data_index_truncated), no subject-bound value passed the typed checks, and the certificate status is 'coverage_incomplete' ('No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.'). The session image-pixel budget was subsequently exhausted ('session call or image-pixel budget exhausted'), so the missing region could not be obtained and no value could be grounded for verify_answer. This is incomplete coverage of the capture, not evidence that the fee is absent."
+    },
+    "final_text": "I cannot call verify_answer with a grounded value, so I'll report the abstention now that the image-pixel budget is exhausted. The FAQ table is only partially visible in the available crops—the city labels and full \"Orders below 400\" values are cut off—and the tool's OCR returned empty text for all image regions, so no subject-bound value passed the checks.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4\",\n    \"ev:6959e0808c8bcfb161c3acf7a4b171376b6e706e7b95f5b625a605bc2843a62d\",\n    \"ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee\"\n  ],\n  \"certificate_id\": \"cert:ec117749b45053c9eab4d2f3a59eab630ea62f6832ea4e9f91a8f97c9287a287\",\n  \"verification_status\": \"not_verified\",\n  \"uncertainty\": \"Abstained. The captured page (Chaldal) shows a 'Common Questions' FAQ item 'How much do deliveries cost?' whose answer is a table with columns 'Orders below 400' and 'Orders above 400' and three city rows; the city chips above the table list Dhaka, Chattogram, Jashore. However, in every returned crop the first column's leading digit(s) are truncated at the crop edge (only trailing '9' digits and second-column values 49/49/19 are visible), and the city column (including the Dhaka row label) lies in a lower-left image region the resolver never returned. All image-region evidence has empty OCR text (certificate coverage flags: image_text_unverified, interactive_states_unchecked, data_index_truncated), no subject-bound value passed the typed checks, and the certificate status is 'coverage_incomplete' ('No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.'). The session image-pixel budget was subsequently exhausted ('session call or image-pixel budget exhausted'), so the missing region could not be obtained and no value could be grounded for verify_answer. This is incomplete coverage of the capture, not evidence that the fee is absent.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 134.586,
+    "session_ids": [
+      "ses_e99ac12a8ffePY7kqQ1slT1F8W"
+    ],
+    "trace": "traces/BD2-15.jsonl.gz",
+    "trace_sha256": "2aae01a7f5671ab98c6736b887c3b2e922a2fdb34e8fc3adf1044241baf5b34f",
+    "citation_handles_exist": {
+      "ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4": true,
+      "ev:6959e0808c8bcfb161c3acf7a4b171376b6e706e7b95f5b625a605bc2843a62d": true,
+      "ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD2-15",
+        "calls": 20,
+        "image_pixels": 2641920
+      }
+    ],
+    "execute_calls": 14,
+    "nested_tool_calls": 23,
+    "nested_tool_errors": 3,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 656073,
+    "opencode_reported_cost_usd": 0.02922615,
+    "opencode_reported_tokens": {
+      "input": 25330,
+      "output": 4346,
+      "reasoning": 13972,
+      "cache_read": 193536,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-20",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-20",
+      "site": "chaldal",
+      "question": "What brand is shown by the eighth logo in the Popular on Chaldal strip?",
+      "expected": "MGI",
+      "rubric": "exact_visual_entity",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "brand strip, x=840..955,y=1280..1360"
+      },
+      "reference_note": "The saved DOM names the asset fresh.png; answer must follow pixels."
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "Maggi",
+      "evidence": [
+        "ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52",
+        "ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925"
+      ],
+      "certificate_id": "cert:f98f5aa79c4a3eea0cf4d754b9a6a75258d8e35fb13fab4ff97a1fb74f76e8d3",
+      "verification_status": "accepted",
+      "uncertainty": "Low. Reconstructed the 8-logo reading order from two overlapping saved-pixel crops (PRAN, reckitt, Nestlé, Unilever, marico, Godrej, Coca-Cola, Maggi). The certificate noted image text was not OCR-verified, so brand names were read visually from the saved crops; the 8th logo's 'MgI/Maggi Group of Industries' mark reads as Maggi."
+    },
+    "final_text": "The gate accepted the answer with `visual_grounded` evidence status.\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"Maggi\",\n  \"evidence\": [\n    \"ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52\",\n    \"ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925\"\n  ],\n  \"certificate_id\": \"cert:f98f5aa79c4a3eea0cf4d754b9a6a75258d8e35fb13fab4ff97a1fb74f76e8d3\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low. Reconstructed the 8-logo reading order from two overlapping saved-pixel crops (PRAN, reckitt, Nestlé, Unilever, marico, Godrej, Coca-Cola, Maggi). The certificate noted image text was not OCR-verified, so brand names were read visually from the saved crops; the 8th logo's 'MgI/Maggi Group of Industries' mark reads as Maggi.\"\n}\n```\n\n**Answer: Maggi** — the 8th logo in the \"Popular on Chaldal\" strip (reading order: PRAN, reckitt, Nestlé, Unilever, marico, Godrej, Coca-Cola, Maggi), accepted by the verification gate as `visual_grounded`.",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 85.717,
+    "session_ids": [
+      "ses_e99aa04f0ffed5LCRJ1WfE3kLZ"
+    ],
+    "trace": "traces/BD2-20.jsonl.gz",
+    "trace_sha256": "33d201246ae7d5e161cb154517b70629b94b5b02fc502e384ded9554e1f090de",
+    "citation_handles_exist": {
+      "ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52": true,
+      "ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925",
+            "ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": "Maggi"
+        },
+        "certificate_id": "cert:f98f5aa79c4a3eea0cf4d754b9a6a75258d8e35fb13fab4ff97a1fb74f76e8d3",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD2-20",
+        "calls": 5,
+        "image_pixels": 1615872
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 6,
+    "nested_tool_errors": 1,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 447792,
+    "opencode_reported_cost_usd": 0.022309,
+    "opencode_reported_tokens": {
+      "input": 15515,
+      "output": 1640,
+      "reasoning": 14149,
+      "cache_read": 20736,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-05",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-05",
+      "site": "usbair",
+      "question": "What is the international Mastercard promo code in the captured popup?",
+      "expected": "USBAIN10",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "international ticket at x=300..440,y=520..610"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "USBANGINTO",
+      "evidence": [
+        "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7"
+      ],
+      "certificate_id": "cert:188ad4324bf464d698ebf8ce5a92c48b98723e67149c31f4db67f23c5698f44f",
+      "verification_status": "accepted",
+      "uncertainty": "Low. The popup content is rasterized (certificate coverage lists image_text_unverified), so the code was read from the saved-pixels crop of the International Routes box (10% OFF, 'Promo Code: USBANGINTO') and the gate accepted it as visual_grounded."
+    },
+    "final_text": "```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"USBANGINTO\",\n  \"evidence\": [\"ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7\"],\n  \"certificate_id\": \"cert:188ad4324bf464d698ebf8ce5a92c48b98723e67149c31f4db67f23c5698f44f\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low. The popup content is rasterized (certificate coverage lists image_text_unverified), so the code was read from the saved-pixels crop of the International Routes box (10% OFF, 'Promo Code: USBANGINTO') and the gate accepted it as visual_grounded.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 32.721,
+    "session_ids": [
+      "ses_e99a8b61fffe922VEhsdD6mfD7"
+    ],
+    "trace": "traces/BD-TR03-05.jsonl.gz",
+    "trace_sha256": "a723d1cf1076ad5351f41ae83ad50a8b3aa2631ab6ae332cd32e17e0fd6645cd",
+    "citation_handles_exist": {
+      "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": "USBANGINTO"
+        },
+        "certificate_id": "cert:188ad4324bf464d698ebf8ce5a92c48b98723e67149c31f4db67f23c5698f44f",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD-TR03-05",
+        "calls": 6,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 6,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 574832,
+    "opencode_reported_cost_usd": 0.00505109,
+    "opencode_reported_tokens": {
+      "input": 13657,
+      "output": 1103,
+      "reasoning": 1954,
+      "cache_read": 20992,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-06",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-06",
+      "site": "usbair",
+      "question": "What grand prize does the Mastercard popup advertise?",
+      "expected": "Couple Holiday in Kuala Lumpur!",
+      "rubric": "normalized_literal",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "red prize text at x=150..470,y=325..380"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "Couple Holiday in Kuala Lumpur",
+      "evidence": [
+        "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a",
+        "ev:cb7ec7e31f03b4f57437f35a9a6a63afad0577e7f73d2e6bd12ae92b03182426",
+        "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7"
+      ],
+      "certificate_id": "cert:25527392b72ce667e632118c672ef2e2651b39df5942be88662fafd19634a5df",
+      "verification_status": "accepted",
+      "uncertainty": "The grand prize is grounded in saved popup pixels (visual_grounded); OCR on the crop read 'Couple Holiday in Kuala Lumpur' as the advertised prize ('Get a chance to win'). Text-layer coverage was incomplete, but the visual evidence was direct and the final gate accepted the value."
+    },
+    "final_text": "\n\nThe answer was accepted by the verification gate.\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"Couple Holiday in Kuala Lumpur\",\n  \"evidence\": [\n    \"ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a\",\n    \"ev:cb7ec7e31f03b4f57437f35a9a6a63afad0577e7f73d2e6bd12ae92b03182426\",\n    \"ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7\"\n  ],\n  \"certificate_id\": \"cert:25527392b72ce667e632118c672ef2e2651b39df5942be88662fafd19634a5df\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"The grand prize is grounded in saved popup pixels (visual_grounded); OCR on the crop read 'Couple Holiday in Kuala Lumpur' as the advertised prize ('Get a chance to win'). Text-layer coverage was incomplete, but the visual evidence was direct and the final gate accepted the value.\"\n}\n```\n\nThe Mastercard popup (\"Fly BEYOND with Mastercard!\") advertises a chance to win a **Couple Holiday in Kuala Lumpur**, along with up to 15% off domestic / 10% off international routes. The initial text search returned `coverage_incomplete` (no subject-bound value in the saved HTML), so the prize was confirmed via the saved pixel crop of the popup and accepted by `verify_answer`.",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 39.726,
+    "session_ids": [
+      "ses_e99a8364dffe5owtRYRpsbiXRh"
+    ],
+    "trace": "traces/BD-TR03-06.jsonl.gz",
+    "trace_sha256": "11aaf5e3c4b1ce75c63e8f069328ebb1bd193428682e4821592afb0fb4740c59",
+    "citation_handles_exist": {
+      "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a": true,
+      "ev:cb7ec7e31f03b4f57437f35a9a6a63afad0577e7f73d2e6bd12ae92b03182426": true,
+      "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a",
+            "ev:cb7ec7e31f03b4f57437f35a9a6a63afad0577e7f73d2e6bd12ae92b03182426",
+            "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": "Couple Holiday in Kuala Lumpur"
+        },
+        "certificate_id": "cert:25527392b72ce667e632118c672ef2e2651b39df5942be88662fafd19634a5df",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD-TR03-06",
+        "calls": 3,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 4,
+    "nested_tool_calls": 3,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 565260,
+    "opencode_reported_cost_usd": 0.0024292,
+    "opencode_reported_tokens": {
+      "input": 7770,
+      "output": 761,
+      "reasoning": 722,
+      "cache_read": 6464,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-08",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-08",
+      "site": "usbair",
+      "question": "Until what date is the captured Mastercard offer valid?",
+      "expected": "31st October 2026",
+      "rubric": "calendar_date",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "validity footer at x=150..480,y=615..645"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "31 October 2026",
+      "evidence": [
+        "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a"
+      ],
+      "certificate_id": "cert:adbe1fa22615f180db13215158981155a3606b532f3ec4c4420a7d5b14571715",
+      "verification_status": "accepted",
+      "uncertainty": "Low: the Mastercard promo card in the captured page image states '*T&C Apply | Validity: Till 31st October 2026', confirmed via saved-pixel crop inspection; the certificate flagged image-text coverage as unverified via OCR only, so the value rests on visual grounding."
+    },
+    "final_text": "The final gate accepted the answer (status: `accepted`, evidence status: `visual_grounded`).\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"31 October 2026\",\n  \"evidence\": [\"ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a\"],\n  \"certificate_id\": \"cert:adbe1fa22615f180db13215158981155a3606b532f3ec4c4420a7d5b14571715\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low: the Mastercard promo card in the captured page image states '*T&C Apply | Validity: Till 31st October 2026', confirmed via saved-pixel crop inspection; the certificate flagged image-text coverage as unverified via OCR only, so the value rests on visual grounding.\"\n}\n```\n\nThe captured Mastercard offer (\"Fly Beyond with Mastercard!\" on the US-Bangla Airlines page) is valid until **31 October 2026**, as shown by the promo card footer \"Validity: Till 31st October 2026\" in the captured snapshot.",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 25.206,
+    "session_ids": [
+      "ses_e99a79b1effe3pfcngo6ZFYBWf"
+    ],
+    "trace": "traces/BD-TR03-08.jsonl.gz",
+    "trace_sha256": "71686973cd4e4a402f08c06691bd1d4867ebff4a908d2b8fb173815a0f058632",
+    "citation_handles_exist": {
+      "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": "31 October 2026"
+        },
+        "certificate_id": "cert:adbe1fa22615f180db13215158981155a3606b532f3ec4c4420a7d5b14571715",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD-TR03-08",
+        "calls": 5,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 5,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 573596,
+    "opencode_reported_cost_usd": 0.00303604,
+    "opencode_reported_tokens": {
+      "input": 11480,
+      "output": 1115,
+      "reasoning": 647,
+      "cache_read": 11008,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-10",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-10",
+      "site": "usbair",
+      "question": "Name all four Sky Star loyalty tiers shown in the capture.",
+      "expected": [
+        "Silver",
+        "Gold",
+        "Platinum",
+        "Titanium"
+      ],
+      "rubric": "complete_set",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_loyalty_crop.png",
+        "sha256": "f21f244744adf7b70df067bd5d580803e6f751d228bb562e9d9fbf9c2b6a2bff",
+        "locator": "four colored badges, entire crop"
+      },
+      "reference_note": "Saved crop time is not separately recorded."
+    },
+    "agent_final": null,
+    "final_text": "\n\n",
+    "reason": "wall_timeout",
+    "exit_code": -9,
+    "wall_seconds": 180.008,
+    "session_ids": [
+      "ses_e99a738acffeLHTg7jZtSbHDVN"
+    ],
+    "trace": "traces/BD-TR03-10.jsonl.gz",
+    "trace_sha256": "ebc622b695b1f278cf490b2d971691bc4880578b9361aafc36e3a4b6e5f643c0",
+    "citation_handles_exist": {},
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-TR03-10",
+        "calls": 20,
+        "image_pixels": 1691136
+      }
+    ],
+    "execute_calls": 8,
+    "nested_tool_calls": 21,
+    "nested_tool_errors": 1,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 735434,
+    "opencode_reported_cost_usd": 0.00976146,
+    "opencode_reported_tokens": {
+      "input": 13074,
+      "output": 2916,
+      "reasoning": 3138,
+      "cache_read": 59200,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-04",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-04",
+      "site": "shwapno",
+      "question": "What exact code is printed on the 6% Puja coupon?",
+      "expected": "PUJA6",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/shwapno_crop_hero.png",
+        "sha256": "c40e1b0cdfb08f1ab1db5e883e3a9d7b7deec00098b92186e31f1983dfe82cee",
+        "locator": "green 6% voucher, x=745..965,y=175..280"
+      },
+      "reference_note": "OCR previously missed this exact code; this is a deliberate hard case."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:e89a6d7a3a8cde063742d0e0cb87965ec435d85ea72e8856eefbf90604323ccd",
+        "ev:5c2deb2d5ff9da55af09fa15cb1b492d734069b65f362fb7e629924f96879309",
+        "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138"
+      ],
+      "certificate_id": "cert:d0d3a04ede3a7ac7d565fd098deb962a0e693c5939053f01f6c73dabce779c81",
+      "verification_status": "not_verified_no_grounded_value",
+      "uncertainty": "The 6% Puja coupon code was not observed in any captured evidence. Certificate status is 'coverage_incomplete' (value=null, candidates=[], checks=[]), with explicit limitations image_text_unverified, image_asset_coverage_unverified, interactive_states_unchecked, and vision_unconfigured. The three image regions returned (Shwapno Puja hero banner, 'Special Savings!'/BIG SALE banners, product cards) show no coupon card with a discount and an alphanumeric code, and their stored text is empty, so no typed exact_code candidate passed the checks. This is incomplete coverage, not proof of absence; the coupon code likely sits inside a banner/promo image whose text was not OCR-verified (vision unconfigured) or in an unchecked interactive state. No grounded value could be proposed to verify_answer, so a guess was not submitted."
+    },
+    "final_text": "I completed a thorough, budgeted search: multiple `resolve_evidence` passes (subjects \"Puja coupon\" / \"Coupon\"; scopes page/data/all_sources; raised OCR/vision budget) all returned the same three image regions with empty text and zero candidates. I then inspected all three regions in both `crop` and `text` views. The visible content is the Shwapno Puja-campaign page (header + Puja hero banner, \"Special Savings!\" / \"BIG SALE\" banners, product cards, trust badges) — but no coupon with a \"6%\" discount and an alphanumeric code is present in the captured pixels, and no OCR text is stored for the regions.\n\nThe final certificate reports `status = coverage_incomplete`, `value = null`, `candidates = []`, with limitations `image_text_unverified`, `image_asset_coverage_unverified`, `interactive_states_unchecked`, and `vision_unconfigured`. I have not observed a grounded coupon-code value, so I cannot propose one to `verify_answer` without fabricating. Per the protocol, I report an abstention with the certificate's explicit diagnostics rather than a guessed code.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:e89a6d7a3a8cde063742d0e0cb87965ec435d85ea72e8856eefbf90604323ccd\",\n    \"ev:5c2deb2d5ff9da55af09fa15cb1b492d734069b65f362fb7e629924f96879309\",\n    \"ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138\"\n  ],\n  \"certificate_id\": \"cert:d0d3a04ede3a7ac7d565fd098deb962a0e693c5939053f01f6c73dabce779c81\",\n  \"verification_status\": \"not_verified_no_grounded_value\",\n  \"uncertainty\": \"The 6% Puja coupon code was not observed in any captured evidence. Certificate status is 'coverage_incomplete' (value=null, candidates=[], checks=[]), with explicit limitations image_text_unverified, image_asset_coverage_unverified, interactive_states_unchecked, and vision_unconfigured. The three image regions returned (Shwapno Puja hero banner, 'Special Savings!'/BIG SALE banners, product cards) show no coupon card with a discount and an alphanumeric code, and their stored text is empty, so no typed exact_code candidate passed the checks. This is incomplete coverage, not proof of absence; the coupon code likely sits inside a banner/promo image whose text was not OCR-verified (vision unconfigured) or in an unchecked interactive state. No grounded value could be proposed to verify_answer, so a guess was not submitted.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 78.387,
+    "session_ids": [
+      "ses_e99a478dfffexmlYT7Uf5G8bri"
+    ],
+    "trace": "traces/BD-QC02-04.jsonl.gz",
+    "trace_sha256": "a66e3dd88c16253baef57e65c4b7384dd01d97e22b951baf2e3aa1c93be05c83",
+    "citation_handles_exist": {
+      "ev:e89a6d7a3a8cde063742d0e0cb87965ec435d85ea72e8856eefbf90604323ccd": true,
+      "ev:5c2deb2d5ff9da55af09fa15cb1b492d734069b65f362fb7e629924f96879309": true,
+      "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-QC02-04",
+        "calls": 12,
+        "image_pixels": 1572864
+      }
+    ],
+    "execute_calls": 9,
+    "nested_tool_calls": 12,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 1021742,
+    "opencode_reported_cost_usd": 0.01598995,
+    "opencode_reported_tokens": {
+      "input": 18174,
+      "output": 2368,
+      "reasoning": 8088,
+      "cache_read": 63744,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-05",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-05",
+      "site": "shwapno",
+      "question": "What exact code is printed on the 7% Puja coupon?",
+      "expected": "PUJA7",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/shwapno_crop_hero.png",
+        "sha256": "c40e1b0cdfb08f1ab1db5e883e3a9d7b7deec00098b92186e31f1983dfe82cee",
+        "locator": "green 7% voucher, x=980..1200,y=175..280"
+      },
+      "reference_note": "OCR previously missed this exact code; this is a deliberate hard case."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:e89a6d7a3a8cde063742d0e0cb87965ec435d85ea72e8856eefbf90604323ccd",
+        "ev:5c2deb2d5ff9da55af09fa15cb1b492d734069b65f362fb7e629924f96879309",
+        "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138"
+      ],
+      "certificate_id": "cert:5d446b1e17d3e9f4456778477c8c017717cf6e9c36a39c7bf3c781ce8afb1ee5",
+      "verification_status": "not_verified",
+      "uncertainty": "Certificate status is 'coverage_incomplete' with 0 candidates and 0 passed typed checks across multiple subjects ('coupon', 'Puja', 'COUPONS', '7%'), scopes (page, data, all_sources) and an expanded OCR budget; reason: 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' Coverage flags: image_text_unverified, image_asset_coverage_unverified, interactive_states_unchecked. Inspected crops (page header/Puja banner, 'Special Savings!'/BIG SALE banners, product cards) contain no coupon tile with a printed code, so the 7% Puja coupon code is not observable in the inspected coverage and cannot be passed to verify_answer."
+    },
+    "final_text": "\n\nAfter six resolution attempts (different subjects, scopes, and an expanded OCR budget) and direct inspection of all three returned crops, no subject-bound coupon code was ever observed. The certificate remains `coverage_incomplete` with zero candidates and zero passed checks, and explicitly states this is not proof of absence. The inspected crops show only the Shwapno header, the Puja \"শপ অনলাইনে পুজার ছাড়\" banner, the \"Special Savings!\" banner, and product cards — no coupon tile with a printed code. Per the gate rules, I will not propose a value with no grounding and will abstain with certificate diagnostics.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:e89a6d7a3a8cde063742d0e0cb87965ec435d85ea72e8856eefbf90604323ccd\",\n    \"ev:5c2deb2d5ff9da55af09fa15cb1b492d734069b65f362fb7e629924f96879309\",\n    \"ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138\"\n  ],\n  \"certificate_id\": \"cert:5d446b1e17d3e9f4456778477c8c017717cf6e9c36a39c7bf3c781ce8afb1ee5\",\n  \"verification_status\": \"not_verified\",\n  \"uncertainty\": \"Certificate status is 'coverage_incomplete' with 0 candidates and 0 passed typed checks across multiple subjects ('coupon', 'Puja', 'COUPONS', '7%'), scopes (page, data, all_sources) and an expanded OCR budget; reason: 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' Coverage flags: image_text_unverified, image_asset_coverage_unverified, interactive_states_unchecked. Inspected crops (page header/Puja banner, 'Special Savings!'/BIG SALE banners, product cards) contain no coupon tile with a printed code, so the 7% Puja coupon code is not observable in the inspected coverage and cannot be passed to verify_answer.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 109.483,
+    "session_ids": [
+      "ses_e99a34723ffeCTeIq2gIAcXS0U"
+    ],
+    "trace": "traces/BD-QC02-05.jsonl.gz",
+    "trace_sha256": "7ae360f4ecf1d22c6fb6f2403dbf0784a831519f221d32fdaefa1180bf06f849",
+    "citation_handles_exist": {
+      "ev:e89a6d7a3a8cde063742d0e0cb87965ec435d85ea72e8856eefbf90604323ccd": true,
+      "ev:5c2deb2d5ff9da55af09fa15cb1b492d734069b65f362fb7e629924f96879309": true,
+      "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-QC02-05",
+        "calls": 12,
+        "image_pixels": 1572864
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 12,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 1047104,
+    "opencode_reported_cost_usd": 0.00656055,
+    "opencode_reported_tokens": {
+      "input": 28750,
+      "output": 1973,
+      "reasoning": 1801,
+      "cache_read": 17536,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-12",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-12",
+      "site": "shwapno",
+      "question": "What price per piece and minimum quantity are shown for Egg Loose?",
+      "expected": "৳12.75 per piece; minimum 12",
+      "rubric": "price_and_minimum",
+      "modality": "rendered_product_card",
+      "reference": {
+        "path": "scratch/shwapno_crop_hero.png",
+        "sha256": "c40e1b0cdfb08f1ab1db5e883e3a9d7b7deec00098b92186e31f1983dfe82cee",
+        "locator": "recommended first product card, x=60..280,y=730..1085"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "৳12.75 Per Piece (Min. 12)",
+      "evidence": [
+        "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23"
+      ],
+      "certificate_id": "cert:291d0ae0cd177fa4ff6a52d247081928cf76ba24ec9eae85b8310cf1d3ff0985",
+      "verification_status": "accepted",
+      "uncertainty": "Low — value read directly from the saved pixel crop of the Egg Loose product card (price ৳12.75 per piece, Min. 12); the text was image-based and confirmed visually, with the verification gate accepting the answer as visual_grounded."
+    },
+    "final_text": "\n\nThe final gate accepted the answer as visually grounded.\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"৳12.75 Per Piece (Min. 12)\",\n  \"evidence\": [\"ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23\"],\n  \"certificate_id\": \"cert:291d0ae0cd177fa4ff6a52d247081928cf76ba24ec9eae85b8310cf1d3ff0985\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low — value read directly from the saved pixel crop of the Egg Loose product card (price ৳12.75 per piece, Min. 12); the text was image-based and confirmed visually, with the verification gate accepting the answer as visual_grounded.\"\n}\n```\n\nThe Egg Loose product card in the capture shows **৳12.75 Per Piece (Min. 12)** — a per-piece price of ৳12.75 with a minimum quantity of 12.",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 55.146,
+    "session_ids": [
+      "ses_e99a19b0affe4m5bUAuTlM86uZ"
+    ],
+    "trace": "traces/BD-QC02-12.jsonl.gz",
+    "trace_sha256": "fba316e7848f4e06e9f23bae726c460cece1b542f925911c001750c5e6f8e485",
+    "citation_handles_exist": {
+      "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": "৳12.75 Per Piece (Min. 12)"
+        },
+        "certificate_id": "cert:291d0ae0cd177fa4ff6a52d247081928cf76ba24ec9eae85b8310cf1d3ff0985",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD-QC02-12",
+        "calls": 4,
+        "image_pixels": 1179648
+      }
+    ],
+    "execute_calls": 5,
+    "nested_tool_calls": 4,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 743051,
+    "opencode_reported_cost_usd": 0.00347132,
+    "opencode_reported_tokens": {
+      "input": 14540,
+      "output": 935,
+      "reasoning": 1101,
+      "cache_read": 7840,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-17",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-17",
+      "site": "shwapno",
+      "question": "How many Dhaka outlets are listed in the captured coverage table?",
+      "expected": "290",
+      "rubric": "exact_number",
+      "modality": "rendered_table",
+      "reference": {
+        "path": "scratch/shwapno_crop_footer.png",
+        "sha256": "ea6fd5f6d757a1f927eb4e73bd4bd235bbfae1b3c76e2dcfdece6e1720f9265c",
+        "locator": "coverage table, x=845..1220,y=1090..1240"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138",
+        "ev:ee5d28afc8db428ef4274c601a2d2c969591fc107ca2790c1ff153176a019882",
+        "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23"
+      ],
+      "certificate_id": "cert:0106dc763513a6d66e4b384c348b286a83c174a4966e3b43e508af24001cc3b1",
+      "verification_status": "not_run_no_observed_value",
+      "uncertainty": "Certificate status 'coverage_incomplete': 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' Coverage flags: image_text_unverified, external_css_visibility_unverified, interactive_states_unchecked. Inspected crops show only the Shwapno homepage top with no coverage table visible, so the Dhaka outlet count cannot be grounded in this capture."
+    },
+    "final_text": "**Abstained — no grounded value observed in the capture.**\n\nResolution summary:\n- I ran `resolve_evidence` four times against the snapshot (subjects: \"coverage table\", \"Our outlets\", \"coverage\", \"Dhaka\"; scopes: page, data, all_sources) with answer types number/set. Every pass returned certificate status **`coverage_incomplete`** with zero candidates.\n- `inspect_evidence` (crop view) on all three saved-pixel regions shows only the top of the Shwapno homepage — navigation (including an \"Our outlets\" link), category menu, discount banners, and \"Recommended for You\" / \"Weekday Deals\" product cards. No coverage table listing Dhaka outlets is visible anywhere in the captured region.\n- The certificate explicitly notes its limitations: `image_text_unverified`, `external_css_visibility_unverified`, `interactive_states_unchecked`, and \"No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.\"\n- Because no subject-bound value was ever observed, `verify_answer` had nothing to gate; I did not enter a retry loop.\n\nFinal result:\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138\",\n    \"ev:ee5d28afc8db428ef4274c601a2d2c969591fc107ca2790c1ff153176a019882\",\n    \"ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23\"\n  ],\n  \"certificate_id\": \"cert:0106dc763513a6d66e4b384c348b286a83c174a4966e3b43e508af24001cc3b1\",\n  \"verification_status\": \"not_run_no_observed_value\",\n  \"uncertainty\": \"Certificate status 'coverage_incomplete': 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' Coverage flags: image_text_unverified, external_css_visibility_unverified, interactive_states_unchecked. Inspected crops show only the Shwapno homepage top with no coverage table visible, so the Dhaka outlet count cannot be grounded in this capture.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 44.626,
+    "session_ids": [
+      "ses_e99a0c427ffeYaAUJgMeREQa1i"
+    ],
+    "trace": "traces/BD-QC02-17.jsonl.gz",
+    "trace_sha256": "cd803d599ea8b9217ed96a1623c6e2890233af26d65e64f4e83949d214d48c94",
+    "citation_handles_exist": {
+      "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138": true,
+      "ev:ee5d28afc8db428ef4274c601a2d2c969591fc107ca2790c1ff153176a019882": true,
+      "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-QC02-17",
+        "calls": 7,
+        "image_pixels": 1671168
+      }
+    ],
+    "execute_calls": 7,
+    "nested_tool_calls": 7,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 1187849,
+    "opencode_reported_cost_usd": 0.00610021,
+    "opencode_reported_tokens": {
+      "input": 14694,
+      "output": 1907,
+      "reasoning": 1794,
+      "cache_read": 28672,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-19",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-19",
+      "site": "shwapno",
+      "question": "What customer-service phone number appears in the captured footer?",
+      "expected": "16469",
+      "rubric": "exact_number",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "scratch/shwapno_crop_footer.png",
+        "sha256": "ea6fd5f6d757a1f927eb4e73bd4bd235bbfae1b3c76e2dcfdece6e1720f9265c",
+        "locator": "footer contact block, x=50..300,y=1450..1570"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23",
+        "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138",
+        "ev:ee5d28afc8db428ef4274c601a2d2c969591fc107ca2790c1ff153176a019882"
+      ],
+      "certificate_id": "cert:b1586ba03c5cc7aea02ce3bb3627cfe4be85d4a80fbb90d73a8adc82fa49fcc8",
+      "verification_status": "not_submitted",
+      "uncertainty": "Certificate status 'coverage_incomplete': no subject-bound value passed the typed checks in the inspected scope, and the certificate explicitly states this is not proof of absence. The visible capture (1280x1408) ends at the 'Weekday Deals' section, so the page footer is not present in the saved pixels; saved-HTML coverage flagged image_text_unverified and no OCR text was returned for any region. Related certificates cert:0141cd0e770d221f0511ce396c98b6b91c97a3270b10703396be114de6c65512, cert:da04d85b2898271a1892d8c002deb3c1352d436c93c8a03cf29599b3430e60d8, cert:ca48ab9c9a8eced2bb84eb3bf6e83921f811ac21e7b585297497eede0818f610, cert:25f02bfa2af16678ba4c2243a47df394781de23b757c8d236ffd71e11947cca2 show the same coverage_incomplete outcome for subject variants. A customer-service phone number was never observed in any evidence, so no proposed answer was submitted to verify_answer."
+    },
+    "final_text": "\n\nI have exhausted reasonable refinement: five `resolve_evidence` calls (subjects \"footer\", \"Customer Care\", \"Contact Us\", \"Footer\"; scopes `page`/`all_sources`) all returned `coverage_incomplete` with zero subject-bound candidates, and inspection of all three captured image regions shows empty OCR text. The captured pixels (1280×1408) end at the \"Weekday Deals\" banner — no footer is visible in the capture, and coverage flags confirm image text remains unverified. No phone number was observed in any evidence, so there is no grounded value to submit to the gate.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23\",\n    \"ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138\",\n    \"ev:ee5d28afc8db428ef4274c601a2d2c969591fc107ca2790c1ff153176a019882\"\n  ],\n  \"certificate_id\": \"cert:b1586ba03c5cc7aea02ce3bb3627cfe4be85d4a80fbb90d73a8adc82fa49fcc8\",\n  \"verification_status\": \"not_submitted\",\n  \"uncertainty\": \"Certificate status 'coverage_incomplete': no subject-bound value passed the typed checks in the inspected scope, and the certificate explicitly states this is not proof of absence. The visible capture (1280x1408) ends at the 'Weekday Deals' section, so the page footer is not present in the saved pixels; saved-HTML coverage flagged image_text_unverified and no OCR text was returned for any region. Related certificates cert:0141cd0e770d221f0511ce396c98b6b91c97a3270b10703396be114de6c65512, cert:da04d85b2898271a1892d8c002deb3c1352d436c93c8a03cf29599b3430e60d8, cert:ca48ab9c9a8eced2bb84eb3bf6e83921f811ac21e7b585297497eede0818f610, cert:25f02bfa2af16678ba4c2243a47df394781de23b757c8d236ffd71e11947cca2 show the same coverage_incomplete outcome for subject variants. A customer-service phone number was never observed in any evidence, so no proposed answer was submitted to verify_answer.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 162.111,
+    "session_ids": [
+      "ses_e99a01596ffe80fvS8QP6Ri4eK"
+    ],
+    "trace": "traces/BD-QC02-19.jsonl.gz",
+    "trace_sha256": "687b0386c609e7bc41f1b4d94b3c91c8db72b62ecc9aa62c4cfab7539f65e8f5",
+    "citation_handles_exist": {
+      "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23": true,
+      "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138": true,
+      "ev:ee5d28afc8db428ef4274c601a2d2c969591fc107ca2790c1ff153176a019882": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-QC02-19",
+        "calls": 9,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 9,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 319824,
+    "opencode_reported_cost_usd": 0.00621043,
+    "opencode_reported_tokens": {
+      "input": 10291,
+      "output": 1284,
+      "reasoning": 2653,
+      "cache_read": 26880,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-GV01-04",
+    "site": "bangladesh-gov",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-GV01-04",
+      "site": "bangladesh-gov",
+      "question": "What is the food-safety popup headline in Bengali?",
+      "expected": "পোড়া তেল ব্যবহার করবেন না",
+      "rubric": "normalized_literal",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/bd_gv01_popup_crop.png",
+        "sha256": "5933647e01b7a0ddf9cdf59dd16b4713d6a241cece68200656d26873d53e4465",
+        "locator": "green title bar, x=60..430,y=55..110"
+      },
+      "reference_note": "Unicode NFC and equivalent Bengali nukta forms are normalized."
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "পোড়া তেল ব্যবহার করবেন না",
+      "evidence": [
+        "ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71",
+        "ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580"
+      ],
+      "certificate_id": "cert:02a6fa23964226ac794a898919f7c96a15c55c2dc95cdbd2fa3d8c34d11673df",
+      "verification_status": "accepted",
+      "uncertainty": "Low: value read from saved pixel crops (visual_grounded) of the top banner region; the certificate itself reported coverage_incomplete for text-based checks since OCR yielded no machine text, but the verify gate accepted the visual grounding. Transcript: 'Do not use burnt oil'."
+    },
+    "final_text": "The final gate accepted the answer. The food-safety popup headline in the capture, verified against the saved pixel crops, is:\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"পোড়া তেল ব্যবহার করবেন না\",\n  \"evidence\": [\n    \"ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71\",\n    \"ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580\"\n  ],\n  \"certificate_id\": \"cert:02a6fa23964226ac794a898919f7c96a15c55c2dc95cdbd2fa3d8c34d11673df\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low: value read from saved pixel crops (visual_grounded) of the top banner region; the certificate itself reported coverage_incomplete for text-based checks since OCR yielded no machine text, but the verify gate accepted the visual grounding. Transcript: 'Do not use burnt oil'.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 29.488,
+    "session_ids": [
+      "ses_e999d9c53ffe4ObPi5PibA8iTv"
+    ],
+    "trace": "traces/BD-GV01-04.jsonl.gz",
+    "trace_sha256": "bb7710dcc1348b7912f716a4ec77563c75c67f52990c194caab102b629aea1f5",
+    "citation_handles_exist": {
+      "ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71": true,
+      "ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71",
+            "ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": "পোড়া তেল ব্যবহার করবেন না"
+        },
+        "certificate_id": "cert:02a6fa23964226ac794a898919f7c96a15c55c2dc95cdbd2fa3d8c34d11673df",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": true,
+    "session_counters": [
+      {
+        "id": "BD-GV01-04",
+        "calls": 8,
+        "image_pixels": 1081344
+      }
+    ],
+    "execute_calls": 7,
+    "nested_tool_calls": 8,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 859748,
+    "opencode_reported_cost_usd": 0.00503159,
+    "opencode_reported_tokens": {
+      "input": 14485,
+      "output": 1437,
+      "reasoning": 1523,
+      "cache_read": 25344,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-GV01-07",
+    "site": "bangladesh-gov",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-GV01-07",
+      "site": "bangladesh-gov",
+      "question": "What does the fourth panel advise doing with once-used oil?",
+      "expected": "ছেঁকে তরকারিতে ব্যবহার করতে পারেন",
+      "rubric": "exact_key_phrase",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/bd_gv01_popup_crop.png",
+        "sha256": "5933647e01b7a0ddf9cdf59dd16b4713d6a241cece68200656d26873d53e4465",
+        "locator": "purple fourth panel, x=55..250,y=445..540"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "The fourth panel advises that once-used (once-fried) oil should not be used for frying again; instead, it may be used in preparing food. Exact panel text (Bengali): \"একবরর ভাজা তেল পুনরার ভাজার কাজে ব্যবহার না করে খাবার তৈরিতে ব্যবহার করতে পারেন।\"",
+      "evidence": [
+        "ev:181b459af80b3aab6fdf16c923941ad6849672bd48360c2d44d8a971ce82a5a2",
+        "ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71"
+      ],
+      "certificate_id": "cert:323c0f30b1063078e904dc03f91fc5e395f9e36e2531048110e2958405a5ef1e",
+      "verification_status": "accepted",
+      "uncertainty": "Moderate-low: the page is a single rasterized image with empty OCR text fields (certificate flags image_text_unverified, image_asset_coverage_unverified); the value was read visually from the rendered crop of the fourth (lavender) panel of the 'পোড়া তেল ব্যবহার করবেন না' strip, and verify_answer accepted it with evidence_status 'visual_grounded'."
+    },
+    "final_text": "\n\nThe gate accepted the answer as `visual_grounded`. Returning the final result.\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"The fourth panel advises that once-used (once-fried) oil should not be used for frying again; instead, it may be used in preparing food. Exact panel text (Bengali): \\\"একবরর ভাজা তেল পুনরার ভাজার কাজে ব্যবহার না করে খাবার তৈরিতে ব্যবহার করতে পারেন।\\\"\",\n  \"evidence\": [\n    \"ev:181b459af80b3aab6fdf16c923941ad6849672bd48360c2d44d8a971ce82a5a2\",\n    \"ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71\"\n  ],\n  \"certificate_id\": \"cert:323c0f30b1063078e904dc03f91fc5e395f9e36e2531048110e2958405a5ef1e\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Moderate-low: the page is a single rasterized image with empty OCR text fields (certificate flags image_text_unverified, image_asset_coverage_unverified); the value was read visually from the rendered crop of the fourth (lavender) panel of the 'পোড়া তেল ব্যবহার করবেন না' strip, and verify_answer accepted it with evidence_status 'visual_grounded'.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 153.073,
+    "session_ids": [
+      "ses_e999d2968ffeMfbSXoZ1Ux41Zr"
+    ],
+    "trace": "traces/BD-GV01-07.jsonl.gz",
+    "trace_sha256": "f0cd3f2067db5fca4d3b77ebd40a3089cc45d847835d0cd91b5b933034ac81f5",
+    "citation_handles_exist": {
+      "ev:181b459af80b3aab6fdf16c923941ad6849672bd48360c2d44d8a971ce82a5a2": true,
+      "ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71": true
+    },
+    "gate_events": [
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:181b459af80b3aab6fdf16c923941ad6849672bd48360c2d44d8a971ce82a5a2",
+            "ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71"
+          ],
+          "evidence_status": "visual_grounded",
+          "value": "একবারের ভাজা তেল পুনরায় ভাজার কাজে ব্যবহার না করে খাবার তৈরিতে ব্যবহার করতে পারেন।"
+        },
+        "certificate_id": "cert:323c0f30b1063078e904dc03f91fc5e395f9e36e2531048110e2958405a5ef1e",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-GV01-07",
+        "calls": 15,
+        "image_pixels": 2260992
+      }
+    ],
+    "execute_calls": 8,
+    "nested_tool_calls": 15,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 1670836,
+    "opencode_reported_cost_usd": 0.01894936,
+    "opencode_reported_tokens": {
+      "input": 25143,
+      "output": 2741,
+      "reasoning": 9658,
+      "cache_read": 66944,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-GV01-11",
+    "site": "bangladesh-gov",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-GV01-11",
+      "site": "bangladesh-gov",
+      "question": "What Upazila count is displayed in the captured statistics bar?",
+      "expected": "৫০০",
+      "rubric": "exact_number",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/bd-gv01-fullpage.png",
+        "sha256": "01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888",
+        "locator": "statistics bar, x=935..1015,y=630..710"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:f4f08207ff675c52338f4b65ea267ef26b3660f55696975a25a73d6e8f0bb19f",
+        "ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580"
+      ],
+      "certificate_id": "cert:f0e4055154fbfb2b690aafe85e03bb07717d544cb3a25bb8e80d10cdc4559dd8",
+      "verification_status": "not_verified_budget_exhausted",
+      "uncertainty": "The statistics bar is visible in the saved crops (four counts: 69, 92, 565, 8 with Bengali labels, incl. 'অন্যান্য অফিস' and 'বিভাগ'), but no certificate passed a typed check binding an Upazila subject to a value; all Upazila-targeted resolves returned coverage_incomplete with empty candidates, image text was unverified (empty OCR, zero vision calls), and the session budget was exhausted before verify_answer could be attempted. The specific Upazila count therefore cannot be confirmed from grounded evidence; this is a coverage limitation, not proof of absence."
+    },
+    "final_text": "The session/image-pixel budget is now exhausted, so I must conclude with the findings gathered so far.\n\n**Diagnostics from the investigation:**\n- The captured page (a Bangladesh national portal) shows a statistics bar at the bottom of the viewport with four number/label pairs (Bengali digits: 69 / 92 / 565 / 8). I could read the bar in the saved crops, but no certificate could bind the \"Upazila\" subject to any of them.\n- Every `resolve_evidence` attempt for the Upazila count (subjects \"Statistics bar\", \"উপজেলা\", \"Upazila\", \"সরকারি সেবাসমূহ\", the digits \"৯২\"/\"92\"/\"69\"/\"565\", with/without positions and vision/OCR budgets) returned `status: \"coverage_incomplete\"`, `value: null`, `candidates: []`, with reason: \"No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.\"\n- Coverage flags: `image_text_unverified`, `image_asset_coverage_unverified`, `external_css_visibility_unverified`, `interactive_states_unchecked` (only `saved_html` verified). OCR text for all image regions came back empty and no vision calls executed, so the bar's labels could not be confirmed as machine-readable text tied to \"Upazila\" — OCR is tentative at best.\n- The only accepted extraction was the section heading quote \"সরকারি সেবাসমূহ\" (`cert:574cdafa...`), which is unrelated to the count.\n- The budget was exhausted before I could ground and submit any proposed value to `verify_answer`, so no final gate acceptance is possible.\n\nPer the protocol (no value accepted by verify_answer → abstain), I report an abstention.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:f4f08207ff675c52338f4b65ea267ef26b3660f55696975a25a73d6e8f0bb19f\",\n    \"ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580\"\n  ],\n  \"certificate_id\": \"cert:f0e4055154fbfb2b690aafe85e03bb07717d544cb3a25bb8e80d10cdc4559dd8\",\n  \"verification_status\": \"not_verified_budget_exhausted\",\n  \"uncertainty\": \"The statistics bar is visible in the saved crops (four counts: 69, 92, 565, 8 with Bengali labels, incl. 'অন্যান্য অফিস' and 'বিভাগ'), but no certificate passed a typed check binding an Upazila subject to a value; all Upazila-targeted resolves returned coverage_incomplete with empty candidates, image text was unverified (empty OCR, zero vision calls), and the session budget was exhausted before verify_answer could be attempted. The specific Upazila count therefore cannot be confirmed from grounded evidence; this is a coverage limitation, not proof of absence.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 100.579,
+    "session_ids": [
+      "ses_e999ad346ffeKXErSK4Y2twOyQ"
+    ],
+    "trace": "traces/BD-GV01-11.jsonl.gz",
+    "trace_sha256": "68b7eeb8d93e33db9f3721e28fb202a00e73e748fd6e5f5f335d34de16c6eff8",
+    "citation_handles_exist": {
+      "ev:f4f08207ff675c52338f4b65ea267ef26b3660f55696975a25a73d6e8f0bb19f": true,
+      "ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-GV01-11",
+        "calls": 20,
+        "image_pixels": 1179648
+      }
+    ],
+    "execute_calls": 14,
+    "nested_tool_calls": 22,
+    "nested_tool_errors": 2,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 594442,
+    "opencode_reported_cost_usd": 0.02439751,
+    "opencode_reported_tokens": {
+      "input": 19909,
+      "output": 3521,
+      "reasoning": 11828,
+      "cache_read": 160000,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-ED01-19",
+    "site": "10ms",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-ED01-19",
+      "site": "10ms",
+      "question": "What is the featured parent testimonial speaker’s name?",
+      "expected": "পূর্ণিমা লস্কর",
+      "rubric": "exact_entity",
+      "modality": "rendered_testimonial",
+      "reference": {
+        "path": "scratch/visual_crops/testimonial2.png",
+        "sha256": "e5ac64c06816b66201627a99e245b293b2b4838e2768e423f32241c98aa4a315",
+        "locator": "speaker name, x=230..345,y=485..530"
+      },
+      "reference_note": "The supplemental crop is supplied to the agent; this case tests reading, not image localization. Accept Purnima Laskar transliteration only."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:de9e6f5c6493505f728612d2e8e8d64c2e09ff9405424118b32be191e4a9a371",
+        "ev:856c29d4d26c0ca54bd961b65773ce079b328440f74b2595479112fe62637a79",
+        "ev:5e609ca8cd9acb6fc0a42c594062a717bddcb85323a4693ce474a9da03d62b48",
+        "ev:b23bdc992795dc6fcd5cc76350cd39f5088bb1aaeb92472be6067fab59d9abdf",
+        "ev:75672aca7adcb89bb8bacb9446da419a93c1d36cd304dd73de89b09a951ff418"
+      ],
+      "certificate_id": "cert:62cf98e324f602b7be0d9aece657d99010b0764179a60836526d43f4d2592147",
+      "verification_status": "not_verified",
+      "uncertainty": "Certificate status is 'coverage_incomplete': no subject-bound value passed the typed checks, which is explicitly 'not proof of absence'. The only inspected visual regions (y=1920–3328) show the online/offline features section, not any parent testimonial; coverage flags image_text_unverified, image_asset_coverage_unverified, and interactive_states_unchecked. The session call/image-pixel budget was exhausted ('session call or image-pixel budget exhausted') before the lower page regions where a featured parent testimonial would likely appear could be resolved or OCR-inspected, so the speaker's name could not be grounded in observed evidence. verify_answer was not called because no grounded candidate value exists."
+    },
+    "final_text": "The session LWA budget is exhausted (20 calls consumed), and I cannot make further resolve/inspect calls. Let me consolidate what I found before the budget stopped me.\n\n**Summary of observations from the capture:**\n- The snapshot is a TenTen (10minuteschool.com) Bengali-language landing page.\n- `resolve_evidence` with subjects \"Parent Testimonial\", \"Testimonial\", \"Testimonials\", \"parent\", \"অভিভাবক\" etc. returned status `coverage_incomplete` — \"No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.\"\n- The only visual regions available (3 tiles, y=1920–3328) show the \"অনলাইনেই শেখা হোক নিরাপদ\" / \"অফলাইনে শেখা, আরও ইন্টারঅ্যাকটিভভাবে!\" features section (online/offline learning, \"1-1 Counselling\" for parents, \"কাজ করতে করতে শেখা\") — no testimonial names appear in those crops.\n- The HTML text records I retrieved (ev:b23b…, ev:7567…) contain the features copy and a CTA (\"২৪ ঘণ্টা ডাউট সল্ভের জন্য তোমার স্টাডি পার্টনার TenTen\"), but no parent name/testimonial.\n- The featured parent testimonial section, if present, lies beyond the covered region (lower page / unverified image assets: `image_text_unverified`, `image_asset_coverage_unverified`, `interactive_states_unchecked`), and the session call/image-pixel budget was exhausted before that area could be inspected.\n\nSince no value was observed in evidence, I must abstain rather than guess.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:de9e6f5c6493505f728612d2e8e8d64c2e09ff9405424118b32be191e4a9a371\",\n    \"ev:856c29d4d26c0ca54bd961b65773ce079b328440f74b2595479112fe62637a79\",\n    \"ev:5e609ca8cd9acb6fc0a42c594062a717bddcb85323a4693ce474a9da03d62b48\",\n    \"ev:b23bdc992795dc6fcd5cc76350cd39f5088bb1aaeb92472be6067fab59d9abdf\",\n    \"ev:75672aca7adcb89bb8bacb9446da419a93c1d36cd304dd73de89b09a951ff418\"\n  ],\n  \"certificate_id\": \"cert:62cf98e324f602b7be0d9aece657d99010b0764179a60836526d43f4d2592147\",\n  \"verification_status\": \"not_verified\",\n  \"uncertainty\": \"Certificate status is 'coverage_incomplete': no subject-bound value passed the typed checks, which is explicitly 'not proof of absence'. The only inspected visual regions (y=1920–3328) show the online/offline features section, not any parent testimonial; coverage flags image_text_unverified, image_asset_coverage_unverified, and interactive_states_unchecked. The session call/image-pixel budget was exhausted ('session call or image-pixel budget exhausted') before the lower page regions where a featured parent testimonial would likely appear could be resolved or OCR-inspected, so the speaker's name could not be grounded in observed evidence. verify_answer was not called because no grounded candidate value exists.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 131.228,
+    "session_ids": [
+      "ses_e99994a6dffe9QfdmijxF9AiiZ"
+    ],
+    "trace": "traces/BD-ED01-19.jsonl.gz",
+    "trace_sha256": "1373160d4a703e7cdb2dcc9e51b8ef41cccc83263c4bcf457182d8fe247b9ef8",
+    "citation_handles_exist": {
+      "ev:de9e6f5c6493505f728612d2e8e8d64c2e09ff9405424118b32be191e4a9a371": true,
+      "ev:856c29d4d26c0ca54bd961b65773ce079b328440f74b2595479112fe62637a79": true,
+      "ev:5e609ca8cd9acb6fc0a42c594062a717bddcb85323a4693ce474a9da03d62b48": true,
+      "ev:b23bdc992795dc6fcd5cc76350cd39f5088bb1aaeb92472be6067fab59d9abdf": true,
+      "ev:75672aca7adcb89bb8bacb9446da419a93c1d36cd304dd73de89b09a951ff418": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-ED01-19",
+        "calls": 20,
+        "image_pixels": 1671168
+      }
+    ],
+    "execute_calls": 13,
+    "nested_tool_calls": 33,
+    "nested_tool_errors": 13,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 478154,
+    "opencode_reported_cost_usd": 0.02220809,
+    "opencode_reported_tokens": {
+      "input": 30396,
+      "output": 4710,
+      "reasoning": 8686,
+      "cache_read": 161536,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-ED01-17-reference-conflict",
+    "site": "10ms",
+    "diagnostic": true,
+    "reference": {
+      "control_id": "BD-ED01-17-reference-conflict",
+      "site": "10ms",
+      "question": "What app download count does this saved DOM state, and does it settle the historical disagreement?",
+      "expected_state": "reference_conflict_unresolved",
+      "scored_in_accuracy": false,
+      "reason": "Saved DOM has 5,00,000+; prior inventory lists ৪,৫৮,৫৪৩+; historical run timing is unaligned."
+    },
+    "agent_final": null,
+    "final_text": "\n\n",
+    "reason": "completed",
+    "exit_code": 1,
+    "wall_seconds": 23.127,
+    "session_ids": [
+      "ses_e9997499cffepDJpipLFXSORk7"
+    ],
+    "trace": "traces/BD-ED01-17-reference-conflict.jsonl.gz",
+    "trace_sha256": "f5b2dff69b3c654ddb236a1b047e3ff2156b2519bbf63acb9d03bc4f26d023e2",
+    "citation_handles_exist": {},
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-ED01-17-reference-conflict",
+        "calls": 1,
+        "image_pixels": 0
+      }
+    ],
+    "execute_calls": 2,
+    "nested_tool_calls": 1,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 7705,
+    "opencode_reported_cost_usd": 0.00115142,
+    "opencode_reported_tokens": {
+      "input": 2740,
+      "output": 286,
+      "reasoning": 455,
+      "cache_read": 2304,
+      "cache_write": 0
+    }
+  }
+]

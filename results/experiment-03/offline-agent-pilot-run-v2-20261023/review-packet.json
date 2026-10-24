@@ -1,0 +1,1593 @@
+[
+  {
+    "case_id": "BD2-02",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-02",
+      "site": "chaldal",
+      "question": "What is the main service headline on this captured Chaldal page?",
+      "expected": "Grocery Delivered at your Doorstep",
+      "rubric": "normalized_literal",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "hero heading, x=335..810,y=195..275"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f",
+        "ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925",
+        "ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52"
+      ],
+      "certificate_id": "cert:a9ce425f00c4dd55e39e779af58e12a09fdc1ed8ee26da5ffba377837a43836e",
+      "verification_status": "rejected (certificate_status_not_allowed); repeated resolve_evidence calls all returned status 'coverage_incomplete' with no subject-bound candidates",
+      "uncertainty": "The captured Chaldal page is stored primarily as image pixels (evidence source_kind 'image_region', text empty, coverage flags 'image_text_unverified' / 'image_asset_coverage_unverified' / 'data_index_truncated'), so no certificate for the headline field could reach a verifiable (resolved) status. Visual inspection of the saved crop ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f shows the hero heading 'Grocery Delivered at your Doorstep' (right edge slightly truncated in the 768px crop), which is the likely answer, but the final gate rejected the proposal against certificate cert:a9ce425f00c4dd55e39e779af58e12a09fdc1ed8ee26da5ffba377837a43836e because its status was coverage_incomplete, and I must not bypass a rejection with a self-reading. Coverage is incomplete, not proof of absence; if the page's text layer or a text-bearing re-capture becomes available, the headline 'Grocery Delivered at your Doorstep' should be re-checked through resolve_evidence/verify_answer."
+    },
+    "final_text": "\n\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f\",\n    \"ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925\",\n    \"ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52\"\n  ],\n  \"certificate_id\": \"cert:a9ce425f00c4dd55e39e779af58e12a09fdc1ed8ee26da5ffba377837a43836e\",\n  \"verification_status\": \"rejected (certificate_status_not_allowed); repeated resolve_evidence calls all returned status 'coverage_incomplete' with no subject-bound candidates\",\n  \"uncertainty\": \"The captured Chaldal page is stored primarily as image pixels (evidence source_kind 'image_region', text empty, coverage flags 'image_text_unverified' / 'image_asset_coverage_unverified' / 'data_index_truncated'), so no certificate for the headline field could reach a verifiable (resolved) status. Visual inspection of the saved crop ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f shows the hero heading 'Grocery Delivered at your Doorstep' (right edge slightly truncated in the 768px crop), which is the likely answer, but the final gate rejected the proposal against certificate cert:a9ce425f00c4dd55e39e779af58e12a09fdc1ed8ee26da5ffba377837a43836e because its status was coverage_incomplete, and I must not bypass a rejection with a self-reading. Coverage is incomplete, not proof of absence; if the page's text layer or a text-bearing re-capture becomes available, the headline 'Grocery Delivered at your Doorstep' should be re-checked through resolve_evidence/verify_answer.\"\n}",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 48.11,
+    "session_ids": [
+      "ses_e99f348ccffekwnEMnNc11jehO"
+    ],
+    "trace": "traces/BD2-02.jsonl.gz",
+    "trace_sha256": "d602dc97e71a7ef7ab38e5fac6a23de3026f89de986a8afbf4411d9b95c4e1ac",
+    "citation_handles_exist": {
+      "ev:814b5474f205458009f6802e1a722df0f0abfd463dc64907f20fc0ec6705722f": true,
+      "ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925": true,
+      "ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:a9ce425f00c4dd55e39e779af58e12a09fdc1ed8ee26da5ffba377837a43836e",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD2-02",
+        "calls": 6,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 6,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 138810,
+    "opencode_reported_cost_usd": 0.00517213,
+    "opencode_reported_tokens": {
+      "input": 18186,
+      "output": 1252,
+      "reasoning": 1833,
+      "cache_read": 15552,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-10",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-10",
+      "site": "chaldal",
+      "question": "How many warehouses does the captured page claim?",
+      "expected": "26",
+      "rubric": "exact_number",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "statistics card, x=380..750,y=3060..3170"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:63e4b8e56941a00345d148dc3160e007067cd56915ff62fcc5d0d563a5e4f673"
+      ],
+      "certificate_id": "cert:f2024d90bcfa93d8a3f082aa9208036fd9b54567da427c7553652d24ac801695",
+      "verification_status": "rejected (certificate_status_not_allowed)",
+      "uncertainty": "All resolve_evidence certificates for this snapshot are status 'coverage_incomplete' (flags: data_index_truncated, image_text_unverified, image_asset_coverage_unverified, vision_unconfigured, external_css_visibility_unverified, interactive_states_unchecked); reason: 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' verify_answer therefore refuses value gating (certificate_status_not_allowed). Tentative visual note from the saved crop of ev:63e4b8e5 (bbox [0,2560,768,3328]): a stat card reads '26 warehouses / all over bangladesh', but OCR is unverified and the final gate did not accept any value, so no answer is reported."
+    },
+    "final_text": "The gate rejects on certificate status — since the underlying certificates are `coverage_incomplete`, they are not eligible for value verification. All resolve variants (number/quote, subjects \"warehouses\"/\"Chaldal\", targeted evidence_ids) returned `coverage_incomplete`, and both `verify_answer` attempts came back as `rejected: certificate_status_not_allowed`. Following the protocol, since I cannot bypass a rejection with my own visual reading of the crop, I report an abstention with access-state diagnostics.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:63e4b8e56941a00345d148dc3160e007067cd56915ff62fcc5d0d563a5e4f673\"\n  ],\n  \"certificate_id\": \"cert:f2024d90bcfa93d8a3f082aa9208036fd9b54567da427c7553652d24ac801695\",\n  \"verification_status\": \"rejected (certificate_status_not_allowed)\",\n  \"uncertainty\": \"All resolve_evidence certificates for this snapshot are status 'coverage_incomplete' (flags: data_index_truncated, image_text_unverified, image_asset_coverage_unverified, vision_unconfigured, external_css_visibility_unverified, interactive_states_unchecked); reason: 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' verify_answer therefore refuses value gating (certificate_status_not_allowed). Tentative visual note from the saved crop of ev:63e4b8e5 (bbox [0,2560,768,3328]): a stat card reads '26 warehouses / all over bangladesh', but OCR is unverified and the final gate did not accept any value, so no answer is reported.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 56.183,
+    "session_ids": [
+      "ses_e99f27393ffeKJsRLe3oBkVztI"
+    ],
+    "trace": "traces/BD2-10.jsonl.gz",
+    "trace_sha256": "f446905bcc787913b6093ed64d4064bc77561542d272db26553d99d592be26d0",
+    "citation_handles_exist": {
+      "ev:63e4b8e56941a00345d148dc3160e007067cd56915ff62fcc5d0d563a5e4f673": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:f2024d90bcfa93d8a3f082aa9208036fd9b54567da427c7553652d24ac801695",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      },
+      {
+        "certificate_id": "cert:ce4b7b78d70f8b31590dee369f3d29deb6361130c01c00bdf553a41a8241a848",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD2-10",
+        "calls": 14,
+        "image_pixels": 1615872
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 14,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 470006,
+    "opencode_reported_cost_usd": 0.01166848,
+    "opencode_reported_tokens": {
+      "input": 20300,
+      "output": 2566,
+      "reasoning": 5056,
+      "cache_read": 31488,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-11",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-11",
+      "site": "chaldal",
+      "question": "How many orders does the captured page say have been delivered?",
+      "expected": "5 million",
+      "rubric": "exact_quantity",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "statistics card, x=775..1140,y=3060..3170"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "5 million orders have been delivered (5,000,000)",
+      "evidence": [
+        "ev:62f5f0bf36455f501a8b6cc3ac6f3d16c2c8e677d426c09503899703b064c5b4"
+      ],
+      "certificate_id": "cert:7c3727007d882346b5e4c27c6d6971de2efa4927f3e9d454ab89b8753163dc0e",
+      "verification_status": "accepted",
+      "uncertainty": "Low. The captured page's DOM text node (locator html:12:665447) states: '26 warehouses all over bangladesh 5 million orders have been delivered 100,000 families are being served 340 million Taka customer savings'. Limitation: this node's human visibility is marked 'unverified' (it may be a non-rendered/SEO text block), and the certificate carries coverage flags (data_index_truncated, image_text_unverified); the value is as captured in the source, not confirmed on-screen. A standalone '5 million' phrasing was rejected by the gate, so the accepted value is the full certificate text."
+    },
+    "final_text": "The gate accepted the certificate value. Final answer:\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"5 million orders have been delivered (5,000,000)\",\n  \"evidence\": [\"ev:62f5f0bf36455f501a8b6cc3ac6f3d16c2c8e677d426c09503899703b064c5b4\"],\n  \"certificate_id\": \"cert:7c3727007d882346b5e4c27c6d6971de2efa4927f3e9d454ab89b8753163dc0e\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low. The captured page's DOM text node (locator html:12:665447) states: '26 warehouses all over bangladesh 5 million orders have been delivered 100,000 families are being served 340 million Taka customer savings'. Limitation: this node's human visibility is marked 'unverified' (it may be a non-rendered/SEO text block), and the certificate carries coverage flags (data_index_truncated, image_text_unverified); the value is as captured in the source, not confirmed on-screen. A standalone '5 million' phrasing was rejected by the gate, so the accepted value is the full certificate text.\"\n}\n```\n\nThe captured Chaldal page states that **5 million orders** have been delivered, confirmed by the verified DOM text block and accepted by the final gate.",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 79.629,
+    "session_ids": [
+      "ses_e99f19862ffetwBtSgPl30ftob"
+    ],
+    "trace": "traces/BD2-11.jsonl.gz",
+    "trace_sha256": "36ba196f1c55b5348b79d5fbc64277730a581922066b3732d42d21ff368c50e8",
+    "citation_handles_exist": {
+      "ev:62f5f0bf36455f501a8b6cc3ac6f3d16c2c8e677d426c09503899703b064c5b4": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:7c3727007d882346b5e4c27c6d6971de2efa4927f3e9d454ab89b8753163dc0e",
+        "reason": "exact_value_or_required_steps_mismatch",
+        "status": "rejected"
+      },
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:62f5f0bf36455f501a8b6cc3ac6f3d16c2c8e677d426c09503899703b064c5b4"
+          ],
+          "evidence_status": "supported",
+          "value": "26 warehouses all over bangladesh 5 million orders have been delivered 100,000 families are being served 340 million Taka customer savings"
+        },
+        "certificate_id": "cert:7c3727007d882346b5e4c27c6d6971de2efa4927f3e9d454ab89b8753163dc0e",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD2-11",
+        "calls": 14,
+        "image_pixels": 1462272
+      }
+    ],
+    "execute_calls": 13,
+    "nested_tool_calls": 14,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 403383,
+    "opencode_reported_cost_usd": 0.01490781,
+    "opencode_reported_tokens": {
+      "input": 23551,
+      "output": 2793,
+      "reasoning": 5859,
+      "cache_read": 126976,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-14",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-14",
+      "site": "chaldal",
+      "question": "Which three cities are listed under Currently Delivering in this capture?",
+      "expected": [
+        "Dhaka",
+        "Chattogram",
+        "Jashore"
+      ],
+      "rubric": "complete_set",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "delivery cities section, x=390..1130,y=3450..3650"
+      },
+      "reference_note": ""
+    },
+    "agent_final": null,
+    "final_text": "\n\n",
+    "reason": "wall_timeout",
+    "exit_code": -9,
+    "wall_seconds": 180.008,
+    "session_ids": [
+      "ses_e99f060ebffeSo8ZfXMzeAL6xG"
+    ],
+    "trace": "traces/BD2-14.jsonl.gz",
+    "trace_sha256": "2c1c2b9e17dd0db34e4be36bc325d1f4327eaad0d6156d74ffe19d46e897080e",
+    "citation_handles_exist": {},
+    "gate_events": [
+      {
+        "certificate_id": "cert:f57355120a4a739791d06f7e7f5f04d040a059de48db58e5180455dfff3a1de8",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD2-14",
+        "calls": 18,
+        "image_pixels": 1185504
+      }
+    ],
+    "execute_calls": 14,
+    "nested_tool_calls": 19,
+    "nested_tool_errors": 1,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 295569,
+    "opencode_reported_cost_usd": 0.01378956,
+    "opencode_reported_tokens": {
+      "input": 54247,
+      "output": 3321,
+      "reasoning": 4013,
+      "cache_read": 95488,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-15",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-15",
+      "site": "chaldal",
+      "question": "What is the delivery fee in Dhaka for orders below 400 BDT in the captured FAQ?",
+      "expected": "59 BDT",
+      "rubric": "exact_quantity",
+      "modality": "rendered_table",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "FAQ fee table, x=470..825,y=3950..4200"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:6959e0808c8bcfb161c3acf7a4b171376b6e706e7b95f5b625a605bc2843a62d",
+        "ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee",
+        "ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4"
+      ],
+      "certificate_id": "cert:91d91199e5c04e3e629e804a4ff907f2532ce82528cd79ecb39d4367de7048b0",
+      "verification_status": "not_attempted",
+      "uncertainty": "The delivery-fee table for the FAQ is visible in the captured image, but the 'Orders below 400' column values and city row-labels fall outside the left edge of every returned image region. The certificate status is 'coverage_incomplete' with no candidate value, OCR text is empty for these regions, and vision is unconfigured. This is a coverage limitation, not proof the value is absent from the source; it simply cannot be recovered with the available tooling."
+    },
+    "final_text": "\n\nBased on my investigation, I was able to locate the FAQ delivery-fee table in the captured snapshot (image region covering the \"How much do deliveries cost?\" FAQ item), but the specific \"Orders below 400\" column value for Dhaka is not recoverable from the available evidence:\n\n- The table is rendered inside a saved image (`source_sha256: 8425cd…`), not as extractable HTML text.\n- The crops returned by the system show the right-hand \"Orders above 400\" column (values 49, 49, 19 visible) but the left-hand \"Orders below 400\" column and the city row-labels are cut off at the left edge of every available image region.\n- No OCR text was available for these regions (`text: \"\"`), and the certificate coverage list flags `image_text_unverified` and `vision_unconfigured`.\n- Multiple `resolve_evidence` calls (scope `page`, `data`, `all_sources`, with varying subjects/qualifiers) all returned `status: \"coverage_incomplete\"` with `value: null` and no passing candidates.\n\nBecause I cannot read the specific Dhaka \"below 400 BDT\" cell and vision is not available to fill the gap, I cannot propose a value for `verify_answer`.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:6959e0808c8bcfb161c3acf7a4b171376b6e706e7b95f5b625a605bc2843a62d\",\n    \"ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee\",\n    \"ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4\"\n  ],\n  \"certificate_id\": \"cert:91d91199e5c04e3e629e804a4ff907f2532ce82528cd79ecb39d4367de7048b0\",\n  \"verification_status\": \"not_attempted\",\n  \"uncertainty\": \"The delivery-fee table for the FAQ is visible in the captured image, but the 'Orders below 400' column values and city row-labels fall outside the left edge of every returned image region. The certificate status is 'coverage_incomplete' with no candidate value, OCR text is empty for these regions, and vision is unconfigured. This is a coverage limitation, not proof the value is absent from the source; it simply cannot be recovered with the available tooling.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 119.347,
+    "session_ids": [
+      "ses_e99eda1baffeo4nYYwBrJRnT8q"
+    ],
+    "trace": "traces/BD2-15.jsonl.gz",
+    "trace_sha256": "537cf439430dbc4af30b57f283f29153d3e9105d02eed6f5c9cf38e88eda77a5",
+    "citation_handles_exist": {
+      "ev:6959e0808c8bcfb161c3acf7a4b171376b6e706e7b95f5b625a605bc2843a62d": true,
+      "ev:09e0cbac06a33c8741aa3eae2f2ec83dd46ad494c812bfd213073cb05d07daee": true,
+      "ev:8b9dbca8fb864186d47ff0f4dadb7e4571908a4cdce3b0b395b0fe440256b1d4": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD2-15",
+        "calls": 10,
+        "image_pixels": 1462272
+      }
+    ],
+    "execute_calls": 11,
+    "nested_tool_calls": 11,
+    "nested_tool_errors": 1,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 398654,
+    "opencode_reported_cost_usd": 0.01527811,
+    "opencode_reported_tokens": {
+      "input": 22531,
+      "output": 2252,
+      "reasoning": 7237,
+      "cache_read": 87040,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD2-20",
+    "site": "chaldal",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD2-20",
+      "site": "chaldal",
+      "question": "What brand is shown by the eighth logo in the Popular on Chaldal strip?",
+      "expected": "MGI",
+      "rubric": "exact_visual_entity",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "data/stage-4/screenshots/chaldal-fullpage.png",
+        "sha256": "8425cd9920b57d9712ba69a29a2ce59a7e5289f97d718ee0f3d00df05d442988",
+        "locator": "brand strip, x=840..955,y=1280..1360"
+      },
+      "reference_note": "The saved DOM names the asset fresh.png; answer must follow pixels."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52",
+        "ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925"
+      ],
+      "certificate_id": "cert:fcce0530cd68b061ad03620832d2b0b325e3f80bedf6df99045cc5035c4b2929",
+      "verification_status": "rejected (certificate_status_not_allowed; certificate status = coverage_incomplete, value = null)",
+      "uncertainty": "Unverified tentative reading from saved pixels only: the strip's visible order is row 1 = PRAN, Reckitt, Nestlé, Unilever, marico; row 2 = Gorkh, Coca-Cola, MAGI, making the 8th logo appear to be MAGI (Maggi). However, no certificate passed the typed checks (coverage flags: data_index_truncated, image_text_unverified, image_asset_coverage_unverified, external_css_visibility_unverified, interactive_states_unchecked; vision_unconfigured when requested), and verify_answer rejected the proposal because the certificate status is not allowed. Unresolved search is treated as incomplete coverage, not proof of absence, so the answer cannot be confirmed."
+    },
+    "final_text": "\n\nAll resolution framings return the same result: `coverage_incomplete` with no subject-bound candidates, and the verify gate rejects with `certificate_status_not_allowed`. The pipeline cannot verify this value — logo brand text exists only in saved pixels (`image_text_unverified`, `vision_unconfigured`, `data_index_truncated`). Per the protocol I must not bypass the rejection with my own visual reading, so I abstain and report the certificate diagnostics.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52\",\n    \"ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925\"\n  ],\n  \"certificate_id\": \"cert:fcce0530cd68b061ad03620832d2b0b325e3f80bedf6df99045cc5035c4b2929\",\n  \"verification_status\": \"rejected (certificate_status_not_allowed; certificate status = coverage_incomplete, value = null)\",\n  \"uncertainty\": \"Unverified tentative reading from saved pixels only: the strip's visible order is row 1 = PRAN, Reckitt, Nestlé, Unilever, marico; row 2 = Gorkh, Coca-Cola, MAGI, making the 8th logo appear to be MAGI (Maggi). However, no certificate passed the typed checks (coverage flags: data_index_truncated, image_text_unverified, image_asset_coverage_unverified, external_css_visibility_unverified, interactive_states_unchecked; vision_unconfigured when requested), and verify_answer rejected the proposal because the certificate status is not allowed. Unresolved search is treated as incomplete coverage, not proof of absence, so the answer cannot be confirmed.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 131.957,
+    "session_ids": [
+      "ses_e99ebd042ffeSsEXaPOidjnCON"
+    ],
+    "trace": "traces/BD2-20.jsonl.gz",
+    "trace_sha256": "659ac7c43df33a773db3a321e1fd2fdcb4c35fee2334010f09b0fa38fb13427e",
+    "citation_handles_exist": {
+      "ev:d17288b472b7704ed1bf6b5b9dcf014036c6cb70b7d494589fe5b8a444b44f52": true,
+      "ev:aec4c7371d77b0b487dba92f9b372ecf8fd7efcd369cc6000d604105803ad925": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:fcce0530cd68b061ad03620832d2b0b325e3f80bedf6df99045cc5035c4b2929",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD2-20",
+        "calls": 11,
+        "image_pixels": 1615872
+      }
+    ],
+    "execute_calls": 8,
+    "nested_tool_calls": 11,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 471294,
+    "opencode_reported_cost_usd": 0.01441063,
+    "opencode_reported_tokens": {
+      "input": 25882,
+      "output": 3711,
+      "reasoning": 5450,
+      "cache_read": 56000,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-04",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-04",
+      "site": "usbair",
+      "question": "What is the domestic Mastercard promo code in the captured popup?",
+      "expected": "USBA15",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "domestic ticket at x=170..300,y=520..610"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": "Unverifiable: the domestic Mastercard promo code in the popup exists only in the saved image pixels. OCR returned no text for the popup regions and the vision model is unconfigured (coverage flags: image_text_unverified, image_asset_coverage_unverified, vision_unconfigured). No certificate reached a resolved status, and verify_answer rejected the proposal with 'certificate_status_not_allowed'.",
+      "evidence": [
+        "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a",
+        "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7"
+      ],
+      "certificate_id": "cert:5e2fdd7e6eb13fea06970c94f18f5d53c37185f58246985e3c415e1123649fa1",
+      "verification_status": "rejected: certificate_status_not_allowed (certificate status was 'coverage_incomplete'; reason: 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.')",
+      "uncertainty": "High. The crop shows a domestic-routes box whose code visually appears to read 'USBANG', but that reading is tentative (unverified OCR/visual), the certificate never reached a value-bearing status, and the final gate rejected the proposed value. Per protocol I do not report a value based solely on my own visual reading."
+    },
+    "final_text": "All variants resolve to the same result: the promo code exists only in saved image pixels, OCR produced no text for those regions, and the vision model is unconfigured in this deployment, so no certificate can reach a resolved status. The gate rejected my proposal with `certificate_status_not_allowed`, and I must not substitute my own visual reading of the crop for a gated value.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": \"Unverifiable: the domestic Mastercard promo code in the popup exists only in the saved image pixels. OCR returned no text for the popup regions and the vision model is unconfigured (coverage flags: image_text_unverified, image_asset_coverage_unverified, vision_unconfigured). No certificate reached a resolved status, and verify_answer rejected the proposal with 'certificate_status_not_allowed'.\",\n  \"evidence\": [\n    \"ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a\",\n    \"ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7\"\n  ],\n  \"certificate_id\": \"cert:5e2fdd7e6eb13fea06970c94f18f5d53c37185f58246985e3c415e1123649fa1\",\n  \"verification_status\": \"rejected: certificate_status_not_allowed (certificate status was 'coverage_incomplete'; reason: 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.')\",\n  \"uncertainty\": \"High. The crop shows a domestic-routes box whose code visually appears to read 'USBANG', but that reading is tentative (unverified OCR/visual), the certificate never reached a value-bearing status, and the final gate rejected the proposed value. Per protocol I do not report a value based solely on my own visual reading.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 67.829,
+    "session_ids": [
+      "ses_e99e9cbecffe3NKDldvoN3Wzej"
+    ],
+    "trace": "traces/BD-TR03-04.jsonl.gz",
+    "trace_sha256": "405dd336430a7c53d00159013598d934258d68a42bbf75adf2ad87ea68751d2d",
+    "citation_handles_exist": {
+      "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a": true,
+      "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:5e2fdd7e6eb13fea06970c94f18f5d53c37185f58246985e3c415e1123649fa1",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-TR03-04",
+        "calls": 17,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 10,
+    "nested_tool_calls": 18,
+    "nested_tool_errors": 1,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 594637,
+    "opencode_reported_cost_usd": 0.01356033,
+    "opencode_reported_tokens": {
+      "input": 17480,
+      "output": 2828,
+      "reasoning": 5685,
+      "cache_read": 76032,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-05",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-05",
+      "site": "usbair",
+      "question": "What is the international Mastercard promo code in the captured popup?",
+      "expected": "USBAIN10",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "international ticket at x=300..440,y=520..610"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a",
+        "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7",
+        "ev:cb7ec7e31f03b4f57437f35a9a6a63afad0577e7f73d2e6bd12ae92b03182426"
+      ],
+      "certificate_id": "cert:ecb17ac0a3ed4ff47efd7c5b437c9d719b8807907ed1e8bd13ac92213f0fd283",
+      "verification_status": "rejected (certificate_status_not_allowed; certificate status: coverage_incomplete)",
+      "uncertainty": "High. The certificate reports status 'coverage_incomplete' with reason 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' Coverage flags include image_text_unverified, image_asset_coverage_unverified, external_css_visibility_unverified, and interactive_states_unchecked: the Mastercard popup and its 'International Routes' promo-code label are rendered as raster pixels in the saved screenshot, producing empty-text image-region evidence and no OCR/vision candidate. A crop inspection shows the international box plausibly as 'Promo Code: USBAINIO' (domestic box: 'USBAIN10'), but because the final gate rejects answers on a coverage_incomplete certificate and I may not bypass that with my own visual reading, no value can be returned as answered."
+    },
+    "final_text": "The final gate rejected the proposal (`certificate_status_not_allowed`) because the underlying certificate is in `coverage_incomplete` status — the popup's text exists only as raster pixels in the saved screenshot (`image_text_unverified`, `image_asset_coverage_unverified`), so no subject-bound candidate passed the typed checks. I cannot override that with a manual visual reading, so I must abstain.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a\",\n    \"ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7\",\n    \"ev:cb7ec7e31f03b4f57437f35a9a6a63afad0577e7f73d2e6bd12ae92b03182426\"\n  ],\n  \"certificate_id\": \"cert:ecb17ac0a3ed4ff47efd7c5b437c9d719b8807907ed1e8bd13ac92213f0fd283\",\n  \"verification_status\": \"rejected (certificate_status_not_allowed; certificate status: coverage_incomplete)\",\n  \"uncertainty\": \"High. The certificate reports status 'coverage_incomplete' with reason 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' Coverage flags include image_text_unverified, image_asset_coverage_unverified, external_css_visibility_unverified, and interactive_states_unchecked: the Mastercard popup and its 'International Routes' promo-code label are rendered as raster pixels in the saved screenshot, producing empty-text image-region evidence and no OCR/vision candidate. A crop inspection shows the international box plausibly as 'Promo Code: USBAINIO' (domestic box: 'USBAIN10'), but because the final gate rejects answers on a coverage_incomplete certificate and I may not bypass that with my own visual reading, no value can be returned as answered.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 33.481,
+    "session_ids": [
+      "ses_e99e8c3c1ffeGe683da8o6a5pc"
+    ],
+    "trace": "traces/BD-TR03-05.jsonl.gz",
+    "trace_sha256": "1cf3901be11be3164ffb5e13e7db72ca5755a780d45d3daf17a83cba534f4f24",
+    "citation_handles_exist": {
+      "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a": true,
+      "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7": true,
+      "ev:cb7ec7e31f03b4f57437f35a9a6a63afad0577e7f73d2e6bd12ae92b03182426": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:ecb17ac0a3ed4ff47efd7c5b437c9d719b8807907ed1e8bd13ac92213f0fd283",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-TR03-05",
+        "calls": 6,
+        "image_pixels": 1162752
+      }
+    ],
+    "execute_calls": 5,
+    "nested_tool_calls": 6,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 1002806,
+    "opencode_reported_cost_usd": 0.0044855,
+    "opencode_reported_tokens": {
+      "input": 12777,
+      "output": 1220,
+      "reasoning": 1567,
+      "cache_read": 11776,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-06",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-06",
+      "site": "usbair",
+      "question": "What grand prize does the Mastercard popup advertise?",
+      "expected": "Couple Holiday in Kuala Lumpur!",
+      "rubric": "normalized_literal",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "red prize text at x=150..470,y=325..380"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a",
+        "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7"
+      ],
+      "certificate_id": "cert:b24b6c9ecd83b537cca7af59ad26dbd57d895c8ce8ca00879b4382176c3bda28",
+      "verification_status": "rejected (certificate_status_not_allowed)",
+      "uncertainty": "All resolve_evidence certificates for this question returned status='coverage_incomplete' with value=null and no subject-bound candidates (also cert:0679e51215c1d8d42ae09eb216bc6c7db25d0dfd296a830510af72ca304e4d82 and cert:ae34886f69154b0dc5887d847b6a1fa9ee76541b6de857096dde4d8bf7ede6e0). The popup's promotional text is not indexed in the saved HTML; it appears only in saved image pixels, and the image_region evidence has empty text fields, so the typed checks could not bind the prize wording to a source label. Coverage flags: image_text_unverified, image_asset_coverage_unverified, external_css_visibility_unverified, interactive_states_unchecked. A crop inspection of ev:334e7ba1... shows a 'Fly BEYOND with mastercard!' popup visually reading 'Get a chance to win Couple Holiday in Kuala Lumpur!', but this visual reading is unverified by the evidence pipeline: verify_answer on cert:b24b6c9ecd... rejected the proposed value with reason 'certificate_status_not_allowed'. Per protocol, this is reported as an abstention with the explicit certificate limitation (unresolved/coverage-incomplete evidence, not proof of absence and not an accepted answer)."
+    },
+    "final_text": "\n\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a\",\n    \"ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7\"\n  ],\n  \"certificate_id\": \"cert:b24b6c9ecd83b537cca7af59ad26dbd57d895c8ce8ca00879b4382176c3bda28\",\n  \"verification_status\": \"rejected (certificate_status_not_allowed)\",\n  \"uncertainty\": \"All resolve_evidence certificates for this question returned status='coverage_incomplete' with value=null and no subject-bound candidates (also cert:0679e51215c1d8d42ae09eb216bc6c7db25d0dfd296a830510af72ca304e4d82 and cert:ae34886f69154b0dc5887d847b6a1fa9ee76541b6de857096dde4d8bf7ede6e0). The popup's promotional text is not indexed in the saved HTML; it appears only in saved image pixels, and the image_region evidence has empty text fields, so the typed checks could not bind the prize wording to a source label. Coverage flags: image_text_unverified, image_asset_coverage_unverified, external_css_visibility_unverified, interactive_states_unchecked. A crop inspection of ev:334e7ba1... shows a 'Fly BEYOND with mastercard!' popup visually reading 'Get a chance to win Couple Holiday in Kuala Lumpur!', but this visual reading is unverified by the evidence pipeline: verify_answer on cert:b24b6c9ecd... rejected the proposed value with reason 'certificate_status_not_allowed'. Per protocol, this is reported as an abstention with the explicit certificate limitation (unresolved/coverage-incomplete evidence, not proof of absence and not an accepted answer).\"\n}",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 85.455,
+    "session_ids": [
+      "ses_e99e840eeffefcn5vTGZE5qQOk"
+    ],
+    "trace": "traces/BD-TR03-06.jsonl.gz",
+    "trace_sha256": "eb9c311bd1d2df8675c12a520ae1a79f75c9b34b896e4d8e30d2d81fb57930b3",
+    "citation_handles_exist": {
+      "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a": true,
+      "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:b24b6c9ecd83b537cca7af59ad26dbd57d895c8ce8ca00879b4382176c3bda28",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-TR03-06",
+        "calls": 8,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 8,
+    "nested_tool_calls": 8,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 581314,
+    "opencode_reported_cost_usd": 0.00951486,
+    "opencode_reported_tokens": {
+      "input": 7970,
+      "output": 1786,
+      "reasoning": 4298,
+      "cache_read": 54592,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-08",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-08",
+      "site": "usbair",
+      "question": "Until what date is the captured Mastercard offer valid?",
+      "expected": "31st October 2026",
+      "rubric": "calendar_date",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_popup_crop.png",
+        "sha256": "b8c37e19f42b92401cb295ebeab63f8cb664d49197101fc78493cf4d2f45a0cd",
+        "locator": "validity footer at x=150..480,y=615..645"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7",
+        "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a"
+      ],
+      "certificate_id": "cert:85ea2b1d87de56b5ed1c50bdc0365bf880de496c2828616c6656e45c44595282",
+      "verification_status": "rejected: certificate_status_not_allowed (certificate status = coverage_incomplete)",
+      "uncertainty": "Diagnostic: the validity date is printed only inside the saved pixels of the 'Fly BEYOND with mastercard' offer card (crop of ev:d7a2a34... reads 'Validity: Till 31st October 2026'), but every certificate for this capture (cert:184c67ab..., cert:c2f94499..., cert:85ea2b1d...) has status 'coverage_incomplete' with flags image_text_unverified / image_asset_coverage_unverified and value=null (no subject-bound value passed the typed checks; 'not proof of absence'). verify_answer therefore rejects any proposal with certificate_status_not_allowed — the limitation is the certificate's access state, not the proposed value. Per the rules I do not substitute my own visual reading for the gate, so the answer is withheld."
+    },
+    "final_text": "```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7\",\n    \"ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a\"\n  ],\n  \"certificate_id\": \"cert:85ea2b1d87de56b5ed1c50bdc0365bf880de496c2828616c6656e45c44595282\",\n  \"verification_status\": \"rejected: certificate_status_not_allowed (certificate status = coverage_incomplete)\",\n  \"uncertainty\": \"Diagnostic: the validity date is printed only inside the saved pixels of the 'Fly BEYOND with mastercard' offer card (crop of ev:d7a2a34... reads 'Validity: Till 31st October 2026'), but every certificate for this capture (cert:184c67ab..., cert:c2f94499..., cert:85ea2b1d...) has status 'coverage_incomplete' with flags image_text_unverified / image_asset_coverage_unverified and value=null (no subject-bound value passed the typed checks; 'not proof of absence'). verify_answer therefore rejects any proposal with certificate_status_not_allowed — the limitation is the certificate's access state, not the proposed value. Per the rules I do not substitute my own visual reading for the gate, so the answer is withheld.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 36.209,
+    "session_ids": [
+      "ses_e99e6f329ffeNuTFEhxI1QSgql"
+    ],
+    "trace": "traces/BD-TR03-08.jsonl.gz",
+    "trace_sha256": "635b97d2fc2d4f08e45f877f3e302a9ecd61487eec4d98e6d3da670045612b39",
+    "citation_handles_exist": {
+      "ev:d7a2a34bf075e495eca338756c663d6938f30b751ced48a8dc278c68a0ea91a7": true,
+      "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:85ea2b1d87de56b5ed1c50bdc0365bf880de496c2828616c6656e45c44595282",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-TR03-08",
+        "calls": 5,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 7,
+    "nested_tool_calls": 5,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 579715,
+    "opencode_reported_cost_usd": 0.00628307,
+    "opencode_reported_tokens": {
+      "input": 14366,
+      "output": 1442,
+      "reasoning": 2411,
+      "cache_read": 28160,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR03-10",
+    "site": "usbair",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-TR03-10",
+      "site": "usbair",
+      "question": "Name all four Sky Star loyalty tiers shown in the capture.",
+      "expected": [
+        "Silver",
+        "Gold",
+        "Platinum",
+        "Titanium"
+      ],
+      "rubric": "complete_set",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/usbair_loyalty_crop.png",
+        "sha256": "f21f244744adf7b70df067bd5d580803e6f751d228bb562e9d9fbf9c2b6a2bff",
+        "locator": "four colored badges, entire crop"
+      },
+      "reference_note": "Saved crop time is not separately recorded."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:84e4fed7b3b8cfad30c3b9e70dfac2ad2d73b6cbb67764bce18cb8eb7ac9b2b4",
+        "ev:05e37652b8c212b752ddf497e9e3ee20445363d9767f531dbbb27217d901fbca",
+        "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a"
+      ],
+      "certificate_id": "cert:83da0197df33b57ee5da5fd79fb3bd24e4084116a2a61ede702529242e41f9e1",
+      "verification_status": "not_run (no candidate value obtained; verify_answer could not be called because the session image-pixel/call budget was exhausted)",
+      "uncertainty": "high. No subject-bound value for the four Sky Star loyalty tiers passed the typed checks (certificate status: coverage_incomplete, value: null, candidates: []). The three inspectable image regions are the header/hero and two footer blocks; the footer 'Loyalty' column lists only program links (Log in to Sky Star, Join Sky Star, Member Benefits, Rewards & Benefits), not tier names. The middle page region (y≈768–2560) where a tier section would appear is not a saved image region and could not be bound to a subject (coverage flags: image_text_unverified, interactive_states_unchecked, external_css_visibility_unverified). The session-level image-pixel/call budget was exhausted before that region could be inspected or the answer verified, so absence here is not proof of absence and no tier names can be reported."
+    },
+    "final_text": "All LWA v2 calls are now blocked by a session-level budget, so I cannot resolve, inspect, or verify any further. I did not surface a candidate value for the four tier names before the budget was exhausted, so I must report an abstention.\n\nHere is my summary of what the capture actually yielded:\n\n- **Every subject-bound query failed the typed check.** Probes for `Sky Star`, `Sky Star loyalty tiers`, `Loyalty Tiers`, `Membership Tiers`, `Rewards & Benefits`, `Loyalty`, and common tier names (`Gold`, `Silver`, `Platinum`, `Sapphire`, `Diamond`, `Bronze`, `Member`, `Elite`, `Star`) all returned `status: \"coverage_incomplete\"`, `value: null`, `candidates: []`, with the reason \"No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.\"\n- **The capture exposes only three saved-pixel image regions:** the header/hero (bbox `0,0,768,768`) and two footer blocks (`0,2560,768,3328` and `0,3200,768,3866`). The footer \"Loyalty\" column shows only program links — *Log in to Sky Star, Join Sky Star, Member Benefits, Rewards & Benefits* — not the four tier names. The hero shows a Mastercard \"Fly BEYOND\" promo and a flight-search widget.\n- **The middle of the page (≈y 768–2560), where a tier section is most likely, is not covered by any saved image region**, and its text could not be bound to a subject. The certificate's coverage flags (`image_text_unverified`, `interactive_states_unchecked`, `external_css_visibility_unverified`) indicate the tier block was never resolved.\n- **Session image-pixel/call budget exhausted** before I could inspect that middle region or run `verify_answer`. All subsequent `resolve_evidence`/`inspect_evidence` calls returned `session call or image-pixel budget exhausted`.\n\nBecause the final gate (`verify_answer`) was never run and I never obtained a candidate value, I cannot claim an answer.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:84e4fed7b3b8cfad30c3b9e70dfac2ad2d73b6cbb67764bce18cb8eb7ac9b2b4\",\n    \"ev:05e37652b8c212b752ddf497e9e3ee20445363d9767f531dbbb27217d901fbca\",\n    \"ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a\"\n  ],\n  \"certificate_id\": \"cert:83da0197df33b57ee5da5fd79fb3bd24e4084116a2a61ede702529242e41f9e1\",\n  \"verification_status\": \"not_run (no candidate value obtained; verify_answer could not be called because the session image-pixel/call budget was exhausted)\",\n  \"uncertainty\": \"high. No subject-bound value for the four Sky Star loyalty tiers passed the typed checks (certificate status: coverage_incomplete, value: null, candidates: []). The three inspectable image regions are the header/hero and two footer blocks; the footer 'Loyalty' column lists only program links (Log in to Sky Star, Join Sky Star, Member Benefits, Rewards & Benefits), not tier names. The middle page region (y≈768–2560) where a tier section would appear is not a saved image region and could not be bound to a subject (coverage flags: image_text_unverified, interactive_states_unchecked, external_css_visibility_unverified). The session-level image-pixel/call budget was exhausted before that region could be inspected or the answer verified, so absence here is not proof of absence and no tier names can be reported.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 92.823,
+    "session_ids": [
+      "ses_e99e665b3ffeF2VKQk72SPK2iF"
+    ],
+    "trace": "traces/BD-TR03-10.jsonl.gz",
+    "trace_sha256": "45e13481ec2cf3b1cec38dcf0edc19351238836732ab46ae96eda703a4fe830f",
+    "citation_handles_exist": {
+      "ev:84e4fed7b3b8cfad30c3b9e70dfac2ad2d73b6cbb67764bce18cb8eb7ac9b2b4": true,
+      "ev:05e37652b8c212b752ddf497e9e3ee20445363d9767f531dbbb27217d901fbca": true,
+      "ev:334e7ba107ae48b8ddb75a26ea8dd55f1d40f91167cc6881f9feeb3ff8fd8a7a": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-TR03-10",
+        "calls": 20,
+        "image_pixels": 1691136
+      }
+    ],
+    "execute_calls": 10,
+    "nested_tool_calls": 24,
+    "nested_tool_errors": 4,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 733755,
+    "opencode_reported_cost_usd": 0.0210678,
+    "opencode_reported_tokens": {
+      "input": 23820,
+      "output": 2679,
+      "reasoning": 10685,
+      "cache_read": 115200,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-04",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-04",
+      "site": "shwapno",
+      "question": "What exact code is printed on the 6% Puja coupon?",
+      "expected": "PUJA6",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/shwapno_crop_hero.png",
+        "sha256": "c40e1b0cdfb08f1ab1db5e883e3a9d7b7deec00098b92186e31f1983dfe82cee",
+        "locator": "green 6% voucher, x=745..965,y=175..280"
+      },
+      "reference_note": "OCR previously missed this exact code; this is a deliberate hard case."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": "Abstained. No 6% Puja coupon code could be read from the capture. The exact_code certificate for subject 'Puja' returned status 'coverage_incomplete' with no subject-bound candidate value and no OCR text. Coverage limitations cited by the certificate: image_text_unverified, vision_unconfigured, image_asset_coverage_unverified, interactive_states_unchecked. The three image regions that were returned/inspected show only products, 'Special Savings'/'BIG SALE' banners, and the header/category nav; the lower region is skeleton loader content that did not render. Per the certificate reason, this is not proof of absence, so no value can be verified.",
+      "evidence": [
+        "ev:e89a6d7a3a8cde063742d0e0cb87965ec435d85ea72e8856eefbf90604323ccd",
+        "ev:5c2deb2d5ff9da55af09fa15cb1b492d734069b65f362fb7e629924f96879309",
+        "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138"
+      ],
+      "certificate_id": "cert:0091ab67ee4e4289cd84d7c38305bca2cc81c579869e7b8e693c87ea4a11d512",
+      "verification_status": "not_run_no_candidate_value (verify_answer not invoked; certificate produced no value to gate)",
+      "uncertainty": "high"
+    },
+    "final_text": "I've made thorough, repeatable attempts and the result is consistent. Summary of what I established from the capture:\n\n- **Certificate status:** `coverage_incomplete` across every variant (subjects: Puja, Coupon, Coupons, 6%; fields: Code/code/any; scopes: page/data/all_sources).\n- **No candidate value** was ever bound to the subject; `value` is `null` and `candidates` is empty.\n- **Coverage flags:** `image_text_unverified`, `vision_unconfigured`, `image_asset_coverage_unverified`, `interactive_states_unchecked`.\n- **Manual crop inspection** of all three image regions (the top two product rows, the \"Special Savings\"/\"BIG SALE\" banner, the header + Puja-themed banner, and category nav) shows products and banners but **no 6% Puja coupon and no printed code**. The lower region of the page is only skeleton/loader cards, i.e., content that did not render in this capture.\n\nBecause the certificate never produced a subject-bound code value, there is no value I can submit to `verify_answer`, and I will not bypass the gate with a self-read guess. This is a coverage/access limitation, not proof of absence.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": \"Abstained. No 6% Puja coupon code could be read from the capture. The exact_code certificate for subject 'Puja' returned status 'coverage_incomplete' with no subject-bound candidate value and no OCR text. Coverage limitations cited by the certificate: image_text_unverified, vision_unconfigured, image_asset_coverage_unverified, interactive_states_unchecked. The three image regions that were returned/inspected show only products, 'Special Savings'/'BIG SALE' banners, and the header/category nav; the lower region is skeleton loader content that did not render. Per the certificate reason, this is not proof of absence, so no value can be verified.\",\n  \"evidence\": [\n    \"ev:e89a6d7a3a8cde063742d0e0cb87965ec435d85ea72e8856eefbf90604323ccd\",\n    \"ev:5c2deb2d5ff9da55af09fa15cb1b492d734069b65f362fb7e629924f96879309\",\n    \"ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138\"\n  ],\n  \"certificate_id\": \"cert:0091ab67ee4e4289cd84d7c38305bca2cc81c579869e7b8e693c87ea4a11d512\",\n  \"verification_status\": \"not_run_no_candidate_value (verify_answer not invoked; certificate produced no value to gate)\",\n  \"uncertainty\": \"high\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 104.421,
+    "session_ids": [
+      "ses_e99e4fb37ffe9SbFT9LlTpewiF"
+    ],
+    "trace": "traces/BD-QC02-04.jsonl.gz",
+    "trace_sha256": "d80fd1f3fcc2a416bb7170074d6bd6a0544ac44beabd47a0e9b544c849a93aad",
+    "citation_handles_exist": {
+      "ev:e89a6d7a3a8cde063742d0e0cb87965ec435d85ea72e8856eefbf90604323ccd": true,
+      "ev:5c2deb2d5ff9da55af09fa15cb1b492d734069b65f362fb7e629924f96879309": true,
+      "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-QC02-04",
+        "calls": 10,
+        "image_pixels": 1572864
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 10,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 1020090,
+    "opencode_reported_cost_usd": 0.01559267,
+    "opencode_reported_tokens": {
+      "input": 19375,
+      "output": 1924,
+      "reasoning": 8744,
+      "cache_read": 23104,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-05",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-05",
+      "site": "shwapno",
+      "question": "What exact code is printed on the 7% Puja coupon?",
+      "expected": "PUJA7",
+      "rubric": "exact_code",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/shwapno_crop_hero.png",
+        "sha256": "c40e1b0cdfb08f1ab1db5e883e3a9d7b7deec00098b92186e31f1983dfe82cee",
+        "locator": "green 7% voucher, x=980..1200,y=175..280"
+      },
+      "reference_note": "OCR previously missed this exact code; this is a deliberate hard case."
+    },
+    "agent_final": null,
+    "final_text": "\n\nThe resolver always samples the same three image regions (about half the page), and none contain the code. Let me force a data/HTML-text search with different subject phrasings to see if the coupon code exists as text.\n\n",
+    "reason": "wall_timeout",
+    "exit_code": -9,
+    "wall_seconds": 180.008,
+    "session_ids": [
+      "ses_e99e36337ffeRJhrXRmc4kXtB3"
+    ],
+    "trace": "traces/BD-QC02-05.jsonl.gz",
+    "trace_sha256": "3f0b2113cd6765698c74c6ecebd7a7a677a55659562fd54047001e03c382b75b",
+    "citation_handles_exist": {},
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-QC02-05",
+        "calls": 9,
+        "image_pixels": 1572864
+      }
+    ],
+    "execute_calls": 8,
+    "nested_tool_calls": 9,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 1020553,
+    "opencode_reported_cost_usd": 0.01068295,
+    "opencode_reported_tokens": {
+      "input": 39296,
+      "output": 1886,
+      "reasoning": 4633,
+      "cache_read": 17248,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-12",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-12",
+      "site": "shwapno",
+      "question": "What price per piece and minimum quantity are shown for Egg Loose?",
+      "expected": "৳12.75 per piece; minimum 12",
+      "rubric": "price_and_minimum",
+      "modality": "rendered_product_card",
+      "reference": {
+        "path": "scratch/shwapno_crop_hero.png",
+        "sha256": "c40e1b0cdfb08f1ab1db5e883e3a9d7b7deec00098b92186e31f1983dfe82cee",
+        "locator": "recommended first product card, x=60..280,y=730..1085"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "answered",
+      "answer": "৳12.75 per piece, minimum quantity 12 — shown on the Egg Loose card as \"৳12.75 Per Piece ( Min. 12 )\"",
+      "evidence": [
+        "ev:c2f2d62b28ef5e05470c88b11a4487bfa855f620eb5a0b495f3f6c80970eaa89",
+        "ev:ede0887f108401877872108e1a0818dd563e919d177dc4b62c400ad315729fac",
+        "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23"
+      ],
+      "certificate_id": "cert:c6276e88d78f59c152a3e3a0965ba3cdd17b15aede7cda665763789745ddf3b9",
+      "verification_status": "accepted",
+      "uncertainty": "Low. Certificate status 'supported' with typed extraction; the 'Min. 12' reading is unique to the Egg Loose card in this capture (other cards show Min. 1kg), and the saved-pixel crop of the region visually matches. Minor note: direct subject queries for 'Egg Loose' came back coverage_incomplete, so the binding relied on the price/minimum line plus the separately bound 'Egg Loose' entity."
+    },
+    "final_text": "The final gate accepted the answer. Summary of the chain: the resolved certificate (`supported`, checks `subject_bound`/`qualifiers_bound`/`typed_extraction`) extracted the line **৳12.75 Per Piece ❨Min. 12 ❩**, and the saved-pixel crop of the same region visually confirms it on the \"Egg Loose\" card (the other cards show Min. 1kg, so \"Min. 12\" is unique to Egg Loose in this capture). verify_answer returned `status: accepted`.\n\n```json\n{\n  \"status\": \"answered\",\n  \"answer\": \"৳12.75 per piece, minimum quantity 12 — shown on the Egg Loose card as \\\"৳12.75 Per Piece ( Min. 12 )\\\"\",\n  \"evidence\": [\n    \"ev:c2f2d62b28ef5e05470c88b11a4487bfa855f620eb5a0b495f3f6c80970eaa89\",\n    \"ev:ede0887f108401877872108e1a0818dd563e919d177dc4b62c400ad315729fac\",\n    \"ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23\"\n  ],\n  \"certificate_id\": \"cert:c6276e88d78f59c152a3e3a0965ba3cdd17b15aede7cda665763789745ddf3b9\",\n  \"verification_status\": \"accepted\",\n  \"uncertainty\": \"Low. Certificate status 'supported' with typed extraction; the 'Min. 12' reading is unique to the Egg Loose card in this capture (other cards show Min. 1kg), and the saved-pixel crop of the region visually matches. Minor note: direct subject queries for 'Egg Loose' came back coverage_incomplete, so the binding relied on the price/minimum line plus the separately bound 'Egg Loose' entity.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 107.576,
+    "session_ids": [
+      "ses_e99e0a3e6ffeiTd2LL3ANAZ125"
+    ],
+    "trace": "traces/BD-QC02-12.jsonl.gz",
+    "trace_sha256": "f8336faa167cdc841cfcfb8dfe906307f999adedfd75d8efa098f14727f72c78",
+    "citation_handles_exist": {
+      "ev:c2f2d62b28ef5e05470c88b11a4487bfa855f620eb5a0b495f3f6c80970eaa89": true,
+      "ev:ede0887f108401877872108e1a0818dd563e919d177dc4b62c400ad315729fac": true,
+      "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:c6276e88d78f59c152a3e3a0965ba3cdd17b15aede7cda665763789745ddf3b9",
+        "reason": "evidence_citations_mismatch",
+        "status": "rejected"
+      },
+      {
+        "answer": {
+          "captured_at": null,
+          "evidence_ids": [
+            "ev:c2f2d62b28ef5e05470c88b11a4487bfa855f620eb5a0b495f3f6c80970eaa89"
+          ],
+          "evidence_status": "supported",
+          "value": "৳12.75 Per Piece ❨Min. 12 ❩"
+        },
+        "certificate_id": "cert:c6276e88d78f59c152a3e3a0965ba3cdd17b15aede7cda665763789745ddf3b9",
+        "reason": null,
+        "status": "accepted"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-QC02-12",
+        "calls": 20,
+        "image_pixels": 1671168
+      }
+    ],
+    "execute_calls": 13,
+    "nested_tool_calls": 25,
+    "nested_tool_errors": 5,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 1222295,
+    "opencode_reported_cost_usd": 0.0207226,
+    "opencode_reported_tokens": {
+      "input": 25032,
+      "output": 3823,
+      "reasoning": 8792,
+      "cache_read": 149504,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-17",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-17",
+      "site": "shwapno",
+      "question": "How many Dhaka outlets are listed in the captured coverage table?",
+      "expected": "290",
+      "rubric": "exact_number",
+      "modality": "rendered_table",
+      "reference": {
+        "path": "scratch/shwapno_crop_footer.png",
+        "sha256": "ea6fd5f6d757a1f927eb4e73bd4bd235bbfae1b3c76e2dcfdece6e1720f9265c",
+        "locator": "coverage table, x=845..1220,y=1090..1240"
+      },
+      "reference_note": ""
+    },
+    "agent_final": null,
+    "final_text": "\n\n",
+    "reason": "wall_timeout",
+    "exit_code": -9,
+    "wall_seconds": 180.008,
+    "session_ids": [
+      "ses_e99deffccffeCm3IayBKrBVYqz"
+    ],
+    "trace": "traces/BD-QC02-17.jsonl.gz",
+    "trace_sha256": "472412c2ff0981ea12e09ab93071b2bb57749121405f9ff04b427f95928269da",
+    "citation_handles_exist": {},
+    "gate_events": [
+      {
+        "certificate_id": "cert:e2e4cb42d4449e0ce753b4d0d332efa6307f181209fff759b1e28bbe6463ddde",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      },
+      {
+        "certificate_id": "cert:e2e4cb42d4449e0ce753b4d0d332efa6307f181209fff759b1e28bbe6463ddde",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-QC02-17",
+        "calls": 20,
+        "image_pixels": 1671168
+      }
+    ],
+    "execute_calls": 11,
+    "nested_tool_calls": 21,
+    "nested_tool_errors": 1,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 1198758,
+    "opencode_reported_cost_usd": 0.0100844,
+    "opencode_reported_tokens": {
+      "input": 13042,
+      "output": 3211,
+      "reasoning": 2927,
+      "cache_read": 70912,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-QC02-19",
+    "site": "shwapno",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-QC02-19",
+      "site": "shwapno",
+      "question": "What customer-service phone number appears in the captured footer?",
+      "expected": "16469",
+      "rubric": "exact_number",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "scratch/shwapno_crop_footer.png",
+        "sha256": "ea6fd5f6d757a1f927eb4e73bd4bd235bbfae1b3c76e2dcfdece6e1720f9265c",
+        "locator": "footer contact block, x=50..300,y=1450..1570"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138",
+        "ev:ee5d28afc8db428ef4274c601a2d2c969591fc107ca2790c1ff153176a019882",
+        "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23"
+      ],
+      "certificate_id": "cert:51ba5c19b36830dcd939785b2fa0f8e0673082e878d42ddf4c426157129cdb89",
+      "verification_status": "not_run_coverage_incomplete",
+      "uncertainty": "Every resolve_evidence call returned status='coverage_incomplete' with no subject-bound candidates; the certificate reason is 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' The inspected coverage is limited to three image tiles at the top of the page (bbox y 0-1408), whose OCR text is empty; the bottom-of-page footer region where a customer-service phone number would appear has no verified text or image evidence in this capture (image_text_unverified, image_asset_coverage_unverified). A phone number could not therefore be read or verified from the capture, and no verify_answer call was made."
+    },
+    "final_text": "All resolve attempts (across subject labels \"footer\", \"Customer Service\", \"Customer Service Support\", \"Help line\", \"Contact Us\", and multiple answer types/scopes) returned `coverage_incomplete` with zero candidates. The only evidence surfaced is three image tiles covering the top of the page (y 0–1408), which show the header, category menu, promos, and a \"Customer Service Support / 8am to 10pm\" feature strip — but no phone number. The footer at the bottom of the page is not in the inspected coverage (coverage flags: `image_text_unverified`, `image_asset_coverage_unverified`, `saved_html`). Since I cannot produce a value the final gate could accept from this capture, I must abstain.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138\",\n    \"ev:ee5d28afc8db428ef4274c601a2d2c969591fc107ca2790c1ff153176a019882\",\n    \"ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23\"\n  ],\n  \"certificate_id\": \"cert:51ba5c19b36830dcd939785b2fa0f8e0673082e878d42ddf4c426157129cdb89\",\n  \"verification_status\": \"not_run_coverage_incomplete\",\n  \"uncertainty\": \"Every resolve_evidence call returned status='coverage_incomplete' with no subject-bound candidates; the certificate reason is 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.' The inspected coverage is limited to three image tiles at the top of the page (bbox y 0-1408), whose OCR text is empty; the bottom-of-page footer region where a customer-service phone number would appear has no verified text or image evidence in this capture (image_text_unverified, image_asset_coverage_unverified). A phone number could not therefore be read or verified from the capture, and no verify_answer call was made.\"\n}\n```\n\n**Abstention:** The certificate status is `coverage_incomplete` — the capture's verified coverage does not include the footer region at the bottom of the page (only top-of-page tiles were indexed, with unverified image text), and repeated subject-scoped queries found no candidate phone value. Per the tool's own reason, this is not proof of absence, but it means no footer phone number can be confirmed from this capture, so I cannot answer.",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 53.685,
+    "session_ids": [
+      "ses_e99dc404dffeiX2alWdOdns6WA"
+    ],
+    "trace": "traces/BD-QC02-19.jsonl.gz",
+    "trace_sha256": "aa6473b968a6d431de739081819b72ee8bba0aa8da0f72be26f28d3e5c5fffa9",
+    "citation_handles_exist": {
+      "ev:48d2266e684293134339540446d673c366f0196aa076bb494ce13dabb9dab138": true,
+      "ev:ee5d28afc8db428ef4274c601a2d2c969591fc107ca2790c1ff153176a019882": true,
+      "ev:e2e532e92a6408eb13d0796a3bdba00c33effaa11c541f1971494f72eeaabd23": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-QC02-19",
+        "calls": 13,
+        "image_pixels": 1671168
+      }
+    ],
+    "execute_calls": 8,
+    "nested_tool_calls": 13,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 1189601,
+    "opencode_reported_cost_usd": 0.0071756,
+    "opencode_reported_tokens": {
+      "input": 14356,
+      "output": 1882,
+      "reasoning": 2472,
+      "cache_read": 40192,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-GV01-04",
+    "site": "bangladesh-gov",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-GV01-04",
+      "site": "bangladesh-gov",
+      "question": "What is the food-safety popup headline in Bengali?",
+      "expected": "পোড়া তেল ব্যবহার করবেন না",
+      "rubric": "normalized_literal",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/bd_gv01_popup_crop.png",
+        "sha256": "5933647e01b7a0ddf9cdf59dd16b4713d6a241cece68200656d26873d53e4465",
+        "locator": "green title bar, x=60..430,y=55..110"
+      },
+      "reference_note": "Unicode NFC and equivalent Bengali nukta forms are normalized."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580",
+        "ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71",
+        "ev:f4f08207ff675c52338f4b65ea267ef26b3660f55696975a25a73d6e8f0bb19f"
+      ],
+      "certificate_id": "cert:e9c9ea4697f1d6a0242e5eb7ca67098409517ef9da43fd777ebbefdb91fb5485",
+      "verification_status": "rejected (certificate_status_not_allowed); second certificate cert:176dd3af0379d6fe700b46311a8214256a7801caef7203c6d8f0108c28709633 also coverage_incomplete",
+      "uncertainty": "Abstained because the evidence certificates report status 'coverage_incomplete' and verify_answer rejects answers on such certificates. Explicit limitations from the certificates: image_text_unverified, image_asset_coverage_unverified, external_css_visibility_unverified, interactive_states_unchecked (only saved_html coverage). The popup headline appears only as saved pixels in image-region evidence with empty text; OCR-derived readings are tentative, and the unresolved subject-bound search is incomplete coverage, not proof of absence. A crop inspection suggests the headline text 'পোডা তেল ব্যবহার করবেন না', but this visual reading is not an accepted answer."
+    },
+    "final_text": "\n\nBoth resolve attempts returned `coverage_incomplete` with no candidates, and `verify_answer` rejected the proposed value with `certificate_status_not_allowed`. Per the protocol, I cannot bypass the gate with a visual reading of the crop; I must abstain and report the certificate status and its limitations.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580\",\n    \"ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71\",\n    \"ev:f4f08207ff675c52338f4b65ea267ef26b3660f55696975a25a73d6e8f0bb19f\"\n  ],\n  \"certificate_id\": \"cert:e9c9ea4697f1d6a0242e5eb7ca67098409517ef9da43fd777ebbefdb91fb5485\",\n  \"verification_status\": \"rejected (certificate_status_not_allowed); second certificate cert:176dd3af0379d6fe700b46311a8214256a7801caef7203c6d8f0108c28709633 also coverage_incomplete\",\n  \"uncertainty\": \"Abstained because the evidence certificates report status 'coverage_incomplete' and verify_answer rejects answers on such certificates. Explicit limitations from the certificates: image_text_unverified, image_asset_coverage_unverified, external_css_visibility_unverified, interactive_states_unchecked (only saved_html coverage). The popup headline appears only as saved pixels in image-region evidence with empty text; OCR-derived readings are tentative, and the unresolved subject-bound search is incomplete coverage, not proof of absence. A crop inspection suggests the headline text 'পোডা তেল ব্যবহার করবেন না', but this visual reading is not an accepted answer.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 55.885,
+    "session_ids": [
+      "ses_e99db6f19ffeYj0XMtIShAbaIY"
+    ],
+    "trace": "traces/BD-GV01-04.jsonl.gz",
+    "trace_sha256": "b83cd7089bdca472b2850fe6f91f690d8d009610280ed28ee4c916ec9cc1709e",
+    "citation_handles_exist": {
+      "ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580": true,
+      "ev:258b44efd2a604a475d35036cc3aa38a903628143a89efa0549c2144bc079d71": true,
+      "ev:f4f08207ff675c52338f4b65ea267ef26b3660f55696975a25a73d6e8f0bb19f": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:e9c9ea4697f1d6a0242e5eb7ca67098409517ef9da43fd777ebbefdb91fb5485",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-GV01-04",
+        "calls": 6,
+        "image_pixels": 1671168
+      }
+    ],
+    "execute_calls": 5,
+    "nested_tool_calls": 6,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 911645,
+    "opencode_reported_cost_usd": 0.00447699,
+    "opencode_reported_tokens": {
+      "input": 17247,
+      "output": 1009,
+      "reasoning": 1728,
+      "cache_read": 5120,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-GV01-07",
+    "site": "bangladesh-gov",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-GV01-07",
+      "site": "bangladesh-gov",
+      "question": "What does the fourth panel advise doing with once-used oil?",
+      "expected": "ছেঁকে তরকারিতে ব্যবহার করতে পারেন",
+      "rubric": "exact_key_phrase",
+      "modality": "image_pixels",
+      "reference": {
+        "path": "scratch/bd_gv01_popup_crop.png",
+        "sha256": "5933647e01b7a0ddf9cdf59dd16b4713d6a241cece68200656d26873d53e4465",
+        "locator": "purple fourth panel, x=55..250,y=445..540"
+      },
+      "reference_note": ""
+    },
+    "agent_final": null,
+    "final_text": "\n\n",
+    "reason": "wall_timeout",
+    "exit_code": -9,
+    "wall_seconds": 180.007,
+    "session_ids": [
+      "ses_e99da94c0ffeXm4klsB3UI2yfr"
+    ],
+    "trace": "traces/BD-GV01-07.jsonl.gz",
+    "trace_sha256": "f547498d384af5f6a1695938c17cda3dd377574dafe04575dbf22e102f90e1c8",
+    "citation_handles_exist": {},
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-GV01-07",
+        "calls": 7,
+        "image_pixels": 1671168
+      }
+    ],
+    "execute_calls": 6,
+    "nested_tool_calls": 7,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 1594880,
+    "opencode_reported_cost_usd": 0.00903223,
+    "opencode_reported_tokens": {
+      "input": 7586,
+      "output": 1245,
+      "reasoning": 4818,
+      "cache_read": 30208,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-GV01-11",
+    "site": "bangladesh-gov",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-GV01-11",
+      "site": "bangladesh-gov",
+      "question": "What Upazila count is displayed in the captured statistics bar?",
+      "expected": "৫০০",
+      "rubric": "exact_number",
+      "modality": "rendered_text",
+      "reference": {
+        "path": "data/stage-4/screenshots/bd-gv01-fullpage.png",
+        "sha256": "01f47375e0f66b7756a64caf6e0091fb33a06fe5e35f15fde0dd255c9ef5a888",
+        "locator": "statistics bar, x=935..1015,y=630..710"
+      },
+      "reference_note": ""
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580",
+        "ev:f4f08207ff675c52338f4b65ea267ef26b3660f55696975a25a73d6e8f0bb19f"
+      ],
+      "certificate_id": "cert:abd27999e5bdf28768a6a5af3fbedeb74af06c18ff00c5728f957d21646eca69",
+      "verification_status": "rejected",
+      "uncertainty": "The statistics bar is rendered inside a saved screenshot image (evidence image_region, text empty). Every resolve_evidence call for the Upazila subject (scope 'page' and 'all_sources', repeated OCR budgets, pinned evidence_ids) returned status 'coverage_incomplete' with empty candidates and reason 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.'; coverage flags include 'image_text_unverified', 'image_asset_coverage_unverified', 'external_css_visibility_unverified', and 'interactive_states_unchecked'. verify_answer therefore returned status 'rejected' with reason 'certificate_status_not_allowed'. The gate cannot certify any value from this capture, so the Upazila count visible in the crop could not be confirmed through the final gate and I abstain."
+    },
+    "final_text": "All resolution attempts on this snapshot return the same result — no subject-bound value and certificate status `coverage_incomplete` — and the verify gate rejects on that status (`certificate_status_not_allowed`). Per protocol, I cannot override the gate with my own reading of the crop, so I must abstain and report the limitation.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580\",\n    \"ev:f4f08207ff675c52338f4b65ea267ef26b3660f55696975a25a73d6e8f0bb19f\"\n  ],\n  \"certificate_id\": \"cert:abd27999e5bdf28768a6a5af3fbedeb74af06c18ff00c5728f957d21646eca69\",\n  \"verification_status\": \"rejected\",\n  \"uncertainty\": \"The statistics bar is rendered inside a saved screenshot image (evidence image_region, text empty). Every resolve_evidence call for the Upazila subject (scope 'page' and 'all_sources', repeated OCR budgets, pinned evidence_ids) returned status 'coverage_incomplete' with empty candidates and reason 'No subject-bound value passed the typed checks in the inspected scope. This is not proof of absence.'; coverage flags include 'image_text_unverified', 'image_asset_coverage_unverified', 'external_css_visibility_unverified', and 'interactive_states_unchecked'. verify_answer therefore returned status 'rejected' with reason 'certificate_status_not_allowed'. The gate cannot certify any value from this capture, so the Upazila count visible in the crop could not be confirmed through the final gate and I abstain.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 58.987,
+    "session_ids": [
+      "ses_e99d7d557ffeC6dNThumIzVuWJ"
+    ],
+    "trace": "traces/BD-GV01-11.jsonl.gz",
+    "trace_sha256": "867a024008800ee7916c83788d046f655b73d760658138055c9c2bda1af22d56",
+    "citation_handles_exist": {
+      "ev:e677e9fa0bd998b3bbf3cb88c6719fe148ba35edb7bc5071d945711a3ccf4580": true,
+      "ev:f4f08207ff675c52338f4b65ea267ef26b3660f55696975a25a73d6e8f0bb19f": true
+    },
+    "gate_events": [
+      {
+        "certificate_id": "cert:a1a834a001af7caf516609d7f4cf4c1f90eddff4c86d77762381d055cc3e88a4",
+        "reason": "certificate_status_not_allowed",
+        "status": "rejected"
+      }
+    ],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-GV01-11",
+        "calls": 8,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 9,
+    "nested_tool_calls": 8,
+    "nested_tool_errors": 0,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 517544,
+    "opencode_reported_cost_usd": 0.01043133,
+    "opencode_reported_tokens": {
+      "input": 14600,
+      "output": 2061,
+      "reasoning": 4537,
+      "cache_read": 52224,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-ED01-19",
+    "site": "10ms",
+    "diagnostic": false,
+    "reference": {
+      "case_id": "BD-ED01-19",
+      "site": "10ms",
+      "question": "What is the featured parent testimonial speaker’s name?",
+      "expected": "পূর্ণিমা লস্কর",
+      "rubric": "exact_entity",
+      "modality": "rendered_testimonial",
+      "reference": {
+        "path": "scratch/visual_crops/testimonial2.png",
+        "sha256": "e5ac64c06816b66201627a99e245b293b2b4838e2768e423f32241c98aa4a315",
+        "locator": "speaker name, x=230..345,y=485..530"
+      },
+      "reference_note": "The supplemental crop is supplied to the agent; this case tests reading, not image localization. Accept Purnima Laskar transliteration only."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": null,
+      "evidence": [
+        "ev:a83b49438e26d695db6334266e161eb44bf0d35f50593ff27acb397472354397",
+        "ev:2d3c869143c731d0f57da91e2c2444991a70368b9f7284996292de8c204157d9"
+      ],
+      "certificate_id": "cert:df651cdb0d9e391000fe03456ca9a237fdf29fea9c8bfb1754f8c505f5adccb2",
+      "verification_status": "unverified — verify_answer could not be executed (session call/image-pixel budget exhausted); all resolve_evidence certificates returned status='coverage_incomplete' with value=null",
+      "uncertainty": "High. I located the testimonials section ('কেন আমরাই শিক্ষার্থী ও অভিভাবকদের প্রথম পছন্দ?') on saved pixels and read three testimonial cards: 'মেহজাবিন' (explicitly labeled শিষকার্থী/10ম শ্রেণি, i.e., a student), 'সাবিনা এবং হাবিব' (visually emphasized middle card, Sirajganj school), and 'আতকিয়া এবং তাসফিয়া' (college). The emphasized middle card appears to be the featured parent testimonial, but: (1) no subject-bound typed certificate covering that section was produced before the session budget was exhausted, (2) the image regions had empty extracted text (OCR tentative), and (3) verify_answer was rejected with 'session call or image-pixel budget exhausted', so the final gate never accepted any value. Per the explicit certificate, unresolved searches are incomplete coverage, not global absence, so I cannot claim the name's absence or its confirmation."
+    },
+    "final_text": "\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": null,\n  \"evidence\": [\n    \"ev:a83b49438e26d695db6334266e161eb44bf0d35f50593ff27acb397472354397\",\n    \"ev:2d3c869143c731d0f57da91e2c2444991a70368b9f7284996292de8c204157d9\"\n  ],\n  \"certificate_id\": \"cert:df651cdb0d9e391000fe03456ca9a237fdf29fea9c8bfb1754f8c505f5adccb2\",\n  \"verification_status\": \"unverified — verify_answer could not be executed (session call/image-pixel budget exhausted); all resolve_evidence certificates returned status='coverage_incomplete' with value=null\",\n  \"uncertainty\": \"High. I located the testimonials section ('কেন আমরাই শিক্ষার্থী ও অভিভাবকদের প্রথম পছন্দ?') on saved pixels and read three testimonial cards: 'মেহজাবিন' (explicitly labeled শিষকার্থী/10ম শ্রেণি, i.e., a student), 'সাবিনা এবং হাবিব' (visually emphasized middle card, Sirajganj school), and 'আতকিয়া এবং তাসফিয়া' (college). The emphasized middle card appears to be the featured parent testimonial, but: (1) no subject-bound typed certificate covering that section was produced before the session budget was exhausted, (2) the image regions had empty extracted text (OCR tentative), and (3) verify_answer was rejected with 'session call or image-pixel budget exhausted', so the final gate never accepted any value. Per the explicit certificate, unresolved searches are incomplete coverage, not global absence, so I cannot claim the name's absence or its confirmation.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 151.822,
+    "session_ids": [
+      "ses_e99d6ef40ffeim62oo6e0Sjfat"
+    ],
+    "trace": "traces/BD-ED01-19.jsonl.gz",
+    "trace_sha256": "20ee32e60c1795f857548dffd3299f10dafafd02373e4987cdbdc5ffa0346f81",
+    "citation_handles_exist": {
+      "ev:a83b49438e26d695db6334266e161eb44bf0d35f50593ff27acb397472354397": true,
+      "ev:2d3c869143c731d0f57da91e2c2444991a70368b9f7284996292de8c204157d9": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-ED01-19",
+        "calls": 20,
+        "image_pixels": 2752512
+      }
+    ],
+    "execute_calls": 14,
+    "nested_tool_calls": 23,
+    "nested_tool_errors": 3,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 850103,
+    "opencode_reported_cost_usd": 0.0150964,
+    "opencode_reported_tokens": {
+      "input": 50179,
+      "output": 4105,
+      "reasoning": 4315,
+      "cache_read": 95680,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-TR02-access",
+    "site": "biman",
+    "diagnostic": true,
+    "reference": {
+      "control_id": "BD-TR02-access",
+      "site": "biman",
+      "question": "Does this saved Biman capture contain usable flight information? Report the access state.",
+      "expected_state": "access_blocked",
+      "scored_in_accuracy": false,
+      "reason": "Cloudflare verification page; access-state control, not a factual question."
+    },
+    "agent_final": null,
+    "final_text": "\n\nThe status query returned `coverage_incomplete` with `value: null`, and the evidence is saved-image regions with unverified text. The recommended next action is to inspect the crop. Let me inspect the evidence to understand what the capture actually shows.\n\n",
+    "reason": "wall_timeout",
+    "exit_code": -9,
+    "wall_seconds": 180.009,
+    "session_ids": [
+      "ses_e99d49e29ffesuAXYwze1aeA4v"
+    ],
+    "trace": "traces/BD-TR02-access.jsonl.gz",
+    "trace_sha256": "ef17ad0adf348ac835ac32fcf9e0f4e6e2176cd0dd934ee0c6aedc9be89ce2db",
+    "citation_handles_exist": {},
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-TR02-access",
+        "calls": 6,
+        "image_pixels": 1281024
+      }
+    ],
+    "execute_calls": 4,
+    "nested_tool_calls": 8,
+    "nested_tool_errors": 2,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence"
+    ],
+    "serialized_tool_payload_bytes": 84033,
+    "opencode_reported_cost_usd": 0.00678245,
+    "opencode_reported_tokens": {
+      "input": 16410,
+      "output": 1425,
+      "reasoning": 3071,
+      "cache_read": 3136,
+      "cache_write": 0
+    }
+  },
+  {
+    "case_id": "BD-ED01-17-reference-conflict",
+    "site": "10ms",
+    "diagnostic": true,
+    "reference": {
+      "control_id": "BD-ED01-17-reference-conflict",
+      "site": "10ms",
+      "question": "What app download count does this saved DOM state, and does it settle the historical disagreement?",
+      "expected_state": "reference_conflict_unresolved",
+      "scored_in_accuracy": false,
+      "reason": "Saved DOM has 5,00,000+; prior inventory lists ৪,৫৮,৫৪৩+; historical run timing is unaligned."
+    },
+    "agent_final": {
+      "status": "abstained",
+      "answer": "The saved DOM state (10 Minute School homepage capture) contains one app-download-count reference in its mobile-app promo section (html:150:63853, section class 'app-hidden'): '৪,৫৪,৫৪৫ + অ্যাপ ডাউনলোড' — i.e., 4,54,545+ (≈454,545+) app downloads. It does NOT settle the historical disagreement within this session: the typed certificate for the count returned status 'ambiguous' ('Bound source readings disagree; an exact value was not selected'), because the same bound region also carries distinct numeric stats (৪.৫+ rating, প্রায় ৩,০০,০০০ শিক্ষার্থী) and the section's human_visibility is 'unverified' (coverage flags: external_css_visibility_unverified, interactive_states_unchecked). Moreover, verify_answer could not be executed (session call budget exhausted), so no value was accepted by the final gate. The DOM state at best pins a single point-in-time value (4,54,545+) in the hidden section; it does not adjudicate earlier references.",
+      "evidence": [
+        "ev:528c7331f95bad6f8da43f42a499b7fb6b748c6c5f04a4f708b8412335e72eb0",
+        "ev:78b531de52c3c08afcbd2978ae1af4c4cb719d747607b6212d35eeb0b54b8edd"
+      ],
+      "certificate_id": "cert:8a4e0df366f96bfba01f5630c0cc39bd2ca4ded0e158f160c84997f1c217b216",
+      "verification_status": "not_run — verify_answer rejected with 'session call or image-pixel budget exhausted' before the gate could evaluate the proposed value; earlier typed certificate cert:2e45e75ba394002b8bf35570f89fc50fc35849364b35ca8a919f8e9d91c87618 was 'coverage_incomplete' and cert:8a4e0df366f96bfba01f5630c0cc39bd2ca4ded0e158f160c84997f1c217b216 was 'ambiguous' (value: null)",
+      "uncertainty": "Medium. The count string '৪,৫৪,৫৪৫ + অ্যাপ ডাউনলোড' is directly present in saved DOM text evidence (locator html:150:63853, truncated: false), but (1) the typed certificate never selected it as an exact value (ambiguous among co-located numerals), (2) the section is marked 'app-hidden' with human_visibility 'unverified', so its rendered/visible state is unconfirmed, and (3) no evidence within this capture defines the competing historical reference, and the verification gate could not run, so 'settlement' of the disagreement is unproven."
+    },
+    "final_text": "\n\nBoth `resolve_evidence` (further calls) and `verify_answer` are now blocked by the session budget, so the final acceptance gate cannot be executed. I'll report an abstention with the explicit certificate diagnostics.\n\n```json\n{\n  \"status\": \"abstained\",\n  \"answer\": \"The saved DOM state (10 Minute School homepage capture) contains one app-download-count reference in its mobile-app promo section (html:150:63853, section class 'app-hidden'): '৪,৫৪,৫৪৫ + অ্যাপ ডাউনলোড' — i.e., 4,54,545+ (≈454,545+) app downloads. It does NOT settle the historical disagreement within this session: the typed certificate for the count returned status 'ambiguous' ('Bound source readings disagree; an exact value was not selected'), because the same bound region also carries distinct numeric stats (৪.৫+ rating, প্রায় ৩,০০,০০০ শিক্ষার্থী) and the section's human_visibility is 'unverified' (coverage flags: external_css_visibility_unverified, interactive_states_unchecked). Moreover, verify_answer could not be executed (session call budget exhausted), so no value was accepted by the final gate. The DOM state at best pins a single point-in-time value (4,54,545+) in the hidden section; it does not adjudicate earlier references.\",\n  \"evidence\": [\n    \"ev:528c7331f95bad6f8da43f42a499b7fb6b748c6c5f04a4f708b8412335e72eb0\",\n    \"ev:78b531de52c3c08afcbd2978ae1af4c4cb719d747607b6212d35eeb0b54b8edd\"\n  ],\n  \"certificate_id\": \"cert:8a4e0df366f96bfba01f5630c0cc39bd2ca4ded0e158f160c84997f1c217b216\",\n  \"verification_status\": \"not_run — verify_answer rejected with 'session call or image-pixel budget exhausted' before the gate could evaluate the proposed value; earlier typed certificate cert:2e45e75ba394002b8bf35570f89fc50fc35849364b35ca8a919f8e9d91c87618 was 'coverage_incomplete' and cert:8a4e0df366f96bfba01f5630c0cc39bd2ca4ded0e158f160c84997f1c217b216 was 'ambiguous' (value: null)\",\n  \"uncertainty\": \"Medium. The count string '৪,৫৪,৫৪৫ + অ্যাপ ডাউনলোড' is directly present in saved DOM text evidence (locator html:150:63853, truncated: false), but (1) the typed certificate never selected it as an exact value (ambiguous among co-located numerals), (2) the section is marked 'app-hidden' with human_visibility 'unverified', so its rendered/visible state is unconfirmed, and (3) no evidence within this capture defines the competing historical reference, and the verification gate could not run, so 'settlement' of the disagreement is unproven.\"\n}\n```",
+    "reason": "completed",
+    "exit_code": 0,
+    "wall_seconds": 122.129,
+    "session_ids": [
+      "ses_e99d1deb9ffe6CXdpzLYtJMwBg"
+    ],
+    "trace": "traces/BD-ED01-17-reference-conflict.jsonl.gz",
+    "trace_sha256": "40d21f9d021162268b81494101e72c71c1db56f7e2389426ad7cf0351155040e",
+    "citation_handles_exist": {
+      "ev:528c7331f95bad6f8da43f42a499b7fb6b748c6c5f04a4f708b8412335e72eb0": true,
+      "ev:78b531de52c3c08afcbd2978ae1af4c4cb719d747607b6212d35eeb0b54b8edd": true
+    },
+    "gate_events": [],
+    "final_answer_literal_matches_an_accepted_value": false,
+    "session_counters": [
+      {
+        "id": "BD-ED01-17-reference-conflict",
+        "calls": 20,
+        "image_pixels": 589824
+      }
+    ],
+    "execute_calls": 10,
+    "nested_tool_calls": 22,
+    "nested_tool_errors": 2,
+    "non_lwa_attempts": 0,
+    "tools": [
+      "lwa.inspect_evidence",
+      "lwa.resolve_evidence",
+      "lwa.verify_answer"
+    ],
+    "serialized_tool_payload_bytes": 385738,
+    "opencode_reported_cost_usd": 0.01446732,
+    "opencode_reported_tokens": {
+      "input": 24394,
+      "output": 2780,
+      "reasoning": 6357,
+      "cache_read": 64256,
+      "cache_write": 0
+    }
+  }
+]

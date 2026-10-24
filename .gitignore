@@ -32,7 +32,7 @@ results/*
 !results/experiment-02/
 !results/experiment-03/
 !results/reproduced-*
-results/experiment-03/offline-agent-pilot-run-*/captures/
+results/experiment-03/offline-agent-pilot-run*/captures/
 
 
 

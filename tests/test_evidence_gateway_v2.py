@@ -404,6 +404,116 @@ class GatewayTests(GatewayFixture):
             "rejected",
         )
 
+    def test_grounded_citation_substring_accepted_in_quote(self):
+        snapshot = self.register(
+            "<p>26 warehouses all over bangladesh 5 million orders have been delivered</p>"
+        )
+        cert = self.resolve(snapshot, subject="warehouses", answer_type="quote")
+        proposal = {
+            "value": "5 million",
+            "evidence_ids": [e["id"] for e in cert["evidence"]],
+        }
+        result = self.gateway.verify(cert["certificate_id"], proposal)
+        self.assertEqual(result["status"], "accepted")
+        self.assertEqual(result["answer"]["value"], "5 million")
+
+    def test_grounded_citation_ambiguous_set_accepted(self):
+        snapshot = self.register(
+            "<p>Currently Delivering in Dhaka Chittagong Sylhet</p>"
+        )
+        cert = self.resolve(snapshot, subject="Currently Delivering", answer_type="set")
+        proposal = {
+            "value": ["Dhaka", "Chittagong", "Sylhet"],
+            "evidence_ids": [e["id"] for e in cert["evidence"]],
+        }
+        result = self.gateway.verify(cert["certificate_id"], proposal)
+        self.assertEqual(result["status"], "accepted")
+        self.assertEqual(result["answer"]["value"], ["Dhaka", "Chittagong", "Sylhet"])
+
+    def test_cloudflare_challenge_detected_as_access_blocked_and_rejected_in_verify(self):
+        snapshot = self.register(
+            "<!DOCTYPE html><html><head><title>Just a moment...</title></head>"
+            "<body><h2>Performing security verification</h2><p>Ray ID: 12345</p></body></html>"
+        )
+        cert = self.resolve(snapshot, subject="flight", answer_type="quote")
+        self.assertEqual(cert["status"], "access_blocked")
+        proposal = {
+            "value": "Flight BG001",
+            "evidence_ids": [e["id"] for e in cert["evidence"]],
+        }
+        result = self.gateway.verify(cert["certificate_id"], proposal)
+        self.assertEqual(result["status"], "rejected")
+        self.assertEqual(result["reason"], "access_blocked_cannot_answer")
+
+    def test_visual_evidence_gate_honors_allow_visual_switch(self):
+        snapshot = self.register("<p>Some page</p>")
+        cert = self.resolve(snapshot, subject="Some page", answer_type="quote")
+        blob_sha = self.store.blob(b"dummy_image_bytes")
+        ev_id = self.store.put(
+            "ev",
+            {
+                "capture_id": snapshot,
+                "source_kind": "image_region",
+                "source_sha256": blob_sha,
+                "bbox": [0, 0, 100, 100],
+                "text": "Promo Code: USBANG",
+            },
+        )
+        proposal = {"value": "USBANG", "evidence_ids": [ev_id]}
+        self.gateway.allow_visual = True
+        self.assertEqual(
+            self.gateway.verify(cert["certificate_id"], proposal)["status"], "accepted"
+        )
+        self.gateway.allow_visual = False
+        self.assertEqual(
+            self.gateway.verify(cert["certificate_id"], proposal)["status"], "rejected"
+        )
+
+    def test_field_number_without_colon_natural_extraction(self):
+        snapshot = self.register(
+            "<section><h2>Chaldal summary</h2><p>5 million orders have been delivered</p>"
+            "<p>উপজেলা ৫০০ জেলা ৬৪</p></section>"
+        )
+        cert_orders = self.resolve(
+            snapshot, subject="Chaldal summary", answer_type="number", field="orders"
+        )
+        self.assertEqual(cert_orders["status"], "supported")
+        self.assertEqual(cert_orders["value"], "5")
+
+        cert_upazila = self.resolve(
+            snapshot, subject="Chaldal summary", answer_type="number", field="উপজেলা"
+        )
+        self.assertEqual(cert_upazila["status"], "supported")
+        self.assertEqual(cert_upazila["value"], "500")
+
+        # Verify Bengali digit representation is accepted by verify gate
+        proposal_bengali = {
+            "value": "৫০০",
+            "evidence_ids": [e["id"] for e in cert_upazila["evidence"]],
+        }
+        result = self.gateway.verify(cert_upazila["certificate_id"], proposal_bengali)
+        self.assertEqual(result["status"], "accepted")
+
+    def test_pixel_charging_does_not_block_verify_or_text_resolve(self):
+        snapshot = self.register("<article><h2>Summary</h2><p>Price: 100</p></article>")
+        cert = self.resolve(snapshot, subject="Summary", answer_type="number", field="Price")
+        self.assertEqual(cert["value"], "100")
+
+        # Simulate exhausted pixel budget on this session
+        with self.store.connect() as db:
+            db.execute(
+                "INSERT INTO sessions VALUES (?,?,?) ON CONFLICT(id) DO UPDATE SET image_pixels=30000000",
+                (self.gateway.session_id, 2, 30_000_000),
+            )
+
+        # verify_answer has image_pixels=0 and must still succeed
+        proposal = {
+            "value": "100",
+            "evidence_ids": [e["id"] for e in cert["evidence"]],
+        }
+        result = self.gateway.verify(cert["certificate_id"], proposal)
+        self.assertEqual(result["status"], "accepted")
+
 
 class MCPIntegrationTests(unittest.IsolatedAsyncioTestCase):
     async def test_three_tool_surface_and_real_calls(self):

@@ -141,14 +141,21 @@ class Store:
             db.execute("INSERT OR IGNORE INTO cache VALUES (?,?)", (key, encode(value)))
         return self.cached(key)
 
-    def charge(self, session, max_calls, image_pixels=0, max_image_pixels=8_000_000):
+    def charge(self, session, max_calls, image_pixels=0, max_image_pixels=25_000_000):
         with self.connect() as db:
             db.execute("INSERT OR IGNORE INTO sessions VALUES (?,0,0)", (session,))
-            result = db.execute(
-                """UPDATE sessions SET calls=calls+1, image_pixels=image_pixels+?
-                WHERE id=? AND calls<? AND image_pixels+?<=?""",
-                (image_pixels, session, max_calls, image_pixels, max_image_pixels),
-            )
+            if image_pixels > 0:
+                result = db.execute(
+                    """UPDATE sessions SET calls=calls+1, image_pixels=image_pixels+?
+                    WHERE id=? AND calls<? AND image_pixels+?<=?""",
+                    (image_pixels, session, max_calls, image_pixels, max_image_pixels),
+                )
+            else:
+                result = db.execute(
+                    """UPDATE sessions SET calls=calls+1
+                    WHERE id=? AND calls<?""",
+                    (session, max_calls),
+                )
             if not result.rowcount:
                 raise ValueError("session call or image-pixel budget exhausted")
 
